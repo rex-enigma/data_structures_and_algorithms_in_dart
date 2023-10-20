@@ -1,4 +1,5 @@
-// push and pop method have O(1) time complexity
+// push and pop method have O(1) time complexity.
+// Stacks are crucial to problems that search trees and graphs
 class Stack<E> {
   final List<E> _storage;
 

@@ -1,8 +1,10 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart' as dart_data_structure_and_algorithm;
-import 'package:dart_data_structure_and_algorithm/stack.dart';
+import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
+import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
 
 void main(List<String> arguments) {
   // print('Hello world: ${dart_data_structure_and_algorithm.calculate()}!');
+
   //
   // Stack stack = Stack<int>();
   // stack.push(1);
@@ -17,8 +19,15 @@ void main(List<String> arguments) {
   // print(stack.peek());
   //
 
-  List list = ['q', 'w', 'e', 't', 'y'];
-  Stack letters = Stack.fromIterable(list);
-  print(letters);
-  print(letters.peek());
+  //
+  // List list = ['q', 'w', 'e', 't', 'y'];
+  // Stack letters = Stack.fromIterable(list);
+  // print(letters);
+  // print(letters.peek());
+  //
+
+  //
+  // List ordered = ['one', 'two', 'three', 'four'];
+  // printReverseList(ordered);
+  //
 }

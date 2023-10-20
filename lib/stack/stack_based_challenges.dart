@@ -16,12 +16,14 @@ void printReverseList(List list) {
 }
 
 // Challenge 2: Balance the parenthesis
-// Given a string, check if there are ( and ) characters, and return true if the parenthesis in the string are balanced
+// Given a string, check if there are ( and ) characters, and return true if for every '(' opening parenthesis
+// there is an equivalent ')' closing parenthesis, hence making the parenthesis balanced.
 // For example:
-// 1: h((e))llo(world)()  // balanced parenthesis
-// 2: (hello world // unbalanced parenthesis
+// 1: h((e))llo(world)()  // balanced parenthesis.
+// 2: (hello world // unbalanced parenthesis.
 
-// for every opening parenthesis that is pushed into the stack is popped out if there is an equivalent closing parenthesis that exits in the string.
+// for every opening parenthesis that is pushed into the stack, gets popped out if there is an equivalent
+// closing parenthesis that exits in the string.
 bool isParenthesisBalanced(String string) {
   Stack charsStack = Stack();
 
@@ -34,6 +36,7 @@ bool isParenthesisBalanced(String string) {
       charsStack.pop();
     }
   }
-  // if the stack is empty at this point, when know that an opening parenthesis had an equivalent closing parenthesis.
+  // if the stack is empty at this point, then we know that an opening parenthesis had an equivalent closing
+  // parenthesis.
   return charsStack.isEmpty;
 }

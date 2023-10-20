@@ -8,7 +8,12 @@ class Stack<E> {
 
   void push(E element) => _storage.add(element);
 
-  E pop() => _storage.removeLast();
+  E? pop() {
+    if (_storage.isNotEmpty) {
+      return _storage.removeLast();
+    }
+    return null;
+  }
 
   bool get isEmpty => _storage.isEmpty;
 

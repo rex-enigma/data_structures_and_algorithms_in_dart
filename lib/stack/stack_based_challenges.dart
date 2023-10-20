@@ -21,26 +21,19 @@ void printReverseList(List list) {
 // 1: h((e))llo(world)()  // balanced parenthesis
 // 2: (hello world // unbalanced parenthesis
 
+// for every opening parenthesis that is pushed into the stack is popped out if there is an equivalent closing parenthesis that exits in the string.
 bool isParenthesisBalanced(String string) {
-  List charsList = [];
+  Stack charsStack = Stack();
 
   for (var i = 0; i < string.length; i++) {
-    charsList.add(string[i]);
-  }
-
-  Stack charsStack = Stack.fromIterable(charsList);
-
-  Map<String, int> charsMap = {'(': 0, ')': 0};
-
-  while (charsStack.isNotEmpty) {
-    if (charsStack.peek() == '(') {
-      charsMap['('] = charsMap[charsStack.pop()]! + 1;
-    } else if (charsStack.peek() == ')') {
-      charsMap[')'] = charsMap[charsStack.pop()]! + 1;
-    } else {
+    String char = string[i];
+    if (string[i] == '(') {
+      charsStack.push(char);
+    } else if (string[i] == ')') {
+      if (charsStack.isEmpty) return false;
       charsStack.pop();
     }
   }
-
-  return charsMap['('] == charsMap[')'];
+  // if the stack is empty at this point, when know that an opening parenthesis had an equivalent closing parenthesis.
+  return charsStack.isEmpty;
 }

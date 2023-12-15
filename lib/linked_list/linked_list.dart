@@ -26,7 +26,7 @@ class LinkedList<E> {
     tail ??= head;
   }
 
-  /// add an element at the end of the linked list
+  /// add an element at the end of the linked list or at the front if the linked list is empty
   void append(E value) {
     if (isEmpty) {
       push(value);
@@ -36,9 +36,30 @@ class LinkedList<E> {
     tail = tail!.next;
   }
 
+  /// returns a node that you want to insert a value after OR
+  /// return null if linked list is empty or if the index is out-of-bound
+  Node<E>? nodeAt(int index) {
+    Node<E>? currentNode = head;
+    int currentIndex = 0;
+
+    while (currentNode != null && currentIndex < index) {
+      currentNode = currentNode.next;
+      currentIndex += 1;
+    }
+    return currentNode;
+  }
+
+  /// adds a value after a particular node in the list.
+  // Node<E> insertAfter(Node<E> node, E value) {
+  //   if (tail == node) {
+  //     append(value);
+  //     return tail!;
+  //   }
+  // }
+
   @override
   String toString() {
     if (isEmpty) return 'Empty linked list';
-    return '$head';
+    return '$head'; // $head is a short hand for ${next.toString()}, this will recursively iterate through all the nodes from the 1st one until it reaches the last node whose 'next' is null
   }
 }

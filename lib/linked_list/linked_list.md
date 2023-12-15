@@ -20,4 +20,11 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
   3. insertAfter -> adds a value after a particular node in the list. 
 
 - ##### Removing values from a list
-  1. 
+  1. xzz
+   
+
+
+
+
+
+##### applications of linked list

@@ -15,14 +15,14 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
 
 #### common operation are:
 - ##### Adding values to a list
-  1. push -> adds a value at the front of the list.
-  2. append -> adds a value at the end of the list.
-  3. insertAfter -> adds a value after a particular node in the list. 
+  1. push -> adds a value at the front of the linked list.
+  2. append -> adds a value at the end of the linked list.
+  3. insertAfter -> adds a value after a particular node in the linked list. 
 
 - ##### Removing values from a list
-  1. xzz
-   
-
+  1. pop -> removes and returns the value at the front of the linked list.
+  2. removeLast -> removes and returns the value at the end of the linked list.
+  3. removeAfter -> removes and returns the value after a particular node in the linked list.
 
 
 

@@ -50,12 +50,45 @@ class LinkedList<E> {
   }
 
   /// adds a value after a particular node in the list.
-  // Node<E> insertAfter(Node<E> node, E value) {
-  //   if (tail == node) {
-  //     append(value);
-  //     return tail!;
-  //   }
-  // }
+  Node<E> insertAfter(Node<E> node, E value) {
+    if (tail == node) {
+      append(value);
+      return tail!;
+    }
+
+    node.next = Node(value: value, next: node.next);
+    return node.next!;
+  }
+
+  /// removes and return a value at the front of a linked list.
+  E? pop() {
+    E? value = head?.value;
+    head = head?.next;
+    if (isEmpty) {
+      tail = null;
+    }
+    return value;
+  }
+
+  /// removes and return the last value from the linked list.
+  E? removeLast() {
+    if (head?.next == null) return pop();
+
+    var current = head;
+    while (current!.next != tail) {
+      current = current.next;
+    }
+
+    final value = tail!.value; // or current.next!.value
+    tail = current;
+    current.next = null;
+
+    return value;
+  }
+
+  E? removeAfter(Node<E> node) {
+    final value = node.next?.value;
+  }
 
   @override
   String toString() {

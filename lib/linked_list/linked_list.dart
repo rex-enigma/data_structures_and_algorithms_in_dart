@@ -86,8 +86,14 @@ class LinkedList<E> {
     return value;
   }
 
+  /// removes and returns the value after a particular node in the linked list.
   E? removeAfter(Node<E> node) {
     final value = node.next?.value;
+    if (node.next == tail) {
+      tail = node;
+    }
+    node.next = node.next?.next;
+    return value;
   }
 
   @override

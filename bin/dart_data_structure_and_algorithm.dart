@@ -113,4 +113,17 @@ void main(List<String> arguments) {
  */
 
 /******************remove a value after a particular node in the linked list**********************/
+
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print('Before: $list');
+
+  final firstNode = list.nodeAt(1);
+  final removedValue = list.removeAfter(firstNode!);
+
+  print('After: $list');
+  print('Removed value: $removedValue');
 }

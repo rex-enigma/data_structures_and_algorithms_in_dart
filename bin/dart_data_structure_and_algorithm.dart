@@ -6,7 +6,9 @@ import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.d
 void main(List<String> arguments) {
   // print('Hello world: ${dart_data_structure_and_algorithm.calculate()}!');
 
-/*************stack*********************/
+/*********************STACK*********************/
+
+/*********return and remove (popping) a value at the top of the stack***************/
 /* 
   Stack stack = Stack<int>();
   stack.push(1);
@@ -21,6 +23,7 @@ void main(List<String> arguments) {
   print(stack.peek());
  */
 
+/*********returning the reference of the value at the top of the stack without removing it***************/
 /* 
   List list = ['q', 'w', 'e', 't', 'y'];
   Stack letters = Stack.fromIterable(list);
@@ -33,13 +36,15 @@ void main(List<String> arguments) {
   printReverseList(ordered);
  */
 
+/***STACK BASED CHALLENGES*****/
 /* 
   print(isParenthesisBalanced('h((e))llo(world)()'));
   print(isParenthesisBalanced('(hello world'));
- */
+*/
 
-/********************linkedList*****************************/
+/********************LINKED LIST*****************************/
 
+/**************creating node with values**************/
 /* 
   Node<int> node1 = Node(value: 1);
   Node<int> node2 = Node(value: 2);
@@ -50,6 +55,7 @@ void main(List<String> arguments) {
   print(node1);
  */
 
+/**************pushing a value at the front of the linked list**************/
 /* 
   LinkedList<int> linkedList = LinkedList();
   linkedList.push(3);
@@ -58,14 +64,17 @@ void main(List<String> arguments) {
   print(linkedList);
  */
 
+/**************appending a value at the end of the linked list**************/
+
 /* 
   LinkedList<int> linkedList = LinkedList();
   linkedList.append(1);
   linkedList.append(2);
   linkedList.append(3);
   print(linkedList);
-   */
+ */
 
+/**************inserting a value after a particular node in the linked list**************/
 /* 
   final list = LinkedList<int>();
   list.push(3);
@@ -94,7 +103,7 @@ void main(List<String> arguments) {
 
   print("After: $list");
   print("poppedValue: $poppedValue");
- */
+*/
 
 /******************remove a value at the end of the linked list**********************/
 
@@ -114,6 +123,7 @@ void main(List<String> arguments) {
 
 /******************remove a value after a particular node in the linked list**********************/
 
+/* 
   final list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -126,4 +136,20 @@ void main(List<String> arguments) {
 
   print('After: $list');
   print('Removed value: $removedValue');
+ */
+
+/*****************iterating through a linked list after making it iterable**********************/
+
+/* 
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  for (var element in list) {
+    print(element);
+  }
+*/
+
+/***LINKED LIST BASE CHALLENGES*****/
 }

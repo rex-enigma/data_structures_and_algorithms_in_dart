@@ -14,10 +14,11 @@ class Node<T> {
   }
 }
 
-class LinkedList<E> {
+class LinkedList<E> extends Iterable<E> {
   Node<E>? head;
   Node<E>? tail;
 
+  @override
   bool get isEmpty => head == null;
 
   /// add an element at the front of the linked list
@@ -100,5 +101,46 @@ class LinkedList<E> {
   String toString() {
     if (isEmpty) return 'Empty linked list';
     return '$head'; // $head is a short hand for ${next.toString()}, this will recursively iterate through all the nodes from the 1st one until it reaches the last node whose 'next' is null
+  }
+
+  @override
+  // TODO: implement iterator
+  Iterator<E> get iterator => throw UnimplementedError();
+}
+
+class _LinkedListIterator<E> implements Iterator<E> {
+  _LinkedListIterator(LinkedList<E> linkedList) : _linkedList = linkedList;
+  final LinkedList<E> _linkedList;
+  Node<E>? _currentNode;
+
+  @override
+  E get current => _currentNode!.value;
+
+  bool _firstPass = true;
+
+  @override
+  bool moveNext() {
+    if (_linkedList.isEmpty) return false;
+
+    /// allow to access the head of the linked list only once
+    ///  any subsequent moveNext call will use the node store in currentNode variable to move to the next node
+    if (_firstPass) {
+      _currentNode = _linkedList.head;
+      _firstPass = false;
+    } else {
+      _currentNode = _currentNode?.next;
+    }
+
+    return _currentNode != null;
+
+    /* 
+     _currentNode != null; is a short syntax for
+
+      if (_currentNode != null) {
+      return true;
+    } else {
+      return false;
+    }
+      */
   }
 }

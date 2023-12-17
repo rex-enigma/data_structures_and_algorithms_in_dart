@@ -153,7 +153,9 @@ void main(List<String> arguments) {
 */
 
 /***LINKED LIST BASE CHALLENGES*****/
+
 /******print linked list in reverse********/
+/* 
   final list = LinkedList<int>();
   list.push(3);
   list.push(2);
@@ -162,4 +164,36 @@ void main(List<String> arguments) {
   print("Before:\n $list");
   print("After:");
   printReversedLinkedList(list);
+*/
+
+/******print the middle value of a linked list********/
+/* 
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  print(list);
+  printMiddleNodeValue(list);
+
+  //book's solution
+  final middleNode = getMiddleNode(list);
+  print("Middle value: ${middleNode?.value}");
+ */
+
+/******reversing a linked list********/
+  final list = LinkedList<int>();
+  list.push(6);
+  list.push(5);
+  list.push(4);
+  list.push(3);
+  list.push(2);
+  list.push(1);
+
+  // recursive method (operation moving from the last node toward the first node)
+  /* 
+  print("Before: \n $list");
+  reverseLinkedListRecursively(list);
+  print("After: \n $list");
+  */
 }

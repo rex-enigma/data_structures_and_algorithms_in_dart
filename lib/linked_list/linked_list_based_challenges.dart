@@ -127,3 +127,25 @@ Node<E> _reverseLinkedListRecursively<E>(Node<E> node) {
   return nextNode;
 }
 */
+
+//book's solution for challenge 3
+/* 
+extension ReversibleLinkedList<E> on LinkedList<E> {
+  void reverse() {
+    tail = head;
+    var previous = head;
+    var current = head?.next;
+    previous?.next = null;
+    while (current != null) {
+      final next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+    head = previous;
+  }
+}
+*/
+
+// challenge 4: Remove all occurrences
+// create a function that removes all occurrences of a specific element from a linked list

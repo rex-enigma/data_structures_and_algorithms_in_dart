@@ -182,6 +182,7 @@ void main(List<String> arguments) {
  */
 
 /******reversing a linked list********/
+/* 
   final list = LinkedList<int>();
   list.push(6);
   list.push(5);
@@ -190,10 +191,19 @@ void main(List<String> arguments) {
   list.push(2);
   list.push(1);
 
-  // recursive method (operation moving from the last node toward the first node)
-  /* 
+// recursive method (traverse from the head to tail, then move backwards changing the pointer's direction)
+
+
   print("Before: \n $list");
   reverseLinkedListRecursively(list);
-  print("After: \n $list");
-  */
+  print("After: \n $list"); 
+
+
+// book's solution
+// adding a reverse method through extension
+
+  print("Original list: $list");
+  list.reverse();
+  print("Reversed list: $list");
+*/
 }

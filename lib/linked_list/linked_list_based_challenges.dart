@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dart_data_structure_and_algorithm/linked_list/linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 
@@ -149,3 +151,35 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
 
 // challenge 4: Remove all occurrences
 // create a function that removes all occurrences of a specific element from a linked list
+
+// solution: 1
+extension RemoveAllOccurrences<E> on LinkedList<E> {
+  void removeAll(E value) {
+    var currentNode = head;
+    Node<E>? previousNode;
+
+    bool isHeadSet = false;
+
+    while (currentNode != null) {
+      if (currentNode.value == value) {
+        final next = currentNode.next;
+        previousNode?.next = next;
+        currentNode.next = null;
+        currentNode = next;
+
+        if (!isHeadSet) head = currentNode;
+        if (next == null) tail = previousNode;
+      } else {
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+
+        // in case the value you want to remove is on the head node and any adjust nodes, this ensures that the head will point to
+        // the node which the previousNode will be pointing to the very first time. the head will stick on that node even when the previousNode moves forward.
+        if (!isHeadSet) {
+          head = previousNode;
+          isHeadSet = true;
+        }
+      }
+    }
+  }
+}

@@ -206,4 +206,19 @@ void main(List<String> arguments) {
   list.reverse();
   print("Reversed list: $list");
 */
+
+/********remove all occurrences**********/
+  final list = LinkedList<int>();
+  list.push(3);
+  list.push(3);
+  list.push(3);
+  list.push(3);
+  list.push(3);
+  list.push(3);
+  list.push(3);
+
+  print("Original list: \n $list");
+  list.removeAll(3);
+  print('list after removing all occurrences of 3: \n $list');
+  print("head: ${list.head} \n tail: ${list.tail}");
 }

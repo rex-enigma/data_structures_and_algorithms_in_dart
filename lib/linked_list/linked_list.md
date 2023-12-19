@@ -28,3 +28,9 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
 
 
 ##### applications of linked list
+1. implementing other data structures. eg stack, queue
+
+
+##### key points
+1. linked list hav O(1) time complexity for head first insertions whereas standard list have O(n) time complexity for head first insertions.
+2. implementing the Dart *Iterable* interface allows you to loop through the elements of a collection as well as offering a host of other helpful methods

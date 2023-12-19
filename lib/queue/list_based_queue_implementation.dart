@@ -1,0 +1,28 @@
+import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
+
+class QueueList<E> implements Queue<E> {
+  final _list = <E>[];
+
+  @override
+  bool get isEmpty => _list.isEmpty;
+
+  @override
+  // average case: O(n) worse case: O(n)
+  E? dequeue() => isEmpty ? null : _list.removeAt(0);
+
+  @override
+  // average case: O(1) worse case: O(n)
+  bool enqueue(E element) {
+    _list.add(element);
+    return true;
+  }
+
+  @override
+  // average case: O(1) worse case: O(1)
+  E? peek() => isEmpty ? null : _list.first;
+
+  @override
+  String toString() {
+    return _list.toString();
+  }
+}

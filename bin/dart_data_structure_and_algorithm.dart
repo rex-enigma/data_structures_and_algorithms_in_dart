@@ -1,6 +1,7 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart' as dart_data_structure_and_algorithm;
 import 'package:dart_data_structure_and_algorithm/linked_list/linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/linked_list/linked_list_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/queue/list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
 
@@ -208,17 +209,35 @@ void main(List<String> arguments) {
 */
 
 /********remove all occurrences**********/
+/* 
   final list = LinkedList<int>();
   list.push(3);
+  list.push(2);
+  list.push(2);
   list.push(3);
-  list.push(3);
-  list.push(3);
-  list.push(3);
-  list.push(3);
-  list.push(3);
+  list.push(1);
 
   print("Original list: \n $list");
   list.removeAll(3);
   print('list after removing all occurrences of 3: \n $list');
   print("head: ${list.head} \n tail: ${list.tail}");
+
+ */
+
+/********************LIST BASED QUEUE IMPLEMENTATION*****************************/
+
+/*************creating a queueList and testing its local methods**********/
+/* 
+  final queue = QueueList<String>();
+  queue.enqueue('Ray');
+  queue.enqueue('Brian');
+  queue.enqueue('Eric');
+  print(queue);
+
+  queue.dequeue();
+  print(queue);
+
+  queue.peek();
+  print(queue);
+*/
 }

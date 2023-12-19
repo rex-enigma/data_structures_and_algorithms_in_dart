@@ -153,7 +153,7 @@ extension ReversibleLinkedList<E> on LinkedList<E> {
 // create a function that removes all occurrences of a specific element from a linked list
 
 // solution: 1
-extension RemoveAllOccurrences<E> on LinkedList<E> {
+/* extension RemoveAllOccurrences<E> on LinkedList<E> {
   void removeAll(E value) {
     var currentNode = head;
     Node<E>? previousNode;
@@ -183,3 +183,28 @@ extension RemoveAllOccurrences<E> on LinkedList<E> {
     }
   }
 }
+ */
+
+// //book's solution for challenge 4
+/* 
+extension RemovableLinkedList<E> on LinkedList {
+  void removeAll(E value) {
+    while (head != null && head!.value == value) {
+      head = head!.next;
+    }
+
+    var previous = head;
+    var current = head!.next;
+
+    while (current != null) {
+      if (current.value == value) {
+        previous?.next = current.next;
+        current = previous?.next;
+      }
+      previous = current;
+      current = current?.next;
+      tail = previous; // bug detected here: if only one node remains after removing all occurrences of 'value', tail will be pointing to null instead of pointing to that node, causing the LinkedList.append method to crash
+    }
+  }
+}
+*/

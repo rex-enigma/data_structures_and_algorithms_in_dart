@@ -14,7 +14,7 @@ class Node<T> {
   }
 }
 
-class LinkedList<E> extends Iterable<E> {
+class SinglyLinkedList<E> extends Iterable<E> {
   Node<E>? head;
   Node<E>? tail;
 
@@ -104,12 +104,12 @@ class LinkedList<E> extends Iterable<E> {
   }
 
   @override
-  Iterator<E> get iterator => _LinkedListIterator<E>(this);
+  Iterator<E> get iterator => _SinglyLinkedListIterator<E>(this);
 }
 
-class _LinkedListIterator<E> implements Iterator<E> {
-  _LinkedListIterator(LinkedList<E> linkedList) : _linkedList = linkedList;
-  final LinkedList<E> _linkedList;
+class _SinglyLinkedListIterator<E> implements Iterator<E> {
+  _SinglyLinkedListIterator(SinglyLinkedList<E> linkedList) : _linkedList = linkedList;
+  final SinglyLinkedList<E> _linkedList;
   Node<E>? _currentNode;
 
   @override

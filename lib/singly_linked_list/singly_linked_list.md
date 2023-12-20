@@ -13,6 +13,8 @@ Here we check only single linked list.
 
 A linked list is a chain of 'Nodes' that hold a value and a reference to the next Node. A null reference indicates the end of the list.
 
+This focuses on singly_linked_list.
+
 #### common operation are:
 - ##### Adding values to a list
   1. push -> adds a value at the front of the linked list.

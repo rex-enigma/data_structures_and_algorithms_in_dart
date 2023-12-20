@@ -1,6 +1,7 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart' as dart_data_structure_and_algorithm;
-import 'package:dart_data_structure_and_algorithm/linked_list/linked_list.dart';
-import 'package:dart_data_structure_and_algorithm/linked_list/linked_list_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
+import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/queue/list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
@@ -59,7 +60,7 @@ void main(List<String> arguments) {
 
 /**************pushing a value at the front of the linked list**************/
 /* 
-  LinkedList<int> linkedList = LinkedList();
+  SinglyLinkedList<int> linkedList = SinglyLinkedList();
   linkedList.push(3);
   linkedList.push(2);
   linkedList.push(1);
@@ -69,7 +70,7 @@ void main(List<String> arguments) {
 /**************appending a value at the end of the linked list**************/
 
 /* 
-  LinkedList<int> linkedList = LinkedList();
+  SinglyLinkedList<int> linkedList = SinglyLinkedList();
   linkedList.append(1);
   linkedList.append(2);
   linkedList.append(3);
@@ -78,7 +79,7 @@ void main(List<String> arguments) {
 
 /**************inserting a value after a particular node in the linked list**************/
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -94,7 +95,7 @@ void main(List<String> arguments) {
 /******************popping a value at the front of the linked list**********************/
 
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -110,7 +111,7 @@ void main(List<String> arguments) {
 /******************remove a value at the end of the linked list**********************/
 
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -126,7 +127,7 @@ void main(List<String> arguments) {
 /******************remove a value after a particular node in the linked list**********************/
 
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -143,7 +144,7 @@ void main(List<String> arguments) {
 /*****************iterating through a linked list after making it iterable**********************/
 
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -157,19 +158,19 @@ void main(List<String> arguments) {
 
 /******print linked list in reverse********/
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
 
   print("Before:\n $list");
   print("After:");
-  printReversedLinkedList(list);
+  printReversedSinglyLinkedList(list);
 */
 
 /******print the middle value of a linked list********/
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(1);
@@ -184,7 +185,7 @@ void main(List<String> arguments) {
 
 /******reversing a linked list********/
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(6);
   list.push(5);
   list.push(4);
@@ -196,7 +197,7 @@ void main(List<String> arguments) {
 
 
   print("Before: \n $list");
-  reverseLinkedListRecursively(list);
+  reverseSinglyLinkedListRecursively(list);
   print("After: \n $list"); 
 
 
@@ -210,7 +211,7 @@ void main(List<String> arguments) {
 
 /********remove all occurrences**********/
 /* 
-  final list = LinkedList<int>();
+  final list = SinglyLinkedList<int>();
   list.push(3);
   list.push(2);
   list.push(2);
@@ -240,4 +241,18 @@ void main(List<String> arguments) {
   queue.peek();
   print(queue);
 */
+
+/*************creating a queueLinkedList and testing its local methods**********/
+
+  final queue = QueueSinglyLinkedList<String>();
+  queue.enqueue('Ray');
+  queue.enqueue('Brian');
+  queue.enqueue('Eric');
+  print(queue);
+
+  queue.dequeue();
+  print(queue);
+
+  queue.peek();
+  print(queue);
 }

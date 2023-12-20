@@ -6,8 +6,8 @@ Queue only cares about removal at the front and insertion at the back, you don't
 
 Queue can be implemented using:
 1. list(normal array data structure).
-2. doubly linked list.
-3. Ring buffer. **
+2. doubly linked list or singly linked list
+3. Ring buffer. 
 4. Two stacks.
 
 
@@ -24,3 +24,6 @@ Queue can be implemented using:
 
 
 ##### key points
+Dequeuing an item in list base queue takes linear time ,O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
+
+The main weakness of queueSingleLinkedList and queueDoubleLinkedList is, every time you create a new element it requires extra storage for the forward and back reference and also it requires a relatively expensive dynamic allocation of memory for the new node.By contrast, QueueList does bulk allocation, which is relatively faster.

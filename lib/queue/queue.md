@@ -12,7 +12,7 @@ Queue can be implemented using:
 
 
 #### common operation are:
-1. enqueue -> insert an element at the back of the queue. Return true when operation was successful.
+1. enqueue -> insert an element at the back of the queue. Return true when operation is successful.
 2. dequeue -> remove and return the element at the front of the queue.
 3. isEmpty -> check if the queue is empty.
 4. peek -> return a reference of the element at the front of the queue without removing it.

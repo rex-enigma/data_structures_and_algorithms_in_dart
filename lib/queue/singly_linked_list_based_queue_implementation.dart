@@ -1,31 +1,27 @@
+import 'package:dart_data_structure_and_algorithm/linked_list/linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
 
-class QueueList<E> implements Queue<E> {
-  final _list = <E>[];
+class QueueSinglyLinkedList<E> implements Queue<E> {
+  final linkedList = LinkedList<E>();
 
   @override
-  bool get isEmpty => _list.isEmpty;
+  bool get isEmpty => linkedList.isEmpty;
 
   @override
-  // average case time complexity: O(n) | worse case time complexity: O(n)
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   /// remove and return the element at the front of the queue.
-  E? dequeue() => isEmpty ? null : _list.removeAt(0);
+  E? dequeue() => linkedList.pop();
 
   @override
-  // average case time complexity: O(1) | worse case time complexity: O(n)
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   /// insert an element at the back of the queue. Return true when operation is successful.
   bool enqueue(E element) {
-    _list.add(element);
+    linkedList.append(element);
     return true;
   }
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
   /// return a reference of the element at the front of the queue without removing it.
-  E? peek() => isEmpty ? null : _list.first;
-
-  @override
-  String toString() {
-    return _list.toString();
-  }
+  E? peek() => isEmpty ? null : linkedList.first;
 }

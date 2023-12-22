@@ -27,7 +27,7 @@ void main(List<String> arguments) {
   print(stack.peek());
  */
 
-/*********returning the reference of the value at the top of the stack without removing it***************/
+/*********returning the element at the top of the stack without removing it***************/
 /* 
   List list = ['q', 'w', 'e', 't', 'y'];
   Stack letters = Stack.fromIterable(list);
@@ -36,16 +36,20 @@ void main(List<String> arguments) {
  */
 
 /***STACK BASED CHALLENGES*****/
+
+/****** ********/
 /* 
   print(isParenthesisBalanced('h((e))llo(world)()'));
   print(isParenthesisBalanced('(hello world'));
 */
 
+/******print list in reverse(using stack to implement the functionality)********/
 /* 
   List ordered = ['one', 'two', 'three', 'four'];
   printReverseList(ordered);
 
- */
+*/
+
 /********************LINKED LIST*****************************/
 
 /**************creating node with values**************/
@@ -59,16 +63,16 @@ void main(List<String> arguments) {
   print(node1);
  */
 
-/**************pushing a value at the front of the linked list**************/
+/**************pushing values at the front of the linked list**************/
 /* 
   SinglyLinkedList<int> linkedList = SinglyLinkedList();
   linkedList.push(3);
   linkedList.push(2);
   linkedList.push(1);
   print(linkedList);
- */
+*/
 
-/**************appending a value at the end of the linked list**************/
+/**************appending values at the end of the linked list**************/
 
 /* 
   SinglyLinkedList<int> linkedList = SinglyLinkedList();
@@ -80,77 +84,77 @@ void main(List<String> arguments) {
 
 /**************inserting a value after a particular node in the linked list**************/
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  print('Before: $list');
+  print('Before: $linkedList');
 
-  Node<int> middleNode = list.nodeAt(1)!;
-  list.insertAfter(middleNode, 42);
+  Node<int> middleNode = linkedList.nodeAt(1)!;
+  linkedList.insertAfter(middleNode, 42);
 
-  print('After: $list');
+  print('After: $linkedList');
 */
 
 /******************popping a value at the front of the linked list**********************/
 
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  print("Before: $list");
+  print("Before: $linkedList");
 
-  int? poppedValue = list.pop();
+  int? poppedValue = linkedList.pop();
 
-  print("After: $list");
+  print("After: $linkedList");
   print("poppedValue: $poppedValue");
 */
 
-/******************remove a value at the end of the linked list**********************/
+/******************removing a value at the end of the linked list**********************/
 
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  print("Before: $list");
+  print("Before: $linkedList");
 
-  final removedLastValue = list.removeLast();
+  final removedLastValue = linkedList.removeLast();
 
-  print("After: $list");
+  print("After: $linkedList");
   print("Removed Last value: $removedLastValue");
  */
 
-/******************remove a value after a particular node in the linked list**********************/
+/******************removing a value after a particular node in the linked list**********************/
 
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  print('Before: $list');
+  print('Before: $linkedList');
 
-  final firstNode = list.nodeAt(1);
-  final removedValue = list.removeAfter(firstNode!);
+  final secondNode = linkedList.nodeAt(1);
+  final removedValue = linkedList.removeAfter(secondNode!);
 
-  print('After: $list');
+  print('After: $linkedList');
   print('Removed value: $removedValue');
  */
 
-/*****************iterating through a linked list after making it iterable**********************/
+/*****************iterating through a linked list after making it iterable using for in loop**********************/
 
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  for (var element in list) {
+  for (var element in linkedList) {
     print(element);
   }
 */
@@ -159,70 +163,72 @@ void main(List<String> arguments) {
 
 /******print linked list in reverse********/
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedListRecursivePrint = SinglyLinkedList<int>();
+  linkedListRecursivePrint.push(3);
+  linkedListRecursivePrint.push(2);
+  linkedListRecursivePrint.push(1);
 
-  print("Before:\n $list");
+  print("Before:\n $linkedListRecursivePrint");
   print("After:");
-  printReversedSinglyLinkedList(list);
+  printReversedSinglyLinkedList(linkedListRecursivePrint);
 */
 
-/******print the middle value of a linked list********/
+/******return the middle value of a linked list********/
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
-  print(list);
-  printMiddleNodeValue(list);
+  print(linkedList);
+  final middleNodeValue = linkedList.middleValue();
+  print(middleNodeValue);
 
   //book's solution
-  final middleNode = getMiddleNode(list);
+/*
+  final middleNode = getMiddleNode(linkedList);
   print("Middle value: ${middleNode?.value}");
+*/
  */
 
 /******reversing a linked list********/
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(6);
-  list.push(5);
-  list.push(4);
-  list.push(3);
-  list.push(2);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(6);
+  linkedList.push(5);
+  linkedList.push(4);
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(1);
 
 // recursive method (traverse from the head to tail, then move backwards changing the pointer's direction)
 
-
-  print("Before: \n $list");
-  reverseSinglyLinkedListRecursively(list);
-  print("After: \n $list"); 
-
+  print("Before: \n $linkedList");
+  linkedList.reverseSinglyLinkedListRecursively();
+  print("After: \n $linkedList");
 
 // book's solution
 // adding a reverse method through extension
 
-  print("Original list: $list");
-  list.reverse();
-  print("Reversed list: $list");
+/*   print("Original linkedList: $linkedList");
+  linkedList.reverse();
+  print("Reversed linkedList: $linkedList"); 
+*/
 */
 
-/********remove all occurrences**********/
+/********remove all occurrences of a particular value**********/
 /* 
-  final list = SinglyLinkedList<int>();
-  list.push(3);
-  list.push(2);
-  list.push(2);
-  list.push(3);
-  list.push(1);
+  final linkedList = SinglyLinkedList<int>();
+  linkedList.push(3);
+  linkedList.push(2);
+  linkedList.push(2);
+  linkedList.push(3);
+  linkedList.push(1);
 
-  print("Original list: \n $list");
-  list.removeAll(3);
-  print('list after removing all occurrences of 3: \n $list');
-  print("head: ${list.head} \n tail: ${list.tail}");
+  print("Original linkedList: \n $linkedList");
+  linkedList.removeAll(3);
+  print('linkedList after removing all occurrences of 3: \n $linkedList');
+  print("head: ${linkedList.head} \n tail: ${linkedList.tail}");
 
  */
 
@@ -259,7 +265,7 @@ void main(List<String> arguments) {
 */
 
 /*************creating a ringBuffer and testing its local methods**********/
-
+/* 
   final ringBuffer = RingBuffer(5);
   ringBuffer.write(0);
   ringBuffer.write(0);
@@ -274,7 +280,6 @@ void main(List<String> arguments) {
   ringBuffer.write(3);
   ringBuffer.write(4);
 
-  // Expectation
-
   print(ringBuffer);
+*/
 }

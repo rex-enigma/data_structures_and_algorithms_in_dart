@@ -41,7 +41,7 @@ void printReversedSinglyLinkedList() {
 */
 
 // solution: 3
-/* 
+
 SinglyLinkedList? linkedList;
 Node? currentNode;
 
@@ -59,7 +59,6 @@ void printReveredSinglyLinkedListRecursively<E>() {
   }
   print(value);
 }
- */
 
 //book's solution for challenge 1
 /* 
@@ -78,17 +77,19 @@ void printReveredSinglyLinkedListRecursively<E>(Node<E>? node) {
 // create a function that finds the middle value of a linked list
 
 // solution: 1
-/* 
-void printMiddleNodeValue<E>(SinglyLinkedList<E> linkedList) {
-  final linkedListLength = linkedList.length;
-  final middleNodeIndex = (linkedListLength / 2).floor();
-  print(linkedList.nodeAt(middleNodeIndex)?.value);
-} */
+
+extension MiddleNodeValue<T> on SinglyLinkedList<T> {
+  /// returns the middle value of this linkedList. Returns null if linked list is empty.
+  T? middleValue() {
+    final linkedListLength = length;
+    final middleNodeIndex = (linkedListLength / 2).floor();
+    return nodeAt(middleNodeIndex)?.value;
+  }
+}
 
 // book's solution for challenge 2
 // using the runner's technique to find the middle
 /* 
-
 Node<E>? getMiddleNode<E>(SinglyLinkedList<E> linkedList) {
   var slow = linkedList.head;
   var fast = linkedList.head;
@@ -107,28 +108,28 @@ Node<E>? getMiddleNode<E>(SinglyLinkedList<E> linkedList) {
 // they're linked in the other direction.
 
 // solution: 1
-// using recursion
-/* 
-void reverseSinglyLinkedListRecursively<E>(SinglyLinkedList<E> linkedList) {
-  // handles when linkedList has only one node or no nodes
-  if (linkedList.tail == linkedList.head || linkedList.isEmpty) return;
+// used recursion to reverse a linked list.
+extension ReverseLinkedList<E> on SinglyLinkedList<E> {
+  void reverseSinglyLinkedListRecursively() {
+    // handles when linkedList has only one node or no nodes
+    if (tail == head || isEmpty) return;
 
-  var newTailNode = _reverseSinglyLinkedListRecursively(linkedList.head!);
-  newTailNode.next = null;
-  linkedList.head = linkedList.tail;
-  linkedList.tail = newTailNode;
+    var newTailNode = _reverseSinglyLinkedListRecursively(head!);
+    newTailNode.next = null;
+    head = tail;
+    tail = newTailNode;
+  }
+
+  Node<E> _reverseSinglyLinkedListRecursively(Node<E> node) {
+    var nextNode = node;
+    if (node.next == null) return nextNode;
+
+    var currentNode = _reverseSinglyLinkedListRecursively(node.next!);
+
+    currentNode.next = nextNode;
+    return nextNode;
+  }
 }
-
-Node<E> _reverseSinglyLinkedListRecursively<E>(Node<E> node) {
-  var nextNode = node;
-  if (node.next == null) return nextNode;
-
-  var currentNode = _reverseSinglyLinkedListRecursively<E>(node.next!);
-
-  currentNode.next = nextNode;
-  return nextNode;
-}
-*/
 
 //book's solution for challenge 3
 /* 
@@ -153,7 +154,7 @@ extension ReversibleSinglyLinkedList<E> on SinglyLinkedList<E> {
 // create a function that removes all occurrences of a specific element from a linked list
 
 // solution: 1
-/* extension RemoveAllOccurrences<E> on SinglyLinkedList<E> {
+extension RemoveAllOccurrences<E> on SinglyLinkedList<E> {
   void removeAll(E value) {
     var currentNode = head;
     Node<E>? previousNode;
@@ -183,7 +184,7 @@ extension ReversibleSinglyLinkedList<E> on SinglyLinkedList<E> {
     }
   }
 }
- */
+
 
 // //book's solution for challenge 4
 /* 

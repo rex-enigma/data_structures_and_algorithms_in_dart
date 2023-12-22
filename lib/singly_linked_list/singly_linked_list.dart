@@ -37,8 +37,8 @@ class SinglyLinkedList<E> extends Iterable<E> {
     tail = tail!.next;
   }
 
-  /// returns a node that you want to insert a value after OR
-  /// return null if linked list is empty or if the index is out-of-bound
+  /// returns a node at a particular index.
+  /// Returns null if linked list is empty or if the index is out-of-bound
   Node<E>? nodeAt(int index) {
     Node<E>? currentNode = head;
     int currentIndex = 0;

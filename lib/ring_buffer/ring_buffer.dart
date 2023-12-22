@@ -34,6 +34,16 @@ class RingBuffer<E> {
 
   @override
   String toString() {
-    StringBuffer
+    final text = StringBuffer();
+    text.write('[');
+
+    for (var i = 0; i < _size; i++) {
+      final index = (_readIndex + i) % _list.length;
+      if (index != _readIndex) text.write(', ');
+      text.write(_list[index]);
+    }
+
+    text.write(']');
+    return text.toString();
   }
 }

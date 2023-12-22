@@ -22,13 +22,9 @@ class Stack<E> {
 
   bool get isNotEmpty => !isEmpty;
 
-  /// return a duplicate of the top element in the stack
+  /// return the top element in the stack
   E? peek() {
-    try {
-      return _storage.last;
-    } catch (e) {
-      return null;
-    }
+    return isEmpty ? null : _storage.last;
   }
 
   @override

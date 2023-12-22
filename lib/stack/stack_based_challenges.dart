@@ -4,6 +4,10 @@ import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 // Challenge 1: Reverse a list.
 // create a function that prints the contents of a list in reverse order.
 void printReverseList(List list) {
+  print(reverseList(list));
+}
+
+List reverseList(List list) {
   Stack stack = Stack.fromIterable(list);
 
   List reverseOrderList = [];
@@ -12,7 +16,8 @@ void printReverseList(List list) {
     reverseOrderList.add(stack.pop());
   }
 
-  print(reverseOrderList.join(','));
+  reverseOrderList.join(',');
+  return reverseOrderList;
 }
 
 // Challenge 2: Balance the parenthesis

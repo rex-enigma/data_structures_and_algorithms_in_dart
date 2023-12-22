@@ -21,7 +21,7 @@ class QueueList<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  /// return a reference of the element at the front of the queue without removing it.
+  /// return the element at the front of the queue without removing it.
   E? peek() => isEmpty ? null : _list.first;
 
   @override

@@ -1,5 +1,6 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart' as dart_data_structure_and_algorithm;
 import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/ring_buffer/ring_buffer.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/queue/list_based_queue_implementation.dart';
@@ -34,17 +35,17 @@ void main(List<String> arguments) {
   print(letters.peek());
  */
 
-/* 
-  List ordered = ['one', 'two', 'three', 'four'];
-  printReverseList(ordered);
- */
-
 /***STACK BASED CHALLENGES*****/
 /* 
   print(isParenthesisBalanced('h((e))llo(world)()'));
   print(isParenthesisBalanced('(hello world'));
 */
 
+/* 
+  List ordered = ['one', 'two', 'three', 'four'];
+  printReverseList(ordered);
+
+ */
 /********************LINKED LIST*****************************/
 
 /**************creating node with values**************/
@@ -243,7 +244,7 @@ void main(List<String> arguments) {
 */
 
 /*************creating a queueLinkedList and testing its local methods**********/
-
+/* 
   final queue = QueueSinglyLinkedList<String>();
   queue.enqueue('Ray');
   queue.enqueue('Brian');
@@ -255,4 +256,25 @@ void main(List<String> arguments) {
 
   queue.peek();
   print(queue);
+*/
+
+/*************creating a ringBuffer and testing its local methods**********/
+
+  final ringBuffer = RingBuffer(5);
+  ringBuffer.write(0);
+  ringBuffer.write(0);
+  ringBuffer.write(0);
+  ringBuffer.write(1);
+  ringBuffer.write(2);
+
+  ringBuffer.read();
+  ringBuffer.read();
+  ringBuffer.read();
+
+  ringBuffer.write(3);
+  ringBuffer.write(4);
+
+  // Expectation
+
+  print(ringBuffer);
 }

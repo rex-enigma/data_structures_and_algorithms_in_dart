@@ -22,12 +22,14 @@ class SinglyLinkedList<E> extends Iterable<E> {
   bool get isEmpty => head == null;
 
   /// add an element at the front of the linked list
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   void push(E value) {
     head = Node(value: value, next: head);
     tail ??= head;
   }
 
-  /// add an element at the end of the linked list or at the front if the linked list is empty
+  /// add an element at the end of the linked list or at the front if the linked list is empty.
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   void append(E value) {
     if (isEmpty) {
       push(value);
@@ -38,7 +40,8 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   /// returns a node at a particular index.
-  /// Returns null if linked list is empty or if the index is out-of-bound
+  /// Returns null if linked list is empty or if the index is out-of-bound.
+  // average case time complexity: O(1) | worse case time complexity: O(n)
   Node<E>? nodeAt(int index) {
     Node<E>? currentNode = head;
     int currentIndex = 0;
@@ -51,6 +54,7 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   /// adds a value after a particular node in the list.
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   Node<E> insertAfter(Node<E> node, E value) {
     if (tail == node) {
       append(value);
@@ -62,6 +66,7 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   /// removes and return a value at the front of a linked list.
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   E? pop() {
     E? value = head?.value;
     head = head?.next;
@@ -72,6 +77,7 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   /// removes and return the last value from the linked list.
+  // average case time complexity: O(1) | worse case time complexity: O(n)
   E? removeLast() {
     if (head?.next == null) return pop();
 
@@ -88,6 +94,7 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   /// removes and returns the value after a particular node in the linked list.
+  // average case time complexity: O(1) | worse case time complexity: O(1)
   E? removeAfter(Node<E> node) {
     final value = node.next?.value;
     if (node.next == tail) {

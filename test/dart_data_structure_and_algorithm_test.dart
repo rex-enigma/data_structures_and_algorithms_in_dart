@@ -1,5 +1,8 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
+import 'package:dart_data_structure_and_algorithm/queue/double_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/queue/ring_buffer_based_queue_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/queue/single_list_based_queue_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/ring_buffer/ring_buffer.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list_based_challenges.dart';
@@ -183,14 +186,43 @@ void main() {
 
 /********************QUEUE*****************************/
 
-  final queue = QueueRingBuffer<String>(10);
-  queue.enqueue('Ray');
-  queue.enqueue('Brian');
-  queue.enqueue('Eric');
+  final queueSingleLinkedList = QueueSinglyLinkedList();
+  queueSingleLinkedList.enqueue('Ray');
+  queueSingleLinkedList.enqueue('Brian');
+  queueSingleLinkedList.enqueue('Eric');
+  test('queue implementation based on singleLinkedList: test queue methods', () {
+    expect(queueSingleLinkedList.toString(), 'Ray -> Brian -> Eric');
+    expect(queueSingleLinkedList.dequeue(), 'Ray');
+    expect(queueSingleLinkedList.peek(), 'Brian');
+  });
 
-  test('test queue methods', () {
-    expect(queue.toString(), '[Ray, Brian, Eric]');
-    expect(queue.dequeue(), 'Ray');
-    expect(queue.peek(), 'Brian');
+  final queueRingBuffer = QueueRingBuffer<String>(10);
+  queueRingBuffer.enqueue('Ray');
+  queueRingBuffer.enqueue('Brian');
+  queueRingBuffer.enqueue('Eric');
+  test('queue implementation based on ringBuffer: test queue methods', () {
+    expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
+    expect(queueRingBuffer.dequeue(), 'Ray');
+    expect(queueRingBuffer.peek(), 'Brian');
+  });
+
+  final queueSingleList = QueueSingleList();
+  queueSingleList.enqueue('Ray');
+  queueSingleList.enqueue('Brian');
+  queueSingleList.enqueue('Eric');
+  test('queue implementation based on single list: test queue methods', () {
+    expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
+    expect(queueRingBuffer.dequeue(), 'Ray');
+    expect(queueRingBuffer.peek(), 'Brian');
+  });
+
+  final queueDoubleList = QueueDoubleList<String>();
+  queueDoubleList.enqueue("Ray");
+  queueDoubleList.enqueue("Brian");
+  queueDoubleList.enqueue("Eric");
+  test('queue implementation based on two lists: test queue methods', () {
+    expect(queueDoubleList.toString(), '[Ray, Brian, Eric]');
+    expect(queueDoubleList.dequeue(), 'Ray');
+    expect(queueDoubleList.peek(), 'Brian');
   });
 }

@@ -1,6 +1,6 @@
 import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
 
-class QueueList<E> implements Queue<E> {
+class QueueSingleList<E> implements Queue<E> {
   final _list = <E>[];
 
   @override

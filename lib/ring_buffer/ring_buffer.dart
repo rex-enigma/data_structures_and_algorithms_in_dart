@@ -11,6 +11,8 @@ class RingBuffer<E> {
   bool get isFull => _size == _list.length;
   bool get isEmpty => _size == 0;
 
+  /// writes data the current [writeIndex] in the list and advances the [writeIndex] pointer one step forward.
+  /// Throws an Exception when trying to write an element when the ring buffer is full.
   void write(E element) {
     if (isFull) throw Exception('Buffer is full');
     _list[_writeIndex] = element;
@@ -22,6 +24,7 @@ class RingBuffer<E> {
     return (index == _list.length - 1) ? 0 : index + 1;
   }
 
+  /// Reads data at the current [readIndex] in the list and advances the [readIndex] pointer one step forward
   E? read() {
     if (isEmpty) return null;
     final element = _list[_readIndex];
@@ -30,6 +33,8 @@ class RingBuffer<E> {
     return element;
   }
 
+  /// Returns a copy(if the data is primitive eg int,double,float,string) or reference of the data which the [readIndex] is pointing to without advancing the [readIndex] pointer one step forward.
+  /// Return null if the ring buffer is empty.
   E? get peek => isEmpty ? null : _list[_readIndex];
 
   @override

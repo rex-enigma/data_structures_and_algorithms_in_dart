@@ -4,7 +4,7 @@ A linked list is a collection of values arranged in a linear sequence.
 
 'double linked list' / 'bidirectional linked list' is a type of a linked list were each node has a pointer to the next node and the previous node in the list. The linked list can be traversed in either direction,from head node to tail node and vise versa.
 
-A link list has a several theoretical advantages over contiguous storage options such as the dart List:
+**A link list has a several theoretical advantages over contiguous storage options such as the dart List:**
 
 1. *constant  time insertion and deletion from the front of the list.*
 2. *reliable performance characteristics.*
@@ -17,14 +17,14 @@ This focuses on singly_linked_list.
 
 #### common operation are:
 - ##### Adding values to a list
-  1. push -> adds a value at the front of the linked list.
-  2. append -> adds a value at the end of the linked list.
-  3. insertAfter -> adds a value after a particular node in the linked list. 
+  1. **push** -> adds a value at the front of the linked list.
+  2. **append** -> adds a value at the end of the linked list.
+  3. **insertAfter** -> adds a value after a particular node in the linked list. 
 
 - ##### Removing values from a list
-  1. pop -> removes and returns the value at the front of the linked list.
-  2. removeLast -> removes and returns the value at the end of the linked list.
-  3. removeAfter -> removes and returns the value after a particular node in the linked list.
+  1. **pop** -> removes and returns the value at the front of the linked list.
+  2. **removeLast** -> removes and returns the value at the end of the linked list.
+  3. **removeAfter** -> removes and returns the value after a particular node in the linked list.
 
 
 

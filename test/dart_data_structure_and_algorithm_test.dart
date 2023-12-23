@@ -1,4 +1,5 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
+import 'package:dart_data_structure_and_algorithm/queue/ring_buffer_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/ring_buffer/ring_buffer.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list_based_challenges.dart';
@@ -178,5 +179,18 @@ void main() {
   ringBuffer.write(4);
   test('check if toString in ringBuffer returns the correct available values that can only be read ', () {
     expect(ringBuffer.toString(), '[1, 2, 3, 4]');
+  });
+
+/********************QUEUE*****************************/
+
+  final queue = QueueRingBuffer<String>(10);
+  queue.enqueue('Ray');
+  queue.enqueue('Brian');
+  queue.enqueue('Eric');
+
+  test('test queue methods', () {
+    expect(queue.toString(), '[Ray, Brian, Eric]');
+    expect(queue.dequeue(), 'Ray');
+    expect(queue.peek(), 'Brian');
   });
 }

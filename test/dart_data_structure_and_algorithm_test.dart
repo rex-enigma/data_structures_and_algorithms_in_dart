@@ -269,6 +269,7 @@ void main() {
   dequeSinglyLinkedListPeekOperation.enqueue(3, Direction.front);
   test('peek in the front and peek in the back', () {
     expect(dequeSinglyLinkedListPeekOperation.peek(Direction.front), 3);
-    expect(dequeSinglyLinkedListPeekOperation.dequeue(Direction.back), 2);
+    expect(dequeSinglyLinkedListPeekOperation.peek(Direction.back), 2);
+    expect(dequeSinglyLinkedListPeekOperation.toString(), '3 -> 1 -> 2');
   });
 }

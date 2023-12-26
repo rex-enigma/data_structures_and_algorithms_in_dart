@@ -34,5 +34,9 @@ Queue only cares about removal at the front and insertion at the back, you don't
 2. Queue takes a FIFO strategy: an element added first must be removed first.
 3. Single list base queue imp, elements are laid out in a contiguous memory blocks whereas in a singly linked list are more scattered with potential of cache misses.
 4. A ring buffer based implementation is god for queues with a fixed size.
+5. Compared to a single list-based implementation, leveraging two lists improves
+the dequeue time complexity to an amortized O(1) operation.
+6. The two lists (double-list) implementation beats out linked-list in terms of spatial locality.
+
 
 The main weakness of QueueDoublyLinkedList is, every time you create a new element it requires extra storage for the forward and back reference and also it requires a relatively expensive dynamic allocation of memory for the new node.By contrast, QueueList does bulk allocation, which is relatively faster.

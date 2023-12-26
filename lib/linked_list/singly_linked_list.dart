@@ -1,7 +1,5 @@
-// a linked list is a collection of values arranged in a linear sequence.
+import 'package:dart_data_structure_and_algorithm/linked_list/linked_list.dart';
 
-// a linked list is a chain of 'Nodes' that hold a value and a reference to the next Node. A null reference
-// indicates the end of the list.
 class Node<T> {
   Node({required this.value, this.next});
   T value;
@@ -14,23 +12,23 @@ class Node<T> {
   }
 }
 
-class SinglyLinkedList<E> extends Iterable<E> {
-  Node<E>? head;
-  Node<E>? tail;
+class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
+  Node<T>? head;
+  Node<T>? tail;
 
   @override
   bool get isEmpty => head == null;
 
-  /// add an element at the front of the linked list
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  void push(E value) {
+  @override
+  void push(T value) {
     head = Node(value: value, next: head);
     tail ??= head;
   }
 
-  /// add an element at the end of the linked list or at the front if the linked list is empty.
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  void append(E value) {
+  @override
+  void append(T value) {
     if (isEmpty) {
       push(value);
       return;
@@ -39,11 +37,10 @@ class SinglyLinkedList<E> extends Iterable<E> {
     tail = tail!.next;
   }
 
-  /// returns a node at a particular index.
-  /// Returns null if linked list is empty or if the index is out-of-bound.
   // average case time complexity: O(1) | worse case time complexity: O(n)
-  Node<E>? nodeAt(int index) {
-    Node<E>? currentNode = head;
+  @override
+  Node<T>? nodeAt(int index) {
+    Node<T>? currentNode = head;
     int currentIndex = 0;
 
     while (currentNode != null && currentIndex < index) {
@@ -53,9 +50,9 @@ class SinglyLinkedList<E> extends Iterable<E> {
     return currentNode;
   }
 
-  /// adds a value after a particular node in the list.
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  Node<E> insertAfter(Node<E> node, E value) {
+  @override
+  Node<T> insertAfter(Node<T> node, T value) {
     if (tail == node) {
       append(value);
       return tail!;
@@ -65,10 +62,10 @@ class SinglyLinkedList<E> extends Iterable<E> {
     return node.next!;
   }
 
-  /// removes and return a value at the front of a linked list.
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? pop() {
-    E? value = head?.value;
+  @override
+  T? pop() {
+    T? value = head?.value;
     head = head?.next;
     if (isEmpty) {
       tail = null;
@@ -76,9 +73,9 @@ class SinglyLinkedList<E> extends Iterable<E> {
     return value;
   }
 
-  /// removes and return the last value from the linked list.
   // average case time complexity: O(1) | worse case time complexity: O(n)
-  E? removeLast() {
+  @override
+  T? removeLast() {
     if (head?.next == null) return pop();
 
     var current = head;
@@ -93,9 +90,9 @@ class SinglyLinkedList<E> extends Iterable<E> {
     return value;
   }
 
-  /// removes and returns the value after a particular node in the linked list.
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? removeAfter(Node<E> node) {
+  @override
+  T? removeAfter(Node<T> node) {
     final value = node.next?.value;
     if (node.next == tail) {
       tail = node;
@@ -111,7 +108,7 @@ class SinglyLinkedList<E> extends Iterable<E> {
   }
 
   @override
-  Iterator<E> get iterator => _SinglyLinkedListIterator<E>(this);
+  Iterator<T> get iterator => _SinglyLinkedListIterator<T>(this);
 }
 
 class _SinglyLinkedListIterator<E> implements Iterator<E> {

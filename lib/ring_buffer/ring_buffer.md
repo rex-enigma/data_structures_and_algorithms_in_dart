@@ -1,6 +1,8 @@
 A **Ring buffer** also knows as **Circular buffer**, is a fixed size **list**.
 This data structure strategically wraps around at the beginning when there are no more items to remove at the end.
 
+#### ring buffer can be implemented using:
+1. fixed length list(normal array data structure).
 
 
 #### common operation are:
@@ -15,7 +17,8 @@ This data structure strategically wraps around at the beginning when there are n
 2. network buffers
 3. keyboard and mouse input buffers
 4. Digital signal processing
-5. Synchronization
+5. Synchronization.
+6. implement other data structures such as a queue
 
 
 ##### key points

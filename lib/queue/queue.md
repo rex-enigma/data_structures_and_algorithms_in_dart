@@ -5,10 +5,13 @@ Queues are handy when you need to maintain the order of your elements to process
 Queue only cares about removal at the front and insertion at the back, you don't need to know what the contents are in between.
 
 #### Queue ADT can be implemented using:
-1. list(normal array data structure).
-2. doubly linked list or singly linked list data structure
-3. Ring buffer. 
-4. Two stacks.
+1. List(normal array data structure).
+2. Doubly linked list data structure
+3. singly linked list data structure.
+4. Ring buffer data structures.
+5. Double list (2 list) data structures.
+6. double ended queue (deque): DequeSingleList, DequeDoublyLinkedList, DequeSinglyLinkedList data structures.[what i mean is that you can implement deque using either a single list, doubly linked list or doubly linked list in you can use those concrete implementations to implement a queue]
+
 
 
 #### common operation are:

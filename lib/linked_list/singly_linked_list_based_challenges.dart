@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
+import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 
 // challenge 1: print in reverse

@@ -9,23 +9,26 @@ class DequeSinglyLinkedList<T> implements Deque<T> {
   @override
   // average case time complexity: O(1) | worse case time complexity: O(n)
   T? dequeue(Direction from) {
-    if (from == Direction.front) {
-      return _singlyLinkedList.pop();
-    } else {
-      return _singlyLinkedList.removeLast();
+    switch (from) {
+      case Direction.front:
+        return _singlyLinkedList.pop();
+      case Direction.back:
+        return _singlyLinkedList.removeLast();
     }
   }
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  bool enqueue(T element, Direction from) {
-    if (from == Direction.front) {
-      _singlyLinkedList.push(element);
-      return true;
-    } else {
-      _singlyLinkedList.append(element);
-      return true;
+  bool enqueue(T element, Direction to) {
+    switch (to) {
+      case Direction.front:
+        _singlyLinkedList.push(element);
+        break;
+      case Direction.back:
+        _singlyLinkedList.append(element);
+        break;
     }
+    return true;
   }
 
   @override

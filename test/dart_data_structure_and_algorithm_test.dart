@@ -1,11 +1,13 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
 import 'package:dart_data_structure_and_algorithm/queue/double_list_based_queue_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/queue/queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/queue/ring_buffer_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/queue/single_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/ring_buffer/ring_buffer.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list.dart';
 import 'package:dart_data_structure_and_algorithm/singly_linked_list/singly_linked_list_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
 import 'package:test/test.dart';
@@ -17,7 +19,7 @@ void main() {
 
 /*********************STACK*********************/
 
-  Stack stack = Stack<int>();
+  StackList stack = StackList<int>();
   stack.push(1);
   stack.push(2);
   stack.push(3);
@@ -27,7 +29,7 @@ void main() {
   });
 
   List list = ['q', 'w', 'e', 't', 'y'];
-  Stack letters = Stack.fromIterable(list);
+  StackList letters = StackList.fromIterable(list);
   test('returning the element at the top of the stack without removing it', () {
     expect(letters.peek(), 'y');
   });
@@ -224,5 +226,17 @@ void main() {
     expect(queueDoubleList.toString(), '[Ray, Brian, Eric]');
     expect(queueDoubleList.dequeue(), 'Ray');
     expect(queueDoubleList.peek(), 'Brian');
+  });
+
+  final boardGameManager = QueueRingBuffer<dynamic>(3);
+  boardGameManager.enqueue("Ray");
+  boardGameManager.enqueue("Brian");
+  boardGameManager.enqueue("Eric");
+  test('queue based challenge 1: check if nextPlayer method can return the correct next player', () {
+    expect(boardGameManager.nextPlayer(), "Ray");
+    expect(boardGameManager.nextPlayer(), 'Brian');
+    expect(boardGameManager.nextPlayer(), 'Eric');
+    expect(boardGameManager.nextPlayer(), "Ray");
+    expect(boardGameManager.nextPlayer(), 'Brian');
   });
 }

@@ -1,3 +1,5 @@
+import 'package:dart_data_structure_and_algorithm/queue/ring_buffer_based_queue_implementation.dart';
+
 // challenge 1: stack vs queue.
 // Explain the difference between a stack and a queue. Provides two real-life examples for each data structure.
 
@@ -259,3 +261,112 @@
 */
 
 // 4. Double_list step-by-step diagrams.
+/* 
+  left list for dequeue             right list for enqueue
+  _____________________             _____________________
+  |   |   |   |   |   |             |   |   |   |   |   |
+  |   |   |   |   |   |             | S | P | E | E | D |
+  |___|___|___|___|___|             |___|___|___|___|___|
+
+  left list for dequeue             right list for enqueue
+  _____________________             _________________________________________
+  |   |   |   |   |   |             |   |   |   |   |   |   |   |   |   |   |
+  |   |   |   |   |   |             | S | P | E | E | D | D |   |   |   |   |
+  |___|___|___|___|___|             |___|___|___|___|___|___|___|___|___|___|
+                                                         /|\
+                                                          |____ queue.enqueue('D');
+
+  left list for dequeue             right list for enqueue
+  _____________________             _________________________________________
+  |   |   |   |   |   |             |   |   |   |   |   |   |   |   |   |   |
+  |   |   |   |   |   |             | S | P | E | E | D | D | A |   |   |   |
+  |___|___|___|___|___|             |___|___|___|___|___|___|___|___|___|___|
+                                                             /|\
+                                                              |____ queue.enqueue('A');
+  
+  left list for dequeue             right list for enqueue
+  _____________________             _________________________________________
+  |   |   |   |   |   |             |   |   |   |   |   |   |   |   |   |   |
+  |   |   |   |   |   |             | S | P | E | E | D | D | A |   |   |   |
+  |___|___|___|___|___|             |___|___|___|___|___|___|___|___|___|___|
+
+Nb: dequeuing the first time will result in copying the reversed right list into the left list.
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               
+  |   |   |   |   |   |   |   |   |   |   |               * when right list is clears, dart reclaims the
+  | A | D | D | E | E | P | S |   |   |   |                 memory, and the right list becomes empty
+  |___|___|___|___|___|___|___|___|___|___|               
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               
+  |   |   |   |   |   |   |   |   |   |   |               * right list is empty
+  | A | D | D | E | E | P | S |   |   |   |                
+  |___|___|___|___|___|___|___|___|___|___|               
+                           /|\
+                            |____ queue.dequeue();
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               
+  |   |   |   |   |   |   |   |   |   |   |               * right list is empty
+  | A | D | D | E | E | P |   |   |   |   |               
+  |___|___|___|___|___|___|___|___|___|___|               
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               _____
+  |   |   |   |   |   |   |   |   |   |   |               |   |
+  | A | D | D | E | E | P |   |   |   |   |               | R |
+  |___|___|___|___|___|___|___|___|___|___|               |___|
+                                                           /|\
+                                                            |____ queue.enqueue('R');
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               _________
+  |   |   |   |   |   |   |   |   |   |   |               |   |   |
+  | A | D | D | E | E | P |   |   |   |   |               | R |   |
+  |___|___|___|___|___|___|___|___|___|___|               |___|___|
+                       /|\
+                        |____ queue.dequeue();
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               _________
+  |   |   |   |   |   |   |   |   |   |   |               |   |   |
+  | A | D | D | E | E |   |   |   |   |   |               | R |   |
+  |___|___|___|___|___|___|___|___|___|___|               |___|___|
+                   /|\
+                    |____ queue.dequeue();
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               _________
+  |   |   |   |   |   |   |   |   |   |   |               |   |   |
+  | A | D | D | E |   |   |   |   |   |   |               | R |   |
+  |___|___|___|___|___|___|___|___|___|___|               |___|___|
+
+    left list for dequeue                                 right list for enqueue
+  _________________________________________               _________________
+  |   |   |   |   |   |   |   |   |   |   |               |   |   |   |   |
+  | A | D | D | E |   |   |   |   |   |   |               | R | T |   |   |
+  |___|___|___|___|___|___|___|___|___|___|               |___|___|___|___|
+                                                               /|\
+                                                                |____ queue.enqueue('T'); 
+
+  Nb: you can represent the 2 lists as a 2 stacks for simple visualization              
+*/
+
+// challenge 3: whose turn is it
+/* 
+  imagine you are playing a game of monopoly with your friends. The problem is everyone always forgets who
+  turn it is! Create a monopoly organizer that always tells you whose turn it is.
+*/
+
+extension BoardGameManager<E> on QueueRingBuffer {
+  E? nextPlayer() {
+    E? nextPlayer = dequeue();
+    enqueue(nextPlayer);
+    return nextPlayer;
+  }
+}
+
+
+// challenge 4: Double-ended queue (deque)
+// build a deque
+// check under the lib folder

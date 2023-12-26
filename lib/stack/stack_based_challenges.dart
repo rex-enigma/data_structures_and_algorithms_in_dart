@@ -1,3 +1,4 @@
+import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 // solve the following challenges using stacks
 
@@ -8,7 +9,7 @@ void printReverseList(List list) {
 }
 
 List reverseList(List list) {
-  Stack stack = Stack.fromIterable(list);
+  StackList stack = StackList.fromIterable(list);
 
   List reverseOrderList = [];
 
@@ -30,7 +31,7 @@ List reverseList(List list) {
 // for every opening parenthesis that is pushed into the stack, gets popped out if there is an equivalent
 // closing parenthesis that exits in the string.
 bool isParenthesisBalanced(String string) {
-  Stack charsStack = Stack();
+  StackList charsStack = StackList();
 
   for (var i = 0; i < string.length; i++) {
     String char = string[i];

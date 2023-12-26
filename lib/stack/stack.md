@@ -1,8 +1,10 @@
-A stack is a **LIFO**, last-in-first-out, data structure.
+A stack is a **LIFO**, last-in-first-out, abstract data type.
 
 Common operation are push and pop method which have O(1) time complexity.
 
-A stack can be implemented with a list(array) or a linked list, here we use list to implement it.
+#### Stack ADT can be implemented using:
+1. list(normal array data structure).
+2. doubly linked list or singly linked list data structure
 
 #### common operation are:
 1. **push** -> adds element on top of the stack

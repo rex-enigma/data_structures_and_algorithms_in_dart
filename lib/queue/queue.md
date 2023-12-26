@@ -22,11 +22,17 @@ Queue only cares about removal at the front and insertion at the back, you don't
 
 
 ##### applications of queue 
-
+1. print queue -> in printer spooling systems, print jobs are placed in a queue and they are printed in the order they are received.
+2. breadth-first-search(BFS) in graphs -> queues are essential in graph algorithms, particularly in BFS traversal. Nodes are processed in layers, with each layer representing the distance from the source node
+3. handling of requests in web servers -> web servers use queues to manage incoming requests from clients. The server processes request in the order they are received.
+4. Order processing in E-commerce -> queues can be used to manage the processing of orders. 
 
 
 
 ##### key points
-Dequeuing an item in list base queue takes linear time ,O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
+1. Dequeuing an item in list base queue takes linear time ,O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
+2. Queue takes a FIFO strategy: an element added first must be removed first.
+3. Single list base queue imp, elements are laid out in a contiguous memory blocks whereas in a singly linked list are more scattered with potential of cache misses.
+4. A ring buffer based implementation is god for queues with a fixed size.
 
-The main weakness of queueSingleLinkedList and queueDoubleLinkedList is, every time you create a new element it requires extra storage for the forward and back reference and also it requires a relatively expensive dynamic allocation of memory for the new node.By contrast, QueueList does bulk allocation, which is relatively faster.
+The main weakness of QueueDoublyLinkedList is, every time you create a new element it requires extra storage for the forward and back reference and also it requires a relatively expensive dynamic allocation of memory for the new node.By contrast, QueueList does bulk allocation, which is relatively faster.

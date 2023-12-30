@@ -45,7 +45,7 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                         _/_     _\_
                         |_|     |_|  
                         / \     
-                      _/_  \_ 
+                      _/_ _\_ 
                       |_| |_|                         
 
     - **unbalanced**: is a binary tree where the depth of the two subtrees of any node can differ significantly.
@@ -57,12 +57,12 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                         _/_                    /
                         |_|                  _/_
                         / \                  |_|
-                      _/_  \_                /
+                      _/_ _\_                /
                       |_| |_|              _/_
                                            |_|  
-4. **Tries** -> 
+4. **Tries** -> a.k.a prefix tree or digital tree, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
    
-5. **Heap** -> 
+5. **Heap** -> a.k.a binary heap, is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children. A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg)
    
 
 #### common operation are:

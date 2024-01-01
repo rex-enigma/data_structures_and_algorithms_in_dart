@@ -24,10 +24,7 @@ Each child node can be treated like the root node of its own subtree, making rec
 13. **subtree** -> any node of the tree along with its descendants.
 14. **breadth** -> the number of leaves.
     
-
-#### Properties
-
-
+    
 #### Types of trees:
 Trees can be categories base on **the nodes' values** eg binary search tree, AVL tree, red-back tree etc OR  based on **the number of children** eg binary tree, ternary tree, N-ary tree etc OR other forms categories.
 

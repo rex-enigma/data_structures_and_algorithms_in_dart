@@ -17,8 +17,8 @@ class BinaryNode<T> {
   }
 
   void traversePostOrder(void Function(T value) action) {
-    leftChild?.traverseInOrder(action);
-    rightChild?.traverseInOrder(action);
+    leftChild?.traversePostOrder(action);
+    rightChild?.traversePostOrder(action);
     action(value);
   }
 

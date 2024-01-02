@@ -19,4 +19,20 @@ void main(List<String> arguments) {
 
   // tree diagrammatic representation
   print(createBinaryTree());
+
+  // DEPTH-TRAVERSAL TYPE ALGORITHMS
+  final numberTree = createBinaryTree();
+
+  //pre-order traversal
+  numberTree.traversePreOrder(print);
+
+  print('\n');
+
+  // in-order traversal
+  numberTree.traverseInOrder(print);
+
+  print('\n');
+
+  // post-order traversal
+  numberTree.traversePostOrder(print);
 }

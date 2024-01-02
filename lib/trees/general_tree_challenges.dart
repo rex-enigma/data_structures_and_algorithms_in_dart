@@ -58,7 +58,7 @@ void printTreeInLevelOrder() {
   Column -> a tree node that takes multiple children.
   padding -> a tree node that takes a single child
   Text -> a tree leaf node.
- */
+*/
 // use your widget nodes to build a simple widget tree.
 
 class Widget {}

@@ -79,9 +79,26 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
    
 
 #### common operation are:
+1. **depth-first traversal** -> visiting nodes in a vertical order.
+2. **level-order traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
+3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
+4. 
 
 ##### applications of trees:
+1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.
+2. used for efficient searching and sorting -> binary search trees arrange elements in sorted order enabling faster lookup, insertion and deletion of data. B- Trees / B+ Trees are widely used to index data in databases, allowing faster retrieval of records based on key values.
+3. parsing -> eg syntax trees, compilers and interpreters constructs syntax trees to represent the structure of code or documents enabling code analysis and translation.
+4. Artificial intelligence -> decision trees model decision making processes, commonly used in machine learning algorithms for classification and prediction. Game trees, used in game AI to explore possible moves and their outcomes, aiding in strategy development.
+5. network routing -> routing trees represent network topologies determining optimal paths for data transmission.
 
-##### key points
+##### key points:
+1. Trees share some similarities to linked lists, but, whereas linked-list nodes may
+only link to one successor node, a tree node can link to many child nodes.
+2. Every tree node, except for the root node, has exactly one parent node.
+3. A root node has no parent nodes.
+4. Leaf nodes have no child nodes.
+5. Traversals, such as depth-first and level-order traversals, work on multiple types
+of trees. However, the implementation will be slightly different based on how the
+tree is structured.
 
 

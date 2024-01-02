@@ -4,6 +4,24 @@ class BinaryNode<T> {
   BinaryNode<T>? leftChild;
   BinaryNode<T>? rightChild;
 
+  void traversePreOrder(void Function(T value) action) {
+    action(value);
+    leftChild?.traversePreOrder(action);
+    rightChild?.traversePreOrder(action);
+  }
+
+  void traverseInOrder(void Function(T value) action) {
+    leftChild?.traverseInOrder(action);
+    action(value);
+    rightChild?.traverseInOrder(action);
+  }
+
+  void traversePostOrder(void Function(T value) action) {
+    leftChild?.traverseInOrder(action);
+    rightChild?.traverseInOrder(action);
+    action(value);
+  }
+
   @override
   String toString() {
     return _diagram(this);

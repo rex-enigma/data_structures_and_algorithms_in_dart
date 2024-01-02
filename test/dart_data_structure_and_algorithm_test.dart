@@ -11,7 +11,7 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/trees/basic_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
 import 'package:test/test.dart';
 
 void main() {

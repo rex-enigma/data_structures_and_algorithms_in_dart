@@ -12,6 +12,10 @@ class TreeNode<T> {
     children.add(treeNode);
   }
 
+  void addAllTreeNode(List<TreeNode<T>> nodes) {
+    children.addAll(nodes);
+  }
+
   // Depth-first traversal
   // i like to think of it as vertical traversal
   void forEachDepthFirst(void Function(TreeNode<T> node) performAction) {
@@ -36,6 +40,7 @@ class TreeNode<T> {
   }
 
 // we can use any traversal technique to implement searching depending on the problem you what to solve
+  /// if there are multiple matches, the last match will be returned.
   TreeNode<T>? searchLevelFirst(T value) {
     TreeNode<T>? result;
     forEachLevelFirst((node) {

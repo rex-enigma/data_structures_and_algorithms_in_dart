@@ -42,7 +42,6 @@ int treeHeight(BinaryNode root) {
 //       );
 // }
 
-
 // challenge 2: serialization
 /* 
 A common task in software development is representing a complex object using
@@ -53,3 +52,47 @@ serialization is JSON.
 
 // Your task is to devise a way to serialize a binary tree into a list, and a way to
 // deserialize the list back into the same binary tree.
+
+// this uses pre-order technique
+// List<BinaryNode?> serializeBinaryTreeToList(BinaryNode root) {
+//   // BinaryNode node = root;
+//   List<BinaryNode?> serializedBinaryTreeList = [];
+
+//   root.traversePreOrder((node) {
+//     if (node == root) {
+//       serializedBinaryTreeList.add(node.value);
+//     }
+//     if (node.leftChild == null) {
+//       serializedBinaryTreeList.add(null);
+//       if (node.rightChild == null) {
+//         serializedBinaryTreeList.add(null);
+//       }
+//     } else {
+
+//     }
+//   });
+//   return serializedBinaryTreeList;
+// }
+
+List<BinaryNode?> serializeBinaryTreeToList(BinaryNode root) {
+  return serializeBinaryTreeTListRecursively(root);
+}
+
+List<BinaryNode?> serializeBinaryTreeTListRecursively(BinaryNode? node) {
+  List<BinaryNode?> serializedBinaryTreeList = [];
+  if (node == null) serializedBinaryTreeList;
+
+  serializedBinaryTreeList.add(node?.value);
+
+  if (node?.leftChild == null) {
+    serializedBinaryTreeList.add(null);
+  }
+
+  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node?.leftChild));
+
+  if (node?.rightChild == null) {
+    serializedBinaryTreeList.add(null);
+  }
+  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node?.rightChild));
+  return serializedBinaryTreeList;
+}

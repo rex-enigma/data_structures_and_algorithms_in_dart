@@ -1,4 +1,5 @@
-import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
+import 'dart:math';
+
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 
 // challenge 1: height of the tree
@@ -26,3 +27,29 @@ int treeHeight(BinaryNode root) {
 
   return treeHeight;
 }
+
+//book's solution for challenge 1
+
+// int height(BinaryNode? node) {
+// // 1
+//   if (node == null) return -1;
+
+// // 2
+//   return 1 +
+//       max(
+//         height(node.leftChild),
+//         height(node.rightChild),
+//       );
+// }
+
+
+// challenge 2: serialization
+/* 
+A common task in software development is representing a complex object using
+another data type. This process is known as serialization and allows custom types to
+be used in systems that only support a closed set of data types. An example of
+serialization is JSON. 
+*/
+
+// Your task is to devise a way to serialize a binary tree into a list, and a way to
+// deserialize the list back into the same binary tree.

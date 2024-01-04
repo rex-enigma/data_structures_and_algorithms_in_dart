@@ -11,6 +11,8 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
 import 'package:test/test.dart';
 
@@ -275,4 +277,36 @@ void main() {
   });
 
   /********************Trees*****************************/
+
+  final binaryTreeHeight3 = createBinaryTreeHeight3();
+
+  final zeroRoot = BinaryNode(0);
+  final one = BinaryNode(1);
+  final two = BinaryNode(2);
+  final three = BinaryNode(3);
+  final four = BinaryNode(4);
+  final five = BinaryNode(5);
+  final six = BinaryNode(6);
+  final seven = BinaryNode(7);
+  final eight = BinaryNode(8);
+  final nine = BinaryNode(9);
+  final ten = BinaryNode(10);
+  final eleven = BinaryNode(11);
+  zeroRoot.leftChild = one;
+  zeroRoot.rightChild = two;
+  one.leftChild = three;
+  one.rightChild = four;
+  two.leftChild = five;
+  two.rightChild = six;
+  four.leftChild = seven;
+  four.rightChild = eight;
+  six.leftChild = nine;
+  eight.leftChild = ten;
+  eight.rightChild = eleven;
+
+  test("tree based challenge 1: calculating binary tree height", () {
+    expect(treeHeight(binaryTreeHeight3), 3);
+    expect(treeHeight(zeroRoot), 5);
+    expect(treeHeight(BinaryNode(20)), 0);
+  });
 }

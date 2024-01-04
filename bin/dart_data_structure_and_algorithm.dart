@@ -18,10 +18,10 @@ void main(List<String> arguments) {
   printTreeInLevelOrder();
 
   // tree diagrammatic representation
-  print(createBinaryTree());
+  print(createBinaryTreeHeight3());
 
   // DEPTH-TRAVERSAL TYPE ALGORITHMS
-  final numberTree = createBinaryTree();
+  final numberTree = createBinaryTreeHeight3();
 
   //pre-order traversal
   numberTree.traversePreOrder(print);

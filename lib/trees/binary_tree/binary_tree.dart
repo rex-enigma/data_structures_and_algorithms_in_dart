@@ -4,22 +4,22 @@ class BinaryNode<T> {
   BinaryNode<T>? leftChild;
   BinaryNode<T>? rightChild;
 
-  void traversePreOrder(void Function(T value) action) {
-    action(value);
+  void traversePreOrder(void Function(BinaryNode<T> node) action) {
+    action(this);
     leftChild?.traversePreOrder(action);
     rightChild?.traversePreOrder(action);
   }
 
-  void traverseInOrder(void Function(T value) action) {
+  void traverseInOrder(void Function(BinaryNode<T> node) action) {
     leftChild?.traverseInOrder(action);
-    action(value);
+    action(this);
     rightChild?.traverseInOrder(action);
   }
 
-  void traversePostOrder(void Function(T value) action) {
+  void traversePostOrder(void Function(BinaryNode<T> node) action) {
     leftChild?.traversePostOrder(action);
     rightChild?.traversePostOrder(action);
-    action(value);
+    action(this);
   }
 
   @override
@@ -56,7 +56,7 @@ class BinaryNode<T> {
   }
 }
 
-BinaryNode<int> createBinaryTree() {
+BinaryNode<int> createBinaryTreeHeight3() {
   final zero = BinaryNode(0);
   final one = BinaryNode(1);
   final five = BinaryNode(5);

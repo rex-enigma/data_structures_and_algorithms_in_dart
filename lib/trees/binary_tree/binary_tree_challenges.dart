@@ -21,9 +21,7 @@ int treeHeight(BinaryNode root) {
       counter++;
     }
 
-    if (node == root.rightChild) {
-      counter = 2;
-    } else {}
+    if (node == root.rightChild) counter = 2;
   });
 
   return treeHeight;

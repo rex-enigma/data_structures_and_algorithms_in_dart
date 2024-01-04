@@ -42,7 +42,7 @@ int treeHeight(BinaryNode root) {
 //       );
 // }
 
-// challenge 2: serialization
+// challenge 2a: serialization
 /* 
 A common task in software development is representing a complex object using
 another data type. This process is known as serialization and allows custom types to
@@ -53,46 +53,22 @@ serialization is JSON.
 // Your task is to devise a way to serialize a binary tree into a list, and a way to
 // deserialize the list back into the same binary tree.
 
-// this uses pre-order technique
-// List<BinaryNode?> serializeBinaryTreeToList(BinaryNode root) {
-//   // BinaryNode node = root;
-//   List<BinaryNode?> serializedBinaryTreeList = [];
+// this uses pre-order technique with recursion
+List<T?> serializeBinaryTreeTListRecursively<T>(BinaryNode<T>? node) {
+  List<T?> serializedBinaryTreeList = [];
+  if (node == null) return serializedBinaryTreeList;
 
-//   root.traversePreOrder((node) {
-//     if (node == root) {
-//       serializedBinaryTreeList.add(node.value);
-//     }
-//     if (node.leftChild == null) {
-//       serializedBinaryTreeList.add(null);
-//       if (node.rightChild == null) {
-//         serializedBinaryTreeList.add(null);
-//       }
-//     } else {
+  serializedBinaryTreeList.add(node.value);
 
-//     }
-//   });
-//   return serializedBinaryTreeList;
-// }
-
-List<BinaryNode?> serializeBinaryTreeToList(BinaryNode root) {
-  return serializeBinaryTreeTListRecursively(root);
-}
-
-List<BinaryNode?> serializeBinaryTreeTListRecursively(BinaryNode? node) {
-  List<BinaryNode?> serializedBinaryTreeList = [];
-  if (node == null) serializedBinaryTreeList;
-
-  serializedBinaryTreeList.add(node?.value);
-
-  if (node?.leftChild == null) {
+  if (node.leftChild == null) {
     serializedBinaryTreeList.add(null);
   }
 
-  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node?.leftChild));
+  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node.leftChild));
 
-  if (node?.rightChild == null) {
+  if (node.rightChild == null) {
     serializedBinaryTreeList.add(null);
   }
-  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node?.rightChild));
+  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node.rightChild));
   return serializedBinaryTreeList;
 }

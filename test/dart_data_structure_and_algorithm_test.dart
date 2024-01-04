@@ -309,4 +309,20 @@ void main() {
     expect(treeHeight(zeroRoot), 5);
     expect(treeHeight(BinaryNode(20)), 0);
   });
+
+  final serializeZero = BinaryNode(15);
+  final serializeOne = BinaryNode(10);
+  final serializeTwo = BinaryNode(25);
+  final serializeThree = BinaryNode(5);
+  final serializeFour = BinaryNode(12);
+  final serializeFive = BinaryNode(17);
+  serializeZero.leftChild = serializeOne;
+  serializeZero.rightChild = serializeTwo;
+  serializeOne.leftChild = serializeThree;
+  serializeOne.rightChild = serializeFour;
+  serializeTwo.leftChild = serializeFive;
+
+  test("tree based challenge 2a: serialization of a binary tree", () {
+    expect(serializeBinaryTreeTListRecursively(serializeZero).toString(), "[15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]");
+  });
 }

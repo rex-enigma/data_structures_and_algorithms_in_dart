@@ -108,6 +108,7 @@ BinaryNode<T> deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
 
 BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
   BinaryNode<T> node;
+
   if (binaryNodes.last != null) {
     node = BinaryNode(binaryNodes.removeLast());
     node.leftChild = _buildBinaryTreeFromListRecursively(binaryNodes);

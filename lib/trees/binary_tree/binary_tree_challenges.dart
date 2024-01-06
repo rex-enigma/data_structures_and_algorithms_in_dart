@@ -102,23 +102,23 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 // [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
 
 BinaryNode<T> deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
-  final binaryNodesQueue = QueueSinglyLinkedList.from(binaryNodes);
-  return _buildBinaryTreeFromListRecursively(binaryNodesQueue)!;
+  final binaryNodesReveredList = binaryNodes.reversed.toList();
+  return _buildBinaryTreeFromListRecursively(binaryNodesReveredList)!;
 }
 
-BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(Queue<T?> binaryNodeQueue) {
+BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
   BinaryNode<T> node;
-  if (binaryNodeQueue.peek() != null) {
-    node = BinaryNode(binaryNodeQueue.dequeue()!);
-    node.leftChild = _buildBinaryTreeFromListRecursively(binaryNodeQueue);
+  if (binaryNodes.last != null) {
+    node = BinaryNode(binaryNodes.removeLast());
+    node.leftChild = _buildBinaryTreeFromListRecursively(binaryNodes);
   } else {
-    return null;
+    return binaryNodes.removeLast();
   }
 
-  if (binaryNodeQueue.peek() != null) {
-    node.rightChild = _buildBinaryTreeFromListRecursively(binaryNodeQueue);
+  if (binaryNodes.last != null) {
+    node.rightChild = _buildBinaryTreeFromListRecursively(binaryNodes);
   } else {
-    node.rightChild = null;
+    node.rightChild = binaryNodes.removeLast();
   }
   return node;
 }

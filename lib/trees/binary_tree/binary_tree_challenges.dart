@@ -130,18 +130,18 @@ BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
 }
 
 //book's solution for challenge 2b: deserialization
-BinaryNode<T>? deserializeHelper<T>(List<T?> list) {
-  return deserialize(list.reversed.toList());
-}
+// BinaryNode<T>? deserializeHelper<T>(List<T?> list) {
+//   return deserialize(list.reversed.toList());
+// }
 
-BinaryNode<T>? deserialize<T>(List<T?> list) {
-// 2
-  if (list.isEmpty) return null;
-  final value = list.removeAt(0);
-  if (value == null) return null;
-// 3
-  final node = BinaryNode<T>(value);
-  node.leftChild = deserialize(list);
-  node.rightChild = deserialize(list);
-  return node;
-}
+// BinaryNode<T>? deserialize<T>(List<T?> list) {
+// // 2
+//   if (list.isEmpty) return null;
+//   final value = list.removeAt(0);
+//   if (value == null) return null;
+// // 3
+//   final node = BinaryNode<T>(value);
+//   node.leftChild = deserialize(list);
+//   node.rightChild = deserialize(list);
+//   return node;
+// }

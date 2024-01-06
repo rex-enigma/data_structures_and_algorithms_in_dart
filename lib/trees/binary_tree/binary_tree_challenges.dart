@@ -1,5 +1,5 @@
-import 'dart:math';
-
+import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
+import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 
 // challenge 1: height of the tree
@@ -54,7 +54,7 @@ serialization is JSON.
 // deserialize the list back into the same binary tree.
 
 // this uses pre-order technique with recursion
-List<T?> serializeBinaryTreeTListRecursively<T>(BinaryNode<T>? node) {
+List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
   List<T?> serializedBinaryTreeList = [];
   if (node == null) return serializedBinaryTreeList;
 
@@ -64,11 +64,61 @@ List<T?> serializeBinaryTreeTListRecursively<T>(BinaryNode<T>? node) {
     serializedBinaryTreeList.add(null);
   }
 
-  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node.leftChild));
+  serializedBinaryTreeList.addAll(serializeBinaryTreeToListRecursively(node.leftChild));
 
   if (node.rightChild == null) {
     serializedBinaryTreeList.add(null);
   }
-  serializedBinaryTreeList.addAll(serializeBinaryTreeTListRecursively(node.rightChild));
+  serializedBinaryTreeList.addAll(serializeBinaryTreeToListRecursively(node.rightChild));
   return serializedBinaryTreeList;
+}
+
+//book's solution for challenge 2a
+// extension Serializable<T> on BinaryNode<T> {
+//   void traversePreOrderWithNull(void Function(T? value) action) {
+//     action(value);
+//     if (leftChild == null) {
+//       action(null);
+//     } else {
+//       leftChild!.traversePreOrderWithNull(action);
+//     }
+//     if (rightChild == null) {
+//       action(null);
+//     } else {
+//       rightChild!.traversePreOrderWithNull(action);
+//     }
+//   }
+// }
+
+// List<T?> serialize<T>(BinaryNode<T> node) {
+//   final list = <T?>[];
+//   node.traversePreOrderWithNull((value) => list.add(value));
+//   return list;
+// }
+
+// challenge 2b: deserialization
+// deserializing a list of binary tree nodes back into a binary tree.
+// an example of a list of binary tree nodes that you can use as a reference:
+// [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
+
+BinaryNode<T> deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
+  final binaryNodesQueue = QueueSinglyLinkedList.from(binaryNodes);
+  return _buildBinaryTreeFromListRecursively(binaryNodesQueue)!;
+}
+
+BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(Queue<T?> binaryNodeQueue) {
+  BinaryNode<T> node;
+  if (binaryNodeQueue.peek() != null) {
+    node = BinaryNode(binaryNodeQueue.dequeue()!);
+    node.leftChild = _buildBinaryTreeFromListRecursively(binaryNodeQueue);
+  } else {
+    return null;
+  }
+
+  if (binaryNodeQueue.peek() != null) {
+    node.rightChild = _buildBinaryTreeFromListRecursively(binaryNodeQueue);
+  } else {
+    node.rightChild = null;
+  }
+  return node;
 }

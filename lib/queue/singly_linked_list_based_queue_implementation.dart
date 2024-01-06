@@ -3,6 +3,10 @@ import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
 
 class QueueSinglyLinkedList<E> implements Queue<E> {
   final _singlyLinkedList = SinglyLinkedList<E>();
+  QueueSinglyLinkedList();
+  QueueSinglyLinkedList.from(Iterable<E> iterable) {
+    iterable.forEach(enqueue);
+  }
 
   @override
   bool get isEmpty => _singlyLinkedList.isEmpty;

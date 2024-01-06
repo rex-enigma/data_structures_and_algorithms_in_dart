@@ -304,25 +304,34 @@ void main() {
   eight.leftChild = ten;
   eight.rightChild = eleven;
 
-  test("tree based challenge 1: calculating binary tree height", () {
+  test(" binary tree based challenge 1: calculating binary tree height", () {
     expect(treeHeight(binaryTreeHeight3), 3);
     expect(treeHeight(zeroRoot), 5);
     expect(treeHeight(BinaryNode(20)), 0);
   });
 
-  final serializeZero = BinaryNode(15);
+  final serializeZeroRoot = BinaryNode(15);
   final serializeOne = BinaryNode(10);
   final serializeTwo = BinaryNode(25);
   final serializeThree = BinaryNode(5);
   final serializeFour = BinaryNode(12);
   final serializeFive = BinaryNode(17);
-  serializeZero.leftChild = serializeOne;
-  serializeZero.rightChild = serializeTwo;
+  serializeZeroRoot.leftChild = serializeOne;
+  serializeZeroRoot.rightChild = serializeTwo;
   serializeOne.leftChild = serializeThree;
   serializeOne.rightChild = serializeFour;
   serializeTwo.leftChild = serializeFive;
 
-  test("tree based challenge 2a: serialization of a binary tree", () {
-    expect(serializeBinaryTreeTListRecursively(serializeZero).toString(), "[15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]");
+  test("binary tree based challenge 2a: serialization of a binary tree", () {
+    expect(serializeBinaryTreeToListRecursively(serializeZeroRoot).toString(), "[15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]");
+  });
+
+  // this binary tree based list is from the above serialized Binary tree.
+  final binaryTreeList = [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null];
+  final deserializedBinaryTreeRoot = deserializeListToBinaryTree(binaryTreeList);
+  test("binary tree based challenge 2b: deserialization of a binaryTree list", () {
+    expect(deserializedBinaryTreeRoot.value, 15);
+    expect(deserializedBinaryTreeRoot.leftChild?.value, 10);
+    expect(deserializedBinaryTreeRoot.rightChild?.value, 25);
   });
 }

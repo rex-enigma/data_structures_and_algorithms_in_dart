@@ -332,6 +332,16 @@ void main() {
   test("binary tree based challenge 2b: deserialization of a binaryTree list", () {
     expect(deserializedBinaryTreeRoot.value, 15);
     expect(deserializedBinaryTreeRoot.leftChild?.value, 10);
+    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.value, 5);
+    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.value, 12);
+    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.rightChild, null);
     expect(deserializedBinaryTreeRoot.rightChild?.value, 25);
+    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.value, 17);
+    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot.rightChild?.rightChild, null);
   });
 }

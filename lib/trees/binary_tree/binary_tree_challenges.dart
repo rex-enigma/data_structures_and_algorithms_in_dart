@@ -73,7 +73,7 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
   return serializedBinaryTreeList;
 }
 
-//book's solution for challenge 2a
+//book's solution for challenge 2a: serialization
 // extension Serializable<T> on BinaryNode<T> {
 //   void traversePreOrderWithNull(void Function(T? value) action) {
 //     action(value);
@@ -101,12 +101,15 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 // an example of a list of binary tree nodes that you can use as a reference:
 // [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
 
-BinaryNode<T> deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
+BinaryNode<T>? deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
   final binaryNodesReveredList = binaryNodes.reversed.toList();
-  return _buildBinaryTreeFromListRecursively(binaryNodesReveredList)!;
+  return _buildBinaryTreeFromListRecursively(binaryNodesReveredList);
 }
 
+// this uses pre-order technique with recursion
 BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
+  if (binaryNodes.isEmpty) return null;
+
   BinaryNode<T> node;
 
   if (binaryNodes.last != null) {
@@ -121,5 +124,18 @@ BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
   } else {
     node.rightChild = binaryNodes.removeLast();
   }
+  return node;
+}
+
+//book's solution for challenge 2b: deserialization
+BinaryNode<T>? deserialize<T>(List<T?> list) {
+// 2
+  if (list.isEmpty) return null;
+  final value = list.removeAt(0);
+  if (value == null) return null;
+// 3
+  final node = BinaryNode<T>(value);
+  node.leftChild = deserialize(list);
+  node.rightChild = deserialize(list);
   return node;
 }

@@ -102,14 +102,16 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 // [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
 
 BinaryNode<T>? deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
+  if (binaryNodes.isEmpty) return null;
+  // reversing the list improves the performance when building the binary tree recursively because the removeLast method will be used after list reversal making the time complexity to be O(n), in contract,
+  // if list is not revered, then removeAt(0) method would have been used making the time complexity to be O(n²), since after every removal of the first element, every element must shift to the left to make
+  // up the missing space.
   final binaryNodesReveredList = binaryNodes.reversed.toList();
   return _buildBinaryTreeFromListRecursively(binaryNodesReveredList);
 }
 
 // this uses pre-order technique with recursion
 BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
-  if (binaryNodes.isEmpty) return null;
-
   BinaryNode<T> node;
 
   if (binaryNodes.last != null) {
@@ -128,6 +130,10 @@ BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
 }
 
 //book's solution for challenge 2b: deserialization
+BinaryNode<T>? deserializeHelper<T>(List<T?> list) {
+  return deserialize(list.reversed.toList());
+}
+
 BinaryNode<T>? deserialize<T>(List<T?> list) {
 // 2
   if (list.isEmpty) return null;

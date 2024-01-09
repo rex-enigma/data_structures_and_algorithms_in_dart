@@ -18,11 +18,11 @@ In the binary search tree implementation, i have chosen NOT to allow duplicate v
                        /    \
                       /      \
                ______/_____  _\____
-              |      5     || 15  |
-              |     / \    || / \ |
-              |    3   7   ||12 19|
-              |   /\   /\  ||_____|  
-              |  1  2 6  9 |  / \
+              |     5      || 15  |
+              |    / \     || / \ |
+              |   3   7    ||12 19|
+              |  /\  /\    ||_____|  
+              | 1 2 6  9  |  / \
               |____________|   |_ all values in this right subtree should be greater than 10
                    / \
 all values in this _|

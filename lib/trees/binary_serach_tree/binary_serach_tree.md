@@ -7,6 +7,7 @@
  1. The value of the **left child** must be less than the value of its parent.
  2. The value of the **right** must be greater the value of its parent.
  3. Binary search tree cannot contain similar values on any two different nodes in tree.
+ 4. Binary search tree can only hold values that are comparable.
 
  <!-- #### Traversal algorithms(Types of depth-first traversal):
  pre-order, post-order and in-order traversal algorithms are best described by a tree image check [visual representation of the traversal algorithms in Baeldung website](https://www.baeldung.com/cs/depth-first-traversal-methods). -->
@@ -21,6 +22,7 @@
    
    2. **if Z has one child:** the child node of Z gets elevated by modifying the parent node of Z to point to the child node(Z's child node), consequently taking Z's position in the tree.
    
+
    3. **if Z has both left and right child:** these are the steps:
       1. get the inorder successor(the node with the smallest value in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
       2. if the inorder successor is Z's immediate right child, replace the value of Z with the value of inorder successor and modify Z's right child to point to inorder successor's right child.

@@ -4,13 +4,30 @@
 
 
  #### A binary search tree imposes the following rules:
- 1. The value of the **left child** must be less than the value of its parent.
- 2. The value of the **right** must be greater the value of its parent.
- 3. Binary search tree cannot contain similar values on any two different nodes in tree.
+ 1. Binary search tree may contain duplicate values/keys or not. If duplicate value/key is allowed, it should be placed either on the right child OR left child of the parent node whose having similar value/key.
+ 2. All values on the left side(left subtree) of a node are less than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the left child of a node should contain a value which is less than or equal to the value node itself.
+ 3. All values on the right side(right subtree) of a node are greater than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the right child of a node should contain a value which is greater than or equal to the value node itself.
  4. Binary search tree can only hold values that are comparable.
 
- <!-- #### Traversal algorithms(Types of depth-first traversal):
- pre-order, post-order and in-order traversal algorithms are best described by a tree image check [visual representation of the traversal algorithms in Baeldung website](https://www.baeldung.com/cs/depth-first-traversal-methods). -->
+#### Note:
+If duplicate values are allows in BST, the duplicate value should be placed either on the left child or right child of the parent node whose having similar value/key BUT not on both side.
+In the binary search tree implementation, i have chosen NOT to allow duplicate values. To reduce complexity.
+
+#### diagrammatic illustration
+                         10
+                       /    \
+                      /      \
+               ______/_____  _\____
+              |      5     || 15  |
+              |     / \    || / \ |
+              |    3   7   ||12 19|
+              |   /\   /\  ||_____|  
+              |  1  2 6  9 |  / \
+              |____________|   |_ all values in this right subtree should be greater than 10
+                   / \
+all values in this _|
+left subtree should be less that 10
+
 
 #### common operation are:
 1. **fast lookup / search** -> Searching in a binary search tree for a specific key/value can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
@@ -33,3 +50,5 @@
 
 
 ##### key points:
+
+

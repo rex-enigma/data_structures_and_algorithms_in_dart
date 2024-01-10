@@ -5,13 +5,13 @@
 
  #### A binary search tree imposes the following rules:
  1. Binary search tree may contain duplicate values/keys or not. If duplicate value/key is allowed, it should be placed either on the right child OR left child of the parent node whose having similar value/key.
- 2. All values on the left side(left subtree) of a node are less than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the left child of a node should contain a value which is less than or equal to the value node itself.
- 3. All values on the right side(right subtree) of a node are greater than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the right child of a node should contain a value which is greater than or equal to the value node itself.
+ 2. All values on the left side(left subtree) of a node are less than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the left child of a node should contain a value which is less than or equal to the value of node itself.
+ 3. All values on the right side(right subtree) of a node are greater than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the right child of a node should contain a value which is greater than or equal to the value of node itself.
  4. Binary search tree can only hold values that are comparable.
 
 #### Note:
 If duplicate values are allows in BST, the duplicate value should be placed either on the left child or right child of the parent node whose having similar value/key BUT not on both side.
-In the binary search tree implementation, i have chosen NOT to allow duplicate values. To reduce complexity.
+In the binary search tree implementation, i have chosen NOT to allow duplicate values to reduce complexity.
 
 #### diagrammatic illustration
                          10
@@ -22,7 +22,7 @@ In the binary search tree implementation, i have chosen NOT to allow duplicate v
               |    / \     || / \ |
               |   3   7    ||12 19|
               |  /\  /\    ||_____|  
-              | 1 2 6  9  |  / \
+              | 1 2 6  9   |  / \
               |____________|   |_ all values in this right subtree should be greater than 10
                    / \
 all values in this _|

@@ -11,6 +11,7 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
@@ -330,18 +331,48 @@ void main() {
   final binaryTreeList = [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null];
   final deserializedBinaryTreeRoot = deserializeListToBinaryTree(binaryTreeList);
   test("binary tree based challenge 2b: deserialization of a binaryTree list", () {
-    expect(deserializedBinaryTreeRoot.value, 15);
-    expect(deserializedBinaryTreeRoot.leftChild?.value, 10);
-    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.value, 5);
-    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot.leftChild?.leftChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.value, 12);
-    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot.leftChild?.rightChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot.rightChild?.value, 25);
-    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.value, 17);
-    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot.rightChild?.leftChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot.rightChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot?.value, 15);
+    expect(deserializedBinaryTreeRoot?.leftChild?.value, 10);
+    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.value, 5);
+    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.value, 12);
+    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot?.rightChild?.value, 25);
+    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.value, 17);
+    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTreeRoot?.rightChild?.rightChild, null);
+  });
+
+  final binarySearchTreeUnbalanced1 = BinarySearchTree<int>();
+  for (var i = 0; i < 5; i++) {
+    // this insertion will create unbalanced tree
+    binarySearchTreeUnbalanced1.insert(i);
+  }
+
+  test('inserting values in a binary search tree, creating unbalanced search tree', () {
+    expect(binarySearchTreeUnbalanced1.root?.value, 0);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.value, 1);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.value, 2);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.value, 3);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.rightChild?.value, 4);
+  });
+
+  final binarySearchTreeBalanced1 = BinarySearchTree<int>();
+  binarySearchTreeBalanced1.insert(3);
+  binarySearchTreeBalanced1.insert(1);
+  binarySearchTreeBalanced1.insert(4);
+  binarySearchTreeBalanced1.insert(0);
+  binarySearchTreeBalanced1.insert(2);
+  binarySearchTreeBalanced1.insert(5);
+  test('inserting values in a binary search tree, creating balanced search tree', () {
+    expect(binarySearchTreeBalanced1.root?.value, 3);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.value, 1);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.leftChild?.value, 0);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.rightChild?.value, 2);
+    expect(binarySearchTreeBalanced1.root?.rightChild?.value, 4);
+    expect(binarySearchTreeBalanced1.root?.rightChild?.rightChild?.value, 5);
   });
 }

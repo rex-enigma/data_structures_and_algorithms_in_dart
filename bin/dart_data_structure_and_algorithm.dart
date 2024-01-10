@@ -7,6 +7,7 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/queue/single_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree_challenges.dart';
@@ -35,4 +36,13 @@ void main(List<String> arguments) {
 
   // post-order traversal
   numberTree.traversePostOrder(print);
+  final binarySearchTreeBalanced1 = BinarySearchTree<int>();
+  binarySearchTreeBalanced1.insert(3);
+  binarySearchTreeBalanced1.insert(1);
+  binarySearchTreeBalanced1.insert(4);
+  binarySearchTreeBalanced1.insert(0);
+  binarySearchTreeBalanced1.insert(2);
+  binarySearchTreeBalanced1.insert(5);
+
+  print(binarySearchTreeBalanced1);
 }

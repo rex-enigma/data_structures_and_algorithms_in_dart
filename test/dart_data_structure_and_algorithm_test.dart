@@ -375,4 +375,8 @@ void main() {
     expect(binarySearchTreeBalanced1.root?.rightChild?.value, 4);
     expect(binarySearchTreeBalanced1.root?.rightChild?.rightChild?.value, 5);
   });
+  test('searching / finding a value in a binary search tree', () {
+    expect(binarySearchTreeBalanced1.contains(2), true);
+    expect(binarySearchTreeBalanced1.contains(10), false);
+  });
 }

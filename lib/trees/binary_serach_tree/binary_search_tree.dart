@@ -5,6 +5,7 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.
 class BinarySearchTree<T extends Comparable<dynamic>> {
   BinaryNode<T>? root;
 
+  /// inserting a value in a binary search tree. Duplicate values insertion will be discarded
   void insert(T value) {
     root = _insertAt(root, value);
   }
@@ -32,6 +33,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
     return node;
   }
 
+  /// checking if the given value exist in a binary search tree.
   bool contains(T value) {
     var current = root;
 
@@ -50,6 +52,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
     return false;
   }
 
+  /// removing the given value from a binary search tree.
   void remove(T value) {
     root = _remove(root, value);
   }

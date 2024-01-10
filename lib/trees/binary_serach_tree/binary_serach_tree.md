@@ -30,7 +30,7 @@ left subtree should be less that 10
 
 
 #### common operation are:
-1. **fast lookup / search** -> Searching in a binary search tree for a specific key/value can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
+1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/value can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
    
 2. **insert** -> New nodes are inserted as leaf nodes.
    
@@ -46,7 +46,7 @@ left subtree should be less that 10
       3. if the inorder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inorder successor and modify inorder successor's parent's left child to point to inorder successor's right child.
    
 
-##### applications of binary tree:
+##### applications of binary tree:                                                     
 
 
 ##### key points:

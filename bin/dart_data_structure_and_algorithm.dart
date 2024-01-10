@@ -36,13 +36,4 @@ void main(List<String> arguments) {
 
   // post-order traversal
   numberTree.traversePostOrder(print);
-  final binarySearchTreeBalanced1 = BinarySearchTree<int>();
-  binarySearchTreeBalanced1.insert(3);
-  binarySearchTreeBalanced1.insert(1);
-  binarySearchTreeBalanced1.insert(4);
-  binarySearchTreeBalanced1.insert(0);
-  binarySearchTreeBalanced1.insert(2);
-  binarySearchTreeBalanced1.insert(5);
-
-  print(binarySearchTreeBalanced1);
 }

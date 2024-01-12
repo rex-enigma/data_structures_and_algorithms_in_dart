@@ -12,6 +12,7 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
@@ -378,5 +379,22 @@ void main() {
   test('searching / finding a value in a binary search tree', () {
     expect(binarySearchTreeBalanced1.contains(2), true);
     expect(binarySearchTreeBalanced1.contains(10), false);
+  });
+
+  final notABinarySearchTreeRoot = BinaryNode(3);
+  final notABinarySearchTreeOne = BinaryNode(1);
+  final notABinarySearchTreeTwo = BinaryNode(0);
+  final notABinarySearchTreeThree = BinaryNode(4);
+  final notABinarySearchTreeFour = BinaryNode(2);
+  final notABinarySearchTreeFive = BinaryNode(5);
+  notABinarySearchTreeRoot.leftChild = notABinarySearchTreeOne;
+  notABinarySearchTreeRoot.rightChild = notABinarySearchTreeFour;
+  notABinarySearchTreeOne.leftChild = notABinarySearchTreeTwo;
+  notABinarySearchTreeOne.rightChild = notABinarySearchTreeThree;
+  notABinarySearchTreeFour.rightChild = notABinarySearchTreeFive;
+
+  test('binary search tree based challenge 1: check if a binary tree is a binary search tree', () {
+    expect(isBinarySearchTree(binarySearchTreeBalanced1.root), true);
+    expect(isBinarySearchTree(notABinarySearchTreeRoot), false);
   });
 }

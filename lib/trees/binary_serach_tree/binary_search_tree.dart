@@ -44,8 +44,8 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
       // branch to the left side if value is less than current node's value.
       if (value.compareTo(current.value) < 0) {
         current = current.leftChild;
-        // branch to the right side if value is greater than current node's value;
-      } else {
+        // branch to the right side if value is greater than current node's value(i would have used else only but i chose else if for readability purpose)
+      } else if (value.compareTo(current.value) > 0) {
         current = current.rightChild;
       }
     }

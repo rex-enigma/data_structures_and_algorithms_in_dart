@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree_challenges.dart';
 

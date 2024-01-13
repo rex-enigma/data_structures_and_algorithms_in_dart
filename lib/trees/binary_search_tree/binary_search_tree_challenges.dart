@@ -1,3 +1,4 @@
+import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 
 // challenge 1: Binary tree or binary search tree
@@ -36,15 +37,15 @@ bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
 //   }
 
 //   bool _isBST(BinaryNode<E>? tree, {E? min, E? max}) {
-//     // 1
+
 //     if (tree == null) return true;
-//     // 2
+
 //     if (min != null && tree.value.compareTo(min) < 0) {
 //       return false;
 //     } else if (max != null && tree.value.compareTo(max) >= 0) {
 //       return false;
 //     }
-//     // 3
+
 //     return _isBST(tree.leftChild, min: min, max: tree.value) && _isBST(tree.rightChild, min: tree.value, max: max);
 //   }
 // }
@@ -60,6 +61,7 @@ bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
 // be overridden to be able compare the node values based on there field values.
 
 // binary trees are considered equal when both binary trees have the same structure and there nodes have the same value.
+// this implementation can also work with binary search tree.
 bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
   if (node1 == null && node2 == null) return true;
 
@@ -78,4 +80,53 @@ bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
     }
   }
   return true;
+}
+
+// shorter version but harder to read.
+// bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
+//   if (node1 == null && node2 == null) return true;
+//   if (node1?.value != node2?.value || !(isBinaryTreesEqual(node1?.leftChild, node2?.leftChild)) || !(isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
+//     return false;
+//   }
+//   return true;
+// }
+
+//book's solution for challenge 2
+// bool treesEqual(BinarySearchTree first, BinarySearchTree second) {
+//   return _isEqual(first.root, second.root);
+// }
+
+// bool _isEqual(BinaryNode? first, BinaryNode? second) {
+
+//   if (first == null || second == null) {
+//     return first == null && second == null;
+//   }
+
+//   return first.value == second.value && _isEqual(first.leftChild, second.leftChild) && _isEqual(first.rightChild, second.rightChild);
+// }
+
+// challenge 3: is its a subtree?
+// create a method that checks if the main tree contains all the element of another tree.
+
+// (checking if one binary search tree is a binary search subtree of another binary search tree)
+// here were are not considering the subtree and the main tree structural arrangement, we are only concern with the main tree containing
+// all the elements of another tree "the subtree is so".
+bool containsBinarySearchSubTree(BinarySearchTree? mainBinarySearchTree, BinarySearchTree? binarySearchSubTree) {
+  bool containsBinarySearchSubTree = true;
+  if (mainBinarySearchTree?.root == null && binarySearchSubTree?.root == null) return containsBinarySearchSubTree;
+
+  var binarySearchSubTreeNodes = [];
+  binarySearchSubTree?.root?.traversePreOrder((node) => binarySearchSubTreeNodes.add(node.value));
+
+  if (binarySearchSubTreeNodes.isEmpty) {
+    return false;
+  } else {
+    for (var nodeValue in binarySearchSubTreeNodes) {
+      if (mainBinarySearchTree == null || !(mainBinarySearchTree.contains(nodeValue))) {
+        return false;
+      }
+    }
+  }
+
+  return containsBinarySearchSubTree;
 }

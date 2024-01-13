@@ -11,8 +11,8 @@ import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list
 import 'package:dart_data_structure_and_algorithm/linked_list/singly_linked_list_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/stack/stack_based_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree.dart';
-import 'package:dart_data_structure_and_algorithm/trees/binary_serach_tree/binary_search_tree_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
@@ -420,6 +420,7 @@ void main() {
   binaryTree4ValueNotIdenticalRoot.leftChild = binaryTree4ValueNotIdenticalOne;
   binaryTree4ValueNotIdenticalRoot.rightChild = binaryTree4ValueNotIdenticalTwo;
 
+// though have written binary search tree and the isBinaryTreeEqual is based on binary tree, the method can also be used for binary search tree.
   test('binary search tree based challenge 2: check if two binary trees are equal, should be true because both binary trees have the same structure and value', () {
     expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree2IdenticalRoot), true);
   });

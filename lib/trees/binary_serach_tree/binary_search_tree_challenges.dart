@@ -6,7 +6,7 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.
 // T extends Comparable<dynamic> is a constraint which ensure that T types are subType of Comparable. Making its possible
 // for a node value to be compared to another node value, since the node value type will have the comparableTo method.
 
-// in Simple language: for this function to be able to determine if a binary tree is a binary search tree, the binary nodes'
+// in Simple words: for this function to be able to determine if a binary tree is a binary search tree, the binary nodes'
 // values need to be of a Type that is a subType of Comparable Type and hence the nodes' values can be compared, since they will have
 // the compareTo method.
 bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
@@ -48,3 +48,34 @@ bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
 //     return _isBST(tree.leftChild, min: min, max: tree.value) && _isBST(tree.rightChild, min: tree.value, max: max);
 //   }
 // }
+
+// challenge 2: Equality
+// Given two binary trees, how would you test if they are equal or not?
+
+// if the binaryNode value T type its not a primitive type, am assuming that the == operator of that T type has been overridden to check for equality
+// based on the field values of that type.
+
+// in simple long words: when node1.value and node2.value get checked for equality, and both the node value Types
+// are the same(but not primitive types eg int, float, double String*), the == operator on that T type should
+// be overridden to be able compare the node values based on there field values.
+
+// binary trees are considered equal when both binary trees have the same structure and there nodes have the same value.
+bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
+  if (node1 == null && node2 == null) return true;
+
+  if (node1?.value != node2?.value) {
+    return false;
+  } else {
+    // break out of the recursion and return false if the expression evaluated to false, meaning
+    // both node1 leftChild's value and node2 leftChild's value were not equal.
+    if (!(isBinaryTreesEqual(node1?.leftChild, node2?.leftChild))) {
+      return false;
+    }
+    // break out of the recursion and return false if the expression evaluated to false, meaning
+    // both node1 rightChild's value and node2 rightChild's value were not equal.
+    if (!(isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
+      return false;
+    }
+  }
+  return true;
+}

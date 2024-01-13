@@ -397,4 +397,38 @@ void main() {
     expect(isBinarySearchTree(binarySearchTreeBalanced1.root), true);
     expect(isBinarySearchTree(notABinarySearchTreeRoot), false);
   });
+
+  final binaryTree1IdenticalRoot = BinaryNode(3);
+  final binaryTree1IdenticalOne = BinaryNode(1);
+  final binaryTree1IdenticalTwo = BinaryNode(4);
+  binaryTree1IdenticalRoot.leftChild = binaryTree1IdenticalOne;
+  binaryTree1IdenticalRoot.rightChild = binaryTree1IdenticalTwo;
+
+  final binaryTree2IdenticalRoot = BinaryNode(3);
+  final binaryTree2IdenticalOne = BinaryNode(1);
+  final binaryTree2IdenticalTwo = BinaryNode(4);
+  binaryTree2IdenticalRoot.leftChild = binaryTree2IdenticalOne;
+  binaryTree2IdenticalRoot.rightChild = binaryTree2IdenticalTwo;
+
+  final binaryTree3StructureNotIdenticalRoot = BinaryNode(3);
+  final binaryTree3StructureNotIdenticalOne = BinaryNode(1);
+  binaryTree3StructureNotIdenticalRoot.leftChild = binaryTree3StructureNotIdenticalOne;
+
+  final binaryTree4ValueNotIdenticalRoot = BinaryNode(3);
+  final binaryTree4ValueNotIdenticalOne = BinaryNode(1);
+  final binaryTree4ValueNotIdenticalTwo = BinaryNode(5);
+  binaryTree4ValueNotIdenticalRoot.leftChild = binaryTree4ValueNotIdenticalOne;
+  binaryTree4ValueNotIdenticalRoot.rightChild = binaryTree4ValueNotIdenticalTwo;
+
+  test('binary search tree based challenge 2: check if two binary trees are equal, should be true because both binary trees have the same structure and value', () {
+    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree2IdenticalRoot), true);
+  });
+  test(
+      'binary search tree based challenge 2: check if two binary trees are equal, should be false because though there structures are similar, they contain value(s) that are not equal',
+      () {
+    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree4ValueNotIdenticalRoot), false);
+  });
+  test('binary search tree based challenge 2: check if two binary trees are equal, should be false because there structures are not similar', () {
+    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree3StructureNotIdenticalRoot), false);
+  });
 }

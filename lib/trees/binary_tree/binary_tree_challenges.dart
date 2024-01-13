@@ -1,5 +1,3 @@
-import 'package:dart_data_structure_and_algorithm/queue/queue.dart';
-import 'package:dart_data_structure_and_algorithm/queue/singly_linked_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 
 // challenge 1: height of the tree

@@ -1,6 +1,7 @@
 Binary tree is a tree data structure where each node has at MOST two children, often referred to as **left** and **right** children. It can be **unbalanced**(is a kind of binary tree where the depth of the two subtrees of any node can differ significantly.).
 
 Binary trees serve as the basis for many tree structures and algorithms.
+Pre-order, post-order and in-order are types of depth-first traversal
 
 #### Traversal algorithms(Types of depth-first traversal):
  pre-order, post-order and in-order traversal algorithms are best described by a tree image check [visual representation of the traversal algorithms in Baeldung website](https://www.baeldung.com/cs/depth-first-traversal-methods).

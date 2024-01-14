@@ -15,7 +15,6 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binar
 import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/trees/general_tree.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -431,5 +430,25 @@ void main() {
   });
   test('binary search tree based challenge 2: check if two binary trees are equal, should be false because there structures are not similar', () {
     expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree3StructureNotIdenticalRoot), false);
+  });
+
+  final binarySearchSubTreeBalanced1 = BinarySearchTree<int>();
+  binarySearchSubTreeBalanced1.insert(1);
+  binarySearchSubTreeBalanced1.insert(0);
+  binarySearchSubTreeBalanced1.insert(2);
+
+  final binarySearchNotSubTreeBalanced1 = BinarySearchTree<int>();
+  binarySearchNotSubTreeBalanced1.insert(1);
+  binarySearchNotSubTreeBalanced1.insert(0);
+  binarySearchNotSubTreeBalanced1.insert(6);
+
+  test('binary search tree based challenge 3: checking if one binary search tree is a binary search subtree of another binary search tree) ', () {
+    expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, binarySearchSubTreeBalanced1), true);
+    expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, BinarySearchTree<int>()), false);
+    expect(containsBinarySearchSubTree(BinarySearchTree<int>(), binarySearchTreeBalanced1), false);
+    expect(containsBinarySearchSubTree(null, null), true);
+    expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, null), false);
+    expect(containsBinarySearchSubTree(null, binarySearchSubTreeBalanced1), false);
+    expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, binarySearchNotSubTreeBalanced1), false);
   });
 }

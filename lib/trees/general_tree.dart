@@ -17,7 +17,7 @@ class TreeNode<T> {
   }
 
   // Depth-first traversal
-  // i like to think of it as vertical traversal
+  // i like to think of it as vertical traversal(it has its own specific variation ie. postOrder, inOrder and preOrder implementations{they are implemented in BinaryNode which is binary_node.dart file})
   void forEachDepthFirst(void Function(TreeNode<T> node) performAction) {
     performAction(this);
     for (var child in children) {

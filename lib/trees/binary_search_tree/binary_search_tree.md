@@ -30,7 +30,7 @@ left subtree should be less that 10
 
 
 #### common operation are:
-1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/value can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
+1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/value  if it exists, it can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
    
 2. **insert** -> New nodes are inserted as leaf nodes.
    
@@ -41,14 +41,24 @@ left subtree should be less that 10
    
 
    3. **if Z has both left and right child:** these are the steps:
-      1. get the inorder successor(the node with the smallest value in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
-      2. if the inorder successor is Z's immediate right child, replace the value of Z with the value of inorder successor and modify Z's right child to point to inorder successor's right child.
-      3. if the inorder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inorder successor and modify inorder successor's parent's left child to point to inorder successor's right child.
+      1. get the inOrder successor(the node with the smallest value in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
+      2. if the inOrder successor is Z's immediate right child, replace the value of Z with the value of inOrder successor and modify Z's right child to point to inOrder successor's right child.
+      3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
+
+4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst traversal,are already implemented in the BinaryNode(check in binary_tree.dart) in which binary search tree can use for node traversal. (you can also implement levelFirstTraversal directly in BinaryNode if you want to add that functionality in Binary search tree {port it from TreeNode in general_tree.dart file}).
    
 
-##### applications of binary tree:                                                     
+##### applications of binary search tree:
+1. BSTs can be used in encryption algorithms such as RSA, which is a public-key encryption algorithm used in secure communication protocols. RSA uses a BST to generate public and private keys.
+2. BSTs can be used to compress data by storing frequently occurring values in a smaller space and less frequently occurring values in a larger space. This technique is used in many applications, including image and audio compression, data transmission, and file compression.
+3. BSTs can be used to implement decision trees, which are used in machine learning and artificial intelligence to model decisions and predict outcomes. Decision trees are used in many applications, including medical diagnosis, financial analysis, and marketing research.
+4. BSTs are used for indexing in databases.
 
 
 ##### key points:
+1. BST is a powerful data structure for holding sorted data.
+2. Elements of the binary search tree must be comparable. You can achieve this using a generic constraint or by supplying a closure to perform the comparison.
+3. The time complexity for insert, remove and contains methods in a BST is O(log n).
+4. Performance will degrade to O(n) as the tree becomes unbalanced. This is undesirable, but self-balancing trees such as the AVL tree can overcome the problem.
 
 

@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 
 // challenge 1: height of the tree
 // given a binary tree find the height of the tree. The height of a binary tree is determined by the distance

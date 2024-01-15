@@ -34,9 +34,11 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
    
 2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted data. The left child is smaller and right child is greater than the parent node.  It can be **unbalanced**
    
-3. **AVL tree** -> a.k.a **balanced binary search tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for search,insertion,and deletion operations. Its always balanced(**perfect balanced** or **good enough balanced**[balanced]).
-
-    - **perfectly balance**: every leaf node is at the same depth in the tree, and every internal node has the same number of children.
+3. **AVL tree** -> a.k.a **balanced binary search tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced**[balanced]).
+   
+    ##### states of balance
+    
+    - **perfectly balanced**: every leaf node is at the same depth in the tree, and every internal node has the same number of children.
                             ___
                             |_|
                             / \
@@ -48,7 +50,7 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                       _/_ _\_ _/_ _\_
                       |_| |_| |_| |_|
 
-    - **good enough balance** / **balanced**: is a more flexible term that doesn't necessarily imply strict adherence to perfect balance but ensures a reasonably balanced structure.
+    - **good enough balanced** / **balanced**: is a more flexible term that doesn't necessarily imply strict adherence to perfect balance but ensures a reasonably balanced structure.
                             ___
                             |_|
                             / \
@@ -80,7 +82,7 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
 
 #### common operation are:
 1. **depth-first traversal** -> visiting nodes in a vertical order.
-2. **level-order traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
+2. **level-first / breath-first traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
 3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
 4. 
 
@@ -97,7 +99,7 @@ only link to one successor node, a tree node can link to many child nodes.
 2. Every tree node, except for the root node, has exactly one parent node.
 3. A root node has no parent nodes.
 4. Leaf nodes have no child nodes.
-5. Traversals, such as depth-first and level-order traversals, work on multiple types
+5. Traversals, such as depth-first and level-first/breath-first traversals, work on multiple types
 of trees. However, the implementation will be slightly different based on how the
 tree is structured.
 

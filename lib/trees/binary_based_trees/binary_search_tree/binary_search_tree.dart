@@ -1,11 +1,10 @@
-import 'dart:ffi';
-
-import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 
 class BinarySearchTree<T extends Comparable<dynamic>> {
   BinaryNode<T>? root;
 
-  /// inserting a value in a binary search tree. Duplicate values insertion will be discarded
+  /// inserting a value in a binary search tree. Duplicate values insertion will be discarded.
+  // value always replaces a NULL reference (left or right) of an external node / leaf node in the tree.
   void insert(T value) {
     root = _insertAt(root, value);
   }

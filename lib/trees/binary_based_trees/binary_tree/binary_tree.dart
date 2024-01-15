@@ -1,5 +1,10 @@
 // decided to write the traversal techniques directly in BinaryNode so that other binary based trees can be traversed easily
 // without duplicating this functionality on each binary based trees.
+
+class BinaryTree<T> {
+  BinaryNode<T>? root;
+}
+
 class BinaryNode<T> {
   BinaryNode(this.value);
   T value;

@@ -1,6 +1,6 @@
  Binary search tree a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that **effectively organizes and maintains sorted data**. The left child is smaller and right child is greater than the parent node.  It can be **unbalanced**( **unbalanced**: is a kind of binary tree where the depth of the two subtrees of any node can differ significantly.)
  
- Binary search tree data structure facilitates **fast lookup / search**, **insert** and **removal / delete** operations with average case time complexity of O(log n), and worse case time complexity of O(n)
+ Binary search tree data structure facilitates **fast lookup / search / contains**, **insert** and **removal / delete** operations with average case time complexity of O(log n), and worse case time complexity of O(n)
 
 
  #### A binary search tree imposes the following rules:
@@ -45,7 +45,7 @@ left subtree should be less that 10
       2. if the inOrder successor is Z's immediate right child, replace the value of Z with the value of inOrder successor and modify Z's right child to point to inOrder successor's right child.
       3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
 
-4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst traversal,are already implemented in the BinaryNode(check in binary_tree.dart) in which binary search tree can use for node traversal. (you can also implement levelFirstTraversal directly in BinaryNode if you want to add that functionality in Binary search tree {port it from TreeNode in general_tree.dart file}).
+4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal,are already implemented in the BinaryNode(check in binary_tree.dart file) in which binary search tree can use for node traversal. (you can also implement levelFirst/breathFirst Traversal directly in BinaryNode if you want to add that functionality in Binary search tree {port it from TreeNode in general_tree.dart file}).
    
 
 ##### applications of binary search tree:

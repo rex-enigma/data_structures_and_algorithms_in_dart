@@ -1,5 +1,5 @@
-import 'package:dart_data_structure_and_algorithm/trees/binary_search_tree/binary_search_tree.dart';
-import 'package:dart_data_structure_and_algorithm/trees/binary_tree/binary_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_search_tree/binary_search_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 
 // challenge 1: Binary tree or binary search tree
 // write a function that checks if a binary tree is a binary search tree.

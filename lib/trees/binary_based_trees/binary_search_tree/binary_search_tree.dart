@@ -1,7 +1,20 @@
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/traversable_binary_node.dart';
+
+class BinarySearchNode<T> extends TraversableBinaryNode<T> {
+  BinarySearchNode(this.value);
+  @override
+  T value;
+
+  @override
+  BinarySearchNode<T>? leftChild;
+
+  @override
+  BinarySearchNode<T>? rightChild;
+}
 
 class BinarySearchTree<T extends Comparable<dynamic>> {
-  BinaryNode<T>? root;
+  BinarySearchNode<T>? root;
 
   /// inserting a value in a binary search tree. Duplicate values insertion will be discarded.
   // value always replaces a NULL reference (left or right) of an external node / leaf node in the tree.
@@ -9,9 +22,9 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
     root = _insertAt(root, value);
   }
 
-  BinaryNode<T> _insertAt(BinaryNode<T>? node, T value) {
+  BinarySearchNode<T> _insertAt(BinarySearchNode<T>? node, T value) {
     if (node == null) {
-      return BinaryNode(value);
+      return BinarySearchNode(value);
     }
     // if value is less than node.value, -1 is returned, which is less than 0
     // indicating that the value need to be inserted on the left side.
@@ -57,7 +70,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
   }
 
   // does the removal computation on the node that need to be removed.
-  BinaryNode<T>? _remove(BinaryNode<T>? node, T value) {
+  BinarySearchNode<T>? _remove(BinarySearchNode<T>? node, T value) {
     if (node == null) return null;
 
     if (value == node.value) {
@@ -95,8 +108,8 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
   String toString() => root.toString();
 }
 
-extension _MinFinder<T> on BinaryNode<T> {
+extension _MinFinder<T> on BinarySearchNode<T> {
   /// used to find the node with the smallest value in a subtree in a BST.
   // in this case we called it inorder successor (the node with the smallest value in the right subtree of a given node)
-  BinaryNode<T> get minimumNode => leftChild?.minimumNode ?? this;
+  BinarySearchNode<T> get minimumNode => leftChild?.minimumNode ?? this;
 }

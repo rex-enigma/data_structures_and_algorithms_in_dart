@@ -5,13 +5,14 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binar
 // between the root and the furthest leaf. The height of a binary tree with a single node is zero since
 // the single node is both the root and the furthest leaf.
 
-int treeHeight(BinaryNode root) {
-  if (root.leftChild == null && root.rightChild == null) return 0;
+int treeHeight(BinaryTree binaryTree) {
+  BinaryNode? root = binaryTree.root;
+  if (root?.leftChild == null && root?.rightChild == null) return 0;
 
   int treeHeight = 0;
   int counter = 0;
 
-  root.traversePreOrder((node) {
+  root!.traversePreOrder((node) {
     if (node.leftChild == null && node.rightChild == null) {
       counter++;
       treeHeight = counter > treeHeight ? counter : treeHeight;

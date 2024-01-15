@@ -279,36 +279,50 @@ void main() {
 
   /********************Trees*****************************/
 
-  final binaryTreeHeight3 = createBinaryTreeHeight3();
+  final h3Zero = BinaryNode(0);
+  final h3One = BinaryNode(1);
+  final h3Five = BinaryNode(5);
+  final h3SevenRoot = BinaryNode(7);
+  final h3Eight = BinaryNode(8);
+  final h3Nine = BinaryNode(9);
+  h3SevenRoot.leftChild = h3One;
+  h3SevenRoot.rightChild = h3Nine;
+  h3One.leftChild = h3Zero;
+  h3One.rightChild = h3Five;
+  h3Nine.leftChild = h3Eight;
 
-  final zeroRoot = BinaryNode(0);
-  final one = BinaryNode(1);
-  final two = BinaryNode(2);
-  final three = BinaryNode(3);
-  final four = BinaryNode(4);
-  final five = BinaryNode(5);
-  final six = BinaryNode(6);
-  final seven = BinaryNode(7);
-  final eight = BinaryNode(8);
-  final nine = BinaryNode(9);
-  final ten = BinaryNode(10);
-  final eleven = BinaryNode(11);
-  zeroRoot.leftChild = one;
-  zeroRoot.rightChild = two;
-  one.leftChild = three;
-  one.rightChild = four;
-  two.leftChild = five;
-  two.rightChild = six;
-  four.leftChild = seven;
-  four.rightChild = eight;
-  six.leftChild = nine;
-  eight.leftChild = ten;
-  eight.rightChild = eleven;
+  BinaryTree binaryTreeHeight3 = BinaryTree<int>(h3SevenRoot);
+
+  final h5ZeroRoot = BinaryNode(0);
+  final h5One = BinaryNode(1);
+  final h5Two = BinaryNode(2);
+  final h5Three = BinaryNode(3);
+  final h5Four = BinaryNode(4);
+  final h5Five = BinaryNode(5);
+  final h5Six = BinaryNode(6);
+  final h5Seven = BinaryNode(7);
+  final h5Eight = BinaryNode(8);
+  final h5Nine = BinaryNode(9);
+  final h5Ten = BinaryNode(10);
+  final h5Eleven = BinaryNode(11);
+  h5ZeroRoot.leftChild = h5One;
+  h5ZeroRoot.rightChild = h5Two;
+  h5One.leftChild = h5Three;
+  h5One.rightChild = h5Four;
+  h5Two.leftChild = h5Five;
+  h5Two.rightChild = h5Six;
+  h5Four.leftChild = h5Seven;
+  h5Four.rightChild = h5Eight;
+  h5Six.leftChild = h5Nine;
+  h5Eight.leftChild = h5Ten;
+  h5Eight.rightChild = h5Eleven;
+
+  BinaryTree binaryTreeHeight5 = BinaryTree<int>(h5ZeroRoot);
 
   test(" binary tree based challenge 1: calculating binary tree height", () {
     expect(treeHeight(binaryTreeHeight3), 3);
-    expect(treeHeight(zeroRoot), 5);
-    expect(treeHeight(BinaryNode(20)), 0);
+    expect(treeHeight(binaryTreeHeight5), 5);
+    expect(treeHeight(BinaryTree(BinaryNode(20))), 0);
   });
 
   final serializeZeroRoot = BinaryNode(15);

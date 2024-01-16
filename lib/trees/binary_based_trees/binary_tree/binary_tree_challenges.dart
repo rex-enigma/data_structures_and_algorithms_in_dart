@@ -5,7 +5,7 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binar
 // between the root and the furthest leaf. The height of a binary tree with a single node is zero since
 // the single node is both the root and the furthest leaf.
 
-int treeHeight(BinaryTree binaryTree) {
+int binaryTreeHeight(BinaryTree binaryTree) {
   BinaryNode? root = binaryTree.root;
   if (root?.leftChild == null && root?.rightChild == null) return 0;
 
@@ -52,8 +52,12 @@ serialization is JSON.
 // Your task is to devise a way to serialize a binary tree into a list, and a way to
 // deserialize the list back into the same binary tree.
 
+List<T?> serializeBinaryTreeToListRecursively<T>(BinaryTree<T>? binaryTree) {
+  return _serializeBinaryTreeToListRecursively(binaryTree?.root);
+}
+
 // this uses pre-order technique with recursion
-List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
+List<T?> _serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
   List<T?> serializedBinaryTreeList = [];
   if (node == null) return serializedBinaryTreeList;
 
@@ -63,12 +67,12 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
     serializedBinaryTreeList.add(null);
   }
 
-  serializedBinaryTreeList.addAll(serializeBinaryTreeToListRecursively(node.leftChild));
+  serializedBinaryTreeList.addAll(_serializeBinaryTreeToListRecursively(node.leftChild));
 
   if (node.rightChild == null) {
     serializedBinaryTreeList.add(null);
   }
-  serializedBinaryTreeList.addAll(serializeBinaryTreeToListRecursively(node.rightChild));
+  serializedBinaryTreeList.addAll(_serializeBinaryTreeToListRecursively(node.rightChild));
   return serializedBinaryTreeList;
 }
 
@@ -100,13 +104,14 @@ List<T?> serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 // an example of a list of binary tree nodes that you can use as a reference:
 // [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]
 
-BinaryNode<T>? deserializeListToBinaryTree<T>(List<T?> binaryNodes) {
-  if (binaryNodes.isEmpty) return null;
-  // reversing the list improves the performance when building the binary tree recursively because the removeLast method will be used after list reversal making the time complexity to be O(n), in contract,
+BinaryTree<T>? deserializeListToBinaryTree<T>(List<T?> binaryValues) {
+  if (binaryValues.isEmpty) return null;
+  // reversing the list improves the performance when building the binary tree recursively because the removeLast method will be used after list reversal making the time complexity to be O(n), in contrast,
   // if list is not revered, then removeAt(0) method would have been used making the time complexity to be O(n²), since after every removal of the first element, every element must shift to the left to make
   // up the missing space.
-  final binaryNodesReveredList = binaryNodes.reversed.toList();
-  return _buildBinaryTreeFromListRecursively(binaryNodesReveredList);
+  final binaryNodesReveredList = binaryValues.reversed.toList();
+  BinaryNode<T>? rootNode = _buildBinaryTreeFromListRecursively<T>(binaryNodesReveredList);
+  return BinaryTree(rootNode);
 }
 
 // this uses pre-order technique with recursion

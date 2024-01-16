@@ -10,13 +10,17 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binar
 // in Simple words: for this function to be able to determine if a binary tree is a binary search tree, the binary nodes'
 // values need to be of a Type that is a subType of Comparable Type and hence the nodes' values can be compared, since they will have
 // the compareTo method.
-bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
+bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryTree<T>? binaryTree) {
+  return _isBinarySearchTree(binaryTree?.root);
+}
+
+bool _isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
   // first check node.leftChild is not null,
   if (node?.leftChild != null) {
     // if so, comparing node.leftChild.value to node.value and return false if node.leftChild.value is not less than node.value.
     if (!(node!.leftChild!.value.compareTo(node.value) < 0)) return false;
     // branch left
-    isBinarySearchTree(node.leftChild);
+    _isBinarySearchTree(node.leftChild);
   }
 
   //first check node.rightChild is not null,
@@ -24,7 +28,7 @@ bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
     // if so, compare node.rightChild.value to node.value and return false if node.rightChild.value is not greater that node.value.
     if (!(node!.rightChild!.value.compareTo(node.value) > 0)) return false;
     // branch right
-    isBinarySearchTree(node.rightChild);
+    _isBinarySearchTree(node.rightChild);
   }
 
   return true;
@@ -62,7 +66,11 @@ bool isBinarySearchTree<T extends Comparable<dynamic>>(BinaryNode<T>? node) {
 
 // binary trees are considered equal when both binary trees have the same structure and there nodes have the same value.
 // this implementation can also work with binary search tree.
-bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
+bool isBinaryTreesEqual<T>(BinaryTree<T>? binaryTree1, BinaryTree<T>? binaryTree2) {
+  return _isBinaryTreesEqual(binaryTree1?.root, binaryTree2?.root);
+}
+
+bool _isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
   if (node1 == null && node2 == null) return true;
 
   if (node1?.value != node2?.value) {
@@ -70,12 +78,12 @@ bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
   } else {
     // break out of the recursion and return false if the expression evaluated to false, meaning
     // both node1 leftChild's value and node2 leftChild's value were not equal.
-    if (!(isBinaryTreesEqual(node1?.leftChild, node2?.leftChild))) {
+    if (!(_isBinaryTreesEqual(node1?.leftChild, node2?.leftChild))) {
       return false;
     }
     // break out of the recursion and return false if the expression evaluated to false, meaning
     // both node1 rightChild's value and node2 rightChild's value were not equal.
-    if (!(isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
+    if (!(_isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
       return false;
     }
   }
@@ -83,9 +91,9 @@ bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
 }
 
 // shorter version but harder to read.
-// bool isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
+// bool _isBinaryTreesEqual<T>(BinaryNode<T>? node1, BinaryNode<T>? node2) {
 //   if (node1 == null && node2 == null) return true;
-//   if (node1?.value != node2?.value || !(isBinaryTreesEqual(node1?.leftChild, node2?.leftChild)) || !(isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
+//   if (node1?.value != node2?.value || !(_isBinaryTreesEqual(node1?.leftChild, node2?.leftChild)) || !(_isBinaryTreesEqual(node1?.rightChild, node2?.rightChild))) {
 //     return false;
 //   }
 //   return true;

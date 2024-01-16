@@ -8,25 +8,6 @@ void main(List<String> arguments) {
   // printing a tree in level order
   printTreeInLevelOrder();
 
-  // tree diagrammatic representation
-  print(createBinaryTreeHeight3());
-
-  // DEPTH-TRAVERSAL TYPE ALGORITHMS
-  final numberTree = createBinaryTreeHeight3();
-
-  //pre-order traversal
-  numberTree.traversePreOrder(print);
-
-  print('\n');
-
-  // in-order traversal
-  numberTree.traverseInOrder(print);
-
-  print('\n');
-
-  // post-order traversal
-  numberTree.traversePostOrder(print);
-
   // removing a value from a binary search tree.
   final binarySearchTreeBalanced1 = BinarySearchTree<int>();
   binarySearchTreeBalanced1.insert(3);

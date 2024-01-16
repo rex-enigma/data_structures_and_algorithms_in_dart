@@ -320,9 +320,9 @@ void main() {
   BinaryTree binaryTreeHeight5 = BinaryTree<int>(h5ZeroRoot);
 
   test(" binary tree based challenge 1: calculating binary tree height", () {
-    expect(treeHeight(binaryTreeHeight3), 3);
-    expect(treeHeight(binaryTreeHeight5), 5);
-    expect(treeHeight(BinaryTree(BinaryNode(20))), 0);
+    expect(binaryTreeHeight(binaryTreeHeight3), 3);
+    expect(binaryTreeHeight(binaryTreeHeight5), 5);
+    expect(binaryTreeHeight(BinaryTree(BinaryNode(20))), 0);
   });
 
   final serializeZeroRoot = BinaryNode(15);
@@ -337,27 +337,29 @@ void main() {
   serializeOne.rightChild = serializeFour;
   serializeTwo.leftChild = serializeFive;
 
+  BinaryTree serializableBinaryTree = BinaryTree<int>(serializeZeroRoot);
+
   test("binary tree based challenge 2a: serialization of a binary tree", () {
-    expect(serializeBinaryTreeToListRecursively(serializeZeroRoot).toString(), "[15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]");
+    expect(serializeBinaryTreeToListRecursively(serializableBinaryTree).toString(), "[15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null]");
   });
 
   // this binary tree based list is from the above serialized Binary tree.
   final binaryTreeList = [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null];
-  final deserializedBinaryTreeRoot = deserializeListToBinaryTree(binaryTreeList);
+  final deserializedBinaryTree = deserializeListToBinaryTree(binaryTreeList);
   test("binary tree based challenge 2b: deserialization of a binaryTree list", () {
-    expect(deserializedBinaryTreeRoot?.value, 15);
-    expect(deserializedBinaryTreeRoot?.leftChild?.value, 10);
-    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.value, 5);
-    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot?.leftChild?.leftChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.value, 12);
-    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot?.leftChild?.rightChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot?.rightChild?.value, 25);
-    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.value, 17);
-    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.leftChild, null);
-    expect(deserializedBinaryTreeRoot?.rightChild?.leftChild?.rightChild, null);
-    expect(deserializedBinaryTreeRoot?.rightChild?.rightChild, null);
+    expect(deserializedBinaryTree?.root?.value, 15);
+    expect(deserializedBinaryTree?.root?.leftChild?.value, 10);
+    expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.value, 5);
+    expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.value, 12);
+    expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.leftChild, null);
+    expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.rightChild, null);
+    expect(deserializedBinaryTree?.root?.rightChild?.value, 25);
+    expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.value, 17);
+    expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.leftChild, null);
+    expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.rightChild, null);
+    expect(deserializedBinaryTree?.root?.rightChild?.rightChild, null);
   });
 
   final binarySearchTreeUnbalanced1 = BinarySearchTree<int>();
@@ -406,9 +408,27 @@ void main() {
   notABinarySearchTreeOne.rightChild = notABinarySearchTreeThree;
   notABinarySearchTreeFour.rightChild = notABinarySearchTreeFive;
 
+  BinaryTree<int> notBinarySearchTree = BinaryTree<int>(notABinarySearchTreeRoot);
+
+  final aBinaryTreeRoot = BinaryNode(3);
+  final aBinaryTreeOne = BinaryNode(1);
+  final aBinaryTreeTwo = BinaryNode(0);
+  final aBinaryTreeThree = BinaryNode(4);
+  final aBinaryTreeFour = BinaryNode(2);
+  final aBinaryTreeFive = BinaryNode(5);
+  aBinaryTreeRoot.leftChild = aBinaryTreeOne;
+  aBinaryTreeRoot.rightChild = aBinaryTreeThree;
+  aBinaryTreeOne.leftChild = aBinaryTreeTwo;
+  aBinaryTreeOne.rightChild = aBinaryTreeFour;
+  aBinaryTreeFour.rightChild = aBinaryTreeFive;
+
+  // this binary tree is ordered where the left child is less than and the right child is greater than
+  // the parent, making it to have the characteristics of a binary search tree.
+  BinaryTree<int> orderedBinaryTree = BinaryTree<int>(aBinaryTreeRoot);
+
   test('binary search tree based challenge 1: check if a binary tree is a binary search tree', () {
-    expect(isBinarySearchTree(binarySearchTreeBalanced1.root), true);
-    expect(isBinarySearchTree(notABinarySearchTreeRoot), false);
+    expect(isBinarySearchTree(orderedBinaryTree), true);
+    expect(isBinarySearchTree(notBinarySearchTree), false);
   });
 
   final binaryTree1IdenticalRoot = BinaryNode(3);
@@ -417,15 +437,21 @@ void main() {
   binaryTree1IdenticalRoot.leftChild = binaryTree1IdenticalOne;
   binaryTree1IdenticalRoot.rightChild = binaryTree1IdenticalTwo;
 
+  BinaryTree<int> binaryTree1Identical = BinaryTree<int>(binaryTree1IdenticalRoot);
+
   final binaryTree2IdenticalRoot = BinaryNode(3);
   final binaryTree2IdenticalOne = BinaryNode(1);
   final binaryTree2IdenticalTwo = BinaryNode(4);
   binaryTree2IdenticalRoot.leftChild = binaryTree2IdenticalOne;
   binaryTree2IdenticalRoot.rightChild = binaryTree2IdenticalTwo;
 
+  BinaryTree<int> binaryTree2Identical = BinaryTree<int>(binaryTree2IdenticalRoot);
+
   final binaryTree3StructureNotIdenticalRoot = BinaryNode(3);
   final binaryTree3StructureNotIdenticalOne = BinaryNode(1);
   binaryTree3StructureNotIdenticalRoot.leftChild = binaryTree3StructureNotIdenticalOne;
+
+  BinaryTree<int> binaryTree3StructureNotIdentical = BinaryTree<int>(binaryTree3StructureNotIdenticalRoot);
 
   final binaryTree4ValueNotIdenticalRoot = BinaryNode(3);
   final binaryTree4ValueNotIdenticalOne = BinaryNode(1);
@@ -433,17 +459,19 @@ void main() {
   binaryTree4ValueNotIdenticalRoot.leftChild = binaryTree4ValueNotIdenticalOne;
   binaryTree4ValueNotIdenticalRoot.rightChild = binaryTree4ValueNotIdenticalTwo;
 
-// though have written binary search tree and the isBinaryTreeEqual is based on binary tree, the method can also be used for binary search tree.
+  BinaryTree<int> binaryTree4ValueNotIdentical = BinaryTree<int>(binaryTree4ValueNotIdenticalRoot);
+
+// though i have written binary search tree and the isBinaryTreeEqual is based on binary tree, the method can also be used for binary search tree.
   test('binary search tree based challenge 2: check if two binary trees are equal, should be true because both binary trees have the same structure and value', () {
-    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree2IdenticalRoot), true);
+    expect(isBinaryTreesEqual(binaryTree1Identical, binaryTree2Identical), true);
   });
   test(
       'binary search tree based challenge 2: check if two binary trees are equal, should be false because though there structures are similar, they contain value(s) that are not equal',
       () {
-    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree4ValueNotIdenticalRoot), false);
+    expect(isBinaryTreesEqual(binaryTree1Identical, binaryTree4ValueNotIdentical), false);
   });
   test('binary search tree based challenge 2: check if two binary trees are equal, should be false because there structures are not similar', () {
-    expect(isBinaryTreesEqual(binaryTree1IdenticalRoot, binaryTree3StructureNotIdenticalRoot), false);
+    expect(isBinaryTreesEqual(binaryTree1Identical, binaryTree3StructureNotIdentical), false);
   });
 
   final binarySearchSubTreeBalanced1 = BinarySearchTree<int>();

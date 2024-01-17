@@ -1,4 +1,3 @@
-import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/traversable_binary_node.dart';
 
 class BinarySearchNode<T> extends TraversableBinaryNode<T> {

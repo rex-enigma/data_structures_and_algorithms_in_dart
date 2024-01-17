@@ -45,7 +45,7 @@ left subtree should be less that 10
       2. if the inOrder successor is Z's immediate right child, replace the value of Z with the value of inOrder successor and modify Z's right child to point to inOrder successor's right child.
       3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
 
-4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal,are already implemented in the BinaryNode(check in binary_tree.dart file) in which binary search tree can use for node traversal. (you can also implement levelFirst/breathFirst Traversal directly in BinaryNode if you want to add that functionality in Binary search tree {port it from TreeNode in general_tree.dart file}).
+4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal,are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which binary search tree node is using for traversal.
    
 
 ##### applications of binary search tree:

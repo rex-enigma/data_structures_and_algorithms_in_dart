@@ -99,20 +99,25 @@
 - If the balance factor is -2,then, the rightChild of that bottom most AVLNode is 'heavier'(contains mor nodes) than the leftChild. This means that you will either use **left rotation** or **right-left rotation**. To further narrow down on which rotation to use from those two, you check the balance factor of the rightChild of that bottom most AVLNode containing the invalid balance factor of -2, if its -1, then we do **left rotation**, else if its 1, then we use **left-right rotation**.
 
 ##### simply: 
-2 : 1    --> right rotation
-2 : -1   --> left-right rotation
--2 : -1  --> left rotation
--2 : 1   -->
+a -2 balance factor of an AVLNode indicates that the rightChild is heavier than the leftChild. Further, the rightChild of that AVLNode with a balance factor of -1 indicates that a **left rotation** need to be performed while 1 balance factor indicate that a **right-left rotation** need to be performed.
+
+-2 : -1  --> left rotation.
+-2 : 1   --> right-left rotation.
+
+a 2 balance factor of an AVLNode indicates that the leftChild is heavier than the rightChild. Further, the leftChild of that AVLNode with a balance factor of 1 indicates that a **right rotation** need to be performed while -1 balance factor indicate that a **left-right rotation** need to be performed.
+
+2 : 1    --> right rotation.
+2 : -1   --> left-right rotation.
 
 #### common operation are:
-1. **fast lookup / search / contains** -> 
-2. **insert** ->   
-3. **remove / delete** ->
-4. **left rotation** ->
-5. **right-left rotation** ->
-6. **right rotation** ->
-7. **left-right rotation** ->
-8. **balance** -> 
+1. **fast lookup / search / contains** -> checking if a value exist in an AVLNode.
+2. **insert** -> inserting an AVLNode while maintaining the balance of the AVLNode tree.
+3. **remove / delete** -> removing an AVLNode while maintaining the balance of the AVLNode tree.
+4. **left rotation** -> performing a left rotation when an AVLNode has a balance factor of -2 and its rightChild has a balance factor of -1.(NB: ***remember all this rotations left,right-left,right and left-right, is performed only on the bottom most AVLNode with invalid balance factor of either 2 or -2***).
+5. **right-left rotation** -> performing a right-left rotation when an AVNode has a balance factor of -2 and its rightChild has a balance factor of 1.
+6. **right rotation** -> performing a right rotation when an AVLNode has a balance factor of 2 and its leftChild has a balance factor of 1.
+7. **left-right rotation** -> performing a left-right rotation when an AVLNode has a balance factor of 2 and its leftChild has a balance factor of -1.
+8. **balance** -> balancing an AVL tree for each insertion and deletion of an AVLNode.
 9. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breathFirst traversal,are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which avl tree node is using for traversal.
    
 

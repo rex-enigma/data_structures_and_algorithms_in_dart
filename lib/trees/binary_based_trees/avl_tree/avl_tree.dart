@@ -2,9 +2,9 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/trave
 import 'dart:math' as math;
 
 class AVLNode<T> extends TraversableBinaryNode<T> {
-  AVLNode(this.value);
+  AVLNode(this.key);
   @override
-  T value;
+  T key;
 
   @override
   AVLNode<T>? leftChild;
@@ -20,34 +20,34 @@ class AVLNode<T> extends TraversableBinaryNode<T> {
   int get rightChildHeight => rightChild?.height ?? -1;
 }
 
-class BinarySearchTree<T extends Comparable<dynamic>> {
+class AVLTree<T extends Comparable<dynamic>> {
   AVLNode<T>? root;
 
-  /// inserting a value in an AVL tree. Duplicate values insertion will be discarded.
-  // value always replaces a NULL reference (left or right) of an external node / leaf node in the tree.
-  void insert(T value) {
-    root = _insertAt(root, value);
+  /// inserting a key in an AVL tree. Duplicate keys inserted will be discarded.
+  // key always replaces a NULL reference (left or right) of an external node / leaf node in the tree.
+  void insert(T key) {
+    root = _insertAt(root, key);
   }
 
-  AVLNode<T> _insertAt(AVLNode<T>? node, T value) {
+  AVLNode<T> _insertAt(AVLNode<T>? node, T key) {
     if (node == null) {
-      return AVLNode(value);
+      return AVLNode(key);
     }
-    // if value is less than node.value, -1 is returned, which is less than 0
-    // indicating that the value need to be inserted on the left side.
-    if (value.compareTo(node.value) < 0) {
-      node.leftChild = _insertAt(node.leftChild, value);
+    // if key is less than node.key, -1 is returned, which is less than 0
+    // indicating that the key need to be inserted on the left side.
+    if (key.compareTo(node.key) < 0) {
+      node.leftChild = _insertAt(node.leftChild, key);
     }
-    // if value is greater than node.value, 1 is returned which is greater than 0
-    // indicating that the value need to be inserted on the right side.
-    else if (value.compareTo(node.value) > 0) {
-      node.rightChild = _insertAt(node.rightChild, value);
+    // if key is greater than node.key, 1 is returned which is greater than 0
+    // indicating that the key need to be inserted on the right side.
+    else if (key.compareTo(node.key) > 0) {
+      node.rightChild = _insertAt(node.rightChild, key);
     }
-    // else if value is equal to node.value, just set node.value to value
-    // preventing BST from having duplicate values.
+    // else if key is equal to node.key, just set node.key to key
+    // preventing BST from having duplicate keys.
     else {
-      node.value = value;
-      // return the AVLnode immediate if the value is a duplicate, preventing balanced method from running since the structure of the AVL tree
+      node.key = key;
+      // return the AVLnode immediate if the key is a duplicate, preventing balanced method from running since the structure of the AVL tree
       // is not affected. The performance is improved since this will prevent from going through the extra steps of balancing which is not
       // necessary.
       return node;
@@ -130,35 +130,35 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
     }
   }
 
-  /// checking if the given value exist in a AVL tree.
-  bool contains(T value) {
+  /// checking if the given key exist in a AVL tree.
+  bool contains(T key) {
     var current = root;
 
     while (current != null) {
-      if (current.value == value) {
+      if (current.key == key) {
         return true;
       }
-      // branch to the left side if value is less than current node's value.
-      if (value.compareTo(current.value) < 0) {
+      // branch to the left side if key is less than current node's key.
+      if (key.compareTo(current.key) < 0) {
         current = current.leftChild;
-        // branch to the right side if value is greater than current node's value(i would have used else only but i chose else if for readability purpose)
-      } else if (value.compareTo(current.value) > 0) {
+        // branch to the right side if key is greater than current node's key(i would have used else only but i chose else if for readability purpose)
+      } else if (key.compareTo(current.key) > 0) {
         current = current.rightChild;
       }
     }
     return false;
   }
 
-  /// removing the given value from a AVL tree.
-  void remove(T value) {
-    root = _remove(root, value);
+  /// removing the given key from a AVL tree.
+  void remove(T key) {
+    root = _remove(root, key);
   }
 
   // does the removal computation on the node that need to be removed.
-  AVLNode<T>? _remove(AVLNode<T>? node, T value) {
+  AVLNode<T>? _remove(AVLNode<T>? node, T key) {
     if (node == null) return null;
 
-    if (value == node.value) {
+    if (key == node.key) {
       // handles the case where the node to be removed is a leafNode.
       // if node is leaf you return null, thereby removing the current node.
       if (node.leftChild == null && node.rightChild == null) {
@@ -175,16 +175,16 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
         return node.leftChild;
       }
       // in 2 lines below, handle the case where the node to be removed has both the left child and the right child.
-      // 1.find the inorder successor(node with the smallest value which is the leftMost node of the right subtree) and set node.value to that inorder successor's node value.
-      node.value = node.rightChild!.minimumNode.value;
-      // 2.remove that inorder successor node and reconnect the subtree.
-      // will also handle reconnection of the subtree in situation where the inorder successor had a right child.
-      node.rightChild = _remove(node.rightChild, node.value);
-    } else if (value.compareTo(node.value) < 0) {
-      node.leftChild = _remove(node.leftChild, value);
+      // 1.find the inOrder successor(node with the smallest key which is the leftMost node of the right subtree) and set node.key to that inOrder successor's node key.
+      node.key = node.rightChild!.minimumNode.key;
+      // 2.remove that inOrder successor node and reconnect the subtree.
+      // will also handle reconnection of the subtree in situation where the inOrder successor had a right child.
+      node.rightChild = _remove(node.rightChild, node.key);
+    } else if (key.compareTo(node.key) < 0) {
+      node.leftChild = _remove(node.leftChild, key);
       // i would have used else only but i chose else if for readability purpose.
-    } else if (value.compareTo(node.value) > 0) {
-      node.rightChild = _remove(node.rightChild, value);
+    } else if (key.compareTo(node.key) > 0) {
+      node.rightChild = _remove(node.rightChild, key);
     }
 
     // the balancing will be performed on each node when going up from recursion.
@@ -192,7 +192,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
     //when an AVLNode is removed, the height of each AVLNode that has been visited by this function needs to be updated.
     balancedNode.height = 1 + math.max(balancedNode.leftChildHeight, balancedNode.rightChildHeight);
 
-    return node;
+    return balancedNode;
   }
 
   @override
@@ -200,7 +200,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
 }
 
 extension _MinFinder<T> on AVLNode<T> {
-  /// used to find the node with the smallest value in a subtree in a BST.
-  // in this case we called it inorder successor (the node with the smallest value in the right subtree of a given node)
+  /// used to find the node with the smallest key in a subtree in a BST.
+  // in this case we called it inOrder successor (the node with the smallest key in the right subtree of a given node)
   AVLNode<T> get minimumNode => leftChild?.minimumNode ?? this;
 }

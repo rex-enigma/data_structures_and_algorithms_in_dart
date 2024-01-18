@@ -6,10 +6,10 @@ class BinaryTree<T> {
 }
 
 class BinaryNode<T> extends TraversableBinaryNode<T> {
-  BinaryNode(this.value);
+  BinaryNode(this.key);
 
   @override
-  T value;
+  T key;
 
   @override
   BinaryNode<T>? leftChild;

@@ -1,5 +1,5 @@
 abstract class TraversableBinaryNode<T> {
-  T get value;
+  T get key;
   TraversableBinaryNode<T>? get leftChild;
   TraversableBinaryNode<T>? get rightChild;
 
@@ -38,7 +38,7 @@ abstract class TraversableBinaryNode<T> {
       return '$root null\n';
     }
     if (node.leftChild == null && node.rightChild == null) {
-      return '$root ${node.value}\n';
+      return '$root ${node.key}\n';
     }
     final a = _diagram(
       node.rightChild,
@@ -46,7 +46,7 @@ abstract class TraversableBinaryNode<T> {
       '$top┌──',
       '$top│ ',
     );
-    final b = '$root${node.value}\n';
+    final b = '$root${node.key}\n';
     final c = _diagram(
       node.leftChild,
       '$bottom│ ',

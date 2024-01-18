@@ -61,7 +61,7 @@ List<T?> _serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
   List<T?> serializedBinaryTreeList = [];
   if (node == null) return serializedBinaryTreeList;
 
-  serializedBinaryTreeList.add(node.value);
+  serializedBinaryTreeList.add(node.key);
 
   if (node.leftChild == null) {
     serializedBinaryTreeList.add(null);
@@ -78,8 +78,8 @@ List<T?> _serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 
 //book's solution for challenge 2a: serialization
 // extension Serializable<T> on BinaryNode<T> {
-//   void traversePreOrderWithNull(void Function(T? value) action) {
-//     action(value);
+//   void traversePreOrderWithNull(void Function(T? key) action) {
+//     action(key);
 //     if (leftChild == null) {
 //       action(null);
 //     } else {
@@ -95,7 +95,7 @@ List<T?> _serializeBinaryTreeToListRecursively<T>(BinaryNode<T>? node) {
 
 // List<T?> serialize<T>(BinaryNode<T> node) {
 //   final list = <T?>[];
-//   node.traversePreOrderWithNull((value) => list.add(value));
+//   node.traversePreOrderWithNull((key) => list.add(key));
 //   return list;
 // }
 
@@ -141,10 +141,10 @@ BinaryNode<T>? _buildBinaryTreeFromListRecursively<T>(List binaryNodes) {
 // BinaryNode<T>? deserialize<T>(List<T?> list) {
 // // 2
 //   if (list.isEmpty) return null;
-//   final value = list.removeAt(0);
-//   if (value == null) return null;
+//   final key = list.removeAt(0);
+//   if (key == null) return null;
 // // 3
-//   final node = BinaryNode<T>(value);
+//   final node = BinaryNode<T>(key);
 //   node.leftChild = deserialize(list);
 //   node.rightChild = deserialize(list);
 //   return node;

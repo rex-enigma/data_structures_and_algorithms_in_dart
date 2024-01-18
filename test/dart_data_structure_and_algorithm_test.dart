@@ -347,16 +347,16 @@ void main() {
   final binaryTreeList = [15, 10, 5, null, null, 12, null, null, 25, 17, null, null, null];
   final deserializedBinaryTree = deserializeListToBinaryTree(binaryTreeList);
   test("binary tree based challenge 2b: deserialization of a binaryTree list", () {
-    expect(deserializedBinaryTree?.root?.value, 15);
-    expect(deserializedBinaryTree?.root?.leftChild?.value, 10);
-    expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.value, 5);
+    expect(deserializedBinaryTree?.root?.key, 15);
+    expect(deserializedBinaryTree?.root?.leftChild?.key, 10);
+    expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.key, 5);
     expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.leftChild, null);
     expect(deserializedBinaryTree?.root?.leftChild?.leftChild?.rightChild, null);
-    expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.value, 12);
+    expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.key, 12);
     expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.leftChild, null);
     expect(deserializedBinaryTree?.root?.leftChild?.rightChild?.rightChild, null);
-    expect(deserializedBinaryTree?.root?.rightChild?.value, 25);
-    expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.value, 17);
+    expect(deserializedBinaryTree?.root?.rightChild?.key, 25);
+    expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.key, 17);
     expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.leftChild, null);
     expect(deserializedBinaryTree?.root?.rightChild?.leftChild?.rightChild, null);
     expect(deserializedBinaryTree?.root?.rightChild?.rightChild, null);
@@ -369,11 +369,11 @@ void main() {
   }
 
   test('inserting values in a binary search tree, creating unbalanced search tree', () {
-    expect(binarySearchTreeUnbalanced1.root?.value, 0);
-    expect(binarySearchTreeUnbalanced1.root?.rightChild?.value, 1);
-    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.value, 2);
-    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.value, 3);
-    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.rightChild?.value, 4);
+    expect(binarySearchTreeUnbalanced1.root?.key, 0);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.key, 1);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.key, 2);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.key, 3);
+    expect(binarySearchTreeUnbalanced1.root?.rightChild?.rightChild?.rightChild?.rightChild?.key, 4);
   });
 
   final binarySearchTreeBalanced1 = BinarySearchTree<int>();
@@ -384,12 +384,12 @@ void main() {
   binarySearchTreeBalanced1.insert(2);
   binarySearchTreeBalanced1.insert(5);
   test('inserting values in a binary search tree, creating balanced search tree', () {
-    expect(binarySearchTreeBalanced1.root?.value, 3);
-    expect(binarySearchTreeBalanced1.root?.leftChild?.value, 1);
-    expect(binarySearchTreeBalanced1.root?.leftChild?.leftChild?.value, 0);
-    expect(binarySearchTreeBalanced1.root?.leftChild?.rightChild?.value, 2);
-    expect(binarySearchTreeBalanced1.root?.rightChild?.value, 4);
-    expect(binarySearchTreeBalanced1.root?.rightChild?.rightChild?.value, 5);
+    expect(binarySearchTreeBalanced1.root?.key, 3);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.key, 1);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.leftChild?.key, 0);
+    expect(binarySearchTreeBalanced1.root?.leftChild?.rightChild?.key, 2);
+    expect(binarySearchTreeBalanced1.root?.rightChild?.key, 4);
+    expect(binarySearchTreeBalanced1.root?.rightChild?.rightChild?.key, 5);
   });
   test('searching / finding a value in a binary search tree', () {
     expect(binarySearchTreeBalanced1.contains(2), true);

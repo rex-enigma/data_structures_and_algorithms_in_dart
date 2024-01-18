@@ -4,14 +4,14 @@
 
 
  #### A binary search tree imposes the following rules:
- 1. Binary search tree may contain duplicate values/keys or not. If duplicate value/key is allowed, it should be placed either on the right child OR left child of the parent node whose having similar value/key.
- 2. All values on the left side(left subtree) of a node are less than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the left child of a node should contain a value which is less than or equal to the value of node itself.
- 3. All values on the right side(right subtree) of a node are greater than the value of the node itself. If duplicate values are allowed on a BST, then in this case ONLY the right child of a node should contain a value which is greater than or equal to the value of node itself.
- 4. Binary search tree can only hold values that are comparable.
+ 1. Binary search tree may contain duplicate keys or not. If duplicate key is allowed, it should be placed either on the right child OR left child of the parent node whose having similar key.
+ 2. All keys on the left side(left subtree) of a node are less than the key of the node itself. If duplicate keys are allowed on a BST, then in this case ONLY the left child of a node should contain a key which is less than or equal to the key of node itself.
+ 3. All keys on the right side(right subtree) of a node are greater than the key of the node itself. If duplicate keys are allowed on a BST, then in this case ONLY the right child of a node should contain a key which is greater than or equal to the key of node itself.
+ 4. Binary search tree can only hold keys that are comparable.
 
 #### Note:
-If duplicate values are allows in BST, the duplicate value should be placed either on the left child or right child of the parent node whose having similar value/key BUT not on both side.
-In the binary search tree implementation, i have chosen NOT to allow duplicate values to reduce complexity.
+If duplicate keys are allows in BST, the duplicate key should be placed either on the left child or right child of the parent node whose having similar key BUT not on both side.
+In the binary search tree implementation, i have chosen NOT to allow duplicate keys to reduce complexity.
 
 #### diagrammatic illustration
                          10
@@ -23,14 +23,14 @@ In the binary search tree implementation, i have chosen NOT to allow duplicate v
               |   3   7    ||12 19|
               |  /\  /\    ||_____|  
               | 1 2 6  9   |  / \
-              |____________|   |_ all values in this right subtree should be greater than 10
+              |____________|   |_ all keys in this right subtree should be greater than 10
                    / \
-all values in this _|
+all keys in this _|
 left subtree should be less that 10
 
 
 #### common operation are:
-1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/value  if it exists, it can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key/value being searched for does not exist in the tree. Otherwise, if the key/value equals that of the root, the search is successful and the node is returned. If the key/value is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key/value is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key/value is found or not found.
+1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/key  if it exists, it can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key being searched for does not exist in the tree. Otherwise, if the key equals that of the root, the search is successful and the node is returned. If the key/key is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key is found or not found.
    
 2. **insert** -> New nodes are inserted as leaf nodes.
    
@@ -41,16 +41,16 @@ left subtree should be less that 10
    
 
    3. **if Z has both left and right child:** these are the steps:
-      1. get the inOrder successor(the node with the smallest value in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
-      2. if the inOrder successor is Z's immediate right child, replace the value of Z with the value of inOrder successor and modify Z's right child to point to inOrder successor's right child.
-      3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the value of Z with the value of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
+      1. get the inOrder successor(the node with the smallest key in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
+      2. if the inOrder successor is Z's immediate right child, replace the key of Z with the key of inOrder successor and modify Z's right child to point to inOrder successor's right child.
+      3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the key of Z with the key of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
 
 4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal,are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which binary search tree node is using for traversal.
    
 
 ##### applications of binary search tree:
 1. BSTs can be used in encryption algorithms such as RSA, which is a public-key encryption algorithm used in secure communication protocols. RSA uses a BST to generate public and private keys.
-2. BSTs can be used to compress data by storing frequently occurring values in a smaller space and less frequently occurring values in a larger space. This technique is used in many applications, including image and audio compression, data transmission, and file compression.
+2. BSTs can be used to compress data by storing frequently occurring keys in a smaller space and less frequently occurring keys in a larger space. This technique is used in many applications, including image and audio compression, data transmission, and file compression.
 3. BSTs can be used to implement decision trees, which are used in machine learning and artificial intelligence to model decisions and predict outcomes. Decision trees are used in many applications, including medical diagnosis, financial analysis, and marketing research.
 4. BSTs are used for indexing in databases.
 

@@ -2,7 +2,7 @@
 
 - To keep binary tree balanced, you'll need a way to **measure the balance of a tree**. AVL tree achieves this with ***height*** property in each node. The Height of a node is the longest downwards path from that node to a leaf node. If a particular child is *null*, its height is considered to be -1.
 
-- ***relative height*** OR ***balance factor*** is an integer value computed from the difference between the leftChild's height and rightChild's height of an AVLNode. This balance factor is used to determine whether a particular AVlNode is balanced, if the balance factor is not within the range {-1,0,1}, rotations are performed to restore balance. A balanceFactor of 2 or -2 or something more extreme indicates an unbalanced tree. By checking after each insertion or deletion, you can guarantee that it will never be more extreme than a magnitude of two.
+- ***relative height*** OR ***balance factor*** is an integer key computed from the difference between the leftChild's height and rightChild's height of an AVLNode. This balance factor is used to determine whether a particular AVlNode is balanced, if the balance factor is not within the range {-1,0,1}, rotations are performed to restore balance. A balanceFactor of 2 or -2 or something more extreme indicates an unbalanced tree. By checking after each insertion or deletion, you can guarantee that it will never be more extreme than a magnitude of two.
 
 - Although more than one AVLNode may have a bad balancing factor, balancing **procedure** only needs to be performed on the bottom most AVLNode containing the invalid balance factor. 
 
@@ -14,7 +14,7 @@
 - Only the height of that AVLNode and pivot are affected and will need to be updated.
 
     ##### left rotation illustration
-    - leftmost value indicate the **balance factor** , the right most value indicates the **AVLNode height** and the center value is the **AVLNode's value.**
+    - leftmost key indicate the **balance factor** , the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
     &nbsp;
     In this case 40 is inserted
     resulting to unbalanced tree.
@@ -35,7 +35,7 @@
 - Only the height of that AVLNode and pivot are affected and will need to be updated.
 
     ##### right rotation illustration
-    - leftmost value indicate the **balance factor**, the right most value indicates the **AVLNode height** and the center value is the **AVLNode's value.**
+    - leftmost key indicate the **balance factor**, the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
     &nbsp;
     In this case 15 is inserted
     resulting to unbalanced tree.
@@ -54,7 +54,7 @@
 - Two rotations are performed, first, right rotation is performed on the rightChild of the bottom most AVLnode containing the invalid balance factor and the leftChild of that (rightChild of that bottom most AVLNode), second, left rotation is performed on that bottom most AVLNode containing the invalid balance factor and the rightChild of that AVLNode(aka pivot).
 
     ##### right-left rotation illustration
-    - leftmost value indicate the **balance factor**, the right most value indicates the **AVLNode height** and the center value is the **AVLNode's value.**
+    - leftmost key indicate the **balance factor**, the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
     &nbsp;
     In this case 35 is inserted
     resulting to unbalanced tree.
@@ -76,7 +76,7 @@
 - Two rotations are performed, first, left rotation is performed on the leftChild of the bottom most AVLNode containing the invalid balance factor and the rightChild of that (leftChild of that bottom most AVLNode), second, right rotation is performed on that bottom most AVLNode containing that invalid balance factor.
 
     ##### left-right rotation illustration
-    - leftmost value indicate the **balance factor** and the right most value indicates the **AVLNode height**, the center value is the **AVLNode's value.**
+    - leftmost key indicate the **balance factor** and the right most key indicates the **AVLNode height**, the center key is the **AVLNode's key.**
     &nbsp;
     In this case 15 is inserted
     resulting to unbalanced tree.
@@ -110,7 +110,7 @@ a 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
 2 : -1   --> left-right rotation.
 
 #### common operation are:
-1. **fast lookup / search / contains** -> checking if a value exist in an AVLNode.
+1. **fast lookup / search / contains** -> checking if a key exist in an AVLNode.
 2. **insert** -> inserting an AVLNode while maintaining the balance of the AVLNode tree.
 3. **remove / delete** -> removing an AVLNode while maintaining the balance of the AVLNode tree.
 4. **left rotation** -> performing a left rotation when an AVLNode has a balance factor of -2 and its rightChild has a balance factor of -1.(NB: ***remember all this rotations left,right-left,right and left-right, is performed only on the bottom most AVLNode with invalid balance factor of either 2 or -2***).
@@ -122,7 +122,7 @@ a 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
    
 
 ##### applications of AVL tree:
-
+1. 
 
 ##### key points:
 

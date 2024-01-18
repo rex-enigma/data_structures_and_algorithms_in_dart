@@ -7,7 +7,7 @@ Pre-order, post-order and in-order are types of depth-first traversal
  pre-order, post-order and in-order traversal algorithms are best described by a tree image check [visual representation of the traversal algorithms in Baeldung website](https://www.baeldung.com/cs/depth-first-traversal-methods).
 
 #### common operation are:
-1. **insertion** -> deciding which side to insert a value in binary tree is a little bit tricky since it doesn't maintain any order, different strategies need to be employed to make it possible,eg. using level/breath first traversal to insert values in empty position from the left to right going downward each level or through special requirements.(*Haven't implemented it yet*).
+1. **insertion** -> deciding which side to insert a key in binary tree is a little bit tricky since it doesn't maintain any order, different strategies need to be employed to make it possible,eg. using level/breath first traversal to insert keys in empty position from the left to right going downward each level or through special requirements.(*Haven't implemented it yet*).
 2. **deletion** -> deleting a leaf node or internal node/leaf node with one child isn't hard, what is hard is deleting an internal node with two children, in this case diff strategies need to be employed since the nodes don't maintain any order.(*Haven't implemented it yet*).
 3. **traversal** -> these depth-first traversal methods are inherited from TraversableBinaryNode abstract class from traversal_binary_node.dart file
    1. **pre-order traversal** -> action → left → right. 

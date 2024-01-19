@@ -99,12 +99,12 @@
 - If the balance factor is -2,then, the rightChild of that bottom most AVLNode is 'heavier'(contains mor nodes) than the leftChild. This means that you will either use **left rotation** or **right-left rotation**. To further narrow down on which rotation to use from those two, you check the balance factor of the rightChild of that bottom most AVLNode containing the invalid balance factor of -2, if its -1, then we do **left rotation**, else if its 1, then we use **left-right rotation**.
 
 ##### simply: 
-a -2 balance factor of an AVLNode indicates that the rightChild is heavier than the leftChild. Further, the rightChild of that AVLNode with a balance factor of -1 indicates that a **left rotation** need to be performed while 1 balance factor indicate that a **right-left rotation** need to be performed.
+A -2 balance factor of an AVLNode indicates that the rightChild is heavier than the leftChild. Further, the rightChild of that AVLNode with a balance factor of -1 indicates that a **left rotation** need to be performed while 1 balance factor indicate that a **right-left rotation** need to be performed.
 
 -2 : -1  --> left rotation.
 -2 : 1   --> right-left rotation.
 
-a 2 balance factor of an AVLNode indicates that the leftChild is heavier than the rightChild. Further, the leftChild of that AVLNode with a balance factor of 1 indicates that a **right rotation** need to be performed while -1 balance factor indicate that a **left-right rotation** need to be performed.
+A 2 balance factor of an AVLNode indicates that the leftChild is heavier than the rightChild. Further, the leftChild of that AVLNode with a balance factor of 1 indicates that a **right rotation** need to be performed while -1 balance factor indicate that a **left-right rotation** need to be performed.
 
 2 : 1    --> right rotation.
 2 : -1   --> left-right rotation.
@@ -122,8 +122,16 @@ a 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
    
 
 ##### applications of AVL tree:
-1. 
+1. Can be used to implement **set**, **map**, (even priority queue)
+2. It is used to index huge records in a database and also to efficiently search in that.
+3. Database applications, where insertions and deletions are less common but frequent data lookups are necessary. eg inventory system, library catalogs, customer relationship management.
+4. Software that needs optimized search.
+5. applied in storyline games.
+
 
 ##### key points:
-
+1. A self-balancing tree avoid performance degradation by performing a balancing procedure whenever you add or remove elements in the tree.
+2. AVl tree preserves balance by readjusting parts of the tree when the tree is no longer balanced.
+3. Balance ia achieved by 4 types of tree rotations on node insertion and removal: **right rotation**, **left rotation**, **right-left rotation** and **left-right rotation**
+4. - you can also add an operation that allow you to get a value of any type you specify stored in a node base on the given key when your data structure requirement need a AVL tree with that functionality. eg like the way map behaves
 

@@ -16,7 +16,7 @@ Pre-order, post-order and in-order are types of depth-first traversal
    
 
 ##### applications of binary tree:
-1. Used to implement binary search tree, heap(a.k.a binary heap)
+1. Can be used to implement **binary search tree**, **heap(a.k.a binary heap)**
 2. Huffman Coding Trees -> Binary trees are employed in Huffman coding, a compression algorithm. Huffman trees are used to create variable-length codes for characters, with frequently used characters having shorter codes, resulting in more efficient compression.
 3. Syntax Trees -> In compilers and parsing, binary trees are used to represent the hierarchical structure of the syntax of programming languages. Each node in the tree corresponds to a syntactic element, and the children represent its components.
 

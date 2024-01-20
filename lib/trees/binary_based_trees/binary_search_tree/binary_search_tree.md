@@ -30,22 +30,21 @@ left subtree should be less that 10
 
 
 #### common operation are:
-1. **fast lookup / search / contains** -> Searching in a binary search tree for a specific key/key  if it exists, it can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key being searched for does not exist in the tree. Otherwise, if the key equals that of the root, the search is successful and the node is returned. If the key/key is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key is found or not found.
+1. **fast lookup / search / contains** -> checking if a given specific key exists. It can be programmed **recursively** or **iteratively**. Searching begins by examining the root node. If the tree is null, the key being searched for does not exist in the tree. Otherwise, if the key equals that of the root, the search is successful and the node is returned. If the key/key is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key is found or not found.
    
-2. **insert** -> New nodes are inserted as leaf nodes.
+2. **insert** -> new key is inserted as leaf.
    
-3. **remove / delete** -> deletion of a node, say Z ,from the binary search tree BST has three cases:
+3. **remove / delete** -> delete an existing key. Deletion of a node that contains the key that we want to remove, say Z ,from the binary search tree BST has three cases:
    1. **if Z is a leaf node:** the parent node of Z's leftChild or rightChild (depending on which side Z was on) gets replaced by *null* and consequently Z is removed from The BST.
    
    2. **if Z has one child:** the child node of Z gets elevated by modifying the parent node of Z to point to the child node(Z's child node), consequently taking Z's position in the tree.
    
-
    3. **if Z has both left and right child:** these are the steps:
       1. get the inOrder successor(the node with the smallest key in the right subtree of Z) of Z. It guarantee to not have a left child (but might have a right child).
       2. if the inOrder successor is Z's immediate right child, replace the key of Z with the key of inOrder successor and modify Z's right child to point to inOrder successor's right child.
       3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the key of Z with the key of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
 
-4. **traversal** -> depthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal,are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which binary search tree node is using for traversal.
+4. **traversal** -> traversing though the binary tree. DepthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal, are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which binary search tree node is using for traversal.
    
 
 ##### applications of binary search tree:

@@ -1,6 +1,6 @@
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
 import 'package:dart_data_structure_and_algorithm/deque/deque.dart';
-import 'package:dart_data_structure_and_algorithm/deque/single_linked_list_based_deque_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/deque/singly_linked_list_based_deque_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/queue/double_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/queue/queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/queue/ring_buffer_based_queue_implementation.dart';

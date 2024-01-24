@@ -10,11 +10,11 @@
 
                            ( root )
                          /  /  |  \  \ 
-                      (D) (C) (T) (A) (Z)
+                      (D) (C) (T) (A) (A)
                      /   /  \   \    \   \
-                  (A) (A)   (U)  (O.) (D.)(O)
+                  (A) (A)   (U)  (O.) (D) (N.)
                  /   /         \         \   \
-              (R) (T.)          (T.)      (D.)(O.)
+              (R) (T.)          (T.)      (D.)(T.)
              /                     \         \
          (T.)                       (E.)      (S.)
   
@@ -23,7 +23,10 @@
 #### common operation are:
 1. **search / contains** -> check whether a given word / full key is present / exist in the trie tree.(The text provided MUST be a word not just any collection of text that doesn't form a word, because if its word false will alway be returned).
 2. **insertion** -> insert a word in the trie tree. 
-3. **deletion** -> delete a word from the trie tree
+3. **deletion** -> delete a word from the trie tree. There are 3 cases when deleting a word in a trie:
+   1. The word to be deleted is a prefix of other words. eg if we are to delete ***AN*** in the tree above, we have to be careful because is a prefix of anther word , ***ANT***.
+   2. The word to be deleted share a common prefix with other words. eg if we are to delete ***CUTE*** in the tree above, we have to be careful because 'CUTE' shares ***CU*** prefix with the word ***CUT***.
+   3. The word to be deleted does not share any common prefix with other words. eg if we are to delete ***DART***, we can just delete all the trieNodes holding the corresponding letters, since we are sure no multiple collections/words are sharing the trieNodes.
 4. **prefix matching** -> returns a collection of words that start with the given prefix.
 
 NB: trie can also be used to contain any type of character including special characters and numbers. Here am focusing on storing strings specifically words

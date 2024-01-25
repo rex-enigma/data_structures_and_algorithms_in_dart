@@ -46,5 +46,55 @@ class TrieTree {
     return current.isTerminating;
   }
 
-  void remove(String word) {}
+  // Average and worse time complexity is O(n), where n represent the length of the string(# of the code units) that you are trying to remove
+  /// Remove a word from trie tree. If the argument provided is not a word or doesn't exist, no
+  /// modification is done on the trie tree.
+  void remove(String word) {
+    var current = root;
+    for (var codeUnit in word.codeUnits) {
+      final child = current.children[codeUnit];
+      // handles the first case.
+      if (child == null) return;
+      current = child;
+    }
+    // handles the second case.
+    if (!current.isTerminating) return;
+
+    // handles the third and partly the forth case.
+    current.isTerminating = false;
+
+    // handles the forth case.
+    while (current.parent != null && current.children.isEmpty && !current.isTerminating) {
+      current.parent!.children.remove(current.keyPart);
+      current = current.parent!;
+    }
+  }
+
+  // worse case time complexity is O(n * m) where n represent the longest collection matching the prefix and m represents
+  // the number of collections that  match the prefix
+  /// returns a collection of words that start with the given prefix.
+  List<String> matchPrefix(String prefix) {
+    var current = root;
+    for (var codeUnit in prefix.codeUnits) {
+      final child = current.children[codeUnit];
+      // handles the case where the prefix doesn't exist in the tire tree
+      if (child == null) return [];
+      current = child;
+    }
+    return _moreMatches(prefix, current);
+  }
+
+  List<String> _moreMatches(String prefix, TrieNode<int> trieNode) {
+    List<String> results = [];
+    // handles the case where the prefix is a word by itself.
+    if (trieNode.isTerminating) results.add(prefix);
+
+    for (final child in trieNode.children.values) {
+      final codeUnit = child.keyPart!;
+      results.addAll(
+        _moreMatches('$prefix${String.fromCharCode(codeUnit)}', child),
+      );
+    }
+    return results;
+  }
 }

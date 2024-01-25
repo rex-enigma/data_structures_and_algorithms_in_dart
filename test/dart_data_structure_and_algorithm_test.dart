@@ -15,6 +15,7 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binar
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_search_tree/binary_search_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/tire/trie_tree.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -492,5 +493,38 @@ void main() {
     expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, null), false);
     expect(containsBinarySearchSubTree(null, binarySearchSubTreeBalanced1), false);
     expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, binarySearchNotSubTreeBalanced1), false);
+  });
+
+  final trieTree = TrieTree();
+  trieTree.insert('car');
+  trieTree.insert('card');
+  trieTree.insert('care');
+  trieTree.insert('cared');
+  trieTree.insert('cars');
+  trieTree.insert('carbs');
+  trieTree.insert('carapace');
+  trieTree.insert('cargo');
+  trieTree.insert('cut');
+  trieTree.insert('cute');
+  test('insert a word in trie tree', () {
+    expect(trieTree.contains('car'), true);
+    expect(trieTree.contains('cart'), false);
+  });
+
+  trieTree.remove('cute');
+  test('removing a word from trie tree', () {
+    expect(trieTree.contains('cute'), false);
+    expect(trieTree.contains('cut'), true);
+  });
+
+  test("prefix matching, collection of words that start with 'car' ", () {
+    expect(trieTree.matchPrefix('car').toString(), "[car, card, care, cared, cars, carbs, carapace, cargo]");
+  });
+
+  test("prefix matching, collection of words that start with 'care' ", () {
+    expect(trieTree.matchPrefix('care').toString(), "[care, cared]");
+  });
+  test("prefix matching, collection of words that start with 'cu' ", () {
+    expect(trieTree.matchPrefix('cu').toString(), "[cut]");
   });
 }

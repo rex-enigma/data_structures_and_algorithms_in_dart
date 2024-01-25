@@ -1,6 +1,7 @@
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/avl_tree/avl_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_search_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/general_tree_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/trees/tire/trie_tree_challanges.dart';
 
 void main(List<String> arguments) {
   /*******************general tree*********************/

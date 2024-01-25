@@ -14,7 +14,7 @@ class TrieNode<T> {
   bool isTerminating = false;
 }
 
-class TrieTree {
+class StringTire {
   // in dart a String is a collection of UTF-16 code units( each code unit{should be code point} is a number that represent a character). Therefore
   // you can only iterate on the String characters in their numerical form (which in this case the string characters will be of int type). Each
   // TireNode will hold a number that represent a character, thats why we are using int type for keyPart.

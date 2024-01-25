@@ -16,6 +16,7 @@ import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binar
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/trees/binary_based_trees/binary_tree/binary_tree_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/trees/tire/trie_tree.dart';
+import 'package:dart_data_structure_and_algorithm/trees/tire/trie_tree_challanges.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -495,36 +496,42 @@ void main() {
     expect(containsBinarySearchSubTree(binarySearchTreeBalanced1, binarySearchNotSubTreeBalanced1), false);
   });
 
-  final trieTree = TrieTree();
-  trieTree.insert('car');
-  trieTree.insert('card');
-  trieTree.insert('care');
-  trieTree.insert('cared');
-  trieTree.insert('cars');
-  trieTree.insert('carbs');
-  trieTree.insert('carapace');
-  trieTree.insert('cargo');
-  trieTree.insert('cut');
-  trieTree.insert('cute');
-  test('insert a word in trie tree', () {
-    expect(trieTree.contains('car'), true);
-    expect(trieTree.contains('cart'), false);
+  final stringTrieTree = StringTire();
+  stringTrieTree.insert('car');
+  stringTrieTree.insert('card');
+  stringTrieTree.insert('care');
+  stringTrieTree.insert('cared');
+  stringTrieTree.insert('cars');
+  stringTrieTree.insert('carbs');
+  stringTrieTree.insert('carapace');
+  stringTrieTree.insert('cargo');
+  stringTrieTree.insert('cut');
+  stringTrieTree.insert('cute');
+  test('insert a word in stringTrieTree', () {
+    expect(stringTrieTree.contains('car'), true);
+    expect(stringTrieTree.contains('cart'), false);
   });
 
-  trieTree.remove('cute');
-  test('removing a word from trie tree', () {
-    expect(trieTree.contains('cute'), false);
-    expect(trieTree.contains('cut'), true);
+  stringTrieTree.remove('cute');
+  test('removing a word from stringTrieTree', () {
+    expect(stringTrieTree.contains('cute'), false);
+    expect(stringTrieTree.contains('cut'), true);
   });
 
   test("prefix matching, collection of words that start with 'car' ", () {
-    expect(trieTree.matchPrefix('car').toString(), "[car, card, care, cared, cars, carbs, carapace, cargo]");
+    expect(stringTrieTree.matchPrefix('car').toString(), "[car, card, care, cared, cars, carbs, carapace, cargo]");
   });
 
   test("prefix matching, collection of words that start with 'care' ", () {
-    expect(trieTree.matchPrefix('care').toString(), "[care, cared]");
+    expect(stringTrieTree.matchPrefix('care').toString(), "[care, cared]");
   });
   test("prefix matching, collection of words that start with 'cu' ", () {
-    expect(trieTree.matchPrefix('cu').toString(), "[cut]");
+    expect(stringTrieTree.matchPrefix('cu').toString(), "[cut]");
+  });
+  test('return all words that exist in stringTrieTree', () {
+    expect(stringTrieTree.allWords.toString(), "[car, card, care, cared, cars, carbs, carapace, cargo, cut]");
+  });
+  test('return the total number of words that exist in the stringTrieTree', () {
+    expect(stringTrieTree.wordCount, 9);
   });
 }

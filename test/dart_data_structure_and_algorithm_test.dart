@@ -1,3 +1,5 @@
+import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search.dart';
+import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/singly_linked_list_based_deque_implementation.dart';
@@ -533,5 +535,19 @@ void main() {
   });
   test('return the total number of words that exist in the stringTrieTree', () {
     expect(stringTrieTree.wordCount, 9);
+  });
+
+  /*************************BINARY SEARCH**************************************/
+  final orderedList = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
+  test("return the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
+    expect(orderedList.indexOf(31), 7);
+    expect(orderedList.binarySearch(31), 7);
+    expect(orderedList.binarySearch(10), -1);
+  });
+
+  final freeFunctionBinarySearch31 = binarySearch(31, orderedList);
+  test("return the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
+    expect(freeFunctionBinarySearch31, 7);
+    expect(binarySearch(10, orderedList), -1);
   });
 }

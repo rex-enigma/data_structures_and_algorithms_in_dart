@@ -539,15 +539,21 @@ void main() {
 
   /*************************BINARY SEARCH**************************************/
   final orderedList = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
-  test("return the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
+  test("recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(orderedList.indexOf(31), 7);
     expect(orderedList.binarySearch(31), 7);
     expect(orderedList.binarySearch(10), -1);
   });
 
   final freeFunctionBinarySearch31 = binarySearch(31, orderedList);
-  test("return the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
+  test("recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(freeFunctionBinarySearch31, 7);
     expect(binarySearch(10, orderedList), -1);
+  });
+
+  final nonRecursiveBinarySearch24 = nonRecursiveBinarySearch(24, orderedList);
+  test("non-recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
+    expect(nonRecursiveBinarySearch24, 6);
+    expect(nonRecursiveBinarySearch(15, orderedList), 2);
   });
 }

@@ -1,6 +1,7 @@
 extension SortedList<T extends Comparable<dynamic>> on List {
   // has a best case time complexity of O(1), average time complexity of O(log n) and worse case time complexity of O(log n)
   /// The first index of [element] in this list.
+  /// It does the search recursively.
   int binarySearch(T value, [int? start, int? end]) {
     final startIndex = start ?? 0;
     final endIndex = end ?? length;

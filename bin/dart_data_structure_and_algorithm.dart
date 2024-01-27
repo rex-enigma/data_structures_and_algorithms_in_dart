@@ -1,3 +1,4 @@
+import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/avl_tree/avl_tree.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_search_tree/binary_search_tree.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/general_tree_challenges.dart';
@@ -37,4 +38,7 @@ void main(List<String> arguments) {
   print(avlTreeRemove);
   avlTreeRemove.remove(10);
   print(avlTreeRemove);
+
+  final test = findRange(value: 5, orderedList: [1, 2, 3, 3, 4, 5, 5]);
+  print(test);
 }

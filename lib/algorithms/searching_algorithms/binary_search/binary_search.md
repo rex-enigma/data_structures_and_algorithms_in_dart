@@ -10,5 +10,12 @@
 - Binary search algorithm is only applicable on a linear, sorted, random index lookup based data structure.
 
 #### applications of binary search:
+1. Binary search can be used to find the index of a particular element in an ordered list.
+2. Binary search can be used as a building block for more complex algorithms used in machine learning, such as algorithms for training neutral networks or finding the optimal hyper-parameters for a model.
+3. Binary search can be used for searching in computer graphics such as algorithms for ray tracing or textual mapping
+4. It can also be used for searching in database.
 
 #### key points:
+1. Binary search is only a valid algorithm in sorted collections.
+2. Some times it may be beneficial to sort a collection to leverage the binary search capability for looking up elements.
+3. The *indexOf* method in List used a linear search with O(n) time complexity. Binary search has O(log n) time complexity, which scales much better for large data sets if you are doing repeated lookups.

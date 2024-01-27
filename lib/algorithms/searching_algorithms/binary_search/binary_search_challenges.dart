@@ -117,7 +117,7 @@ class Range {
 // has a time complexity of O(n).
 /// find the range of indices for a particular value.
 Range? findRange<T extends Comparable<dynamic>>({required T value, required List<T> orderedList}) {
-  final valueIndex = binarySearch(value, orderedList);
+  final valueIndex = binarySearch<T>(value, orderedList);
   int startIndex = valueIndex;
   int endIndex = valueIndex;
   // if value don't exist in [orderedList] return null

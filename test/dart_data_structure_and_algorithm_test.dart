@@ -550,13 +550,13 @@ void main() {
   final freeFunctionBinarySearch31 = binarySearch(31, orderedList);
   test("recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(freeFunctionBinarySearch31, 7);
-    expect(binarySearch(10, orderedList), -1);
+    expect(binarySearch<int>(10, orderedList), -1);
   });
 
   final nonRecursiveBinarySearch24 = nonRecursiveBinarySearch(24, orderedList);
   test("non-recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(nonRecursiveBinarySearch24, 6);
-    expect(nonRecursiveBinarySearch(15, orderedList), 2);
+    expect(nonRecursiveBinarySearch<int>(15, orderedList), 2);
   });
 
   final orderedDuplicatedValueList = [1, 1, 2, 3, 3, 3, 4, 5, 5];

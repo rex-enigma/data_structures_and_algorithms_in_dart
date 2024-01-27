@@ -2,6 +2,9 @@
 // Since binary search only works on sorted lists, exposing binarySearch for every list
 // (including unsorted ones) opens it up to being misused. Implement binary search as a free function.
 
+/// Search for the index of [value] in [orderedList]. Make sure [orderedList] is ordered.
+/// If duplicate [value]s exist in [orderedList], one of any index of [value] will be returned. Otherwise
+/// -1 get returned if [value] doesn't exist.
 int binarySearch<T extends Comparable<dynamic>>(T value, List<T> orderedList, [int? start, int? end]) {
   final startIndex = start ?? 0;
   final endIndex = end ?? orderedList.length;
@@ -93,9 +96,17 @@ class Range {
   Range(this.startIndex, this.endIndex);
   // this is inclusive (meaning that the startIndex is exactly the index in a list that we want to include its corresponding value)
   final int startIndex;
-  // this is exclusive (meaning the endIndex will always be greater than the index it refer to in a list,{mostly is greater just by 1, meaning for us to get
+  // this is exclusive (meaning the endIndex will always be greater than the index it refer to in a list,{mostly its greater just by 1, meaning for us to get
   // the corresponding value for this endIndex, we need to subtract 1 from it})
   final int endIndex;
+
+  @override
+  bool operator ==(Object other) {
+    return (other is Range && startIndex == other.startIndex && endIndex == other.endIndex);
+  }
+
+  @override
+  int get hashCode => startIndex.hashCode ^ endIndex.hashCode;
 
   @override
   String toString() {
@@ -103,6 +114,7 @@ class Range {
   }
 }
 
+// has a time complexity of O(n).
 /// find the range of indices for a particular value.
 Range? findRange<T extends Comparable<dynamic>>({required T value, required List<T> orderedList}) {
   final valueIndex = binarySearch(value, orderedList);
@@ -112,14 +124,80 @@ Range? findRange<T extends Comparable<dynamic>>({required T value, required List
   if (valueIndex == -1) return null;
 
   // 1st, loop to left of the [orderedList] to search for the first index of the [value]
-  while (orderedList[startIndex - 1] == value) {
+  // [startIndex > 0] makes sure we don't go out of bound on the right side of [orderedList]
+  while (startIndex > 0 && orderedList[startIndex - 1] == value) {
     startIndex--;
   }
 
   // 2nd, loop to right of the [orderedList] to search for the last index of the [value]
-  while (orderedList[endIndex] == value) {
+  // [endIndex < orderedList.length] makes sure we don't go out of bound on the right side of [orderedList]
+  while (endIndex < orderedList.length && orderedList[endIndex] == value) {
     endIndex++;
   }
 
   return Range(startIndex, endIndex);
 }
+
+// book solution for challenge 3:
+// solution a:
+// used dart list's indexOf and lastIndexOf methods, this solution has a time complexity of O(n)
+
+// Range? findRange(List<int> list, int value) {
+//   final start = list.indexOf(value);
+//   if (start == -1) return null;
+//   final end = list.lastIndexOf(value) + 1;
+//   return Range(start, end);
+// }
+
+// solution b:
+// this solution first finds the startIndex and endIndex of a given value in a sorted list, which
+// makes finding range easier with a time complexity of O(log n)
+
+// 1st, find the startIndex of [value]
+
+// int? _startIndex(List<int> list, int value) {
+//   if (list[0] == value) return 0;
+//   var start = 1;
+//   var end = list.length;
+//   while (start < end) {
+//     var middle = start + (end - start) ~/ 2;
+//     if (list[middle] == value && list[middle - 1] != value) {
+//       return middle;
+//     } else if (list[middle] < value) {
+//       start = middle + 1;
+//     } else {
+//       end = middle;
+//     }
+//   }
+//   return null;
+// }
+
+// 2nd, find the endIndex of [value]
+
+// int? _endIndex(List<int> list, int value) {
+//   if (list[list.length - 1] == value) return list.length;
+//   var start = 0;
+//   var end = list.length - 1;
+//   while (start < end) {
+//     var middle = start + (end - start) ~/ 2;
+//     if (list[middle] == value && list[middle + 1] != value) {
+//       return middle + 1;
+//     } else if (list[middle] > value) {
+//       end = middle;
+//     } else {
+//       start = middle + 1;
+//     }
+//   }
+//   return null;
+// }
+
+// finally, find the range of indices of [value]
+// time complexity of O(log n)
+
+// Range? findRange(List<int> list, int value) {
+//   if (list.isEmpty) return null;
+//   final start = _startIndex(list, value);
+//   final end = _endIndex(list, value);
+//   if (start == null || end == null) return null;
+//   return Range(start, end);
+// }

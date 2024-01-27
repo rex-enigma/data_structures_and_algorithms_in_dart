@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
@@ -555,5 +557,14 @@ void main() {
   test("non-recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(nonRecursiveBinarySearch24, 6);
     expect(nonRecursiveBinarySearch(15, orderedList), 2);
+  });
+
+  final orderedDuplicatedValueList = [1, 1, 2, 3, 3, 3, 4, 5, 5];
+  test('binary search challenge 3: find the range of indices of a particular element', () {
+    expect(findRange(value: 3, orderedList: orderedDuplicatedValueList), Range(3, 6));
+    expect(findRange(value: 5, orderedList: orderedDuplicatedValueList), Range(7, 9));
+    expect(findRange(value: 1, orderedList: orderedDuplicatedValueList), Range(0, 2));
+    expect(findRange(value: 2, orderedList: orderedDuplicatedValueList), Range(2, 3));
+    expect(findRange(value: 7, orderedList: orderedDuplicatedValueList), null);
   });
 }

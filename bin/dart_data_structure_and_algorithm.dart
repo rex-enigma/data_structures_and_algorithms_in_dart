@@ -38,7 +38,4 @@ void main(List<String> arguments) {
   print(avlTreeRemove);
   avlTreeRemove.remove(10);
   print(avlTreeRemove);
-
-  final test = findRange(value: 5, orderedList: [1, 2, 3, 3, 4, 5, 5]);
-  print(test);
 }

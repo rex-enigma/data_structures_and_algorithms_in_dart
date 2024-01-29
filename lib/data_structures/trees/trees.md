@@ -39,6 +39,7 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
     ##### states of balance
     
     - **perfectly balanced**: every leaf node is at the same depth in the tree, and every internal node has the same number of children.
+```
                             ___
                             |_|
                             / \
@@ -49,8 +50,9 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                         / \     / \
                       _/_ _\_ _/_ _\_
                       |_| |_| |_| |_|
-
+```
     - **good enough balanced** / **balanced**: is a more flexible term that doesn't necessarily imply strict adherence to perfect balance but ensures a reasonably balanced structure.
+```
                             ___
                             |_|
                             / \
@@ -61,8 +63,9 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                         / \     
                       _/_ _\_ 
                       |_| |_|                         
-
+```
     - **unbalanced**: is a binary tree where the depth of the two subtrees of any node can differ significantly.
+```
                             ___                  ___
                             |_|                  |_|
                             /                    / \
@@ -74,17 +77,17 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
                       _/_ _\_                /
                       |_| |_|              _/_
                                            |_|  
-
-4. **Trie** -> a.k.a prefix tree or digital tree, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
+```
+1. **Trie** -> a.k.a prefix tree or digital tree, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
    
-5. **Heap** -> a.k.a binary heap, is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children. A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
+2. **Heap** -> a.k.a binary heap, is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children. A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
    
 
 #### common operation are:
 1. **depth-first traversal** -> visiting nodes in a vertical order.
 2. **level-first / breath-first traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
 3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
-4. 
+   
 
 ##### applications of trees:
 1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.

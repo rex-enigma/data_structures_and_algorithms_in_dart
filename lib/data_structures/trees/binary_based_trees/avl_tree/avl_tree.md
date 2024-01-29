@@ -15,12 +15,9 @@
 
     ##### left rotation illustration
     - leftmost key indicate the **balance factor** , the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
-    &nbsp;
-    In this case 40 is inserted
-    resulting to unbalanced tree.
-    This is one way in which a
-    tree can be unbalanced.
-
+   
+    - In this case 40 is inserted resulting to unbalanced tree. This is one way in which a tree can be unbalanced.
+``` 
             2(50)3                         1(50)2           
              /  \                           /  \
        -2(25)2  0(75)0    ------>      0(37)1  0(75)0
@@ -28,7 +25,7 @@
         -1(37)1                    0(25)0  0(40)0
              \
           0(40)0      
-  
+```
 #### right rotation(right-right rotation):
 - A single right rotation is performed when a node is inserted into the left most side of the left subtree leading to an unbalanced tree.
 - The rotation is done on the bottom most AVLNode containing the invalid balance factor and the leftChild of that AVLNode(aka pivot), where that AVLNode's leftChild is set to pivot's rightChild and the pivot's rightChild is set to that AVLNode.
@@ -36,12 +33,9 @@
 
     ##### right rotation illustration
     - leftmost key indicate the **balance factor**, the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
-    &nbsp;
-    In this case 15 is inserted
-    resulting to unbalanced tree.
-    This is second way in which a
-    tree can be unbalanced.
 
+    - In this case 15 is inserted resulting to unbalanced tree. This is second way in which a tree can be unbalanced.
+```
             2(50)3                         1(50)2           
              /  \                           /  \
         2(25)2  0(75)0     ------>     0(20)1  0(75)0
@@ -49,20 +43,19 @@
      1(20)1                        0(15)0  0(25)0
        /  
    0(15)0   
+```
 
 #### right-left rotation:
 - Two rotations are performed, first, right rotation is performed on the rightChild of the bottom most AVLnode containing the invalid balance factor and the leftChild of that (rightChild of that bottom most AVLNode), second, left rotation is performed on that bottom most AVLNode containing the invalid balance factor and the rightChild of that AVLNode(aka pivot).
 
     ##### right-left rotation illustration
     - leftmost key indicate the **balance factor**, the right most key indicates the **AVLNode height** and the center key is the **AVLNode's key.**
-    &nbsp;
-    In this case 35 is inserted
-    resulting to unbalanced tree.
-    This is third way in which a
-    tree can be unbalanced.
-    &nbsp;
-    first, right rotation is performs         second, left rotation is performed     
-    on 1--> and 2-->.                         on 3--> and 4-->.
+
+    - In this case 35 is inserted resulting to unbalanced tree. This is third way in which a tree can be unbalanced.
+  
+```
+    first, right rotation is performed         second, left rotation is performed     
+    on 1--> and 2-->.                          on 3--> and 4-->.
 
                2(50)3                             2(50)3                              1(50)2
                 /  \                               /  \                                /  \
@@ -71,20 +64,18 @@
     1-->    1(37)1                     4-->   -1(35)1                          0(25)0 0(37)0
              /                                      \
     2-->   0(35)0                                0(37)0   
+```
 
 #### left-right rotation:
 - Two rotations are performed, first, left rotation is performed on the leftChild of the bottom most AVLNode containing the invalid balance factor and the rightChild of that (leftChild of that bottom most AVLNode), second, right rotation is performed on that bottom most AVLNode containing that invalid balance factor.
 
     ##### left-right rotation illustration
     - leftmost key indicate the **balance factor** and the right most key indicates the **AVLNode height**, the center key is the **AVLNode's key.**
-    &nbsp;
-    In this case 15 is inserted
-    resulting to unbalanced tree.
-    This is forth way in which a
-    tree can be unbalanced.
-    &nbsp;
-    first, left rotation is performs         second, right rotation is performed     
-    on 1--> and 2-->.                        on 3--> and 4-->.
+
+    - In this case 15 is inserted resulting to unbalanced tree. This is forth way in which a tree can be unbalanced.
+```
+    first, left rotation is performed         second, right rotation is performed     
+    on 1--> and 2-->.                         on 3--> and 4-->.
 
                2(50)3                                2(50)3                              1(50)2
                 /  \                                  /  \                                /  \
@@ -93,6 +84,7 @@
     1--> -1(10)1                        4-->  1(15)1                             0(10)0 0(25)0
               \                                /
     2-->   0(15)0                          0(10)0   
+```
 
 - How will you decide which rotation to use! Their is a pattern when you look at those 4 different ways in which a tree can be unbalance. As stated earlier, by checking the balance of the tree after each insertion or deletion, you can guarantee that the balance factor of an AVLNode will never be more extreme than a magnitude of two if the tree is unbalanced. So, the bottom most AVLNode containing the invalid balance factor will have a balance factor of either 2 or -2.
 - If the balance factor is 2,then the leftChild of that bottom most AVLNode is 'heavier'(contains more nodes) than the rightChild. This means that you will either use **right rotation** or **left-right rotation**. To further narrow down on which rotation to used from those two, you check the balance factor of the leftChild of that bottom most AVLNode containing the invalid balance factor of 2, if its 1, then we use **right rotation**, else if its -1, then we use **left right-rotation**.
@@ -101,13 +93,17 @@
 #### simply: 
 A -2 balance factor of an AVLNode indicates that the rightChild is heavier than the leftChild. Further, the rightChild of that AVLNode with a balance factor of -1 indicates that a **left rotation** need to be performed while 1 balance factor indicate that a **right-left rotation** need to be performed.
 
+```
 -2 : -1  --> left rotation.
 -2 : 1   --> right-left rotation.
+```
 
 A 2 balance factor of an AVLNode indicates that the leftChild is heavier than the rightChild. Further, the leftChild of that AVLNode with a balance factor of 1 indicates that a **right rotation** need to be performed while -1 balance factor indicate that a **left-right rotation** need to be performed.
 
+```
 2 : 1    --> right rotation.
 2 : -1   --> left-right rotation.
+```
 
 #### common operation are:
 1. **fast lookup / search / contains** -> checking if a given specific key exists.

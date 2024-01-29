@@ -7,7 +7,7 @@
 - Tries are particularly useful for tasks involving prefix matching and searching, auto-completion
 
 ##### diagrammatic illustration:
-
+```
                            ( root )
                          /  /  |  \  \ 
                       (D) (C) (T) (A) (A)
@@ -19,6 +19,7 @@
          (T.)                       (E.)      (S.)
   
   - the dot on some of the characters indicate the end of a word.
+```
 
 #### common operation are:
 1. **search / contains** -> check whether a given word / full key is present / exist in the trie tree.(The text provided MUST be a word not just any collection of text that doesn't form a word, because if its word false will alway be returned).

@@ -27,12 +27,12 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
 
 
 
-##### applications of linked list
+#### applications of linked list
 1. implementing other data structures. eg stack, queue, deque
 2. dynamic memory allocation.
 3. representing graphs -> Linked lists are perfect for representing graphs using adjacency lists: Each node in the graph has a linked list of its adjacent nodes, enabling efficient graph traversal algorithms like breadth-first search and depth-first search.
 4. Symbol Tables -> Compilers and interpreters use linked lists to create symbol tables: These tables map identifiers like variable names to their associated values or memory locations.
 
-##### key points
+#### key points
 1. linked list hav O(1) time complexity for head first insertions whereas standard list have O(n) time complexity for head first insertions.
 2. implementing the Dart *Iterable* interface allows you to loop through the elements of a collection as well as offering a host of other helpful methods

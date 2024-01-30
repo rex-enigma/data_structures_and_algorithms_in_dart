@@ -17,12 +17,12 @@
 
 
 #### Heap property
- ```
+```
          (10)                                                   (1)
         /    \                                                 /   \
-      (8)     (4)                                           (2)     (4)
-     /   \                                                 /   \
-   (5)   (1)                                            (5)     (8)
+      (8)    (4)                                             (2)   (4)
+     /   \                                                  /   \
+   (5)   (1)                                              (5)   (8)
  
   Max heap -> parent node must always contain          Min heap -> parent node must always contain
    a value that is greatest than or equal to the       a value that is less than or equal to the 

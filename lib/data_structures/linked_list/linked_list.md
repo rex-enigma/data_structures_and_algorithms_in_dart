@@ -14,16 +14,16 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
 
 #### common operation are:
 - ##### Adding values to a list
-  1. **push** -> adds a value at the front of the linked list.
-  2. **append** -> adds a value at the end of the linked list.
+  1. **push** -> add a value at the front of the linked list.
+  2. **append** -> add a value at the end of the linked list.
   3. **insertAfter** -> adds a value after a particular node in the linked list. 
 
 - ##### Removing values from a list
-  1. **pop** -> removes and returns the value at the front of the linked list.
-  2. **removeLast** -> removes and returns the value at the end of the linked list.
-  3. **removeAfter** -> removes and returns the value after a particular node in the linked list.
+  1. **pop** -> remove and return the value at the front of the linked list.
+  2. **removeLast** -> remove and return the value at the end of the linked list.
+  3. **removeAfter** -> remove and return the value after a particular node in the linked list.
 - ##### additional useful operations
-  1. **nodeAt** -> returns a node at a particular index.
+  1. **nodeAt** -> return a node at a particular index.
 
 
 

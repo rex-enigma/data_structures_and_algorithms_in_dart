@@ -36,7 +36,7 @@
 
 #### common operation are:
 1. **peek** -> return a reference of the highest priority or the lowest priority value in a max-heap or min-heap respectively without removing it. This value is found in the root element(the first element in the list) of either the max-heap or min-heap respectively.
-2. **insertion / push** -> add a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property. Therefore after adding a value to the heap, ***sifting up***(is the process of moving the heapNode up in the heap tree {since list is the one used to implement heap we can also say, moving the heapNode leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
+2. **insertion / push** -> add a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property. Therefore after adding a value to the heap, ***sifting up***(is the process of moving the new heapNode up in the heap tree {since list is the one used to implement heap we can also say, moving the new heapNode leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
    1. A heapNode representing this value is first added at the end of the list
    2. The new heapNode is compared to its parent, if the new heapNode's value is smaller than its parent, the insertion is done, otherwise,
    3. Sifting up is done through swapping the new heapNode with its parent.

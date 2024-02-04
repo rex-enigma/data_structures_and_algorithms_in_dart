@@ -15,11 +15,11 @@ class Heap<T extends Comparable<dynamic>> {
 
   Heap({List<T>? elements, this.priority = Priority.max}) {
     this.elements = (elements == null) ? [] : elements;
-    _buildHeap();
+    buildHeap();
   }
 
   // also known as heapify
-  void _buildHeap() {
+  void buildHeap() {
     if (isEmpty) return;
     final start = (elements.length ~/ 2) - 1;
     for (var i = start; i >= 0; i--) {

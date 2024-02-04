@@ -53,8 +53,8 @@
       5. If there's rightChild and has an even higher priority than the current chosen on, make it the chosen one instead.
       6. if the chosen is still parent, then the removal is done and no more sifting down is required.
       7. Otherwise, swap the chosen with the parent and set it as the new parent and repeat step 2 - 7.
-4. **search** -> check if a given value exist in the heap tree. Return an index of the given value that your are searching for in the heap. (can be used together with **removeAt** operation to search and remove a values if it exist).
-5. **removeAt** -> remove and return an arbitrary value from the heap tree. Example of a ***removeAt algorithm for both max and min heap***:
+4. **search** -> check if a given value exist in the heap tree. Return an index of the given value that your are searching for in the heap. (can be used together with **removeAt** operation to search and remove a values if it exist). Unfortunately, heaps aren't designed for fast searches. With binary search tree, you can perform a search in O(log n) time, but since heap are built using a list, and the node ordering in a heap is different than BST, you can't even perform a binary search. Searching for an element in heap is, in the worse case, an O(n) time since you may have to check every element in the list. However you can optimize the search by taking advantage of the heap's max or min priority.
+5. **removeAt** -> remove and return an arbitrary value of the given index from the heap tree. Example of a ***removeAt algorithm for both max and min heap***:
    1. we'll be using index to access the value we want to remove and return from the heap tree.
    2. check to see if the provided index is within the bound of the list. if not, return null.
    3. If the  value to be removed is the last in the heap, just remove and return the value.
@@ -64,7 +64,7 @@
 6. Other internal helper operations:
    1. ***siftDown*** -> move a value down in the heap (move a value rightwards in the list) to restore heap condition / property.
    2. ***siftUp*** -> move a value up in the heap (move a value leftwards in th list) to restore heap condition / property.
-   3. ***buildHeap / heapify*** -> create a heap out of the given list of comparable values. Sifting down is performed only on the 'non-leaf values(values that have both children or one child), looping through the list backwards, starting from the last non leaf value to the first non-leaf value.It has a time complexity of O(log n) as compared to time complexity of O(n log n) if sifting up was used.
+   3. ***buildHeap / heapify*** -> create a heap out of the given list of comparable values. Sifting down is performed only on the 'non-leaf values(values that have both children or one child,) in which the formula ***(lengthOfList ~/ 2) - 1*** is used to to determine the number of non-leaf values,which will be used to loop through the list backwards, starting from the last non-leaf value to the first non-leaf value.Build heap has a time complexity of O(log n) as compared to time complexity of O(n log n) if sifting up was used.
    4. ***leftChildIndex*** -> return the leftChild's index of the parent's value. This index can be determined by the formula ***2i + 1***, where i is the index of the parent.
    5. ***rightChildIndex*** -> return the rightChild's index of the parent's value. This index can be determined by the formula ***2i + 2***, where i is the index of the parent.
    6. ***parentIndex*** -> return the parent index given either left or right child's index. This index can be determined by the formula ***(i - 1) ~/2***, where i is the index representing either the left or right child's index.

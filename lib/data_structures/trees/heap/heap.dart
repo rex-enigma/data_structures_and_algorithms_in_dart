@@ -15,6 +15,16 @@ class Heap<T extends Comparable<dynamic>> {
 
   Heap({List<T>? elements, this.priority = Priority.max}) {
     this.elements = (elements == null) ? [] : elements;
+    _buildHeap();
+  }
+
+  // also known as heapify
+  void _buildHeap() {
+    if (isEmpty) return;
+    final start = (elements.length ~/ 2) - 1;
+    for (var i = start; i >= 0; i--) {
+      _siftDown(i);
+    }
   }
 
   int _leftChildIndex(int parentIndex) {
@@ -22,7 +32,7 @@ class Heap<T extends Comparable<dynamic>> {
   }
 
   int _rightChildIndex(int parentIndex) {
-    return (2 * parentIndex) + 1;
+    return (2 * parentIndex) + 2;
   }
 
   int _parentIndex(int childIndex) {
@@ -108,7 +118,7 @@ class Heap<T extends Comparable<dynamic>> {
     }
   }
 
-  /// remove and return an arbitrary value from the heap tree.
+  /// remove and return an arbitrary value of the given index from the heap tree
   // the average and worse case time complexity is O(log n).
   T? removeAt(int index) {
     final lastIndex = elements.length - 1;
@@ -119,6 +129,23 @@ class Heap<T extends Comparable<dynamic>> {
     _siftDown(index);
     _siftUp(index);
     return value;
+  }
+
+  /// check if [value exist] in the heap tree. Return its index if it exist otherwise return -1.
+  int indexOf(T value, {int index = 0}) {
+    // if the index is to large(has gone out of bound), the search fails and you return -1
+    if (index >= elements.length) return -1;
+    // check if [value] your looking for has higher priority than the current value for index [index], if so, then the value your're
+    // looking for cannot possibly be lower in the heap, so -1 is returned. This optimizes the search to immediately short
+    // circuit the recursive traversal.
+    if (_firstHasHigherPriority(value, elements[index])) return -1;
+    // if the value your looking for is equal to the value at [index], you found it. Return [index]
+    if (value == elements[index]) return index;
+    // recursively search for the value starting from the left child,
+    final left = indexOf(value, index: _leftChildIndex(index));
+    if (left != -1) return left;
+    // and then on the right child, if both searches fails, the whole search fails. Return -1;
+    return indexOf(value, index: _rightChildIndex(index));
   }
 
   @override

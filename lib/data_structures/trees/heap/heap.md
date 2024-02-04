@@ -28,11 +28,11 @@
      /   \                                                  /   \
    (5)3  (1)4                                             (5)3  (8)3
  
-   max-heap property:                                  min-heap property:
-   In max heap,parent node must always contain         In min heap,parent node must always contain
-   a value that is greatest than or equal to the       a value that is less than or equal to the 
-   value in its children. The root node will always    value in its children. The root node will
-   contain the highest value.                          always contain the lowest value.
+   max-heap property:                                   min-heap property:
+   In max heap,parent value is greater than or          In min heap,parent value is lower than or equal to 
+   equal to the value of its children.                  the value of its children. The root node will 
+   The root will always be the greatest of its          always be the lowest of it children and   
+   children and descendants                             descendants   
 
 ```
 

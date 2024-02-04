@@ -114,11 +114,11 @@ Your min-heap is now constructed and takes the form: [1, 3, 18, 5, 10, 100, 21]
 // write a method that combines two heaps.
 
 // standalone function
-Heap<T> mergeHeaps<T extends Comparable<dynamic>>({required Heap<T> heap1, required Heap<T> heap2, Priority priority = Priority.max}) {
+Heap mergeHeaps({required Heap heap1, required Heap heap2, Priority priority = Priority.max}) {
   var heap1Elements = heap1.elements;
   var heap2Elements = heap2.elements;
   var combinedHeapElements = [...heap1Elements, ...heap2Elements];
-  return Heap<T>(elements: combinedHeapElements, priority: priority);
+  return Heap(elements: combinedHeapElements, priority: priority);
 }
 
 // adding merge functionality in a heap through extension
@@ -127,4 +127,40 @@ extension Merge<T extends Comparable<dynamic>> on Heap<T> {
     elements.addAll(list);
     buildHeap();
   }
+}
+
+// book's solution for challenge 2 is the same as mine but has some issues:
+// 1. merge is not add to heap class through extension
+// 2. if merge is the extension method, then it is violating the extension condition by trying to access
+// private method (_buildHeap).
+
+// void merge(List<E> list) {
+// elements.addAll(list);
+// _buildHeap();
+// }
+
+//challenge 4: is its min-heap
+// write a function to check if a given list is a min-heap.
+
+bool isMinHeap<T extends Comparable<dynamic>>(List<T> list) {
+  // parentValues are the non-leaf values.
+  var numberOfParentValues = (list.length ~/ 2) - 1;
+  // we want to check only the parent values if they are lower than than there children,
+  // so we iterate only on those parents.
+  for (var i = 0; i <= numberOfParentValues; i++) {
+    var parentValue = list[i];
+    var leftChildIndex = (2 * i) + 1;
+    var rightChildIndex = (2 * i) + 2;
+    // check if the generated left child index is out of bound of [list] or
+    // parentValue is greater than either its left or right children value, if any of the
+    // cases is true return false.
+    if (leftChildIndex >= list.length || parentValue.compareTo(list[leftChildIndex]) > 0) {
+      return false;
+    }
+
+    if (rightChildIndex >= list.length || parentValue.compareTo(list[rightChildIndex]) > 0) {
+      return false;
+    }
+  }
+  return true;
 }

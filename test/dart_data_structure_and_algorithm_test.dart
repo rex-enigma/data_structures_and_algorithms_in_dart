@@ -614,6 +614,11 @@ void main() {
     expect(nthSmallestValue(1, [3, 10, 18, 5, 21, 100]), 3);
   });
 
+  test('heap challenge 4: check if the given list is a min heap', () {
+    expect(isMinHeap([1, 1, 3, 4, 12, 6, 8, 7]), true);
+    expect(isMinHeap([3, 10, 18, 5, 21, 100]), false);
+  });
+
   /*************************BINARY SEARCH**************************************/
   final orderedList = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
   test("recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {

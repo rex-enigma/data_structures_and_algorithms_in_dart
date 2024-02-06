@@ -143,22 +143,24 @@ extension Merge<T extends Comparable<dynamic>> on Heap<T> {
 // write a function to check if a given list is a min-heap.
 
 bool isMinHeap<T extends Comparable<dynamic>>(List<T> list) {
+  if (list.isEmpty) return true;
   // last parentValues /  non-leaf values.
   var start = (list.length ~/ 2) - 1;
   // you check only the parent values if they are lower than than there children,
   // so you starting with the last parent value iterating backwards towards the first parent value.
-  for (var i = start; i >= start; i--) {
+  for (var i = start; i >= 0; i--) {
     var parentValue = list[i];
     var leftChildIndex = (2 * i) + 1;
     var rightChildIndex = (2 * i) + 2;
-    // check if the generated left child index is out of bound of [list] or
-    // parentValue is greater than either its left or right children value, if any of the
-    // cases is true return false.
-    if (leftChildIndex >= list.length || parentValue.compareTo(list[leftChildIndex]) > 0) {
+
+    // return false if the parent is greater than it's leftChild
+    if (parentValue.compareTo(list[leftChildIndex]) > 0) {
       return false;
     }
 
-    if (rightChildIndex >= list.length || parentValue.compareTo(list[rightChildIndex]) > 0) {
+    // check if the rightChildIndex is within the bound of [list] and if its within the bound, check if
+    // the parent is greater than its rightChild, return false if it is.
+    if (rightChildIndex < list.length && parentValue.compareTo(list[rightChildIndex]) > 0) {
       return false;
     }
   }

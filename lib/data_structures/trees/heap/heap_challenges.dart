@@ -143,11 +143,11 @@ extension Merge<T extends Comparable<dynamic>> on Heap<T> {
 // write a function to check if a given list is a min-heap.
 
 bool isMinHeap<T extends Comparable<dynamic>>(List<T> list) {
-  // parentValues are the non-leaf values.
-  var numberOfParentValues = (list.length ~/ 2) - 1;
-  // we want to check only the parent values if they are lower than than there children,
-  // so we iterate only on those parents.
-  for (var i = 0; i <= numberOfParentValues; i++) {
+  // last parentValues /  non-leaf values.
+  var start = (list.length ~/ 2) - 1;
+  // you check only the parent values if they are lower than than there children,
+  // so you starting with the last parent value iterating backwards towards the first parent value.
+  for (var i = start; i >= start; i--) {
     var parentValue = list[i];
     var leftChildIndex = (2 * i) + 1;
     var rightChildIndex = (2 * i) + 2;

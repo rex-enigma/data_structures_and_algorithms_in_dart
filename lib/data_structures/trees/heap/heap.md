@@ -1,4 +1,4 @@
-- Heap a.k.a **binary heap**, is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a **max heap**) or less that or equal to(in a **min heap**) the value of its children. A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is a diff concept.
+- Heap (will be working with binary heap specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a **max heap**) or less that or equal to(in a **min heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is a diff concept.
 
 - Heap is usually implemented with a List.
 - Each element in the list represents a node of the heap and
@@ -13,8 +13,9 @@
 - Accessing a particular node in a heap tree has a time complexity of O(1) due to its using list for its implementation as compared to binary search tree that requires traversing from the root, which is an O(log n) operation.
 
 - Heaps come in two flavor:
-   1. **min-heap**, in which elements with ***lowest*** value have a highest priority.
-   2. **max-heap**, in which elements with ***highest*** value have highest priority.
+   1. **Max-heap**, in which elements with ***highest*** value have highest priority.
+   2. **Min-heap**, in which elements with ***lowest*** value have a highest priority.
+    
 
 
 
@@ -64,7 +65,7 @@
 6. Other internal helper operations:
    1. ***siftDown*** -> move a value down in the heap (move a value rightwards in the list) to restore heap condition / property.
    2. ***siftUp*** -> move a value up in the heap (move a value leftwards in th list) to restore heap condition / property.
-   3. ***buildHeap / heapify*** -> create a heap out of the given list of comparable values. Sifting down is performed only on the 'non-leaf values(values that have both children or one child,) in which the formula ***(lengthOfList ~/ 2) - 1*** is used to to determine the number of non-leaf values,which will be used to loop through the list backwards, starting from the last non-leaf value to the first non-leaf value.Build heap has a time complexity of O(log n) as compared to time complexity of O(n log n) if sifting up was used.
+   3. ***buildHeap / heapify*** -> create a heap out of the given list of comparable values. Sifting down is performed only on the 'non-leaf values / parent values(values that have both children or one child,) in which the formula ***(lengthOfList ~/ 2) - 1*** is used to to determine the number of non-leaf values,which will be used to loop through the list in reverse, starting from the last non-leaf value to the first non-leaf value.Build heap has a time complexity of O(log n) as compared to time complexity of O(n log n) if sifting up was used.
    4. ***leftChildIndex*** -> return the leftChild's index of the parent's value. This index can be determined by the formula ***2i + 1***, where i is the index of the parent.
    5. ***rightChildIndex*** -> return the rightChild's index of the parent's value. This index can be determined by the formula ***2i + 2***, where i is the index of the parent.
    6. ***parentIndex*** -> return the parent index given either left or right child's index. This index can be determined by the formula ***(i - 1) ~/2***, where i is the index representing either the left or right child's index.

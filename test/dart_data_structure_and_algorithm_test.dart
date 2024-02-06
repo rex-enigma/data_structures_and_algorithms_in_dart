@@ -1,10 +1,11 @@
 import 'dart:math';
 
 import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search.dart';
-import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/singly_linked_list_based_deque_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/ring_buffer_based_queue_implementation.dart';
@@ -16,11 +17,11 @@ import 'package:dart_data_structure_and_algorithm/data_structures/linked_list/si
 import 'package:dart_data_structure_and_algorithm/data_structures/stack/single_list_based_stack_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/stack/stack_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_search_tree/binary_search_tree.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_search_tree/binary_search_tree_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_search_tree/binary_search_tree_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_tree/binary_tree.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_tree/binary_tree_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_tree/binary_tree_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_challanges.dart';
 import 'package:test/test.dart';
@@ -617,6 +618,26 @@ void main() {
   test('heap challenge 4: check if the given list is a min heap', () {
     expect(isMinHeap([1, 1, 3, 4, 12, 6, 8, 7]), true);
     expect(isMinHeap([3, 10, 18, 5, 21, 100]), false);
+  });
+
+  final maxPriorityQueue = PriorityQueue();
+  maxPriorityQueue.enqueue(1);
+  maxPriorityQueue.enqueue(12);
+  maxPriorityQueue.enqueue(3);
+  maxPriorityQueue.enqueue(4);
+  maxPriorityQueue.enqueue(1);
+  maxPriorityQueue.enqueue(6);
+  maxPriorityQueue.enqueue(8);
+  maxPriorityQueue.enqueue(7);
+  test('enqueueing values out of order, expecting the values to be ordered based on max priority(larger values have higher priority)', () {
+    expect(maxPriorityQueue.dequeue(), 12);
+    expect(maxPriorityQueue.dequeue(), 8);
+    expect(maxPriorityQueue.dequeue(), 7);
+    expect(maxPriorityQueue.dequeue(), 6);
+    expect(maxPriorityQueue.dequeue(), 4);
+    expect(maxPriorityQueue.dequeue(), 3);
+    expect(maxPriorityQueue.dequeue(), 1);
+    expect(maxPriorityQueue.dequeue(), 1);
   });
 
   /*************************BINARY SEARCH**************************************/

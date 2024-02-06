@@ -27,7 +27,7 @@ A linked list is a chain of 'Nodes' that hold a value and a reference to the nex
 
 
 
-#### applications of linked list
+#### applications of linked list:
 1. implementing other data structures. eg stack, queue, deque
 2. dynamic memory allocation.
 3. representing graphs -> Linked lists are perfect for representing graphs using adjacency lists: Each node in the graph has a linked list of its adjacent nodes, enabling efficient graph traversal algorithms like breadth-first search and depth-first search.

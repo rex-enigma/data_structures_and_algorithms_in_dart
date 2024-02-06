@@ -16,12 +16,12 @@ Queue only cares about removal at the front and insertion at the back, you don't
 
 #### common operation are:
 1. **enqueue** -> insert an element at the back of the queue. Return true when operation is successful.
-2. **dequeue** -> remove and return the element at the front of the queue.
+2. **dequeue** -> remove and return the element at the front of the queue. Return null if the queue is empty. 
 3. **isEmpty** -> check if the queue is empty.
-4. **peek** -> return a reference of the element at the front of the queue without removing it.
+4. **peek** -> return a reference of the element at the front of the queue without removing it. Return null of the queue is empty.
 
 
-#### applications of queue 
+#### applications of queue:
 1. print queue -> in printer spooling systems, print jobs are placed in a queue and they are printed in the order they are received.
 2. breadth-first-search(BFS) in graphs -> queues are essential in graph algorithms, particularly in BFS traversal. Nodes are processed in layers, with each layer representing the distance from the source node
 3. handling of requests in web servers -> web servers use queues to manage incoming requests from clients. The server processes request in the order they are received.
@@ -29,7 +29,7 @@ Queue only cares about removal at the front and insertion at the back, you don't
 
 
 
-#### key points
+#### key points:
 1. Dequeuing an item in list base queue takes linear time ,O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
 2. Queue takes a FIFO strategy: an element added first must be removed first.
 3. Single list base queue imp, elements are laid out in a contiguous memory blocks whereas in a singly linked list are more scattered with potential of cache misses.

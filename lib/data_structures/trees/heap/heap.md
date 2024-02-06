@@ -71,7 +71,20 @@
    7. ***swap*** -> swap two heap values which are out of order.
    
 
-#### applications of trees:
+#### applications of heap tree:
+1. Its used to implement **heapSort algorithm** .(is a comparison-based sorting algorithm for linear data structure.)
+2. Its used to implement **priority queue**.
+3. Its used to build graph algorithms that use a priority queue, like dijkstra's algorithm.
 
 
 #### key points:
+1. Heap data structure is good for maintaining the highest priority value. Meaning in max-heap the greatest values has the highest priority and in min-heap the smallest value has the highest priority.
+2. In max-heap the parent value is greater than or equal to that of its children(left and right child in binary heap).
+3. For min-heap the parent value is smaller than or equal to that of its children(left and right child in binary heap).
+4. Every time you insert or remove items, you must take care to preserve the heap property / condition. whether max or min.
+5. There can't be any holes in a heap. The shape property requires tha all of the upper levels must be completely filled, and the final level needs to be filled from left to right.
+6. Elements in heap are packed in contiguous memory using simple formulas for lookup.
+7. Insertion operation has a average and worse time complexity of O(log n).
+8. Removal operation has a average and worse time complexity of O(log n).
+9. Search operation has a average and worse time complexity of O(n).
+10. peek operation has a average and worse time complexity of O(1)

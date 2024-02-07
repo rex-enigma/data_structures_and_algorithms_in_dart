@@ -39,17 +39,21 @@ class Heap<T extends Comparable<dynamic>> {
     return (childIndex - 1) ~/ 2;
   }
 
+  // return true if child represented by value1 has higher priority than 'parent' represented by value2
   bool _firstHasHigherPriority(T value1, T value2) {
     return switch (priority) {
-      // in max heap the largest value has higher priority
+      // in max heap the largest value has higher priority.
+      // [value1] is the child value compared with [value2] which is the parent value or a chosen value.
       Priority.max => value1.compareTo(value2) > 0,
-      // in min heap the smallest value has higher priority
+      // in min heap the smallest value has higher priority.
+      // [value1] is the child value compared with [value2] which is the parent value or a chosen value.
       Priority.min => value1.compareTo(value2) < 0,
     };
   }
 
-  // we want to return the index(indexA or indexB) that represent the value that has higher priority.
-  // in most cases indexA represents a child index
+  // you want to return the index(indexA or indexB) that represent the value that has higher priority.
+  // in most cases indexA represents a child index whose value will be compared with its parent value or
+  // a chosen value.
   int _higherPriority(indexA, indexB) {
     // make sure indexA represents a value that exist in the list
     if (indexA >= elements.length) return indexB;
@@ -60,6 +64,7 @@ class Heap<T extends Comparable<dynamic>> {
   }
 
   // swap two heap values that are out of order.
+  // swap the child value with its parent value, since child value has higher priority than its parent value.
   void _swapValues(int indexA, int indexB) {
     final temp = elements[indexA];
     elements[indexA] = elements[indexB];
@@ -74,7 +79,7 @@ class Heap<T extends Comparable<dynamic>> {
     _siftUp(elements.length - 1);
   }
 
-  // move a value up in the heap to restore heap condition / property.
+  // move a value up in the heap to restore heap condition / property.(child value takes the place of its parent and parent value takes the place of its child)
   // average and worse case time complexity is O(log n)
   void _siftUp(int index) {
     var childIndex = index;
@@ -86,6 +91,7 @@ class Heap<T extends Comparable<dynamic>> {
     // parent value. Since you're only concerned about priority, this will sift up larger values in a max heap and smaller
     // values in a min heap.
     while (childIndex > 0 && childIndex == _higherPriority(childIndex, parentIndex)) {
+      // swap the child value with its parent value as long as the child value has high priority than its parent value.
       _swapValues(childIndex, parentIndex);
       childIndex = parentIndex;
       parentIndex = _parentIndex(childIndex);
@@ -113,6 +119,7 @@ class Heap<T extends Comparable<dynamic>> {
       var chosenIndex = _higherPriority(leftChildIndex, parentIndex);
       chosenIndex = _higherPriority(rightChildIndex, chosenIndex);
       if (chosenIndex == parentIndex) return;
+      // swap the parent value with its child value as long as the child value has high priority than its parent value.
       _swapValues(parentIndex, chosenIndex);
       parentIndex = chosenIndex;
     }

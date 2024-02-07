@@ -19,10 +19,6 @@
 4. **peek** -> return a reference of the element with the highest priority without removing it. Return null is the priority queue is empty. (most of the time the element peeked is the first element in list based implementation or the root element in a tree based implementation)
 
 
-
-
-
-
 #### applications of priority queue:
 
 #### key points:

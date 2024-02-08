@@ -73,8 +73,8 @@
    
 **NB**: 
 1. for both sifting down and sifting up to happen, you will only comparing the child value to its parent value and do swapping if child value has higher priority than its parent value.
-2. The current implementation (in heap.dart file) for heap using a list doesn't not guarantee the order in which when equal values are added will be the same order in which they will be removed.For example:
-if first value1 get added then the second value1 get added later, when removing the values from a heap, second value1 might get removed first before the actual first value1 that was added the first get removed.
+2. The current implementation (in heap.dart file) for heap using a list ***sometimes*** it doesn't not guarantee the order in which when equal values are added will be the same order in which they will be removed.For example:
+if first value1 get added then the second value1 get added later, when removing the values from a heap, second value1 ***might*** get removed first before the actual first value1 that was added the first get removed.
 
 
 #### applications of heap tree:

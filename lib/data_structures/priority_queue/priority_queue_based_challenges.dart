@@ -1,10 +1,11 @@
+import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue.dart';
+
 // challenge 1: prioritize a waitList
 // Your favorite concert was sold out. Fortunately there's is a waitList for people who still want to go.
 // However, ticket sales will first prioritize someone with military background, followed by seniority.
 // Use a priority queue to prioritize the order of people on the waitList. Start by making a Person class
 // that you can instantiate like so: final person = Person(name: 'Josh', age: 21, isMilitary: true);
-
-import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 
 class Person implements Comparable<Person> {
   String name;
@@ -18,9 +19,9 @@ class Person implements Comparable<Person> {
     //,you give priority to [this] person first.
     if (isMilitary && !(other.isMilitary)) {
       return 1;
-      // if both [this] person and the [other] person compared with have a military background, prioritize the [other] person that came first.
+      // if both [this] person and the [other] person compared with have a military background, prioritize the older military person first.
     } else if (isMilitary && other.isMilitary) {
-      return 0;
+      return age.compareTo(other.age);
       // if [this] person has no military background and the [other] person has military background, prioritize the [other] person
       // that has a military background.
     } else if (!isMilitary && other.isMilitary) {
@@ -44,9 +45,9 @@ class Person implements Comparable<Person> {
 
 //
 class TicketWaitList {
-  late PriorityQueue<Person> _priorityQueueTicketWaitList;
+  late PriorityQueueHeap<Person> _priorityQueueTicketWaitList;
   TicketWaitList({List<Person>? waitList}) {
-    _priorityQueueTicketWaitList = (waitList == null) ? PriorityQueue() : PriorityQueue(elements: waitList);
+    _priorityQueueTicketWaitList = (waitList == null) ? PriorityQueueHeap() : PriorityQueueHeap(elements: waitList);
   }
 
   // return a reference of the highest priority person without removing the person.
@@ -57,4 +58,44 @@ class TicketWaitList {
   void addPersonToWaitList(Person person) {
     _priorityQueueTicketWaitList.enqueue(person);
   }
+}
+
+// book's solution for challenge 1 is the same as mine but if two people don't have a military background,
+// it prioritized the person that came first.
+
+// @override
+// int compareTo(other) {
+// if (isMilitary == other.isMilitary) {
+// return age.compareTo(other.age);
+// }
+// return isMilitary ? 1 : -1;
+// }
+
+// challenge 2: list-based priority queue.
+
+// priority.max means a list with descending values(greatest to the smallest from left to right if the list).
+class PriorityQueueList<T extends Comparable<dynamic>> implements Queue {
+  late List _sortedList;
+  final Priority priority;
+  PriorityQueueList({List<T>? unsortedList, this.priority = Priority.max}) {
+    _sortedList = unsortedList == null ? 
+  }
+
+  /// remove and return the element with the highest priority. Return null if the priority queue is empty
+  @override
+  T? dequeue() => _heap.remove();
+
+  /// insert an element into priority queue and return true if the operation is successful.
+  @override
+  bool enqueue(element) {
+    _heap.insert(element);
+    return true;
+  }
+
+  @override
+  bool get isEmpty => _heap.isEmpty;
+
+  //return a reference of the element with the highest priority without removing it. Return null is the priority queue is empty.
+  @override
+  T? peek() => _heap.peek;
 }

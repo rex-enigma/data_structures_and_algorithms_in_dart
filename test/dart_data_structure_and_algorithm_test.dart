@@ -621,7 +621,7 @@ void main() {
     expect(isMinHeap([3, 10, 18, 5, 21, 100]), false);
   });
 
-  final maxPriorityQueue = PriorityQueue();
+  final maxPriorityQueue = PriorityQueueHeap();
   maxPriorityQueue.enqueue(1);
   maxPriorityQueue.enqueue(12);
   maxPriorityQueue.enqueue(3);
@@ -651,8 +651,12 @@ void main() {
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Josh, age: 27, isMilitary: true}');
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Ben, age: 25, isMilitary: true}');
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Amos, age: 23, isMilitary: false}');
-    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Mark, age: 21, isMilitary: false}');
+    // even though Mark was added before Einstein, Einstein will be the first to be removed before Mark, this is because
+    // of the internal implementation of _firstHasHigherPriority method in heap class.
+    // the order in which Mark and Einstein are added is not the same order in which they are be removed because
+    // there age are the same.
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Einstein, age: 21, isMilitary: false}');
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Mark, age: 21, isMilitary: false}');
   });
 
   /*************************BINARY SEARCH**************************************/

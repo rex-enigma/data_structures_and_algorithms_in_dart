@@ -60,17 +60,17 @@ void main(List<String> arguments) {
   print(ticketWaitList.getHighestPriorityPerson());
 }
 
-// class Person implements Comparable<Person> {
-//   String name;
-//   int age;
-//   Person({required this.name, required this.age});
-//   @override
-//   int compareTo(Person other) {
-//     return age.compareTo(other.age);
-//   }
+class Person implements Comparable<Person> {
+  String name;
+  int age;
+  Person({required this.name, required this.age});
+  @override
+  int compareTo(Person other) {
+    return age.compareTo(other.age);
+  }
 
-//   @override
-//   String toString() {
-//     return '{name:$name, age:$age}';
-//   }
-// }
+  @override
+  String toString() {
+    return '{name:$name, age:$age}';
+  }
+}

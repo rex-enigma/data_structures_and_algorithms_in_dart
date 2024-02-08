@@ -39,38 +39,4 @@ void main(List<String> arguments) {
   print(avlTreeRemove);
   avlTreeRemove.remove(10);
   print(avlTreeRemove);
-
-  // final priorityQueue = PriorityQueue();
-  // priorityQueue.enqueue(Person(name: 'Ben', age: 23));
-  // priorityQueue.enqueue(Person(name: 'Mark', age: 21));
-  // priorityQueue.enqueue(Person(name: 'Einstein', age: 21));
-  // print(priorityQueue.dequeue());
-  // print(priorityQueue.dequeue());
-  // print(priorityQueue.dequeue());
-  final ticketWaitList = TicketWaitList();
-  ticketWaitList.addPersonToWaitList(Person(name: 'Mark', age: 21, isMilitary: false));
-  ticketWaitList.addPersonToWaitList(Person(name: 'Amos', age: 23, isMilitary: false));
-  ticketWaitList.addPersonToWaitList(Person(name: 'Josh', age: 27, isMilitary: true));
-  ticketWaitList.addPersonToWaitList(Person(name: 'Einstein', age: 21, isMilitary: false));
-  ticketWaitList.addPersonToWaitList(Person(name: 'Ben', age: 25, isMilitary: true));
-  print(ticketWaitList.getHighestPriorityPerson());
-  print(ticketWaitList.getHighestPriorityPerson());
-  print(ticketWaitList.getHighestPriorityPerson());
-  print(ticketWaitList.getHighestPriorityPerson());
-  print(ticketWaitList.getHighestPriorityPerson());
-}
-
-class Person implements Comparable<Person> {
-  String name;
-  int age;
-  Person({required this.name, required this.age});
-  @override
-  int compareTo(Person other) {
-    return age.compareTo(other.age);
-  }
-
-  @override
-  String toString() {
-    return '{name:$name, age:$age}';
-  }
 }

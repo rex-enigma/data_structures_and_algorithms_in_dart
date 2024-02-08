@@ -71,7 +71,11 @@
    6. ***parentIndex*** -> return the parent index given either left or right child's index. This index can be determined by the formula ***(i - 1) ~/2***, where i is the index representing either the left or right child's index.
    7. ***swap*** -> swap two heap values which are out of order.
    
-nb: for both sifting down and sifting up to happen, you will only comparing the child value to its parent value and do swapping if child value has higher priority than its parent value.
+**NB**: 
+1. for both sifting down and sifting up to happen, you will only comparing the child value to its parent value and do swapping if child value has higher priority than its parent value.
+2. The current implementation (in heap.dart file) for heap using a list doesn't not guarantee the order in which when equal values are added will be the same order in which they will be removed.For example:
+if first value1 get added then the second value1 get added later, when removing the values from a heap, second value1 might get removed first before the actual first value1 that was added the first get removed.
+
 
 #### applications of heap tree:
 1. Its used to implement **heapSort algorithm** .(is a comparison-based sorting algorithm for linear data structure.)

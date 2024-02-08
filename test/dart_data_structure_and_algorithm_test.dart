@@ -6,6 +6,7 @@ import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algori
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/singly_linked_list_based_deque_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/ring_buffer_based_queue_implementation.dart';
@@ -638,6 +639,20 @@ void main() {
     expect(maxPriorityQueue.dequeue(), 3);
     expect(maxPriorityQueue.dequeue(), 1);
     expect(maxPriorityQueue.dequeue(), 1);
+  });
+
+  final ticketWaitList = TicketWaitList();
+  ticketWaitList.addPersonToWaitList(Person(name: 'Mark', age: 21, isMilitary: false));
+  ticketWaitList.addPersonToWaitList(Person(name: 'Amos', age: 23, isMilitary: false));
+  ticketWaitList.addPersonToWaitList(Person(name: 'Josh', age: 27, isMilitary: true));
+  ticketWaitList.addPersonToWaitList(Person(name: 'Einstein', age: 21, isMilitary: false));
+  ticketWaitList.addPersonToWaitList(Person(name: 'Ben', age: 25, isMilitary: true));
+  test('priority queue challenge 1: add persons in a ticket waitList, prioritizing first persons with military background follows by seniority(older)', () {
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Josh, age: 27, isMilitary: true}');
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Ben, age: 25, isMilitary: true}');
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Amos, age: 23, isMilitary: false}');
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Mark, age: 21, isMilitary: false}');
+    expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Einstein, age: 21, isMilitary: false}');
   });
 
   /*************************BINARY SEARCH**************************************/

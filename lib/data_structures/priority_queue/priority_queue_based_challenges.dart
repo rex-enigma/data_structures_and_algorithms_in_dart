@@ -12,21 +12,25 @@ class Person implements Comparable<Person> {
 
   @override
   int compareTo(other) {
-    // this person is military and the other person is not military.
-    // you first give priority to this person if he has a military background and the other person compared with doesn't
-    // have military background.
+    // if [this] person has a military background and the [other] person compared with doesn't have a military background
+    //,you give priority to [this] person first.
     if (isMilitary && !(other.isMilitary)) {
       return 1;
-      // if both this person and other person have a military background, prioritize the other person that came first.
+      // if both [this] person and the [other] person compared with have a military background, prioritize the [other] person that came first.
     } else if (isMilitary && other.isMilitary) {
       return 0;
-      // this person is not military and the other person is also not military
-      // if both this and other person have no military background, then make the older person(either this or other) to have a higher priority(ie
-      // if this person is older than other person then return 1 indicating this person has higher priority, if this person
-      // has the same age as the other person then return 0 indicating than this person have the same level of priority
-      // as the other person and lastly if this person is younger than the other person then return -1 indicating than the
-      // other person has higher priority than this person)
-    } else {
+      // if [this] person has no military background and the [other] person has military background, prioritize the [other] person
+      // that has a military background.
+    } else if (!isMilitary && other.isMilitary) {
+      return -1;
+    }
+    // both [this] and the [other] person have no military background.
+    // if both [this] and [other] person have no military background, then make the older person(either [this] or [other]) to have a higher priority(ie
+    // if [this] person is older than [other] person then return 1 indicating [this] person has higher priority, if [this] person
+    // has the same age as the [other] person then return 0 indicating than [this] person have the same level of priority
+    // as the [other] person and lastly if [this] person is younger than the [other] person then return -1 indicating than the
+    // [other] person has higher priority than [this] person).
+    else {
       return age.compareTo(other.age);
     }
   }

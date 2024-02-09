@@ -22,7 +22,7 @@ class QueueRingBuffer<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? peek() => _ringBuffer.peek;
+  E? get peek => _ringBuffer.peek;
 
   @override
   String toString() => _ringBuffer.toString();

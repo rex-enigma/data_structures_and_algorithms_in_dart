@@ -38,5 +38,5 @@ Queue only cares about removal at the front and insertion at the back, you don't
 the dequeue time complexity to an amortized O(1) operation.
 6. The two lists (double-list) implementation beats out linked-list in terms of spatial locality.
 
-
+**NB:**
 The main weakness of QueueDoublyLinkedList is, every time you create a new element it requires extra storage for the forward and back reference and also it requires a relatively expensive dynamic allocation of memory for the new node.By contrast, QueueList does bulk allocation, which is relatively faster.

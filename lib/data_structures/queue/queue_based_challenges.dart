@@ -369,4 +369,4 @@ extension BoardGameManager<E> on QueueRingBuffer {
 
 // challenge 4: Double-ended queue (deque)
 // build a deque
-// check under the lib folder
+// check under lib/data_structures/deque

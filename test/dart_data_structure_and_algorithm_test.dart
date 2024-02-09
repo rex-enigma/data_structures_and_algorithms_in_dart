@@ -210,7 +210,7 @@ void main() {
   test('queue implementation based on singleLinkedList: test queue methods', () {
     expect(queueSingleLinkedList.toString(), 'Ray -> Brian -> Eric');
     expect(queueSingleLinkedList.dequeue(), 'Ray');
-    expect(queueSingleLinkedList.peek(), 'Brian');
+    expect(queueSingleLinkedList.peek, 'Brian');
   });
 
   final queueRingBuffer = QueueRingBuffer<String>(10);
@@ -220,7 +220,7 @@ void main() {
   test('queue implementation based on ringBuffer: test queue methods', () {
     expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
     expect(queueRingBuffer.dequeue(), 'Ray');
-    expect(queueRingBuffer.peek(), 'Brian');
+    expect(queueRingBuffer.peek, 'Brian');
   });
 
   final queueSingleList = QueueSingleList();
@@ -230,7 +230,7 @@ void main() {
   test('queue implementation based on single list: test queue methods', () {
     expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
     expect(queueRingBuffer.dequeue(), 'Ray');
-    expect(queueRingBuffer.peek(), 'Brian');
+    expect(queueRingBuffer.peek, 'Brian');
   });
 
   final queueDoubleList = QueueDoubleList<String>();
@@ -240,7 +240,7 @@ void main() {
   test('queue implementation based on two lists: test queue methods', () {
     expect(queueDoubleList.toString(), '[Ray, Brian, Eric]');
     expect(queueDoubleList.dequeue(), 'Ray');
-    expect(queueDoubleList.peek(), 'Brian');
+    expect(queueDoubleList.peek, 'Brian');
   });
 
   final boardGameManager = QueueRingBuffer<dynamic>(3);
@@ -657,6 +657,29 @@ void main() {
     // there age are the same.
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Einstein, age: 21, isMilitary: false}');
     expect(ticketWaitList.getHighestPriorityPerson().toString(), '{name: Mark, age: 21, isMilitary: false}');
+  });
+
+  final maxPriorityQueueList1 = PriorityQueueList(unsortedList: [1, 12, 3, 4, 1, 6, 8, 7]);
+  test('priority queue challenge 2: sort a list of unsortedList in max order where the last value is the greatest', () {
+    expect(maxPriorityQueueList1.toString(), '[1, 1, 3, 4, 6, 7, 8, 12]');
+  });
+
+  final maxPriorityQueueList2 = PriorityQueueList<int>();
+  maxPriorityQueueList2.enqueue(7);
+  maxPriorityQueueList2.enqueue(4);
+  maxPriorityQueueList2.enqueue(1);
+  maxPriorityQueueList2.enqueue(7);
+  maxPriorityQueueList2.enqueue(10);
+  maxPriorityQueueList2.enqueue(5);
+  test('priority queue challenge 2: testing priorityQueueList enqueue method', () {
+    expect(maxPriorityQueueList2.toString(), '[1, 4, 5, 7, 7, 10]');
+    expect(maxPriorityQueueList2.dequeue(), 10);
+    expect(maxPriorityQueueList2.dequeue(), 7);
+  });
+
+  final minPriorityQueueList3 = PriorityQueueList<int>(unsortedList: [1, 12, 3, 4, 1, 6, 8, 7], priority: Priority.min);
+  test('priority queue challenge 2: sort a list of unsortedList in min order where the last value is the smallest', () {
+    expect(minPriorityQueueList3.toString(), '[12, 8, 7, 6, 4, 3, 1, 1]');
   });
 
   /*************************BINARY SEARCH**************************************/

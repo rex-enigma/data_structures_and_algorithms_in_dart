@@ -51,7 +51,7 @@ class TicketWaitList {
   }
 
   // return a reference of the highest priority person without removing the person.
-  Person? peekHighestPriorityPeron() => _priorityQueueTicketWaitList.peek();
+  Person? peekHighestPriorityPeron() => _priorityQueueTicketWaitList.peek;
   // remove and return the highest priority person or null.
   Person? getHighestPriorityPerson() => _priorityQueueTicketWaitList.dequeue();
   // add a person to the waitList.
@@ -73,29 +73,103 @@ class TicketWaitList {
 
 // challenge 2: list-based priority queue.
 
-// priority.max means a list with descending values(greatest to the smallest from left to right if the list).
-class PriorityQueueList<T extends Comparable<dynamic>> implements Queue {
-  late List _sortedList;
+class PriorityQueueList<T extends Comparable<dynamic>> implements Queue<T> {
+  late List<T> _sortedList;
   final Priority priority;
   PriorityQueueList({List<T>? unsortedList, this.priority = Priority.max}) {
-    _sortedList = unsortedList == null ? 
+    _sortedList = unsortedList ?? [];
+    _sortList();
+  }
+
+  void _sortList() {
+    switch (priority) {
+      case Priority.max:
+        // sort the [_sortedList] values from the greatest value to the smallest value from right to left.
+        // this is beneficial when dequeue high priority value since the operation will be O(1)
+        _sortedList.sort((a, b) => a.compareTo(b));
+      case Priority.min:
+        // sort the [_sortedList] values from the smallest value to the greatest value from right to left.
+        // this is beneficial when dequeue high priority value since the operation will be O(1)
+        _sortedList.sort((a, b) => b.compareTo(a));
+    }
   }
 
   /// remove and return the element with the highest priority. Return null if the priority queue is empty
   @override
-  T? dequeue() => _heap.remove();
+  T? dequeue() => isEmpty ? null : _sortedList.removeLast();
 
   /// insert an element into priority queue and return true if the operation is successful.
   @override
   bool enqueue(element) {
-    _heap.insert(element);
+    for (var i = 0; i < _sortedList.length; i++) {
+      if (priority == Priority.max) {
+        if (_sortedList[i].compareTo(element) >= 0) {
+          _sortedList.insert(i, element);
+          return true;
+        }
+      }
+      if (priority == Priority.min) {
+        if (element.compareTo(_sortedList[i]) >= 0) {
+          _sortedList.insert(i, element);
+          return true;
+        }
+      }
+    }
+    // add value at the end of the _sortedList if its the smallest or the largest in a min priority queue and
+    // max priority queue respectively.
+    _sortedList.add(element);
     return true;
   }
 
   @override
-  bool get isEmpty => _heap.isEmpty;
+  bool get isEmpty => _sortedList.isEmpty;
 
   //return a reference of the element with the highest priority without removing it. Return null is the priority queue is empty.
   @override
-  T? peek() => _heap.peek;
+  T? get peek => isEmpty ? null : _sortedList.last;
+
+  @override
+  String toString() => _sortedList.toString();
 }
+
+// book's solution for challenge 2
+// class PriorityQueueList<E extends Comparable<dynamic>> implements Queue<E> {
+//   late List<E> _elements;
+//   late Priority _priority;
+
+//   PriorityQueueList({List<E>? elements, Priority priority = Priority.max}) {
+//     _priority = priority;
+//     _elements = elements ?? [];
+//     _elements.sort((a, b) => _compareByPriority(a, b));
+//   }
+//   int _compareByPriority(E a, E b) {
+//     if (_priority == Priority.max) {
+//       return a.compareTo(b);
+//     }
+//     return b.compareTo(a);
+//   }
+
+//   @override
+//   bool get isEmpty => _elements.isEmpty;
+//   @override
+//   E? get peek => (isEmpty) ? null : _elements.last;
+
+//   @override
+//   bool enqueue(E element) {
+//     for (int i = 0; i < _elements.length; i++) {
+//       if (_compareByPriority(element, _elements[i]) < 0) {
+//         _elements.insert(i, element);
+//         return true;
+//       }
+//     }
+
+//     _elements.add(element);
+//     return true;
+//   }
+
+//   @override
+//   E? dequeue() => isEmpty ? null : _elements.removeLast();
+
+//   @override
+//   String toString() => _elements.toString();
+// }

@@ -1,6 +1,6 @@
-- Binary search is a search algorithm that finds the position(index) of a target value within a **sorted** List. It does this by comparing the target value to the middle element of the list, if they are not equal the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found and its position / index is returned, if not found -1 is returned.
+- Binary search is a search algorithm that finds the position(index) of a target value within a **sorted List**. It does this by comparing the target value to the middle element of the sorted list, if they are not equal the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found and its position / index is returned, if not found -1 is returned.
 
-<!-- - if there are duplicate values in the list and the target value is one of those duplicate values, the ***first*** position / index of that target value in the list is returned. -->
+<!-- - if there are duplicate values in the list and the target value is one of those duplicate values, the ***first*** position / index of that target value in the sorted list is returned. -->
 
 - Two conditions **must** be met for binary search to work:
     1. The collection **must** be **sorted**.

@@ -682,7 +682,7 @@ void main() {
     expect(minPriorityQueueList3.toString(), '[12, 8, 7, 6, 4, 3, 1, 1]');
   });
 
-  /*************************BINARY SEARCH**************************************/
+  /*************************BINARY SEARCH ALGORITHM**************************************/
   final orderedList = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150];
   test("recursive binarySearch returns the index of a given / targeted element in the sorted list if it exit, else return -1 if it don't exit", () {
     expect(orderedList.indexOf(31), 7);

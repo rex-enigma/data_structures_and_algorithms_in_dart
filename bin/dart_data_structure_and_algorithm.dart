@@ -1,3 +1,6 @@
+import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/bubble_sort/bubble_sort.dart';
+import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/insertion_sort/insertion_sort.dart';
+import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/selection_sort/selection_sort.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/avl_tree/avl_tree.dart';
@@ -39,4 +42,23 @@ void main(List<String> arguments) {
   print(avlTreeRemove);
   avlTreeRemove.remove(10);
   print(avlTreeRemove);
+
+  /*******************comparison_based sorting algorithm with O(n^2) time complexity****************/
+
+  // testing bubble,insertion and selection sort
+  final list1 = [9, 4, 10, 3];
+  final list2 = [8, 5, 11, 3];
+  final list3 = [7, 12, 2, 3];
+
+  print('original list before bubble sort: $list1');
+  bubbleSort(list1);
+  print('bubble sorted: $list1');
+
+  print('original list before selection sort: $list2');
+  selectionSort(list2);
+  print('selection sorted: $list2');
+
+  print('original list before bubble sort: $list3');
+  insertionSort(list3);
+  print('bubble sorted: $list3');
 }

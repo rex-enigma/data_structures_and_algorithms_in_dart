@@ -58,7 +58,7 @@ void main(List<String> arguments) {
   selectionSort(list2);
   print('selection sorted: $list2');
 
-  print('original list before bubble sort: $list3');
+  print('original list before insertion sort: $list3');
   insertionSort(list3);
-  print('bubble sorted: $list3');
+  print('insertion sorted: $list3');
 }

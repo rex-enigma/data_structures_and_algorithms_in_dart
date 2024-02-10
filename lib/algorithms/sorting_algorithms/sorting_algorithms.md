@@ -16,3 +16,10 @@
    2. **counting sort** ->
    3. **bucket sort** ->
 
+#### key points:
+1.  O(n²) algorithms often have a terrible reputation. Still, some of these algorithms
+have some redeeming qualities. Insertion sort can sort in O(n) time if the
+collection is already in sorted order and gradually scales down to O(n²) the more
+unsorted the collection is.
+2. Insertion sort is one of the best sorts in situations where you know ahead of time
+that your data is already mostly sorted.

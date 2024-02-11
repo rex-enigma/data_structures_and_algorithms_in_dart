@@ -6,7 +6,7 @@ class Heap<T extends Comparable<dynamic>> {
   Priority priority;
   bool get isEmpty => elements.isEmpty;
 
-  /// the number of values in this heap tree.
+  /// The number of values in this heap tree.
   int get size => elements.length;
 
   /// return a reference of the root value from this heap tree.

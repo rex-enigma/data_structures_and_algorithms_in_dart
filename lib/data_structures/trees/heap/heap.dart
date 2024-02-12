@@ -2,7 +2,7 @@
 enum Priority { max, min }
 
 class Heap<T extends Comparable<dynamic>> {
-  late List<T> elements;
+  late final List<T> elements;
   Priority priority;
   bool get isEmpty => elements.isEmpty;
 

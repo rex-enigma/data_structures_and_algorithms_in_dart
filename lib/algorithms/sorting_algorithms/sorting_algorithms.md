@@ -2,7 +2,7 @@
 
 - A sorting algorithm is **stable** if its able to maintain the relative order of equal elements after being sorted.Example: If you have unsorted deck of cards in which 5 of clubs comes before the 5 of diamonds. If you then sort the cards by number only, the 5 of clubs would still come before the 5 of diamonds in a stable sort.
 
-- Bubble, selection and insertion sort have time complexity of O(n^2)
+- Bubble, selection and insertion sort have worse time complexity of O(n^2)
 
 #### List of sorting algorithms:
 **A. Comparison based sorting algorithms:**
@@ -11,6 +11,7 @@
    3. **selection sort** -> it starts from the leftmost unsorted element in the unsorted list and iterates through the unsorted elements and selects the smallest element in the rightmost part of the unsorted list and swaps it with that leftmost unsorted element.This process is repeated until the entire list is sorted.[check geeksforgeeks for a visual illustration](https://www.geeksforgeeks.org/selection-sort/).
    4. **merge sort** -> is an efficient, general purpose sorting algorithm which divides the input list into halves recursively, sorts each half recursively and them merge the sorted halves. Most implementations produce a ***stable sort***. Its a divide and conquer algorithm.
    5. **quick sort** -> 
+   6. **heapSort** -> it is similar to selection sort but its worse time complexity is O(n log n) which is better than O(n^2) time complexity for selection sort. You ***first heapify*** the list, then you ***swap the first element*** at index 0 with the last element at index n - 1(where n is the current heap size). After swap, the last element of the list is in the correct spot but invalidates the heap. Thus the ***second step is to sift the root element down*** until it land in its correct position excluding then last element of the list from the heap since you no longer consider it as part of the heap but of the sorted list. Then you repeat the process of swapping and sifting down incrementing the number of elements to be excluded by 1 each time you do swap + sifting down (since those elements will have already been sorted) until you reach a heap of size 1, in which the list will be fully sorted
 **B. Non_comparison based sorting algorithms:**
    1. **radix sort** ->
    2. **counting sort** ->

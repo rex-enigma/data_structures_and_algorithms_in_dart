@@ -20,6 +20,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   bool get isEmpty => head == null;
 
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// add a value at the front of the linked list.
   @override
   void push(T value) {
     head = Node(value: value, next: head);
@@ -27,6 +28,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// add a value at the end of the linked list.
   @override
   void append(T value) {
     if (isEmpty) {
@@ -38,6 +40,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(n)
+  /// return a reference of a node at a particular index.
   @override
   Node<T>? nodeAt(int index) {
     Node<T>? currentNode = head;
@@ -51,6 +54,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// add a value after a particular node in the linked list.
   @override
   Node<T> insertAfter(Node<T> node, T value) {
     if (tail == node) {
@@ -63,6 +67,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// remove and return the value at the front of the linked list.
   @override
   T? pop() {
     T? value = head?.value;
@@ -74,6 +79,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(n)
+  /// remove and return the value at the end of the linked list.
   @override
   T? removeLast() {
     if (head?.next == null) return pop();
@@ -91,6 +97,7 @@ class SinglyLinkedList<T> extends Iterable<T> implements LinkedList<T> {
   }
 
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// remove and return the value after a particular node in the linked list.
   @override
   T? removeAfter(Node<T> node) {
     final value = node.next?.value;

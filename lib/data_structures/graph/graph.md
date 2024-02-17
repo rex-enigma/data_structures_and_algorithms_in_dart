@@ -65,11 +65,29 @@ eg:
 
 ```
 
+#### graph analysis
+```
+    V represents the number of vertices and E represents the number of edges
+  __________________________________________________________________________
+  |             operation              | adjacency List | adjacency Matrix |
+  |____________________________________|________________|__________________|
+  |          storage space             |    0(V + E)    |       0(V²)      |
+  |____________________________________|________________|__________________|
+  |           Add vertex               |      0(1)      |       0(V²)      |
+  |____________________________________|________________|__________________|
+  |            Add edge                |      0(1)      |       0(1)       |
+  |____________________________________|________________|__________________|
+  | finding specific edges and weights |      0(V)      |       0(1)       |
+  |____________________________________|________________|__________________|
+
+ ```
+ 1.**Space complexity** -> Adjacency List takes less space that adjacency Matrix, this is because adjacency list stores the number of vertices and edges needed while adjacency Matrix has a quadratic space complexity because the number of rows and columns equal the number of vertices.
+
 
 #### common operation are:
 1. **createVertex** -> create a vertex and add it to the graph.
 2. **vertices** -> return all of the vertices in the graph.
-3. **addEdge** -> connect two vertices in the graph with either directed or undirected edge. For adjacency list implementation edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex and the column vertex but a weight of a double value will represent the presence of edge btn the row vertex and the column.
+3. **addEdge** -> connect two vertices in the graph with either directed or undirected edge. For adjacency list implementation edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex and the column vertex and a weight of a double value will represent the presence of edge btn the row vertex and the column(if weight is 0 then it means 2 vertices are connected with a 0 weight in weight graph or no weight at all in a unweighted graph).
 4. **edges** -> return a list of outgoing edges from a specific vertex.
 5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
 6. **breadth-first traversal** -> (aka level-first traversal),systematically explore all vertices reachable from starting vertex, level by level.

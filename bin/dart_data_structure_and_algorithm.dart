@@ -2,6 +2,7 @@ import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/insertion_sort/insertion_sort.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/selection_sort/selection_sort.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/map_based_graph_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/two-dimensional_list_based_graph_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/avl_tree/avl_tree.dart';
@@ -67,26 +68,54 @@ void main(List<String> arguments) {
 
   /****************************graph***********************************/
 
-  final graph = AdjacencyList<String>();
-  final singapore = graph.createVertex('Singapore');
-  final tokyo = graph.createVertex('Tokyo');
-  final hongKong = graph.createVertex('Hong Kong');
-  final detroit = graph.createVertex('Detroit');
-  final sanFrancisco = graph.createVertex('San Francisco');
-  final washingtonDC = graph.createVertex('Washington DC');
-  final austinTexas = graph.createVertex('Austin Texas');
-  final seattle = graph.createVertex('Seattle');
-  graph.addEdge(singapore, hongKong, weight: 300);
-  graph.addEdge(singapore, tokyo, weight: 500);
-  graph.addEdge(hongKong, tokyo, weight: 250);
-  graph.addEdge(tokyo, detroit, weight: 450);
-  graph.addEdge(tokyo, washingtonDC, weight: 300);
-  graph.addEdge(hongKong, sanFrancisco, weight: 600);
-  graph.addEdge(detroit, austinTexas, weight: 50);
-  graph.addEdge(austinTexas, washingtonDC, weight: 292);
-  graph.addEdge(sanFrancisco, washingtonDC, weight: 337);
-  graph.addEdge(washingtonDC, seattle, weight: 277);
-  graph.addEdge(sanFrancisco, seattle, weight: 218);
-  graph.addEdge(austinTexas, sanFrancisco, weight: 297);
-  print(graph);
+  // testing adjacencyList graph implementation
+  final graphMapBased = AdjacencyList<String>();
+  final singaporeA = graphMapBased.createVertex('Singapore');
+  final tokyoA = graphMapBased.createVertex('Tokyo');
+  final hongKongA = graphMapBased.createVertex('Hong Kong');
+  final detroitA = graphMapBased.createVertex('Detroit');
+  final sanFranciscoA = graphMapBased.createVertex('San Francisco');
+  final washingtonDCA = graphMapBased.createVertex('Washington DC');
+  final austinTexasA = graphMapBased.createVertex('Austin Texas');
+  final seattleA = graphMapBased.createVertex('Seattle');
+  graphMapBased.addEdge(singaporeA, hongKongA, weight: 300);
+  graphMapBased.addEdge(singaporeA, tokyoA, weight: 500);
+  graphMapBased.addEdge(hongKongA, tokyoA, weight: 250);
+  graphMapBased.addEdge(tokyoA, detroitA, weight: 450);
+  graphMapBased.addEdge(tokyoA, washingtonDCA, weight: 300);
+  graphMapBased.addEdge(hongKongA, sanFranciscoA, weight: 600);
+  graphMapBased.addEdge(detroitA, austinTexasA, weight: 50);
+  graphMapBased.addEdge(austinTexasA, washingtonDCA, weight: 292);
+  graphMapBased.addEdge(sanFranciscoA, washingtonDCA, weight: 337);
+  graphMapBased.addEdge(washingtonDCA, seattleA, weight: 277);
+  graphMapBased.addEdge(sanFranciscoA, seattleA, weight: 218);
+  graphMapBased.addEdge(austinTexasA, sanFranciscoA, weight: 297);
+  print(graphMapBased);
+
+  print('\n');
+
+  // testing adjacencyList graph implementation
+  final graph2dBased = AdjacencyMatrix<String>();
+  final singaporeB = graph2dBased.createVertex('Singapore');
+  final tokyoB = graph2dBased.createVertex('Tokyo');
+  final hongKongB = graph2dBased.createVertex('Hong Kong');
+  final detroitB = graph2dBased.createVertex('Detroit');
+  final sanFranciscoB = graph2dBased.createVertex('San Francisco');
+  final washingtonDCB = graph2dBased.createVertex('Washington DC');
+  final austinTexasB = graph2dBased.createVertex('Austin Texas');
+  final seattleB = graph2dBased.createVertex('Seattle');
+  graph2dBased.addEdge(singaporeB, hongKongB, weight: 300);
+  graph2dBased.addEdge(singaporeB, tokyoB, weight: 500);
+  graph2dBased.addEdge(hongKongB, tokyoB, weight: 250);
+  graph2dBased.addEdge(tokyoB, detroitB, weight: 450);
+  graph2dBased.addEdge(tokyoB, washingtonDCB, weight: 300);
+  graph2dBased.addEdge(hongKongB, sanFranciscoB, weight: 600);
+  graph2dBased.addEdge(detroitB, austinTexasB, weight: 50);
+  graph2dBased.addEdge(austinTexasB, washingtonDCB, weight: 292);
+  graph2dBased.addEdge(sanFranciscoB, washingtonDCB, weight: 337);
+  graph2dBased.addEdge(washingtonDCB, seattleB, weight: 277);
+  graph2dBased.addEdge(sanFranciscoB, seattleB, weight: 218);
+  graph2dBased.addEdge(austinTexasB, sanFranciscoB, weight: 297);
+
+  print(graph2dBased);
 }

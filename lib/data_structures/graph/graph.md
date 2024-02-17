@@ -1,4 +1,4 @@
-- A graph is a non-linear abstract data type consisting of a collection of vertices / nodes and edges / arcs. Edges are used to connect any two vertices in the graph. The graph is denoted by **G(V,E)**.
+- A graph is a non-linear abstract data type consisting of a collection of vertices/nodes and edges/arcs. These edges are used to connect any two vertices in the graph. The graph is denoted by **G(V,E)**.
 
 #### Graph terminologies:
 1. **vertex** -> a fundamental unit of a graph, representing an entity. Vertices hold data associated with them and a label in this case will be an index which the indices can be used to label the rows and columns if adjacency matrix implementation is used.
@@ -7,12 +7,12 @@
     - ***weighted***( meaning an edge can have a ***weight*** value which is used to represent a certain quantifiable relationship btn the vertices it connects) or ***unweighted***(meaning an edge can lack weight value indicating that their is no 'cost' associated btn the vertices it connects).
 3. **Weight** -> a value associated with an edge, indicating the 'cost' btn the connected vertices. Weighted graphs have weights assigned to their edges, while unweighted graphs do not.
 4. **Adjacency** -> two vertices are adjacent if there an edge connecting them.
-5. **Degree** -> The degree of a node is the number of edges incident to that node. In directed graphs, there are two degrees for each node: in-degree (number of incoming edges) and out-degree (number of outgoing edges).
-6. **Path** -> A sequence of vertices connected by edges.
-7. **Cycle** -> A path that starts and ends at the same vertex, without visiting any other vertex more than once(except for the start and end vertex) 
+5. **Degree** -> the degree of a node is the number of edges incident to that node. In directed graphs, there are two degrees for each node: in-degree (number of incoming edges) and out-degree (number of outgoing edges).
+6. **Path** -> a sequence of vertices connected by edges.
+7. **Cycle** -> a path that starts and ends at the same vertex, without visiting any other vertex more than once(except for the start and end vertex) 
 
-#### Graphs can be represented / implemented in various ways, common ways ar:
-1. **Adjacency List** -> in adjacent list representation, each vertex in the graph maintains a list of other vertices that it is connected to. This list, known as the adjacent list for that vertex, effectively stores the edges ***outgoing*** from that vertex. This can be implemented using a ***Map*** in which keys are the vertices and their corresponding values are lists whose elements are edges. other data structures can be used other than map. A visual illustration is shown below: a flight booking system
+#### Graphs can be represented / implemented in various ways, common ways are:
+1. **Adjacency List** -> in adjacent list representation, each vertex in the graph maintains a list of other vertices that it is connected to. This list, known as the adjacent list for that vertex, effectively stores the edges ***outgoing*** from that vertex. This can be implemented using a ***Map*** in which keys are the vertices and their corresponding values are lists whose elements are edges. other data structures can be used other than map. A visual illustration is shown below: a flight booking system example
 ```
                    Map
        vertices             adjacent list(stores edges)
@@ -41,7 +41,7 @@
     |_____________|         |des: hong kong    | |des: washington DC|
                             --------------------,--------------------            
 ```
-1. **Adjacency Matrix** -> A 2D array where each cell represents the presence or absence of an edge btn two vertices. The rows represent ***source*** vertices and columns represents ***destination*** vertices. The cells where the rows and column intersect holds the edge weights. If any particular cell is empty, that is, if the weight is null, then that means there is no edge btn the row vertex and the column vertex. This is implemented using an ***List*** within another ***List***. A visual illustration is shown below:
+1. **Adjacency Matrix** -> A 2D array where each cell represents the presence or absence of an edge btn two vertices. The rows represent ***source*** vertices and columns represents ***destination*** vertices. The cells where the rows and column intersect holds the edge weights. If any particular cell is empty, that is, if the weight is null, then that means there is no edge btn the row vertex and the column vertex. If their is a connection btn 2 vertices, then a weight of double value will be used(). This is implemented using an ***List*** within another ***List***. A visual illustration is shown below: example
 ```
                       2D List  
      vertices                           destination
@@ -74,4 +74,8 @@ eg:
 5. **weight** return the weight of the edge btn 2 vertices.
 6. **breadth-first traversal** -> (aka level-first traversal),systematically explore all vertices reachable from starting vertex, level by level.
 7. **depth-first traversal** -> follow a single path as deep as possible before backtracking and exploring alternative paths.
-8. **shortestPath** -> find the path with the least weight/cost btn two vertices
+8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
+
+
+
+#### key points:

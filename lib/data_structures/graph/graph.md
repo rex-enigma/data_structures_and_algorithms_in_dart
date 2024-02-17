@@ -41,7 +41,7 @@
     |_____________|         |des: hong kong    | |des: washington DC|
                             --------------------,--------------------            
 ```
-1. **Adjacency Matrix** -> A 2D array where each cell represents the presence or absence of an edge btn two vertices. The rows represent ***source*** vertices and columns represents ***destination*** vertices. The cells where the rows and column intersect holds the edge weights. If any particular cell is empty, that is, if the weight is null, then that means there is no edge btn the row vertex and the column vertex. If their is a connection btn 2 vertices, then a weight of double value will be used(). This is implemented using an ***List*** within another ***List***. A visual illustration is shown below: example
+1. **Adjacency Matrix** -> A 2D array where each cell represents the presence or absence of an edge btn two vertices. The rows represent ***source*** vertices and columns represents ***destination*** vertices. The cells where the rows and column intersect holds the edge weights. If any particular cell is empty, that is, if the weight is null, then that means there is no edge btn the row vertex and the column vertex. If their is a connection btn 2 vertices, then a weight of double value will be used. This is implemented using an ***List*** within another ***List***. A visual illustration is shown below: example
 ```
                       2D List  
      vertices                           destination
@@ -71,7 +71,7 @@ eg:
 2. **vertices** -> return all of the vertices in the graph.
 3. **addEdge** -> connect two vertices in the graph with either directed or undirected edge. For adjacency list implementation edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex and the column vertex but a weight of a double value will represent the presence of edge btn the row vertex and the column.
 4. **edges** -> return a list of outgoing edges from a specific vertex.
-5. **weight** return the weight of the edge btn 2 vertices.
+5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
 6. **breadth-first traversal** -> (aka level-first traversal),systematically explore all vertices reachable from starting vertex, level by level.
 7. **depth-first traversal** -> follow a single path as deep as possible before backtracking and exploring alternative paths.
 8. **shortestPath** -> find the path with the least weight/cost btn two vertices.

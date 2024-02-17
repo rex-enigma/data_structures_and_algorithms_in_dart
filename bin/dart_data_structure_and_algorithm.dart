@@ -1,6 +1,7 @@
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/bubble_sort/bubble_sort.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/insertion_sort/insertion_sort.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/selection_sort/selection_sort.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/map_based_graph_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/avl_tree/avl_tree.dart';
@@ -61,4 +62,31 @@ void main(List<String> arguments) {
   print('original list before insertion sort: $list3');
   insertionSort(list3);
   print('insertion sorted: $list3');
+
+  print('\n');
+
+  /****************************graph***********************************/
+
+  final graph = AdjacencyList<String>();
+  final singapore = graph.createVertex('Singapore');
+  final tokyo = graph.createVertex('Tokyo');
+  final hongKong = graph.createVertex('Hong Kong');
+  final detroit = graph.createVertex('Detroit');
+  final sanFrancisco = graph.createVertex('San Francisco');
+  final washingtonDC = graph.createVertex('Washington DC');
+  final austinTexas = graph.createVertex('Austin Texas');
+  final seattle = graph.createVertex('Seattle');
+  graph.addEdge(singapore, hongKong, weight: 300);
+  graph.addEdge(singapore, tokyo, weight: 500);
+  graph.addEdge(hongKong, tokyo, weight: 250);
+  graph.addEdge(tokyo, detroit, weight: 450);
+  graph.addEdge(tokyo, washingtonDC, weight: 300);
+  graph.addEdge(hongKong, sanFrancisco, weight: 600);
+  graph.addEdge(detroit, austinTexas, weight: 50);
+  graph.addEdge(austinTexas, washingtonDC, weight: 292);
+  graph.addEdge(sanFrancisco, washingtonDC, weight: 337);
+  graph.addEdge(washingtonDC, seattle, weight: 277);
+  graph.addEdge(sanFrancisco, seattle, weight: 218);
+  graph.addEdge(austinTexas, sanFrancisco, weight: 297);
+  print(graph);
 }

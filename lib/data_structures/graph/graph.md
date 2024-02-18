@@ -65,7 +65,7 @@ eg:
 
 ```
 
-#### graph analysis
+#### Graph analysis
 ```
     V represents the number of vertices and E represents the number of edges
   __________________________________________________________________________
@@ -81,7 +81,16 @@ eg:
   |____________________________________|________________|__________________|
 
  ```
- 1.**Space complexity** -> Adjacency List takes less space that adjacency Matrix, this is because adjacency list stores the number of vertices and edges needed while adjacency Matrix has a quadratic space complexity because the number of rows and columns equal the number of vertices.
+ ##### A: Space complexity:
+ 1. **storage space** -> Adjacency list takes less space that adjacency matrix, this is because adjacency list stores the number of vertices and edges needed while adjacency Matrix has a quadratic space complexity because the number of rows and columns equal the number of vertices.
+ ##### B: Time complexity;  
+ 1. **Adding a Vertex** -> adding a vertex is efficient in adjacency list as compared to adding it in adjacency matrix, this is because with map base graph implementation for adjacency list, creating a vertex and setting its key-value pair has amortized time complexity of 0(1) but when adding a vertex to a adjacency matrix, you must add a column to very row and create a new row for the new vertex which is at least 0(v), and when you choose to represent the matrix with a contiguous block of memory, it can be 0(V²).
+ 2. **Adding an edge** -> adding an edge is efficient in both implementations. The adjacency list appends to the list of outgoing edges and the adjacency matrix sets a value in the two-dimensional list.
+ 3. **Finding a specific edge or weight btn 2 vertices** -> this is more efficient in adjacency matrix as compared to adjacency list, this is because finding an edge or weight is a constant time lookup in the two-dimensional list while for adjacency list you have to obtain the list of outgoing edges and loop through every edge to find a matching destination.
+
+#### How to choose which implementation to use:
+- If there are **few edges** in you graph, it's considered a **sparse graph** and **adjacency list** would be a good fit. adjacency matrix wont be a good choice because a lot of memory would be wasted since there aren't many edges.
+- If there are **a lot of edges** in your graph, it's considered a **dense graph** and **adjacency matrix** would be a better fit, since you will be able to access your edges and weights for more quickly.
 
 
 #### common operation are:
@@ -97,3 +106,16 @@ eg:
 
 
 #### key points:
+1. You can represent a real world relationship through vertices and edges.
+2. Think of vertices as entities and edges as relationship btn the entities.
+3. Weighted graph associate a number with every edge.
+4. Directed graphs have edges that traverse in one direction.
+5. Undirected graphs have edges that point both ways.
+6. An adjacency list is a graph that can use map to store vertices as keys and a list of outgoing edges as value for every vertex.
+7. An adjacency matrix uses a two-dimensional list to represent a graph.
+8. An adjacency list is generally good for sparse graphs, which have a low number of edges.
+9. An adjacency matrix is generally suitable for dense graphs, which have lots of edges.
+
+
+**NB:**
+- A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.

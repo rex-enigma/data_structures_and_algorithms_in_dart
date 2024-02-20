@@ -39,8 +39,8 @@ class TreeNode<T> {
     }
   }
 
-// we can use any traversal technique to implement searching depending on the problem you what to solve
-  /// if there are multiple matches, the last match will be returned.
+  // we can use any traversal technique to implement searching depending on the problem you what to solve
+  /// returns the last match if their are multiple matches.
   TreeNode<T>? searchLevelFirst(T value) {
     TreeNode<T>? result;
     forEachLevelFirst((node) {

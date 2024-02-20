@@ -1,7 +1,5 @@
 A tree is an abstract data type that represent a hierarchical tree structure with a set of connect nodes.
 
-**Traversal** -> in a non-linear data structure like a tree is the process of visiting / accessing each node in a tree in specific order.
-
 Each node can be connected to many children(depending on the type of tree) but must be connect to ONLY one parent, expect for the *root* node which has no parent.
 
 [Diagram of a typical tree](https://www.geeksforgeeks.org/introduction-to-tree-data-structure-and-algorithm-tutorials/?ref=lbp)
@@ -87,7 +85,9 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
 1. **depth-first traversal** -> visiting nodes in a vertical order.
 2. **level-first / breath-first traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
 3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
-   
+
+**NB:**
+**Traversal** -> (in a non-linear data structure like a tree) is the process of visiting/accessing each node in a tree in specific order.   
 
 ##### applications of trees:
 1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.

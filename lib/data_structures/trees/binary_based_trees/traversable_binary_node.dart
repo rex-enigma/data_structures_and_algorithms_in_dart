@@ -21,8 +21,6 @@ abstract class TraversableBinaryNode<T> {
     action(this);
   }
 
-  // add breath-first/level-first traversal implementation.
-
   @override
   String toString() {
     return _diagram(this);

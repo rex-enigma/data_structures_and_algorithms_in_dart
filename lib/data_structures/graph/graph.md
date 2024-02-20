@@ -103,6 +103,18 @@ Exp:
 7. **depth-first traversal** -> follow a single path as deep as possible before backtracking and exploring alternative paths.
 8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
 
+**NB:**
+- A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
+  
+- **Breath-first search is not similar to breath-first traversal, also, depth-first search is not similar to depth-first traversal.** 
+ - The aim of ***search*** is to find a specific vertex/value within the graph, the return types can be any of the following rather than void: 
+   1. the vertex/value itself.
+   2. index/position of the vertex/value being searched for.
+   3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
+   4. collection of vertices/values that are being searched for.
+ - **Traversal** is the process of visiting/accessing each vertex in a graph in specific order. 
+ - The aim of **traverse** is to just visit all the vertices in the graph. The is no return type in this case(void return).
+
 
 
 #### key points:
@@ -117,9 +129,7 @@ Exp:
 9. An adjacency matrix is generally suitable for dense graphs, which have lots of edges.
 
 
-**NB:**
-- A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
 
 
-
+ 
 

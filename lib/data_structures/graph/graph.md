@@ -7,7 +7,7 @@
     - ***weighted***( meaning an edge can have a ***weight*** value which is used to represent a certain quantifiable relationship btn the vertices it connects) or ***unweighted***(meaning an edge can lack weight value indicating that their is no 'cost' associated btn the vertices it connects).
 3. **Weight** -> a value associated with an edge, indicating the 'cost' btn the connected vertices. Weighted graphs have weights assigned to their edges, while unweighted graphs do not.
 4. **Adjacency** -> two vertices are adjacent if there is an edge connecting them.
-5. **Degree** -> the degree of a node is the number of edges incident to that node. In directed graphs, there are two degrees for each node: in-degree (number of incoming edges) and out-degree (number of outgoing edges).
+5. **Degree** -> the degree of a vertex is the number of edges incident to that vertex. In directed graphs, there are two degrees for each vertex: in-degree (number of incoming edges) and out-degree (number of outgoing edges).
 6. **Path** -> a sequence of vertices connected by edges.
 7. **Cycle** -> a path that starts and ends at the same vertex, without visiting any other vertex more than once(except for the start and end vertex) 
 
@@ -106,14 +106,14 @@ Exp:
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
   
-- **Breath-first search is not similar to breath-first traversal, also, depth-first search is not similar to depth-first traversal.** 
+- **Breath-first search(BFS) is not similar to breath-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
  - The aim of ***search*** is to find a specific vertex/value within the graph, the return types can be any of the following rather than void: 
    1. the vertex/value itself.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
    4. collection of vertices/values that are being searched for.
- - **Traversal** is the process of visiting/accessing each vertex in a graph in specific order. 
- - The aim of **traverse** is to just visit all the vertices in the graph. The is no return type in this case(void return).
+ - **Traversal** is the process of visiting/accessing every vertex exactly once in a graph in specific order. 
+ - The aim of **traverse** is to just visit all the vertices in the graph. In most cases, their is no return type in this case(void return).
 
 
 

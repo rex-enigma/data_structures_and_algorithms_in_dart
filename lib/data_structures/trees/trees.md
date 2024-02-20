@@ -87,7 +87,15 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
 3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
 
 **NB:**
-**Traversal** -> (in a non-linear data structure like a tree) is the process of visiting/accessing each node in a tree in specific order.   
+- **Breath-first search is not similar to breath-first traversal, also, depth-first search is not similar to depth-first traversal.** 
+ - The aim of ***search*** is to find a specific node/value within the graph, the return types can be any of the following rather than void: 
+   1. the node/value itself.
+   2. index/position of the node/value being searched for.
+   3. boolean of either true if the node/value exist or false if the node/value don't exist.
+   4. collection of nodes/values that are being searched for.
+ - **Traversal** is the process of visiting/accessing every node exactly once in a tree in specific order. 
+ - The aim of **traverse** is to just visit all the vertices in the graph. In most cases, their is no return type in this case(void return).
+
 
 ##### applications of trees:
 1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.

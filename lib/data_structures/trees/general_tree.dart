@@ -25,7 +25,7 @@ class TreeNode<T> {
     }
   }
 
-  // level-first traversal
+  // Level-first/breath-first traversal
   // i like to think of it as horizontal traversal
   void forEachLevelFirst(void Function(TreeNode<T> node) performAction) {
     final queue = QueueDoubleList<TreeNode<T>>();

@@ -108,13 +108,13 @@ Exp:
 
 in my current understanding,
 - **Breadth-first search(BFS) is not similar to breadth-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
- - The aim of ***search*** can vary depending on the problem that is being solved by the graph, but in most cases, it has a return type which can be any of the following other than ***void***:
-   1. the vertex/value itself.
+ - The aim of ***search*** is to look for a given target vertex if it exist and when a match(s) is found the algorithm short-circuits(the algorithm stop exploring other unvisited vertices). The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases,  the return type  can be any of the following other than ***void***:
+   1. the vertex/value being searched for.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
    4. collection of vertices/values that are being searched for.
- - **Traversal** is the process of visiting/accessing every vertex exactly once in a graph in specific order. 
- - The aim of **traverse** is to visit every vertices exactly once in the graph. In most cases, their is no return value in this case(void return).
+ - **Traversal** is the process of visiting/accessing ***every*** vertex exactly once in a graph in specific order. 
+ - The aim of **traverse** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most" cases, their is no return value in this case(void return).
 
 
 

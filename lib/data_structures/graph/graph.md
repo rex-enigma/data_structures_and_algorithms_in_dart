@@ -99,21 +99,22 @@ Exp:
 3. **addEdge** -> connect two vertices in the graph with either directed or undirected edge. For adjacency list implementation edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex and the column vertex and a weight of a double value will represent the presence of edge btn the row vertex and the column(if weight is 0 then it means 2 vertices are connected with a 0 weight in weight graph or no weight at all in a unweighted graph).
 4. **edges** -> return a list of outgoing edges from a specific vertex.
 5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
-6. **breadth-first traversal** -> (aka level-first traversal), visits the closest/adjacent vertices from the starting vertex before moving on th further vertices.
-7. **depth-first traversal** -> follow a single path as deep as possible before backtracking and exploring alternative paths.
+6. **breadth-first search** -> (aka level-first search), given a starting vertex, the algorithm explores all neighbors of this vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
+7. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the depth-first search will return a list of visited vertices in the graph.
 8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
 
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
-  
-- **Breath-first search(BFS) is not similar to breath-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
- - The aim of ***search*** is to find a specific vertex/value within the graph, the return types can be any of the following rather than void: 
+
+in my current understanding,
+- **Breadth-first search(BFS) is not similar to breadth-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
+ - The aim of ***search*** can vary depending on the problem that is being solved by the graph, but in most cases, it has a return type which can be any of the following other than ***void***:
    1. the vertex/value itself.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
    4. collection of vertices/values that are being searched for.
  - **Traversal** is the process of visiting/accessing every vertex exactly once in a graph in specific order. 
- - The aim of **traverse** is to just visit all the vertices in the graph. In most cases, their is no return type in this case(void return).
+ - The aim of **traverse** is to visit every vertices exactly once in the graph. In most cases, their is no return value in this case(void return).
 
 
 

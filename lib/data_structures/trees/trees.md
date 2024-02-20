@@ -83,18 +83,19 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
 
 #### common operation are:
 1. **depth-first traversal** -> visiting nodes in a vertical order.
-2. **level-first / breath-first traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
+2. **level-first / breadth-first traversal** -> visiting nodes in a level order, horizontally, always starting from top left.
 3. **search** -> searching for a specific value in the tree, using either of the above traversal technique.
 
 **NB:**
-- **Breath-first search is not similar to breath-first traversal, also, depth-first search is not similar to depth-first traversal.** 
- - The aim of ***search*** is to find a specific node/value within the graph, the return types can be any of the following rather than void: 
+in my current understanding,
+- **Breadth-first search is not similar to breadth-first traversal, also, depth-first search is not similar to depth-first traversal.** 
+ - The aim of ***search***  can vary depending on the problem that is being solved by the tree, but in most cases, it has a return type which can be any of the following other than ***void***:
    1. the node/value itself.
    2. index/position of the node/value being searched for.
    3. boolean of either true if the node/value exist or false if the node/value don't exist.
    4. collection of nodes/values that are being searched for.
  - **Traversal** is the process of visiting/accessing every node exactly once in a tree in specific order. 
- - The aim of **traverse** is to just visit all the vertices in the graph. In most cases, their is no return type in this case(void return).
+ - The aim of **traverse** is to visit every node exactly once in a tree. In most cases, their is no return value in this case(void return).
 
 
 ##### applications of trees:

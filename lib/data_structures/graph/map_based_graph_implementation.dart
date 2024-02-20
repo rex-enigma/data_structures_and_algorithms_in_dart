@@ -6,7 +6,6 @@ class AdjacencyList<T> implements Graph<T> {
   int _nextIndex = 0;
 
   @override
-  // TODO: implement vertices
   Iterable<Vertex<T>> get vertices => _connections.keys;
 
   @override

@@ -25,7 +25,7 @@ class TreeNode<T> {
     }
   }
 
-  // Level-first/breath-first traversal
+  // Level-first/breadth-first traversal
   // i like to think of it as horizontal traversal
   void forEachLevelFirst(void Function(TreeNode<T> node) performAction) {
     final queue = QueueDoubleList<TreeNode<T>>();
@@ -40,7 +40,8 @@ class TreeNode<T> {
   }
 
   // we can use any traversal technique to implement searching depending on the problem you what to solve
-  /// returns the last match if their are multiple matches.
+  /// returns the last match if their are multiple matches, otherwise null is returned if the value does't
+  /// exist in the tree.
   TreeNode<T>? searchLevelFirst(T value) {
     TreeNode<T>? result;
     forEachLevelFirst((node) {

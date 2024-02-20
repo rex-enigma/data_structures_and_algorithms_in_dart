@@ -119,3 +119,7 @@ Exp:
 
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
+
+
+
+

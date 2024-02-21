@@ -111,14 +111,14 @@ In the implementation, the breadth-first search will return a list of visited ve
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
 
 in my current understanding,
-- **Breadth-first search(BFS) is not similar to breadth-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
- - The common use case for ***search*** is to look for a given target value if it exist and when a match(s) is found the algorithm short-circuits(the algorithm stop exploring other unvisited vertices). The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type can be any of the following other than ***void***:
+- **Breadth-first search(BFS) and breadth-first traversal(BFT) share the same exploration mechanism of visiting vertices level by level, but they differ in their objectives, similarly, depth-first search(DFS) and depth-first traversal(DFT) share the same exploration mechanism of exploring one path as far as possible before backtracking and exploring other branches but they differ in their objectives.** 
+ - The aim of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type can be any of the following other than ***void***:
    1. the vertex/value being searched for.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
-   4. collection of vertices/values that are being searched for.
+   4. list of vertices/values that satisfy certain condition.
  - **Traversal** is the process of visiting/accessing ***every*** vertex exactly once in a graph in specific order. 
- - The aim of **traverse** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most" cases, their is no return value in this case(void return).
+ - The aim of ***breadth first / depth first traversal*** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most cases", their is no return value in this case(void return).
 
 
 
@@ -132,10 +132,3 @@ in my current understanding,
 7. An adjacency matrix uses a two-dimensional list to represent a graph.
 8. An adjacency list is generally good for sparse graphs, which have a low number of edges.
 9. An adjacency matrix is generally suitable for dense graphs, which have lots of edges.
-
-
-
-
- 
-
-(aka level-first search), given a starting vertex and a target value, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The algorithm short-circuit/stops exploring other unvisited vertex when the target value is found. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.

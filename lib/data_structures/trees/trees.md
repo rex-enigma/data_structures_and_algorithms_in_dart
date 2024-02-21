@@ -88,15 +88,14 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
 
 **NB:**
 in my current understanding,
-- **Breadth-first search is not similar to breadth-first traversal, also, depth-first search is not similar to depth-first traversal.** 
- - The common use case for ***search*** is to look for a given target value if it exist and when a match(s) is found the algorithm short-circuits(the algorithm stop exploring other unvisited vertices). The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type  can be any of the following other than ***void***:
-   1. the node/value searched for.
+- **Breadth-first search(BFS) and breadth-first traversal(BFT) share the same exploration mechanism of visiting nodes level by level, but they differ in their objectives, similarly, depth-first search(DFS) and depth-first traversal(DFT) share the same exploration mechanism of exploring one path as far as possible before backtracking and exploring other branches but they differ in their objectives.** 
+ - The aim of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the tree, but in most cases, the return type can be any of the following other than ***void***:
+   1. the node/value being searched for.
    2. index/position of the node/value being searched for.
    3. boolean of either true if the node/value exist or false if the node/value don't exist.
-   4. collection of nodes/values that are being searched for.
+   4. list of nodes/values that satisfy certain condition.
  - **Traversal** is the process of visiting/accessing ***every*** node exactly once in a tree in specific order. 
- - The aim of **traverse** is to visit every node exactly once in a tree (All the nodes must be visited/accessed) . In "most" cases, their is no return value in this case(void return).
-
+ - The aim of ***breadth first / depth first traversal*** is to visit every nodes exactly once in the tree(All the nodes must be visited/accessed). In "most cases", their is no return value in this case(void return).
 
 ##### applications of trees:
 1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.
@@ -114,5 +113,4 @@ only link to one successor node, a tree node can link to many child nodes.
 5. Traversals, such as depth-first and level-first/breath-first traversals, work on multiple types
 of trees. However, the implementation will be slightly different based on how the
 tree is structured.
-
 

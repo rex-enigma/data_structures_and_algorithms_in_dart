@@ -100,25 +100,29 @@ Exp:
 4. **edges** -> return a list of outgoing edges from a specific vertex.
 5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
 6. **breadth-first search** -> (aka level-first search), given a starting vertex, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
-   1.  if you want BFS to look for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
-   2.  if you want BFS to look for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
-   3.  if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
+   1. if you want BFS to look for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
+   2. if you want BFS to look for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
+   3. if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
 In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
-1. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the depth-first search will return a list of visited vertices in the graph.
-2. **shortestPath** -> find the path with the least weight/cost btn two vertices.
+7. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish:
+   1. if you want DFS to look for a specific vertex, the DFS implementation will return only that vertex if found or null if not found.
+   2. if you want DFS to look for vertices with specific properties, the DFS implementation will return a list of vertices that meet that condition.
+   3. if you want DFS to get all vertices visited, the DFS implementation will return a list of vertices in the order they were visited.   
+In the implementation, the depth-first search will return a list of visited vertices in the graph.
+8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
 
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
 
 in my current understanding,
 - **Breadth-first search(BFS) and breadth-first traversal(BFT) share the same exploration mechanism of visiting vertices level by level, but they differ in their objectives, similarly, depth-first search(DFS) and depth-first traversal(DFT) share the same exploration mechanism of exploring one path as far as possible before backtracking and exploring other branches but they differ in their objectives.** 
- - The aim of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type can be any of the following other than ***void***:
+ - The objective of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type can be any of the following other than ***void***:
    1. the vertex/value being searched for.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
    4. list of vertices/values that satisfy certain condition.
  - **Traversal** is the process of visiting/accessing ***every*** vertex exactly once in a graph in specific order. 
- - The aim of ***breadth first / depth first traversal*** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most cases", their is no return value in this case(void return).
+ - The objective of ***breadth first / depth first traversal*** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most cases", their is no return value in this case(void return).
 
 
 

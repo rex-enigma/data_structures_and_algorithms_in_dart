@@ -82,20 +82,20 @@ Trees can be categories base on **the nodes' values** eg binary search tree, AVL
    
 
 #### common operation are:
-1. **depth-first traversal** -> visit/access every node only once in a vertical order.
-2. **level-first / breadth-first traversal** -> visit/access every node only once in a level order, horizontally, always starting from top left.
-3. **search** -> searching for a specific value in the tree, either of the above traversal implementation or technique can be used.
+1. **depth-first traversal** -> visit/access every node only once in a vertical order. No value is returned (void return)
+2. **level-first / breadth-first traversal** -> visit/access every node only once in a level order, horizontally, always starting from top left. No value is returned (void return)
+3. **search** -> search for a target value in the tree, either of the above traversal implementation or technique can be used. Return treeNode for that target value if it exist or null if the target value doesn't exist. 
 
 **NB:**
 in my current understanding,
 - **Breadth-first search(BFS) and breadth-first traversal(BFT) share the same exploration mechanism of visiting nodes level by level, but they differ in their objectives, similarly, depth-first search(DFS) and depth-first traversal(DFT) share the same exploration mechanism of exploring one path as far as possible before backtracking and exploring other branches but they differ in their objectives.** 
- - The aim of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the tree, but in most cases, the return type can be any of the following other than ***void***:
+ - The objective of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the tree, but in most cases, the return type can be any of the following other than ***void***:
    1. the node/value being searched for.
    2. index/position of the node/value being searched for.
    3. boolean of either true if the node/value exist or false if the node/value don't exist.
    4. list of nodes/values that satisfy certain condition.
  - **Traversal** is the process of visiting/accessing ***every*** node exactly once in a tree in specific order. 
- - The aim of ***breadth first / depth first traversal*** is to visit every nodes exactly once in the tree(All the nodes must be visited/accessed). In "most cases", their is no return value in this case(void return).
+ - The objective of ***breadth first / depth first traversal*** is to visit every nodes exactly once in the tree(All the nodes must be visited/accessed). In "most cases", their is no return value in this case(void return).
 
 ##### applications of trees:
 1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.

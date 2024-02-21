@@ -39,13 +39,13 @@ class TreeNode<T> {
     }
   }
 
-  // You can use any traversal technique that is already implemented above to implement searching depending on the
+  // You can use any traversal method that is already implemented above to implement searching depending on the
   // problem you what to solve but this is not ideal because, even though you will encounter the value you are
-  // searching for, it will be impossible to short circuit the operation at that time, because the delegated traversal
-  // technique used in the search implementation will have to visit all the nodes.
-  // The best approach would be not to use the already implemented traversal technique but to embed the technique
-  // inside the search implementation so that you can write a custom code for short circuiting when the desired value
-  // is found.
+  // searching for, it will be impossible to short-circuit/stop the algorithm at that time, because the delegated traversal
+  // method used in the search implementation will have to visit all the nodes.
+  // The best approach would be not to use the already implemented traversal method but to embed the traversal technique
+  // inside the search implementation so that you can write a custom code for short-circuiting/stopping the
+  // algorithm when the desired value is found.
 
   /// returns the last match if their are multiple matches, otherwise null is returned if the value does't
   /// exist in the tree.

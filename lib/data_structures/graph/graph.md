@@ -99,16 +99,20 @@ Exp:
 3. **addEdge** -> connect two vertices in the graph with either directed or undirected edge. For adjacency list implementation edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex and the column vertex and a weight of a double value will represent the presence of edge btn the row vertex and the column(if weight is 0 then it means 2 vertices are connected with a 0 weight in weight graph or no weight at all in a unweighted graph).
 4. **edges** -> return a list of outgoing edges from a specific vertex.
 5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
-6. **breadth-first search** -> (aka level-first search), given a starting vertex, the algorithm explores all neighbors of this vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
-7. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the depth-first search will return a list of visited vertices in the graph.
-8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
+6. **breadth-first search** -> (aka level-first search), given a starting vertex, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
+   1.  if the BFS is looking for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
+   2.  if the BFS is looking for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
+   3.  if BFS wants all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
+In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
+1. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the depth-first search will return a list of visited vertices in the graph.
+2. **shortestPath** -> find the path with the least weight/cost btn two vertices.
 
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
 
 in my current understanding,
 - **Breadth-first search(BFS) is not similar to breadth-first traversal(BFT), also, depth-first search(DFS) is not similar to depth-first traversal(DFT).** 
- - The aim of ***search*** is to look for a given target vertex if it exist and when a match(s) is found the algorithm short-circuits(the algorithm stop exploring other unvisited vertices). The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases,  the return type  can be any of the following other than ***void***:
+ - The common use case for ***search*** is to look for a given target value if it exist and when a match(s) is found the algorithm short-circuits(the algorithm stop exploring other unvisited vertices). The return type of the search algorithm can vary depending on the problem that is being solved by the graph, but in most cases, the return type can be any of the following other than ***void***:
    1. the vertex/value being searched for.
    2. index/position of the vertex/value being searched for.
    3. boolean of either true if the vertex/value exist or false if the vertex/value don't exist.
@@ -134,3 +138,4 @@ in my current understanding,
 
  
 
+(aka level-first search), given a starting vertex and a target value, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The algorithm short-circuit/stops exploring other unvisited vertex when the target value is found. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.

@@ -100,9 +100,9 @@ Exp:
 4. **edges** -> return a list of outgoing edges from a specific vertex.
 5. **weight** -> return the weight of the edge btn 2 vertices or null if the 2 vertices aren't connected.
 6. **breadth-first search** -> (aka level-first search), given a starting vertex, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
-   1.  if the BFS is looking for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
-   2.  if the BFS is looking for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
-   3.  if BFS wants all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
+   1.  if you want BFS to look for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
+   2.  if you want BFS to look for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
+   3.  if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
 In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
 1. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish. In the implementation, the depth-first search will return a list of visited vertices in the graph.
 2. **shortestPath** -> find the path with the least weight/cost btn two vertices.

@@ -1,6 +1,6 @@
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/breadth-first_search/breadth-first_search.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue.dart';
 
 // challenge 1: maximum queue size.
 // for the following undirected graph, list the maximum number of items ever in the queue. Assume
@@ -107,4 +107,69 @@ extension BreadthFirstSearchRecursive<T> on Graph<T> {
 //   }
 // }
 
-//
+// challenge 3: disconnected graph
+// add a method to graph to detect if a graph is disconnected. An example of a disconnected graph is shown
+// below:
+/* 
+                  H
+                  |
+          B       E-------F
+           \               \
+            \               \
+             A-------C       G 
+             |
+             D
+ 
+*/
+
+extension Connected<T> on Graph<T> {
+  /// return true if graph is connected, otherwise, it return false.
+  bool isConnected() {
+    if (vertices.isEmpty) return true;
+    // running breadth-first search will return all the vertices in the graph in the order in which they were
+    // constructed,
+    final visitedVertices = breadthFirstSearch(vertices.first);
+    // if the graph is connected, the number of visited vertices should equal the number of vertices
+    // in the graph.
+    return visitedVertices.length == vertices.length;
+  }
+}
+// below is a visual representation of how a connected graph looks like and how a disconnected graph looks like
+// based on my 'isConnected' implementation using the example diagram above on challenge 3.
+/* 
+  CONNECTED GRAPH
+
+  vertices = [A, B, C, D, E, F, G, H]
+  visitedVertices = [A, B, C, D, E, F, G, H]
+
+  both of the lists' length end up being the same, it does't matter which vertex is used to start the exploration.
+
+  DISCONNECTED GRAPH
+
+  vertices = [A, B, C, D, E, F, G, H]
+  visitedVertices = [A, B, C, D]
+
+  if you start exploring the graph from vertex A, visitedVertices will only contain the neighbors of A and itself
+  and the exploration will terminate since their isn't any connection from vertex (A,B,C,D) connecting to 
+  any vertex(E,F,G,H). Making the lists' length not to be equal.
+
+*/
+
+// book's solution for challenge 3
+
+// a graph is said to be disconnected if no path exists btn 2 vertices.
+// extension Connected<T> on Graph<T> {
+//   bool isConnected() {
+//     // if their are no vertices, treat the graph as connected
+//     if (vertices.isEmpty) return true;
+//     // Perform a breadth-first search starting from the first vertex. This process will return all the visited nodes.
+//     final visited = breadthFirstSearch(vertices.first);
+//     // Go through every vertex in the graph and check if it has been visited before.
+//     for (final vertex in vertices) {
+//       if (!visited.contains(vertex)) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
+// }

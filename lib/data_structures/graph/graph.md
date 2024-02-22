@@ -124,7 +124,13 @@ in my current understanding,
  - **Traversal** is the process of visiting/accessing ***every*** vertex exactly once in a graph in specific order. 
  - The objective of ***breadth first / depth first traversal*** is to visit every vertices exactly once in the graph(All the vertices must be visited/accessed). In "most cases", their is no return value in this case(void return).
 
-
+#### applications of graph:
+1. Circuit design and Analysis ->  Electrical engineers use graphs to analyze circuits. Nodes represent components like resistors and capacitors, and edges represent the connections between them. This allows them to simulate circuit behavior, calculate currents and voltages, and identify potential problems.
+2. Scientific Research -> Scientists use graphs to model complex systems in various fields like biology, chemistry, and physics. Nodes can represent molecules, genes, or other entities, and edges represent interactions or relationships between them. This allows them to analyze data, identify patterns, and make new discoveries
+3. Transportation Network -> Transportation systems like airlines and railways use graphs to model their networks. Nodes represent cities or stations, and edges represent flight routes or train tracks. This allows them to optimize schedules, identify bottlenecks, and manage resources efficiently.
+4. Navigation and Maps -> GPS navigation apps like Google Maps use graphs to represent roads and intersections as vertices and the connections between them as edges. This allows them to find the shortest route between two points, considering factors like traffic and road closures.
+5. Recommendation Systems -> Online retailers like Amazon and Netflix use graphs to recommend products or shows to users based on their past purchases or viewing history. They analyze the relationships between users and items to identify similar preferences and suggest relevant options.
+6. Social Networks -> Social media platforms like Facebook, Twitter, and Instagram use graphs to represent users as vertices and connections between them as edges. This allows them to recommend friends, show relevant content, and analyze the spread of information.
 
 #### key points:
 1. You can represent a real world relationship through vertices and edges.

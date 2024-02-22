@@ -2,7 +2,7 @@ import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.da
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 
 extension BreadthFirstSearch<T> on Graph<T> {
-  // the root vertex is any vertex chosen to serve as the entry point.
+  // the root vertex is any vertex chosen to serve as the entry point to the graph.
   /// returns all the vertices that were visited (the order in which the vertices are visited depends on how you
   /// constructed the graph)
   List<Vertex<T>> breadthFirstSearch(Vertex<T> root) {

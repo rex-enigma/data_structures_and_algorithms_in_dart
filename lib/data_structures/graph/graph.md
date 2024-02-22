@@ -103,7 +103,7 @@ Exp:
    1. if you want BFS to look for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
    2. if you want BFS to look for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
    3. if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
-In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
+In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph. Queue data structure is used to keep track of which vertex to visit next in a level-wise manner.
 7. **depth-first search** -> given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish:
    1. if you want DFS to look for a specific vertex, the DFS implementation will return only that vertex if found or null if not found.
    2. if you want DFS to look for vertices with specific properties, the DFS implementation will return a list of vertices that meet that condition.

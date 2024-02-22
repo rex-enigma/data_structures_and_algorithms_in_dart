@@ -2,6 +2,7 @@ import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/insertion_sort/insertion_sort.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/sorting_algorithms/comparison_based_sorting%20algorithms/selection_sort/selection_sort.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/map_based_graph_implementation.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/breadth-first_search/breadth-first_search_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/two-dimensional_list_based_graph_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
@@ -118,4 +119,27 @@ void main(List<String> arguments) {
   graph2dBased.addEdge(austinTexasB, sanFranciscoB, weight: 297);
 
   print(graph2dBased);
+
+  // testing breadthFirstSearchRecursive method.
+  final graph = AdjacencyList<String>();
+  final a = graph.createVertex('A');
+  final b = graph.createVertex('B');
+  final c = graph.createVertex('C');
+  final d = graph.createVertex('D');
+  final e = graph.createVertex('E');
+  final f = graph.createVertex('F');
+  final g = graph.createVertex('G');
+  final h = graph.createVertex('H');
+
+  graph.addEdge(a, b, weight: 1);
+  graph.addEdge(a, c, weight: 1);
+  graph.addEdge(a, d, weight: 1);
+  graph.addEdge(b, e, weight: 1);
+  graph.addEdge(c, f, weight: 1);
+  graph.addEdge(c, g, weight: 1);
+  graph.addEdge(e, h, weight: 1);
+  graph.addEdge(e, f, weight: 1);
+  graph.addEdge(f, g, weight: 1);
+  final vertices = graph.breadthFirstSearchRecursive(a);
+  vertices.forEach(print);
 }

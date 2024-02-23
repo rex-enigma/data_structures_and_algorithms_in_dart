@@ -39,22 +39,24 @@ vertices. In our example bfs will start at 1st level queueing vertex A, you will
 ```
 - **Set data structure** is also used to remember which vertices have been enqueued in the queue before,so you don’t enqueue the same vertex twice and end up visiting it again. set is used for the lookup operation since the operation has a constant time complexity of O(1) since set is implemented using a map, making the operation cheap as compared to list lookup time which has a linear time complexity of O(n).
 
+#### performance:
 - In breadth-first search, each vertex is enqueued once. This process has a linear time complexity of O(V). During this exploration, you also visit all edges. The time it takes to visit all edges is O(E). Adding the two together means the overall time complexity for breadth-first search is O(V + E).
-- The space complexity of BFS is O(V) since you have to store the vertices in three separate structures: queue, set(which will remember if a vertex has been enqueued before in queue) and list(stores the visited vertices).
+- The space complexity of breadth-first search is O(V) since you have to store the vertices in three separate structures: queue, set(which will remember if a vertex has been enqueued before in queue) and list(stores the visited vertices).
 
-#### problems that breadth-first search solves:
+#### application of breadth-first search:
 1. Generating a minimum-spanning tree -> BFS serves as a building block for algorithms like Prim's algorithm, which finds a minimum spanning tree in a weighted graph, connecting all vertices with the least total edge weight.
 2. Finding potential paths between vertices.
 3. Finding the shortest path between two vertices.
 
 #### key points:
-1. Breadth-first search (BFS) is an algorithm for searching(or traversing a graph, if its implemented to ust traverse) a graph. 
+1. Breadth-first search (BFS) is an algorithm for searching(or traversing a graph, if its implemented to only traverse) a graph. 
 2. BFS explores all the current vertex’s neighbors before traversing the next level of
 vertices.
 3. It’s generally good to use this algorithm when your graph structure has many
 neighboring vertices or when you need to find out every possible outcome.
 4. The queue data structure is used to prioritize traversing a vertex’s edges before
 diving down to a level deeper.
+5. A set is used to remember which vertices have been enqueued in the queue before,so you don’t enqueue the same vertex twice and end up visiting it again. Which might result to an infinity loop.
 
 
 BFS explores all the current vertex’s neighbors before traversing the next level of

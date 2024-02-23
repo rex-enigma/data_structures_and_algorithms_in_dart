@@ -42,9 +42,9 @@ import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_l
 extension BreadthFirstSearchRecursive<T> on Graph<T> {
   /// returns all the vertices that were visited (the order in which the vertices are visited depends on how you
   /// constructed the graph)
-  List<Vertex<T>> breadthFirstSearchRecursive(Vertex<T> source, {Set<Vertex<T>>? vertexSet, QueueDoubleList<Vertex<T>>? vertexQueue}) {
-    final QueueDoubleList<Vertex<T>> queue = vertexQueue ?? QueueDoubleList<Vertex<T>>();
-    final Set<Vertex<T>> enqueued = vertexSet ?? {};
+  List<Vertex<T>> breadthFirstSearchRecursive(Vertex<T> source, {Set<Vertex<T>>? verticesSet, QueueDoubleList<Vertex<T>>? verticesQueue}) {
+    final QueueDoubleList<Vertex<T>> queue = verticesQueue ?? QueueDoubleList<Vertex<T>>();
+    final Set<Vertex<T>> enqueued = verticesSet ?? {};
     final List<Vertex<T>> visited = [];
 
     if (!enqueued.contains(source)) {
@@ -64,7 +64,7 @@ extension BreadthFirstSearchRecursive<T> on Graph<T> {
     }
 
     if (!queue.isEmpty) {
-      final visitedVertices = breadthFirstSearchRecursive(queue.peek!, vertexSet: enqueued, vertexQueue: queue);
+      final visitedVertices = breadthFirstSearchRecursive(queue.peek!, verticesSet: enqueued, verticesQueue: queue);
       visited.addAll(visitedVertices);
     }
 

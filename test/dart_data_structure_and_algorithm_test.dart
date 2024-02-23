@@ -7,6 +7,8 @@ import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.da
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/singly_linked_list_based_deque_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/map_based_graph_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/breadth-first_search/breadth-first_search_based_challenges.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/depth-first_search/depth-first_search.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/depth-first_search/depth-first_search_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
@@ -735,6 +737,32 @@ void main() {
   graphMapBased3.addEdge(F, G, weight: 1);
   test('graph breadth-first search challenge 3: check if a graph is connected', () {
     expect(graphMapBased3.isConnected(), false);
+  });
+
+  final graphMapBased4 = AdjacencyList<String>();
+  final aa = graphMapBased4.createVertex('A');
+  final bb = graphMapBased4.createVertex('B');
+  final cc = graphMapBased4.createVertex('C');
+  final dd = graphMapBased4.createVertex('D');
+  final ee = graphMapBased4.createVertex('E');
+  final ff = graphMapBased4.createVertex('F');
+  final gg = graphMapBased4.createVertex('G');
+  final hh = graphMapBased4.createVertex('H');
+
+  graphMapBased4.addEdge(aa, bb, weight: 1);
+  graphMapBased4.addEdge(aa, cc, weight: 1);
+  graphMapBased4.addEdge(aa, dd, weight: 1);
+  graphMapBased4.addEdge(bb, ee, weight: 1);
+  graphMapBased4.addEdge(cc, gg, weight: 1);
+  graphMapBased4.addEdge(ee, ff, weight: 1);
+  graphMapBased4.addEdge(ee, hh, weight: 1);
+  graphMapBased4.addEdge(ff, gg, weight: 1);
+  graphMapBased4.addEdge(ff, cc, weight: 1);
+  test('graph depth-first search method test', () {
+    expect(graphMapBased4.depthFirstSearch(aa).toString(), '[A, B, E, F, G, C, H, D]');
+  });
+  test('graph depth-first search challenge 2: testing depthFirstSearchRecursive method', () {
+    expect(graphMapBased4.depthFirstRecursive(aa).toString(), '[A, B, E, F, G, C, H, D]');
   });
 
   /*************************BINARY SEARCH ALGORITHM**************************************/

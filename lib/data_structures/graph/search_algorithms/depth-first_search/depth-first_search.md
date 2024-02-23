@@ -41,3 +41,28 @@ DFS explores a branch as far as possible before backtracking to the next branch.
 ```
 - **Set data structure** is also used to remember which vertices have been pushed in the stack before, so you don’t push the same vertex twice and end up visiting it again. set is used for the lookup operation since the operation has a constant time complexity of O(1) since set is implemented using a map, making the operation cheap as compared to list lookup time which has a linear time complexity of O(n).
 
+
+#### performance:
+- Depth-first search will visit every vertex at least once. This process has a linear time complexity of O(V).Dfs checks all neighboring vertices to find one available/unvisited vertex to visit. The time complexity of this is O(E) because you have to visit every edge in the graph in the worse case. The overall time complexity for depth-first search is O(V + E).
+-  The space complexity of depth-first search is O(V) since you have to store the vertices in three separate structures: stack, set(which will remember if a vertex has been pushed before in stack) and list(stores the visited vertices).
+  
+#### cycle:
+- A depth-first search is useful for finding whether a graph contains **cycles**. A
+graph is said to have a cycle when a path of edges and vertices leads back to the
+same source.
+- At least **three** vertices are needed in an undirected graph to make a cycle.
+
+   
+#### application of depth-first search:
+1. Topological sorting -> DFS can be employed to perform topological sorting of a Directed Acyclic Graph (DAG). Topological sorting orders the vertices of a graph in such a way that for every directed edge uv from vertex u to vertex v, u comes before v in the ordering. This is useful in scheduling tasks that have dependencies.
+2. Detecting cycle -> depth-first search can be used to detect the presence of cycles in a graph.
+3. path-finding, such as in maze puzzles.
+4. Finding connected component in a sparse graph.
+
+
+#### key points:
+1. Depth-first search (DFS) is an algorithm for searching(or traversing a graph, if its implemented to only traverse) a graph.
+2. DFS explores a branch as far as possible before backtracking to the next branch.
+3. A graph is said to be a cycle when a path of edges and vertices lead back to the source vertex.
+4. Stack data structure allows you to backtrack
+5. Set data structure is also used to remember which vertices have been pushed in the stack before, so you don’t push the same vertex twice and end up visiting it again. Which might result to an infinity loop.

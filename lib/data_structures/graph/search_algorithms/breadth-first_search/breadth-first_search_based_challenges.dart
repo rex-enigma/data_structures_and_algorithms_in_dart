@@ -17,7 +17,7 @@ import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_l
                    D--------------I--J  
 */
 
-// if you use vertex A as the root, and start traversing from it, the tree representation will look as
+// if you use vertex A as the root, and start traversing from it, the tree representation might look as
 // follows:
 /* 
                       A

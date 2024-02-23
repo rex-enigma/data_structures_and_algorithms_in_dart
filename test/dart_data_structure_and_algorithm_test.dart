@@ -708,7 +708,7 @@ void main() {
   graphMapBased2.addEdge(f, g, weight: 1);
   final vertices = graphMapBased2.breadthFirstSearchRecursive(a);
 
-  test('graph challenge 2: testing breadthFirstSearchRecursive method. Return all vertices in the order in which they were added', () {
+  test('graph breadth-first search challenge 2: testing breadthFirstSearchRecursive method. Return all vertices in the order in which they were added', () {
     expect(vertices.map((vertex) => vertex.data).toList().toString(), '[A, B, C, D, E, F, G, H]');
   });
 
@@ -733,7 +733,7 @@ void main() {
   graphMapBased3.addEdge(E, H, weight: 1);
   graphMapBased3.addEdge(E, F, weight: 1);
   graphMapBased3.addEdge(F, G, weight: 1);
-  test('graph challenge 3: check if a graph is connected', () {
+  test('graph breadth-first search challenge 3: check if a graph is connected', () {
     expect(graphMapBased3.isConnected(), false);
   });
 

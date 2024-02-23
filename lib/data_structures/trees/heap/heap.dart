@@ -99,7 +99,7 @@ class Heap<T extends Comparable<dynamic>> {
   }
 
   /// remove and return the root value from the heap tree.
-  // removing an the last element from a list takes only O(1) while sifting down takes O(log n) so the overall average and worse
+  // removing  the last element from a list takes only O(1) while sifting down takes O(log n) so the overall average and worse
   // time complexity for removal is O(log n).
   T? remove() {
     if (isEmpty) return null;

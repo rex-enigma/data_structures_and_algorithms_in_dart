@@ -109,8 +109,7 @@ In the implementation, the breadth-first search will return a list of visited ve
    2. if you want DFS to look for vertices with specific properties, the DFS implementation will return a list of vertices that meet that condition.
    3. if you want DFS to get all vertices visited, the DFS implementation will return a list of vertices in the order they were visited.   
 In the implementation, the depth-first search will return a list of visited vertices in the graph.
-8. **shortestPath** -> find the path with the least weight/cost btn two vertices.
-
+8. **shortestPath** -> find the path with the least weight/cost btn two vertices. ***// update this operation before implementing Dijkstra’s algorithm .***
 **NB:**
 - A dense graph in which every vertex has an edge to every other vertex is called a **complete graph**.
 

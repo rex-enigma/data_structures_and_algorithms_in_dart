@@ -2,10 +2,10 @@ import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.da
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 
 extension BreadthFirstSearch<T> on Graph<T> {
-  // the root vertex is any vertex chosen to serve as the entry point to the graph.
+  // the source vertex is any vertex chosen to serve as the entry point to the graph.
   /// returns all the vertices that were visited level-wise (the order in which the vertices are visited depends on how you
   /// constructed the graph)
-  List<Vertex<T>> breadthFirstSearch(Vertex<T> root) {
+  List<Vertex<T>> breadthFirstSearch(Vertex<T> source) {
     // keeps track of the neighboring/adjacent vertices to visit next.
     final QueueDoubleList queue = QueueDoubleList<Vertex<T>>();
     // set will remember which vertices have been enqueued in [queue] before, so thy don't get enqueued
@@ -16,8 +16,8 @@ extension BreadthFirstSearch<T> on Graph<T> {
     // stores vertices in the order in which they were visited.
     final List<Vertex<T>> visitedVertices = [];
 
-    queue.enqueue(root);
-    enqueued.add(root);
+    queue.enqueue(source);
+    enqueued.add(source);
 
     while (true) {
       final vertex = queue.dequeue();

@@ -2,9 +2,9 @@ import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.da
 import 'package:dart_data_structure_and_algorithm/data_structures/stack/single_list_based_stack_implementation.dart';
 
 extension DepthFirstSearch<T> on Graph<T> {
-  // the root vertex is any vertex chosen to serve as the entry point to the graph.
+  // the source vertex is any vertex chosen to serve as the entry point to the graph.
   /// returns all the vertices that were visited depth-wise
-  List<Vertex<T>> depthFirstSearch(Vertex<T> root) {
+  List<Vertex<T>> depthFirstSearch(Vertex<T> source) {
     // stores your path through the grap
     final StackList<Vertex<T>> stack = StackList();
     // set will remember which vertices have been pushed in [stack] before, so thy don't get pushed
@@ -15,9 +15,9 @@ extension DepthFirstSearch<T> on Graph<T> {
     // stores vertices in the order they were visited.
     final List<Vertex<T>> visited = [];
 
-    stack.push(root);
-    pushed.add(root);
-    visited.add(root);
+    stack.push(source);
+    pushed.add(source);
+    visited.add(source);
 
     outerLoop:
     while (stack.isNotEmpty) {
@@ -40,11 +40,11 @@ extension DepthFirstSearch<T> on Graph<T> {
 
 /*  */
 extension CyclicGraph<T> on Graph<T> {
-  bool _hasCycle(Vertex<T> root, Set<Vertex<T>> pushed) {
-    // Initialize the algorithm by adding the root vertex.
-    pushed.add(root);
+  bool _hasCycle(Vertex<T> source, Set<Vertex<T>> pushed) {
+    // Initialize the algorithm by adding the source vertex.
+    pushed.add(source);
     // Visit every neighboring edge
-    final neighbors = edges(root);
+    final neighbors = edges(source);
     for (final edge in neighbors) {
       // If the adjacent vertex has not been visited before, recursively dive deeper down a
       // branch to check for a cycle.
@@ -58,7 +58,7 @@ extension CyclicGraph<T> on Graph<T> {
       }
     }
     // Remove the source vertex so you can continue to find other paths with a potential cycle.
-    pushed.remove(root);
+    pushed.remove(source);
     // If you’ve reached this far, then no cycle was found.
     return false;
   }

@@ -22,4 +22,4 @@
 
 #### Key points
 1. A stack is a **LIFO**, last-in first-out abstract data type, which can be implemented using  a normal list aka array, doubly linked list, singly linked list or double ended queue data structure.
-2. Push, pop and peak are constant time operations
+2. Push, pop and peak are constant time operations.

@@ -10,16 +10,15 @@ abstract class LinkedList<T> {
   /// adds a value after a particular node in the linked list.
   Node<T> insertAfter(Node<T> node, T value);
 
-  /// removes and returns the value at the front of the linked list.
+  /// removes and returns the value at the front of the linked list. Returns null if the linked list is empty.
   T? pop();
 
-  /// removes and returns the value at the end of the linked list.
+  /// removes and returns the value at the end of the linked list. Returns null if the linked list is empty.
   T? removeLast();
 
-  ///removes and returns the value after a particular node in the linked list.
+  /// removes and returns the value after a particular node in the linked list. Returns null if the linked list is empty.
   T? removeAfter(Node<T> node);
 
-  /// returns a node at a particular index, without removing it.
-  /// Returns null if linked list is empty or if the index is out-of-bound.
+  /// returns a node at a particular index, without removing it. Returns null if linked list is empty or if the index is out-of-bound.
   Node<T>? nodeAt(int index);
 }

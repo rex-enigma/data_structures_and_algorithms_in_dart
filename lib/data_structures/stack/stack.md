@@ -1,5 +1,6 @@
 #### Definition:
 - A stack is a **LIFO**, last-in-first-out, abstract data type / abstract data structure.
+
 - Essential operations are push and pop method which have O(1) time complexity.
 
 #### Stack ADT can be implemented using:
@@ -14,12 +15,12 @@
 3. **peek** -> return a reference of the element at the top of the stack without removing it.
 
 
-#### Applications of stack 
+#### Applications of stack:
  1. Stacks are crucial to problems that searches trees and graphs. eg backtracking.
  2. Function call management.(call stack)
  3. Undo mechanism in software.
  4. Browser history.
 
-#### Key points
+#### Key points:
 1. A stack is a **LIFO**, last-in first-out abstract data type, which can be implemented using  a normal list aka array, doubly linked list, singly linked list or double ended queue data structure.
 2. Push, pop and peak are constant time operations.

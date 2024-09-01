@@ -116,17 +116,19 @@ class _SinglyLinkedListIterator<E> implements Iterator<E> {
   final SinglyLinkedList<E> _linkedList;
   Node<E>? _currentNode;
 
+  // The current element in the collection as you are iterating through it.
   @override
   E get current => _currentNode!.value;
 
   bool _firstPass = true;
 
+  // updates the new value of current
   @override
   bool moveNext() {
     if (_linkedList.isEmpty) return false;
 
     /// allow to access the head of the linked list only once
-    ///  any subsequent moveNext call will use the node store in currentNode variable to move to the next node
+    /// any subsequent moveNext call will use the node store in currentNode variable to move to the next node
     if (_firstPass) {
       _currentNode = _linkedList.head;
       _firstPass = false;

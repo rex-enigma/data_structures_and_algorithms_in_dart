@@ -1,17 +1,21 @@
 #### Definition:
 - A linked list is an abstract data type representing collection of values arranged in a linear sequence.
 
-- 'single linked list' / 'unidirectional linked list' is a type of a linked list were each node has a pointer to the next node in the list, but not the previous node. The linked list can only be traversed in one direction from the head node to the tail node.
+- A linked list is a chain of 'Nodes' that hold a value and a reference to the next Node. A null reference indicates the end of the linked list.
 
-- 'double linked list' / 'bidirectional linked list' is a type of a linked list were each node has a pointer to the next node and the previous node in the list. The linked list can be traversed in either direction, from head node to tail node and vise versa.
+#### Types of Linked List
+1. **single linked list | unidirectional linked list** is a type of a linked list were each node has a pointer to the next node in the list, but not the previous node. The linked list can only be traversed in one direction from the head node to the tail node.
+
+2. **double linked list | bidirectional linked list** is a type of a linked list were each node has a pointer to the next node and the previous node in the list. The linked list can be traversed in either direction, from head node to tail node and vise versa.
 
 #### A link list has a several theoretical advantages over contiguous storage options such as the Dart List:
 1. *constant time insertion and deletion from the front of the list.O(1)*
 2. *reliable performance characteristics.*
 
 
-- A linked list is a chain of 'Nodes' that hold a value and a reference to the next Node. A null reference indicates the end of the linked list.
-
+#### Common properties:
+1. **head** -> holds the first Node of the linked list.
+2. **tail** -> holds the last Node of the linked list.
 
 #### Common operation are:
 - ##### Adding a value to a linked list:

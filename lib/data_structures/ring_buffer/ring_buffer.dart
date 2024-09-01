@@ -1,5 +1,5 @@
-class RingBuffer<E> {
-  RingBuffer(int length) : _list = List.filled(length, null, growable: false);
+class RingBufferList<E> {
+  RingBufferList(int length) : _list = List.filled(length, null, growable: false);
 
   final List<E?> _list;
   int _writeIndex = 0;

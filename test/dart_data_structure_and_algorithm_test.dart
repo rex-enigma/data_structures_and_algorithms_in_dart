@@ -189,7 +189,7 @@ void main() {
 
 /********************RING BUFFER*****************************/
 
-  final ringBuffer = RingBuffer(5);
+  final ringBuffer = RingBufferList(5);
   ringBuffer.write(0);
   ringBuffer.write(0);
   ringBuffer.write(0);

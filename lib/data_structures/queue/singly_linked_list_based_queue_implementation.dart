@@ -24,7 +24,7 @@ class QueueSinglyLinkedList<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? get peek => _singlyLinkedList.head?.value;
+  E? peek() => _singlyLinkedList.head?.value;
 
   @override
   String toString() => _singlyLinkedList.toString();

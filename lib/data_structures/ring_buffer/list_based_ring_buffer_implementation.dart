@@ -12,8 +12,17 @@ class RingBufferList<E> implements RingBuffer<E> {
   // represents the number of elements that can be read.
   int _size = 0;
 
+  /// check if ring buffer full.
+  /// Is full when the number of elements that have been added are equal to
+  /// the length of the list.
+  @override
   bool get isFull => _size == _list.length;
+
+  @override
   bool get isEmpty => _size == 0;
+
+  @override
+  E? peek() => isEmpty ? null : _list[_readIndex];
 
   @override
   void write(E element) {
@@ -35,10 +44,6 @@ class RingBufferList<E> implements RingBuffer<E> {
     _size--;
     return element;
   }
-
-  /// Returns a copy(if the data is primitive eg int,double,float,string) or reference of the data which the [readIndex] is pointing to without advancing the [readIndex] pointer one step forward.
-  /// Return null if the ring buffer is empty.
-  E? get peek => isEmpty ? null : _list[_readIndex];
 
   @override
   String toString() {

@@ -19,7 +19,7 @@ class QueueSingleList<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? get peek => isEmpty ? null : _list.first;
+  E? peek() => isEmpty ? null : _list.first;
 
   @override
   String toString() {

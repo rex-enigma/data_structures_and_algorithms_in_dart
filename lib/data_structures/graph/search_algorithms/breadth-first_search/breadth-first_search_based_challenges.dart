@@ -64,7 +64,7 @@ extension BreadthFirstSearchRecursive<T> on Graph<T> {
     }
 
     if (!queue.isEmpty) {
-      final visitedVertices = breadthFirstSearchRecursive(queue.peek!, verticesSet: enqueued, verticesQueue: queue);
+      final visitedVertices = breadthFirstSearchRecursive(queue.peek()!, verticesSet: enqueued, verticesQueue: queue);
       visited.addAll(visitedVertices);
     }
 

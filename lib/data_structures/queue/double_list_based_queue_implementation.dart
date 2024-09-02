@@ -42,7 +42,7 @@ class QueueDoubleList<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
-  E? get peek {
+  E? peek() {
     if (_leftList.isNotEmpty) return _leftList.last;
     if (_rightList.isNotEmpty) return _rightList.first;
     return null;

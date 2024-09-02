@@ -51,7 +51,7 @@ class TicketWaitList {
   }
 
   // return a reference of the highest priority person without removing the person.
-  Person? peekHighestPriorityPeron() => _priorityQueueTicketWaitList.peek;
+  Person? peekHighestPriorityPeron() => _priorityQueueTicketWaitList.peek();
   // remove and return the highest priority person or null.
   Person? getHighestPriorityPerson() => _priorityQueueTicketWaitList.dequeue();
   // add a person to the waitList.
@@ -126,7 +126,7 @@ class PriorityQueueList<T extends Comparable<dynamic>> implements Queue<T> {
 
   //return a reference of the element with the highest priority without removing it. Return null is the priority queue is empty.
   @override
-  T? get peek => isEmpty ? null : _sortedList.last;
+  T? peek() => isEmpty ? null : _sortedList.last;
 
   @override
   String toString() => _sortedList.toString();

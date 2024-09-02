@@ -9,5 +9,5 @@ abstract class Queue<E> {
   bool get isEmpty;
 
   /// return a reference(or a copy of the element if the element is primitive) of the element at the front of the queue without removing it.
-  E? get peek;
+  E? peek();
 }

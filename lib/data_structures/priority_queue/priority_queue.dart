@@ -25,5 +25,5 @@ class PriorityQueueHeap<T extends Comparable<dynamic>> implements Queue<T> {
 
   //return a reference of the element with the highest priority without removing it. Return null is the priority queue is empty.
   @override
-  T? get peek => _heap.peek;
+  T? peek() => _heap.peek();
 }

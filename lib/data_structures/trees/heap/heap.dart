@@ -11,7 +11,7 @@ class Heap<T extends Comparable<dynamic>> {
 
   /// return a reference of the root value from this heap tree.
   // this root value is actually the first element in [elements] list.
-  T? get peek => (isEmpty) ? null : elements.first;
+  T? peek() => (isEmpty) ? null : elements.first;
 
   Heap({List<T>? elements, this.priority = Priority.max}) {
     this.elements = (elements == null) ? [] : elements;

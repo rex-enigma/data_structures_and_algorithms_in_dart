@@ -18,7 +18,7 @@ Queue only cares about removal at the front and insertion at the back, you don't
 1. **enqueue** -> insert an element at the back of the queue. Return true when operation is successful.
 2. **dequeue** -> remove and return the element at the front of the queue. Return null if the queue is empty. 
 3. **isEmpty** -> check if the queue is empty.
-4. **peek** -> return a reference of the element at the front of the queue without removing it. Return null of the queue is empty.
+4. **peek** -> return a reference of the element at the front of the queue without removing it. Return null if the queue is empty.
 
 
 #### applications of queue:

@@ -13,23 +13,24 @@
 2. *reliable performance characteristics.*
 
 
-#### Common properties:
+#### Common public properties:
 1. **head** -> holds the first Node of the linked list.
 2. **tail** -> holds the last Node of the linked list.
+3. **isEmpty** -> checks if linked list is empty.
 
 #### Common operation are:
 - ##### Adding a value to a linked list:
-  1. **push** -> add a value at the front of the linked list.
-  2. **append** -> add a value at the end of the linked list.
-  3. **insertAfter** -> add a value after a particular node in the linked list. 
+  1. **push** -> adds a value at the front of the linked list.
+  2. **append** -> adds a value at the end of the linked list.
+  3. **insertAfter** -> adds a value after a particular node in the linked list. 
 
 - ##### Removing a value from a linked list:
-  1. **pop** -> remove and return the value at the front of the linked list. Returns null if the linked list is empty.
-  2. **removeLast** -> remove and return the value at the end of the linked list. Returns null if the linked list is empty.
-  3. **removeAfter** -> remove and return the value after a particular node in the linked list. Returns null if the linked list is empty.
+  1. **pop** -> removes and returns the value at the front of the linked list. Returns null if the linked list is empty.
+  2. **removeLast** -> removes and returns the value at the end of the linked list. Returns null if the linked list is empty.
+  3. **removeAfter** -> removes and returns the value after a particular node in the linked list. Returns null if the linked list is empty.
    
 - ##### Additional useful operations:
-  1. **nodeAt** -> return a reference of a node at a particular index.
+  1. **nodeAt** -> returns a reference of a node at a particular index, without removing it.
 
 
 

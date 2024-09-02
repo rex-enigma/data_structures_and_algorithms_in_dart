@@ -1,5 +1,5 @@
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/ring_buffer/ring_buffer.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/ring_buffer/list_based_ring_buffer_implementation.dart';
 
 class QueueRingBuffer<E> implements Queue<E> {
   QueueRingBuffer(int length) : _ringBuffer = RingBufferList(length);

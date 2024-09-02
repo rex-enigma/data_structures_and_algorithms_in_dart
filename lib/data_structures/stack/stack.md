@@ -4,15 +4,18 @@
 - Essential operations are push and pop method which have O(1) time complexity.
 
 #### Stack ADT can be implemented using:
-1. list(normal array data structure).
+1. list(normal array data structure). [we will be using list for stack implementation]
 2. doubly linked list data structure.
 3. singly linked list data structure.
 4. double ended queue (deque): DequeSingleList, DequeDoublyLinkedList, DequeSinglyLinkedList data structures.[what i mean is that you can implement deque using either a single list, singly linked list or doubly linked list.]
 
+#### Common public properties:
+1. **isEmpty** -> checks if stack is empty.
+
 #### Common operations are:
-1. **push** -> add an element to the top of the stack
-2. **pop** -> remove and return the element at the top of the stack
-3. **peek** -> return a reference of the element at the top of the stack without removing it.
+1. **push** -> adds an element to the top of the stack
+2. **pop** -> removes and returns the element at the top of the stack
+3. **peek** -> returns a copy(if the data is primitive eg int,double,float,string) or a reference of the element at the top of the stack without removing it.
 
 
 #### Applications of stack:

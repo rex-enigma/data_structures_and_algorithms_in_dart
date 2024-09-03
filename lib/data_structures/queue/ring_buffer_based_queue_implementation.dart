@@ -29,3 +29,10 @@ class QueueRingBuffer<E> implements Queue<E> {
   @override
   String toString() => _ringBuffer.toString();
 }
+
+class Example {
+  final int number;
+
+  Example(int number) : this.number = number;
+  Example.text(this.number);
+}

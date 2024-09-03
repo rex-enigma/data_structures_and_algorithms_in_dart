@@ -37,6 +37,7 @@ class QueueDoubleList<E> implements Queue<E> {
     }
     // if left list is empty at this point again, it means the right list was empty, hence return null since both right and left are empty.
     if (_leftList.isEmpty) return null;
+
     return _leftList.removeLast();
   }
 

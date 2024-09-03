@@ -1,10 +1,10 @@
-- Depth-first search given a starting vertex, the algorithm explores a single path as far as possible until it reach a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish:
+- Depth-first search, given a starting vertex, the algorithm explores a single path as far as possible until it reaches a dead end which then it backtracks and explores the next available path. The return type depends on the purpose of the search/what you want the search to accomplish:
    1. if you want DFS to look for a specific vertex, the DFS implementation will return only that vertex if found or null if not found.
    2. if you want DFS to look for vertices with specific properties, the DFS implementation will return a list of vertices that meet that condition.
    3. if you want DFS to get all vertices visited, the DFS implementation will return a list of vertices in the order they were visited.   
 - In the implementation, the depth-first search will return a list of visited vertices in the graph.
 
--  **Stack data structure** is used is used to keep track of which vertex to visit next in a depth-wise manner. The stack LIFO approach helps in backtracking. Every ***push*** on the stack means that you move one level deep. You can ***pop*** to return to previous level if you reach a dead end.
+-  **Stack data structure** is used to keep track of which vertex to visit next in a depth-wise manner. The stack LIFO approach helps in backtracking. Every ***push*** on the stack means that you move one level deep. You can ***pop*** to return to previous level if you reach a dead end.
 The visual illustration below will show you what it means by visiting vertices in a depth-wise manner.
 ```
     an example of a graph
@@ -22,7 +22,7 @@ The visual illustration below will show you what it means by visiting vertices i
             D
 
 When exploring the vertices, you can construct a tree-like structure, showing the
-branches you’ve visited. if you start traversing the graph from vertex A, a tree representation might look as follows:
+branches you’ve visited. If you start traversing the graph from vertex A, a tree representation might look as follows:
 
 1st level ----------------A------
                          / \
@@ -43,7 +43,7 @@ DFS explores a branch as far as possible before backtracking to the next branch.
 
 
 #### performance:
-- Depth-first search will visit every vertex at least once. This process has a linear time complexity of O(V).Dfs checks all neighboring vertices to find one available/unvisited vertex to visit. The time complexity of this is O(E) because you have to visit every edge in the graph in the worse case. The overall time complexity for depth-first search is O(V + E).
+- Depth-first search will visit every vertex at least once. This process has a linear time complexity of O(V).Dfs checks all neighbouring vertices to find one available/unvisited vertex to visit. The time complexity of this is O(E) because you have to visit every edge in the graph in the worse case. The overall time complexity for depth-first search is O(V + E).
 -  The space complexity of depth-first search is O(V) since you have to store the vertices in three separate structures: stack, set(which will remember if a vertex has been pushed before in stack) and list(stores the visited vertices).
   
 #### cycle:

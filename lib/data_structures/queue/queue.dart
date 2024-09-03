@@ -8,6 +8,8 @@ abstract class Queue<E> {
   /// checks if the queue is empty.
   bool get isEmpty;
 
-  /// returns a reference(or a copy of the element if the element is primitive) of the element at the front of the queue without removing it.
+  /// returns a copy(if the data is primitive eg int,double,float,string)
+  /// or a reference of the element at the front of the queue without removing it.
+  /// Return null if the queue is empty.
   E? peek();
 }

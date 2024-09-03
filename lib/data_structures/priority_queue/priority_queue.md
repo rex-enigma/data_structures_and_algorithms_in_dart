@@ -1,16 +1,16 @@
 - Priority queue it a type of queue in which elements are dequeued in **priority order** instead of FIFO order.
 
-- Priority queue can be either of these two:
+#### Types of priority queue:
    1. **Max-priority queue**, in which element at the back is always the largest.
    2. **Min-priority queue**, in which element at the back is always the smallest.
    
 **NB:**
-elements are removed from the back to make dequeueing O(1) instead of O(n) if elements were to be dequeued from the front.
+- elements are removed from the back to make dequeueing O(1) instead of O(n) if elements were to be dequeued from the front.
 
  ##### Priority queue can be implemented using:
  1. **sorted list** -> this is useful to obtain the maximum or minimum value in O(1) time. However, insertion is slow and will require O(n) time since you have to first search for the insertion location and then shift every element after that location.
  2. **balanced binary search tree / AVL** -> this is useful in creating a **double ended priority queue** which features getting both the maximum and minimum value in O(log n) time. Insertion is better than a sorted list, also O(log n).
- 3. **heap** -> this is a natural choice for priority queue. A heap is more efficient than a sorted list because a heap only need to be partially sorted. Inserting and removing from a heap are O(log n) while simply querying the highest priority value is O(1).(will be using heap for the implementation)
+ 3. **heap** -> this is a natural choice for priority queue. A heap is more efficient than a sorted list because a heap only need to be partially sorted. Inserting and removing from a heap are O(log n) while simply querying the highest priority value is O(1).[i will be using heap for the implementation]
 
 
 - A priority queue creates a layer of abstraction by focusing on the key operations of a queue and leaving out additional functionality provided by heap. Its only job is to enqueue and dequeue elements, nothing else.

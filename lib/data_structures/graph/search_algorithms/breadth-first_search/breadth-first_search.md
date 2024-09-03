@@ -1,10 +1,10 @@
-- Breadth-first search(aka level-first search), given a starting vertex, the algorithm explores all neighbors of that starting vertex before traversing the neighbors' neighbors and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
+- Breadth-first search(aka level-first search), given a starting vertex, the algorithm explores all neighbors of that starting vertex before traversing the neighbours' neighbours and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
    1. if you want BFS to look for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
    2. if you want BFS to look for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
    3. if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
 - In the implementation, the breadth-first search will return a list of visited vertices in the graph. Have in mind that, the order in which vertices are visited so that they can be added in list to be returned, is determined by how you constructed your graph.
 
-- **Queue data structure** is used to keep track of which vertex to visit next in a level-wise manner. The queue FIFO approach guarantees that all of a vertex's neighbors are visited before you traverse one level deeper. The visual illustration below will show you what it means by visiting vertices in a level-wise manner.
+- **Queue data structure** is used to keep track of which vertex to visit next in a level-wise manner. The queue FIFO approach guarantees that all of a vertex's neighbours are visited before you traverse one level deeper. The visual illustration below will show you what it means by visiting vertices in a level-wise manner.
 ```
     an example of a graph
 

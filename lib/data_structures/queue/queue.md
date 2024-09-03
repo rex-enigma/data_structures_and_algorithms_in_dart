@@ -24,17 +24,17 @@
 
 #### Applications of queue:
 1. print queue -> in printer spooling systems, print jobs are placed in a queue and they are printed in the order they are received.
-2. breadth-first-search(BFS) in graphs -> queues are essential in graph algorithms, particularly in BFS traversal. Nodes are processed in layers, with each layer representing the distance from the source node
+2. breadth-first-search(BFS) in graphs -> queues are essential in graph algorithms, particularly in BFS traversal. Nodes are processed in levels, with each level representing the distance from the source node
 3. handling of requests in web servers -> web servers use queues to manage incoming requests from clients. The server processes request in the order they are received.
-4. Order processing in E-commerce -> queues can be used to manage the processing of orders. 
+4. Order processing in e-commerce -> queues can be used to manage the processing of orders. 
 
 
 
 #### key points:
-1. Dequeuing an item in list base queue takes linear time ,O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
+1. Dequeuing an item in list base queue takes linear time , O(n), while dequeueing an item in both single and double linked list based queue takes constant time O(1).
 2. Queue takes a FIFO strategy: an element added first must be removed first.
 3. Single list base queue imp, elements are laid out in a contiguous memory blocks whereas in a singly linked list are more scattered with potential of cache misses.
-4. A ring buffer based implementation is god for queues with a fixed size.
+4. A ring buffer based implementation is good for queues with a fixed size.
 5. Compared to a single list-based implementation, leveraging two lists improves
 the dequeue time complexity to an amortized O(1) operation.
 6. The two lists (double-list) implementation beats out linked-list in terms of spatial locality.

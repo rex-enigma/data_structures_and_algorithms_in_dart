@@ -6,19 +6,19 @@ class QueueSingleList<E> implements Queue<E> {
   @override
   bool get isEmpty => _list.isEmpty;
 
-  @override
   // average case time complexity: O(n) | worse case time complexity: O(n)
+  @override
   E? dequeue() => isEmpty ? null : _list.removeAt(0);
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(n)
+  @override
   bool enqueue(E element) {
     _list.add(element);
     return true;
   }
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? peek() => isEmpty ? null : _list.first;
 
   @override

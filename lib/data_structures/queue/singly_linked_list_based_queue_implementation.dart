@@ -13,19 +13,19 @@ class QueueSinglyLinkedList<E> implements Queue<E> {
   @override
   bool get isEmpty => _singlyLinkedList.isEmpty;
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? dequeue() => _singlyLinkedList.pop();
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   bool enqueue(E element) {
     _singlyLinkedList.append(element);
     return true;
   }
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? peek() => _singlyLinkedList.head?.value;
 
   @override

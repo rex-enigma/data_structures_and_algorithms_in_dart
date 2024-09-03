@@ -20,15 +20,15 @@ class QueueDoubleList<E> implements Queue<E> {
   @override
   bool get isEmpty => _leftList.isEmpty && _rightList.isEmpty;
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(n)
+  @override
   bool enqueue(E element) {
     _rightList.add(element);
     return true;
   }
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(n)
+  @override
   E? dequeue() {
     // if the left list is empty, set it as the reverse of the right list
     if (_leftList.isEmpty) {
@@ -41,8 +41,8 @@ class QueueDoubleList<E> implements Queue<E> {
     return _leftList.removeLast();
   }
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? peek() {
     if (_leftList.isNotEmpty) return _leftList.last;
     if (_rightList.isNotEmpty) return _rightList.first;

@@ -8,31 +8,24 @@ class QueueRingBuffer<E> implements Queue<E> {
   @override
   bool get isEmpty => _ringBuffer.isEmpty;
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
   /// inserts an element at the back of the queue. Return true when operation is successful.
   /// returns false when the queue is full.
+  @override
   bool enqueue(E element) {
     if (_ringBuffer.isFull) return false;
     _ringBuffer.write(element);
     return true;
   }
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? dequeue() => _ringBuffer.read();
 
-  @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  @override
   E? peek() => _ringBuffer.peek();
 
   @override
   String toString() => _ringBuffer.toString();
-}
-
-class Example {
-  final int number;
-
-  Example(int number) : this.number = number;
-  Example.text(this.number);
 }

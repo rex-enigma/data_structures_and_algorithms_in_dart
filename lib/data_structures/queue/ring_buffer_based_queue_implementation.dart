@@ -10,6 +10,8 @@ class QueueRingBuffer<E> implements Queue<E> {
 
   @override
   // average case time complexity: O(1) | worse case time complexity: O(1)
+  /// inserts an element at the back of the queue. Return true when operation is successful.
+  /// returns false when the queue is full.
   bool enqueue(E element) {
     if (_ringBuffer.isFull) return false;
     _ringBuffer.write(element);

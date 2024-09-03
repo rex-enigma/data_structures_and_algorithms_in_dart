@@ -1,27 +1,28 @@
-Queue used **FIFO**, first-in first-out ordering, abstract data type, meaning the first element that was added will always be the first to be removed.
+#### Definition:
+- Queue is a **FIFO**, first-in first-out abstract data type / abstract data structure. This means that, first element that is added will always be the first to be removed.
 
-Queues are handy when you need to maintain the order of your elements to process later.
+- Queues are handy when you need to maintain the order of your elements to process later.
 
-Queue only cares about removal at the front and insertion at the back, you don't need to know what the contents are in between.
+- Queue only cares about removal at the front and insertion at the back, you don't need to know what the contents are in between.
 
 #### Queue ADT can be implemented using:
-1. List(normal array data structure).
+1. List(normal array data structure).[i will be used it to implement queue]
 2. Doubly linked list data structure
-3. singly linked list data structure.
-4. Ring buffer data structures.
-5. Double list (2 list) data structures.
-6. double ended queue (deque): DequeSingleList, DequeDoublyLinkedList, DequeSinglyLinkedList data structures.[what i mean is that you can implement deque using either a single list, doubly linked list or doubly linked list in you can use those concrete implementations to implement a queue]
+3. singly linked list data structure.[i will be used it to implement queue]
+4. Ring buffer data structures.[i will be used it to implement queue]
+5. Double list (2 list) data structures.[i will be used it to implement queue]
+6. double ended queue (deque): DequeSingleList, DequeSinglyLinkedList, DequeDoublyLinkedList data structures.[what i mean is that you can implement deque using either a single list, singly linked list or doubly linked list concrete implementations]
+
+#### Common public properties:
+1. **isEmpty** -> checks if the queue is empty.
+ 
+#### Common operation are:
+1. **enqueue** -> inserts an element at the back of the queue. Return true when operation is successful.
+2. **dequeue** -> removes and returns the element at the front of the queue. Return null if the queue is empty. 
+3. **peek** ->  returns a copy(if the data is primitive eg int,double,float,string) or a reference of the element at the front of the queue without removing it. Return null if the queue is empty.
 
 
-
-#### common operation are:
-1. **enqueue** -> insert an element at the back of the queue. Return true when operation is successful.
-2. **dequeue** -> remove and return the element at the front of the queue. Return null if the queue is empty. 
-3. **isEmpty** -> check if the queue is empty.
-4. **peek** -> return a reference of the element at the front of the queue without removing it. Return null if the queue is empty.
-
-
-#### applications of queue:
+#### Applications of queue:
 1. print queue -> in printer spooling systems, print jobs are placed in a queue and they are printed in the order they are received.
 2. breadth-first-search(BFS) in graphs -> queues are essential in graph algorithms, particularly in BFS traversal. Nodes are processed in layers, with each layer representing the distance from the source node
 3. handling of requests in web servers -> web servers use queues to manage incoming requests from clients. The server processes request in the order they are received.

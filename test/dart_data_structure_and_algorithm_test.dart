@@ -215,7 +215,7 @@ void main() {
   test('queue implementation based on singleLinkedList: test queue methods', () {
     expect(queueSingleLinkedList.toString(), 'Ray -> Brian -> Eric');
     expect(queueSingleLinkedList.dequeue(), 'Ray');
-    expect(queueSingleLinkedList.peek, 'Brian');
+    expect(queueSingleLinkedList.peek(), 'Brian');
   });
 
   final queueRingBuffer = QueueRingBuffer<String>(10);
@@ -225,7 +225,7 @@ void main() {
   test('queue implementation based on ringBuffer: test queue methods', () {
     expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
     expect(queueRingBuffer.dequeue(), 'Ray');
-    expect(queueRingBuffer.peek, 'Brian');
+    expect(queueRingBuffer.peek(), 'Brian');
   });
 
   final queueSingleList = QueueSingleList();
@@ -235,7 +235,7 @@ void main() {
   test('queue implementation based on single list: test queue methods', () {
     expect(queueRingBuffer.toString(), '[Ray, Brian, Eric]');
     expect(queueRingBuffer.dequeue(), 'Ray');
-    expect(queueRingBuffer.peek, 'Brian');
+    expect(queueRingBuffer.peek(), 'Brian');
   });
 
   final queueDoubleList = QueueDoubleList<String>();
@@ -245,7 +245,7 @@ void main() {
   test('queue implementation based on two lists: test queue methods', () {
     expect(queueDoubleList.toString(), '[Ray, Brian, Eric]');
     expect(queueDoubleList.dequeue(), 'Ray');
-    expect(queueDoubleList.peek, 'Brian');
+    expect(queueDoubleList.peek(), 'Brian');
   });
 
   final boardGameManager = QueueRingBuffer<dynamic>(3);
@@ -282,14 +282,14 @@ void main() {
     expect(dequeSinglyLinkedListBackOperations.dequeue(Direction.back), 1);
   });
 
-  final dequeSinglyLinkedListPeekOperation = DequeSinglyLinkedList<int>();
-  dequeSinglyLinkedListPeekOperation.enqueue(1, Direction.front);
-  dequeSinglyLinkedListPeekOperation.enqueue(2, Direction.back);
-  dequeSinglyLinkedListPeekOperation.enqueue(3, Direction.front);
-  test('peek in the front and peek in the back', () {
-    expect(dequeSinglyLinkedListPeekOperation.peek(Direction.front), 3);
-    expect(dequeSinglyLinkedListPeekOperation.peek(Direction.back), 2);
-    expect(dequeSinglyLinkedListPeekOperation.toString(), '3 -> 1 -> 2');
+  final dequeSinglyLinkedListpeekOperation = DequeSinglyLinkedList<int>();
+  dequeSinglyLinkedListpeekOperation.enqueue(1, Direction.front);
+  dequeSinglyLinkedListpeekOperation.enqueue(2, Direction.back);
+  dequeSinglyLinkedListpeekOperation.enqueue(3, Direction.front);
+  test('peek() in the front and peek() in the back', () {
+    expect(dequeSinglyLinkedListpeekOperation.peek(Direction.front), 3);
+    expect(dequeSinglyLinkedListpeekOperation.peek(Direction.back), 2);
+    expect(dequeSinglyLinkedListpeekOperation.toString(), '3 -> 1 -> 2');
   });
 
   /********************Trees*****************************/

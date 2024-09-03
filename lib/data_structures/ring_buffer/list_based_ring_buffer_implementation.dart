@@ -51,6 +51,7 @@ class RingBufferList<E> implements RingBuffer<E> {
     text.write('[');
 
     for (var i = 0; i < _size; i++) {
+      // using the modulus arithmetic to wrap around to the beginning when the end is reached.
       final index = (_readIndex + i) % _list.length;
       if (index != _readIndex) text.write(', ');
       text.write(_list[index]);

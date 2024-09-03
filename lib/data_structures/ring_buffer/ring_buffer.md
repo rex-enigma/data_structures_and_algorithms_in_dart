@@ -5,7 +5,7 @@
 - This data structure strategically wraps around at the beginning when there are no more elements to remove at the end.
 
 #### Ring buffer can be implemented using:
-1. Fixed length list(normal array data structure in other programming languages).[we will be using list for ring buffer implementation]
+1. Fixed length list(normal array data structure in other programming languages).[i will be using it to implement ring buffer]
 2. Doubly Linked List (Although less common)
 
 #### Common public properties:

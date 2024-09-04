@@ -1,5 +1,5 @@
 #### Definition:
-- A stack is a **LIFO**, last-in-first-out, abstract data type / abstract data structure.
+- A stack is a **LIFO**, last-in-first-out, abstract data type.
 
 - Essential operations are push and pop methods which have O(1) time complexity.
 

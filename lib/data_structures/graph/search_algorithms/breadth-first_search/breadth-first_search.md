@@ -24,13 +24,13 @@
 When exploring the vertices, you can construct a tree-like structure, showing the
 vertices at each level. if you start traversing the graph from vertex A, a tree representation might look as follows:
 
-1st level ------------A----------
+level 0 --------------A----------
                     / | \ 
-2nd level ---------B--D--C-------
+level 1 -----------B--D--C-------
                   /     / \
-3rd level -------E-----F---G-----
+level 2 ---------E-----F---G-----
                 /   
-4th level -----H-----------------
+level 3 -------H-----------------
    
 
 BFS explores all the current vertex’s neighbors before traversing the next level of

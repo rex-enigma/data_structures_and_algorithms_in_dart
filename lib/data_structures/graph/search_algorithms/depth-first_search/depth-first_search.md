@@ -24,17 +24,17 @@ The visual illustration below will show you what it means by visiting vertices i
 When exploring the vertices, you can construct a tree-like structure, showing the
 branches you’ve visited. If you start traversing the graph from vertex A, a tree representation might look as follows:
 
-1st level ----------------A------
+level 0 ------------------A------
                          / \
-2nd level --------------B---D----
+level 1 ----------------B---D----
                        /
-3rd level ------------E----------
+level 2 --------------E----------
                      / \ 
-4th level ----------F-- H--------
+level 3 ------------F---H--------
                   /
-5th level -------G---------------
+level 4 ---------G---------------
                 /
-6th level -----C-----------------   
+level 5 -------C-----------------   
 
 DFS explores a branch as far as possible before backtracking to the next branch. In our example dfs will start at vertex A, you pushing it to the stack then moves one level deep and push vertex B to the stack, you move another level deep and push vertex E, you move another level deep and push vertex F, you move another level deep and push vertex G, you go deeper into the last level and push vertex C, since you have reached dead end because you cant push vertex A since it was pushed in the stack before, you backtrack and pop the vertices that you pushed, do whatever you want with each one of them, until you reach vertex E, and you start pushing another vertex going deeper into levels exploring a diff path and so fort.
 

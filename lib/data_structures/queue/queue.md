@@ -1,5 +1,5 @@
 #### Definition:
-- Queue is a **FIFO**, first-in first-out abstract data type / abstract data structure. This means that, first element that is added will always be the first to be removed.
+- Queue is a **FIFO**, first-in first-out abstract data type. This means that, first element that is added will always be the first to be removed.
 
 - Queues are handy when you need to maintain the order of your elements to process later.
 

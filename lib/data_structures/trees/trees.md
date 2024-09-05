@@ -31,9 +31,9 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
 
 1. **Binary tree** -> is a tree data structure where each node has at MOST two children, often referred to as **left** and **right** children. The values it holds are not ordered. It can be **unbalanced**.
    
-2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted data. The left child is smaller and right child is greater than the parent node.  It can be **unbalanced**
+2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted data. The left child node's value is smaller and right child node's value is greater than the parent node's value.  It can be **unbalanced**
    
-3. **AVL tree** -> a.k.a **balanced binary search tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced**[balanced]).
+3. **AVL tree** -> a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced**).
    
   ##### States of balance
     

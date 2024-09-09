@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/breadth-first_search/breadth-first_search.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 

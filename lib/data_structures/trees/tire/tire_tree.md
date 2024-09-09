@@ -1,16 +1,48 @@
-- Trie a.k.a **prefix tree**, **digital tree** or **radix tree**, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
+- Trie a.k.a **prefix tree**, **digital tree** or **radix tree**, is a type of n-ary search tree used for locating specific **sequences** from within a set. These sequences can be words, ip address, phone number, DNA sequence etc. Each node in trie tree stores a **segment** of a sequence and its linked to other nodes. In order to access a sequence (to get its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each segment of the sequence.
 
-- In simple words: A trie is a tree data structure that is used to store a **string** character value in each node. A Node in a trie do not store the entire key, instead, it stores a part of the key usually a *string character* and by traversing down from the root node to a particular node n, we can build the key from those small parts of the key in which a common prefix of characters can be formed.
+   - **segment** -> the smallest manageable part | piece of a segment. eg in the word, "book", the segments are 'b','o','o', and 'k'.
+   - **sequence** -> a series of segments combined to form a meaningful whole. eg for segments 'b','o','o', and 'k', the sequence is "book".
 
-- a boolean value in a trie node is used to implement whether a string character represents the end of the word.
-- Each node can have at most 26 other node references. These 26 node references represents all the 26 english alphabet characters / letters.
+##### example to illustrate sequence & segment
+```
+example 1: string tire
+
+   segment segment segment segment  
+      |      |       |       |       book -> sequence
+      b      o       o       k
+
+example 2: ip-address tire
+   
+   segment segment segment segment  
+      |      |       |       |       192.168.10.5 -> sequence
+     192    168     10       5  
+
+example 3: phone-number trie
+
+   segment segment segment segment segment segment segment segment segment segment
+      |      |       |       |       |       |       |       |       |       |        +254712345678 -> sequence
+    +254     7       1       2       3       4       5       6       7       8 
+   
+example 4: DNA trie (can be string represented or each segment can be a object storing metadata)
+   
+   segment segment segment segment  
+      |      |       |       |       ATGCGTACGTTAGC -> sequence
+     ATG    CGT     ACG     TTAGC  
+
+```
+- a boolean value in a trie node is used to indicate whether a segment represents the end of the sequence.
+  
+##### Note:
+- In String tire, each node can have at most 26 other node references. These 26 node references represents all the 26 english alphabet characters / letters.
+  
 - Tries are particularly useful for tasks involving prefix matching and searching, auto-completion
 
-##### diagrammatic illustration:
+
+##### diagrammatic illustration of a trie tree (StringTrie representation):
 ```
                            ( root )
-                         /  /  |  \  \ 
-                      (D) (C) (T) (A) (A)
+                         /  /  |  \  
+                      (D) (C) (T) (A)---\
                      /   /  \   \    \   \
                   (A) (A)   (U)  (O.) (D) (N.)
                  /   /         \         \   \
@@ -21,20 +53,20 @@
   - the dot on some of the characters indicate the end of a word.
 ```
 
-#### common operation are:
-1. **search / contains** -> check whether a given word / full key is present / exist in the trie tree.(The text provided MUST be a word not just any collection of text that doesn't form a word, because if its word false will alway be returned).
-2. **insertion** -> insert a word in the trie tree. 
-3. **deletion** -> delete a word from the trie tree. There are 4 cases when deleting a word in a trie:
-   1. The word provided doesn't exist in trie tree. In this case we don't modify the trie.
-   2. The text provide is not a word. In this case we don't modify the trie.
-      nb: at this stage the text provided is a word and it does exist in the trie tree.
-   3. The last letter of the word provided is represented by a non-leaf trieNode. In this case we just set isTerminating field of that trieNode to false. 
-   4. The last letter of the word provided is represented by a leaf trieNode.In this case we just set isTerminating field of that trieNode to false and remove that tireNode then backtrack up while removing the parent tireNodes until you reach a trieNode whose isTerminating field is true (meaning that you have reach a leaf tireNode of another word).
-4. **prefix matching** -> returns a collection of words that start with the given prefix. check if the prefix exist, if it doesn't exist, just return an empty list but if it does exist, return a list with all the word that start with the given prefix.
+#### Common operation are:
+1. **contains** -> check whether a given sequence is present / exist in the trie tree.
+2. **insert** -> insert a sequence in the trie tree. 
+3. **remove** -> delete a sequence from the trie tree. There are 4 cases when removing a sequence in a trie:
+   1. The sequence provided doesn't exist in trie tree. In this case we don't modify the trie.
+   2. The collection of segments provided doesn't form a sequence. In this case we don't modify the trie.
+      nb: at this stage the collection of segments provided is a sequence and it does exist in the trie tree.
+   3. The last segment in sequence provided is represented by a non-leaf trieNode. In this case we just set isTerminating field of that trieNode to false.(now this is how a sequence is removed.)
+   4. The last segment in sequence provided is represented by a leaf trieNode.In this case we just set isTerminating field of that trieNode to false and remove that tireNode then backtrack up while removing the parent tireNodes until you reach a trieNode whose isTerminating field is true (meaning that you have reach a leaf tireNode of another sequence).
+   
+4. **matchPrefix** -> returns a collection of sequences that start with the given prefix. check if the prefix exist, if it doesn't exist, just return an empty list but if it does exist, return a list with all the sequences that start with the given prefix.
 
-NB: trie can also be used to contain any type of character including special characters and numbers. Here am focusing on storing strings specifically words.
 
-##### applications of binary tree:
+##### Applications of binary tree:
 1. Autocomplete feature and spell checker -> trie suggest possible completion for partially typed words, making them ideal for search bars, text editors and chat apps.
 2. Pattern matching and search -> tire can quickly find patterns useful to tasks like plagiarism detection, DNA analysis and network packets filtering.
 3. Data compression -> by sharing prefix among strings, trie can compress textual data more effectively than simpler data structures.

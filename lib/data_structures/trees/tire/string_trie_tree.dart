@@ -1,31 +1,28 @@
-class TrieNode<T> {
-  TrieNode({this.keyPart, this.parent});
-  // this keyPart represents a single character in a word or any character which when put together with other characters held in TireNodes forms a meaningful collection eg a word, ip address etc
-  // is nullable because the TrieNode root doesn't have a keyPart.
-  T? keyPart;
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_interface.dart';
 
-  // this will simplifies removing method.
-  // is nullable because the TireNode root doesn't have a parent.
-  TrieNode<T>? parent;
+// small Note:
+// Code Point: A code point is a unique number assigned to each character in the Unicode standard.It's an abstract
+// concept representing a character's identity, regardless of how it's encoded. For example, the code
+// point for the letter 'A' is U+0041.
 
-  Map<T, TrieNode<T>> children = {};
+// Code Unit: A code unit is a specific value used by an encoding scheme to represent a code point. It's a part
+// of the encoding process, where the code point is translated into one or more code units.
 
-  // it marks the end of a collection( of a word,ip address etc)
-  bool isTerminating = false;
-}
+// so characters are stored in memory as code units not code points
 
-class StringTire {
-  // in dart a String is a collection of UTF-16 code units( each code unit{should be code point} is a number that represent a character). Therefore
+class StringTire implements Tire<String> {
+  // in dart a String is a collection of UTF-16 code units( each code unit is a 16-bit number that represents a character). Therefore
   // you can only iterate on the String characters in their numerical form (which in this case the string characters will be of int type). Each
-  // TireNode will hold a number that represent a character, thats why we are using int type for keyPart.
-  TrieNode<int> root = TrieNode(keyPart: null, parent: null);
+  // TireNode will hold an integer number that represent a character, that's why we are using int type for segment.
+  TrieNode<int> root = TrieNode(segment: null, parent: null);
 
   // average and worse time complexity for insert is O(n) where n is the length of the string
-  /// insert a word (collection of characters) in a trie tree.
+  /// insert a word (collection of characters that is meaningful as a whole) in a trie tree.
+  @override
   void insert(String word) {
     var current = root;
     for (var codeUnit in word.codeUnits) {
-      current.children[codeUnit] ??= TrieNode(keyPart: codeUnit, parent: current);
+      current.children[codeUnit] ??= TrieNode(segment: codeUnit, parent: current);
       current = current.children[codeUnit]!;
     }
     current.isTerminating = true;
@@ -33,6 +30,7 @@ class StringTire {
 
   // average and worse time complexity for contain is O(n) where n is the length of the string
   /// check whether a given word exist in the trie tree.
+  @override
   bool contains(String word) {
     var current = root;
     for (var codeUnit in word.codeUnits) {
@@ -46,38 +44,44 @@ class StringTire {
     return current.isTerminating;
   }
 
-  // Average and worse time complexity is O(n), where n represent the length of the string(# of the code units) that you are trying to remove
-  /// Remove a word from trie tree. If the argument provided is not a word or doesn't exist, no
+  // average and worse time complexity is O(n), where n represent the length of the string(# of the code units) that you are trying to remove
+  /// removes a word from trie tree. If the argument provided is not a word or doesn't exist, no
   /// modification is done on the trie tree.
+  @override
   void remove(String word) {
     var current = root;
     for (var codeUnit in word.codeUnits) {
       final child = current.children[codeUnit];
-      // handles the first case.
+
+      // handles the case where the word provided doesn't exist in this trie tree.
       if (child == null) return;
       current = child;
     }
-    // handles the second case.
+    // handles the case where text provided is not a word.
     if (!current.isTerminating) return;
 
-    // handles the third and partly the forth case.
+    // handles the case where the argument provided is a word, it exist in this trie tree and
+    // the last letter in the word provided is represented by a non-leaf trieNode.
     current.isTerminating = false;
 
-    // handles the forth case.
+    // handles the case where the argument provided is a word, it exist in this trie tree and
+    // the last letter in the word provided is represented by a leaf trieNode.
     while (current.parent != null && current.children.isEmpty && !current.isTerminating) {
-      current.parent!.children.remove(current.keyPart);
+      current.parent!.children.remove(current.segment);
       current = current.parent!;
     }
   }
 
-  // worse case time complexity is O(n * m) where n represent the longest collection matching the prefix and m represents
-  // the number of collections that  match the prefix
+  // worse case time complexity is O(n * m) where n represent the longest sequence matching the prefix and m represents
+  // the number of sequences that  match the prefix
   /// returns a collection of words that start with the given prefix.
+  @override
   List<String> matchPrefix(String prefix) {
     var current = root;
     for (var codeUnit in prefix.codeUnits) {
       final child = current.children[codeUnit];
-      // handles the case where the prefix doesn't exist in the tire tree
+
+      // handles the case where the prefix doesn't exist in the tire tree.
       if (child == null) return [];
       current = child;
     }
@@ -86,11 +90,12 @@ class StringTire {
 
   List<String> _moreMatches(String prefix, TrieNode<int> trieNode) {
     List<String> results = [];
+
     // handles the case where the prefix is a word by itself.
     if (trieNode.isTerminating) results.add(prefix);
 
     for (final child in trieNode.children.values) {
-      final codeUnit = child.keyPart!;
+      final codeUnit = child.segment!;
       results.addAll(
         _moreMatches('$prefix${String.fromCharCode(codeUnit)}', child),
       );

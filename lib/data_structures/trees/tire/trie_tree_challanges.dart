@@ -1,4 +1,5 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/string_trie_tree.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_interface.dart';
 
 // challenge 1: Additional properties
 // some notable operations are missing in StringTrie, argument the current implementation of the StringTrie by
@@ -19,7 +20,7 @@ extension AdditionalProperties on StringTire {
     if (isEmpty) return allWords;
 
     for (var child in root.children.values) {
-      allWords.addAll(_moreWords(String.fromCharCode(child.keyPart!), child));
+      allWords.addAll(_moreWords(String.fromCharCode(child.segment!), child));
     }
 
     return allWords;
@@ -30,7 +31,7 @@ extension AdditionalProperties on StringTire {
     if (trieNode.isTerminating) results.add(text);
 
     for (var child in trieNode.children.values) {
-      final codeUnit = child.keyPart;
+      final codeUnit = child.segment;
       results.addAll(
         _moreWords('$text${String.fromCharCode(codeUnit!)}', child),
       );
@@ -73,16 +74,16 @@ bool get isEmpty => _allStrings.isEmpty;
 // Make a new class named Trie that handles any iterable collection. Implement the 'insert', 'contains' and
 // 'remove' methods
 
-/// The generic type 'collectionT' must be a concrete type that is a either a type or subtype of Iterable<keyPartE>
-/// this ensures that the keyPart field type of TireNode is similar to a collection's element type.
-class Trie<KeyPartT, CollectionT extends Iterable<KeyPartT>> {
-  TrieNode<KeyPartT> root = TrieNode(keyPart: null, parent: null);
+/// The generic type 'collectionT' must be a concrete type that is a either a type or subtype of Iterable<segmentE>
+/// this ensures that the segment field type of TireNode is similar to a collection's element type.
+class Trie<segmentT, CollectionT extends Iterable<segmentT>> {
+  TrieNode<segmentT> root = TrieNode(segment: null, parent: null);
 
   // add a collection to this trie tree.
   void insert(CollectionT collection) {
     var current = root;
-    for (KeyPartT element in collection) {
-      current.children[element] ??= TrieNode<KeyPartT>(keyPart: element, parent: current);
+    for (segmentT element in collection) {
+      current.children[element] ??= TrieNode<segmentT>(segment: element, parent: current);
       current = current.children[element]!;
     }
     current.isTerminating = true;
@@ -91,7 +92,7 @@ class Trie<KeyPartT, CollectionT extends Iterable<KeyPartT>> {
   /// check if a collection exist in this trie tree.
   bool contain(CollectionT collection) {
     var current = root;
-    for (KeyPartT element in collection) {
+    for (segmentT element in collection) {
       final child = current.children[element];
       if (child == null) return false;
       current = child;
@@ -105,7 +106,7 @@ class Trie<KeyPartT, CollectionT extends Iterable<KeyPartT>> {
   /// remove a collection from this trie tree.
   void remove(CollectionT collection) {
     var current = root;
-    for (KeyPartT element in collection) {
+    for (segmentT element in collection) {
       final child = current.children[element];
       // handles the first case.
       if (child == null) return;
@@ -119,7 +120,7 @@ class Trie<KeyPartT, CollectionT extends Iterable<KeyPartT>> {
 
     // handles the forth case.
     while (current.parent != null && current.children.isEmpty && !current.isTerminating) {
-      current.parent!.children.remove(current.keyPart);
+      current.parent!.children.remove(current.segment);
       current = current.parent!;
     }
   }

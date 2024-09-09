@@ -1,7 +1,7 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_interface.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 
-export '../trees/heap/heap.dart' show Priority;
+export '../trees/heap/list_based_heap_implementation.dart' show Priority;
 
 class PriorityQueueHeap<T extends Comparable<dynamic>> implements Queue<T> {
   late Heap<T> _heap;

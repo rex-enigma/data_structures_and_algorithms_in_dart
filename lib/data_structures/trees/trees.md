@@ -31,13 +31,13 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
 
 1. **Binary tree** -> is a tree data structure where each node has at MOST two children, often referred to as **left** and **right** children. The values it holds are not ordered. It can be **unbalanced**.
    
-2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted data. The left child node's value is smaller and right child node's value is greater than the parent node's value.  It can be **unbalanced**
+2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted / ordered data in that, the left child node's value is always smaller and right child node's value is always greater than the parent node's value.  It can be **unbalanced**
    
-3. **AVL tree** -> a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced**).
+3. **AVL tree** -> a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced** / **balanced**).
    
   ##### States of balance
     
-  - **perfectly balanced**: every leaf node is at the same depth in the tree, and every internal node has the same number of children.
+  - **perfectly balanced**: every leaf node is at the same depth in the tree, and every parent / internal node has the same number of children.
 ```
                             ___
                             |_|
@@ -77,7 +77,7 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
                       |_| |_|              _/_
                                            |_|  
 ```
-4. **Trie** -> a.k.a prefix tree or digital tree, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
+4. **Trie** -> a.k.a ***prefix tree** or **digital tree**, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
    
 5. **Heap** ->  (will be working with binary heap specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
    

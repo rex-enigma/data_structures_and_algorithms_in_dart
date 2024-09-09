@@ -1,8 +1,8 @@
 - Heap (will be working with binary heap specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a **max heap**) or less that or equal to(in a **min heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is a diff concept.
 
-- Heap is usually implemented with a List.
+- Heap is usually implemented using a List.
 - Each element in the list represents a node of the heap and
-- The parent / child(left or right) relationship is defined **implicitly** by elements' indices in the list.
+- The parent-child(left or right) relationship is defined **implicitly** by elements' indices in the list.
 - Heap tree is partially sorted.
 
 - Given an element at index i:

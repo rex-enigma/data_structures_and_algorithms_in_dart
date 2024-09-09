@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/graph/graph_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 
 extension BreadthFirstSearch<T> on Graph<T> {

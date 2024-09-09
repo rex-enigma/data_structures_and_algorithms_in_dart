@@ -93,17 +93,18 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
 **NB:**
 in my current understanding,
 - **Breadth-first search(BFS) and breadth-first traversal(BFT) share the same exploration mechanism of visiting nodes level by level, but they differ in their objectives, similarly, depth-first search(DFS) and depth-first traversal(DFT) share the same exploration mechanism of exploring one path as far as possible before backtracking and exploring other branches but they differ in their objectives.** 
- - The objective of ***breadth first / depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the tree, but in most cases, the return type can be any of the following other than ***void***:
+ - The objective of ***breadth first search or depth first search*** is to look for a given target value if it exist or to look for values which satisfy a certain condition. The return type of the search algorithm can vary depending on the problem that is being solved by the tree, but in most cases, the return type can be ome of the following other than ***void***:
    1. the node/value being searched for.
    2. index/position of the node/value being searched for.
    3. boolean of either true if the node/value exist or false if the node/value don't exist.
    4. list of nodes/values that satisfy certain condition.
- - **Traversal** is the process of visiting/accessing ***every*** node exactly once in a tree in specific order. 
- - The objective of ***breadth first / depth first traversal*** is to visit every nodes exactly once in the tree(All the nodes must be visited/accessed). In "most cases", their is no return value in this case(void return).
+   
+ - **Traversal** is the process of visiting/accessing ***every*** node exactly once in a tree in specific order.(pre-order, in-order and post-order).
+ - The objective of ***breadth first traversal or depth first traversal*** is to visit every node exactly once in the tree(All the nodes must be visited/accessed) in order to perform some action on each node. In "most cases", their is no return value in this case (void return).
 
 ##### Applications of trees:
-1. representing hierarchical data eg file systems, organization charts,xml / html / flutter widgets.
-2. used for efficient searching and sorting -> binary search trees arrange elements in sorted order enabling faster lookup, insertion and deletion of data. B- Trees / B+ Trees are widely used to index data in databases, allowing faster retrieval of records based on key values.
+1. representing hierarchical data eg file systems, organization charts, xml / html / flutter widgets.
+2. used for efficient searching and sorting -> binary search trees arrange elements in sorted order enabling faster lookup, insertion and deletion of data. B- Trees & B+ Trees are widely used to index data in databases, allowing faster retrieval of records based on key values.
 3. parsing -> eg syntax trees, compilers and interpreters constructs syntax trees to represent the structure of code or documents enabling code analysis and translation.
 4. Artificial intelligence -> decision trees model decision making processes, commonly used in machine learning algorithms for classification and prediction. Game trees, used in game AI to explore possible moves and their outcomes, aiding in strategy development.
 5. network routing -> routing trees represent network topologies determining optimal paths for data transmission.
@@ -112,7 +113,7 @@ in my current understanding,
 1. Trees share some similarities to linked lists, but, whereas linked-list nodes may
 only link to one successor node, a tree node can link to many child nodes.
 2. Every tree node, except for the root node, has exactly one parent node.
-3. A root node has no parent nodes.
+3. A root node has no parent node.
 4. Leaf nodes have no child nodes.
 5. Traversals, such as depth-first and level-first/breath-first traversals, work on multiple types
 of trees. However, the implementation will be slightly different based on how the

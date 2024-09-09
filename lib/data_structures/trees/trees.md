@@ -77,7 +77,10 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
                       |_| |_|              _/_
                                            |_|  
 ```
-4. **Trie** -> a.k.a ***prefix tree** or **digital tree**, is a type of n-ary search tree used for locating specific keys from within a set. These keys are most often **strings**, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
+4. Trie a.k.a **prefix tree**, **digital tree** or **radix tree**, is a type of n-ary search tree used for locating specific **sequences** from within a set. These sequences can be words, ip address, phone number, DNA sequence etc. Each node in trie tree stores a **segment** of a sequence and its linked to other nodes. In order to access a sequence (to get its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each segment of the sequence.
+
+   - **segment** -> the smallest manageable part | piece of a segment. eg in the word, "book", the segments are 'b','o','o', and 'k'.
+   - **sequence** -> a series of segments combined to form a meaningful whole. eg for segments 'b','o','o', and 'k', the sequence is "book".
    
 5. **Heap** ->  (will be working with binary heap specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
    

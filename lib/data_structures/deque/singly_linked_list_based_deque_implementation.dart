@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/linked_list/singly_linked_list.dart';
 
 class DequeSinglyLinkedList<T> implements Deque<T> {

@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search.dart';
 import 'package:dart_data_structure_and_algorithm/algorithms/searching_algorithms/binary_search/binary_search_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/dart_data_structure_and_algorithm.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/deque/deque_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/deque/singly_linked_list_based_deque_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/map_based_graph_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/breadth-first_search/breadth-first_search_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/depth-first_search/depth-first_search.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/graph/search_algorithms/depth-first_search/depth-first_search_based_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/heap_based_priority_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/priority_queue_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_based_challenges.dart';
@@ -26,9 +26,9 @@ import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_b
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_tree/binary_tree.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/binary_based_trees/binary_tree/binary_tree_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/general_tree_based_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_based_challenges.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/string_trie_tree.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_challanges.dart';
 import 'package:test/test.dart';
 

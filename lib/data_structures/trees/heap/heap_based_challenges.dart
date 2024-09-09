@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 
 // challenge 1: find the nth smallest integer
 // write a function that find the nth smallest integer in an unsorted list.

@@ -20,18 +20,18 @@ class Edge<T> {
 }
 
 abstract class Graph<T> {
-  /// return all of the vertices in the graph.
+  /// returns all of the vertices in the graph.
   Iterable<Vertex<T>> get vertices;
 
-  /// create a vertex and add it to the graph.
+  /// creates a vertex and add it to the graph.
   Vertex<T> createVertex(T data);
 
-  /// connect two vertices in the graph with either directed or undirected edge.
+  /// connects two vertices in the graph with either directed or undirected edge.
   void addEdge(Vertex<T> source, Vertex<T> destination, {EdgeType edgeType, double? weight});
 
-  /// return a list of outgoing edges from [source] vertex.
+  /// returns a list of outgoing edges from [source] vertex.
   List<Edge<T>> edges(Vertex<T> source);
 
-  /// return the weight(double value) of the edge btn [source] and [destination] vertices or null if [source] and [destination] vertices aren't connected.
+  /// returns the weight(double value) of the edge btn [source] and [destination] vertices or null if [source] and [destination] vertices aren't connected.
   double? weight(Vertex<T> source, Vertex<T> destination);
 }

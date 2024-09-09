@@ -1,4 +1,4 @@
-import 'package:dart_data_structure_and_algorithm/data_structures/linked_list/linked_list.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/linked_list/linked_list_interface.dart';
 
 class Node<T> {
   Node({required this.value, this.next});

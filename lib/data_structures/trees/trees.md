@@ -31,7 +31,7 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
 
 1. **Binary tree** -> is a tree data structure where each node has at MOST two children, often referred to as **left** and **right** children. The values it holds are not ordered. It can be **unbalanced**.
    
-2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted / ordered data in that, the left child node's value is always smaller and right child node's value is always greater than the parent node's value.  It can be **unbalanced**
+2. **Binary search tree** -> a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that effectively organizes and maintains sorted / ordered data in that, the left child node's value is always less and right child node's value is always greater than the parent node's value.  It can be **unbalanced**
    
 3. **AVL tree** -> a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree that guarantees a logarithmic time complexity (O(log n)) for *search*,*insertion*,and *deletion* operations. Its always balanced(**perfect balanced** or **good enough balanced** / **balanced**).
    
@@ -82,13 +82,13 @@ Trees can be categories base on **the nodes' values**(ie based on the values of 
    - **segment** -> the smallest manageable part | piece of a segment. eg in the word, "book", the segments are 'b','o','o', and 'k'.
    - **sequence** -> a series of segments combined to form a meaningful whole. eg for segments 'b','o','o', and 'k', the sequence is "book".
    
-5. **Heap** ->  (will be working with binary heap specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less that or equal to(in a min **heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can look at it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
+5. **Heap** -> (will be working with **binary heap** specifically), is a specialized tree based data structure that satisfies the heap property, ensuring that a value of a parent node is always greater that or equal to(in a max **heap**) or less than or equal to(in a min **heap**) the value of its children(the left and the right child). A heap is a **complete binary tree**( meaning all levels are fully filled, except possibly the last one, which is filled from left to right) that can be implemented using a **list**. It can be used to implement *priority queue*. [you can visualize it in both tree representation or list representation, check wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure)#/media/File:Max-Heap-new.svg). This heap is different from **memory heap** since memory heap is diff concept.
    
 
-#### Common operations are:
-1. **depth-first traversal** -> visit/access every node only once in a vertical order. No value is returned (void return)
-2. **level-first / breadth-first traversal** -> visit/access every node only once in a level-wise manner, horizontally, always starting from top left. No value is returned (void return)
-3. **search** -> search for a target value in the tree, either of the above traversal implementation or technique can be used. Return treeNode for that target value if it exist or null if the target value doesn't exist. 
+#### Common operations of tree data structures are:
+1. **depth-first traversal** -> visit/access every node in the tree only once in a vertical order. No value is returned (void return)
+2. **level-first / breadth-first traversal** -> visit/access every node in the tree only once in a level-wise manner, horizontally, always starting from top left. No value is returned (void return)
+3. **search** -> search for a target value in the tree, either of the aforementioned traversal implementation or technique can be used. Return treeNode for that target value if it exist or null if the target value doesn't exist. 
 
 **NB:**
 in my current understanding,

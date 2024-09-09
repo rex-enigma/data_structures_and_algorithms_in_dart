@@ -19,27 +19,34 @@
 
 
 
-#### Heap property
+#### Heap property:
 ```
-      The left most value represents the index for the elements in brackets 
+The right most value represents the index for the elements in brackets 
 
-         (10)0                                                  (1)0
-        /    \                                                 /   \
-      (8)1   (4)2                                            (2)1  (4)2
-     /   \                                                  /   \
-   (5)3  (1)4                                             (5)3  (8)3
+         (10)0                                               
+        /    \                                                
+      (8)1   (4)2                                           
+     /   \                                               
+   (5)3  (1)4                                             
  
-   max-heap property:                                   min-heap property:
-   In max heap,parent value is greater than or          In min heap,parent value is lower than or equal to 
-   equal to the value of its children.                  the value of its children. The root node will 
-   The root will always be the greatest of its          always be the lowest of it children and   
-   children and descendants                             descendants   
-
+   max-heap property:                                   
+   In max heap, parent node always contains a value that is greater than or equal to the value of its children nodes. 
+   The maximum value is always at the root node.
+   
+        (1)0
+        /   \
+      (2)1  (4)2
+     /   \
+  (5)3  (8)3
+ 
+   min-heap property:
+   In min heap, parent node always contains a value that is less than or equal to the value of its children nodes.   
+   The minimum value is always at the root node.
 ```
 
 #### common operation are:
 1. **peek** -> return a reference of the root value (the first value in the list) from a heap tree(max-heap or min-heap) without removing it. This value will be the highest priority or the lowest priority value in max-heap or min-heap respectively.
-2. **insertion / push** -> add a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property, therefore after adding a value to the heap, ***sifting up***(is the process of moving the new value up in the heap tree {since list is the one used to implement heap we can also say, moving the new value leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
+2. **insert / push** -> add a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property, therefore after adding a value to the heap, ***sifting up***(is the process of moving the new value up in the heap tree {since list is the one used to implement heap we can also say, moving the new value leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
    1. A value is first added at the end of the list.
    2. The new value is compared to its parent, if the new value is smaller than its parent, the insertion is done, otherwise,
    3. Sifting up is done through swapping the new value with its parent.

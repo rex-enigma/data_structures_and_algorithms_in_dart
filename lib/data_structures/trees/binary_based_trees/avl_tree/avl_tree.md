@@ -108,7 +108,7 @@ A 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
 
 #### common operation are:
 1. **fast lookup / search / contains** -> checking if a given specific key exists. Returns true if the key exists otherwise, false is returned.
-2. **insert** -> inserting a key while maintaining the balance of the AVL tree.
+2. **insert** -> inserting a key while maintaining the balance of the AVL tree.(In my implementation, duplicate keys will be discarded).
 3. **remove / delete** -> removing a key while maintaining the balance of the AVL tree.
 4. **left rotation** -> performing a left rotation when an AVLNode has a balance factor of -2 and its rightChild has a balance factor of -1.(NB: ***remember all this rotations left,right-left,right and left-right, is performed only on the bottom most AVLNode with invalid balance factor of either 2 or -2***).
 5. **right-left rotation** -> performing a right-left rotation when an AVNode has a balance factor of -2 and its rightChild has a balance factor of 1.

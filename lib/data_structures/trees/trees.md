@@ -102,14 +102,14 @@ in my current understanding,
  - **Traversal** is the process of visiting/accessing ***every*** node exactly once in a tree in specific order.(pre-order, in-order and post-order).
  - The objective of ***breadth first traversal or depth first traversal*** is to visit every node exactly once in the tree(All the nodes must be visited/accessed) in order to perform some action on each node. In "most cases", their is no return value in this case (void return).
 
-##### Applications of trees:
+#### Applications of trees:
 1. representing hierarchical data eg file systems, organization charts, xml / html / flutter widgets.
 2. used for efficient searching and sorting -> binary search trees arrange elements in sorted order enabling faster lookup, insertion and deletion of data. B- Trees & B+ Trees are widely used to index data in databases, allowing faster retrieval of records based on key values.
 3. parsing -> eg syntax trees, compilers and interpreters constructs syntax trees to represent the structure of code or documents enabling code analysis and translation.
 4. Artificial intelligence -> decision trees model decision making processes, commonly used in machine learning algorithms for classification and prediction. Game trees, used in game AI to explore possible moves and their outcomes, aiding in strategy development.
 5. network routing -> routing trees represent network topologies determining optimal paths for data transmission.
 
-##### Key points:
+#### Key points:
 1. Trees share some similarities to linked lists, but, whereas linked-list nodes may
 only link to one successor node, a tree node can link to many child nodes.
 2. Every tree node, except for the root node, has exactly one parent node.

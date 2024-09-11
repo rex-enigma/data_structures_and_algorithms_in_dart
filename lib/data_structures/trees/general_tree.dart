@@ -1,8 +1,7 @@
-// Your traversal technique depends on the problem that your're trying to solve.There are multiple techniques for
-// different trees and different problems.
-
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_list_based_queue_implementation.dart';
 
+// Your traversal technique depends on the problem that your're trying to solve. There are multiple techniques for
+// different trees and different problems.
 class TreeNode<T> {
   TreeNode(this.value);
   T value;
@@ -44,7 +43,7 @@ class TreeNode<T> {
   }
 
   // You can use any traversal method that is already implemented above to implement searching depending on the
-  // problem you what to solve but this is not ideal because, even though you will encounter the value you are
+  // problem you want to solve but this is not ideal because, even though you will encounter the value you are
   // searching for, it will be impossible to short-circuit/stop the algorithm at that time, because the delegated traversal
   // method used in the search implementation will have to visit all the nodes.
   // The best approach would be not to use the already implemented traversal method but to embed the traversal technique

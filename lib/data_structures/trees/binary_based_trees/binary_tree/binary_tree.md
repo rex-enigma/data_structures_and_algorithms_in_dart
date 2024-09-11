@@ -13,8 +13,12 @@
 2. **delete** -> deletes an existing key from the binary tree. Deleting a leaf node or internal node/parent node (containing the key) with one child isn't hard, what is hard is deleting an internal node with two children, in this case diff strategies need to be employed since the nodes don't maintain any order.(*Haven't implemented it yet*).
 3. **traverse** -> traverses though the binary tree. These depth-first traversal methods are inherited from TraversableBinaryNode abstract class from traversal_binary_node.dart file
    1. **pre-order traversal** -> action → left → right. 
+   - The order in which the actions are performed on the nodes: parent -> left child -> right child.
    2. **in-order traversal** -> left → action → right. 
+   - The order in which the actions are performed on the nodes: left child -> parent -> right child.
    3. **post-order traversal** -> left → right → action.
+   - The order in which the actions are performed on the nodes: left child -> right child -> parent
+
    
 
 #### Applications of binary tree:
@@ -27,6 +31,6 @@
 2. A binary tree is a tree where each node has at most two children, often referred to
 as the left and right children.
 3. Tree traversal algorithms visit/access each node in the tree once.
-4. InOrder traversal recursively visits the left child first(performing an action to it first), then the current parent node, and finally the right child.
-5. PreOrder traversal visits the parent node first(performing an action to it first), followed by the child nodes.
-6. PostOrder traversal visits the children nodes first(performing an action to them first) before the parent nodes.
+4.  *PreOrder traversal* visits the parent node first(performing an action to it first), followed by the child nodes(left child then right child)
+5. *InOrder traversal* visits the left child first(performing an action to it first), then the current parent node, and finally the right child.
+6. *PostOrder traversal* visits the children nodes first(performing an action to them first, left child then right child) before the current parent node.

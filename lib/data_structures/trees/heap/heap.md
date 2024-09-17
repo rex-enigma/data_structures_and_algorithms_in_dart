@@ -31,7 +31,7 @@ The right most value represents the index for the elements in brackets
  
    max-heap property:                                   
    In max heap, parent node always contains a value that is greater than or equal to the value of its children nodes. 
-   The maximum value is always at the root node.
+   The maximum value is always at the root node.(meaning, all descendant values must be less than the root value)
    
         (1)0
         /   \
@@ -41,7 +41,7 @@ The right most value represents the index for the elements in brackets
  
    min-heap property:
    In min heap, parent node always contains a value that is less than or equal to the value of its children nodes.   
-   The minimum value is always at the root node.
+   The minimum value is always at the root node.(meaning, all descendant values must be greater than the root value)
 ```
 
 #### common operation are:

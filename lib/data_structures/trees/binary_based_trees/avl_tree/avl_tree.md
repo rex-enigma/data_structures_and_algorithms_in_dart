@@ -1,15 +1,17 @@
-- AVL tree a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree(self-balancing ordered tree) that guarantees a logarithmic time complexity (O(log n)) for *search*, *insertion* and *deletion* operations. Its always balanced(**perfectly balanced** or **good enough balanced**[balanced], check *trees.md file* for these illustrations).
+#### Definition
+- AVL tree a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree(self-balancing ordered tree) that guarantees a logarithmic time complexity (O(log n)) for *search*, *insertion* and *deletion* operations. Its always balanced(**perfectly balanced** or **good enough balanced** | **balanced**, check *trees.md file* for the illustrations).
 
-- To keep binary tree balanced, you'll need a way to **measure the balance of a tree**. AVL tree achieves this with ***height*** property in each node. The Height of a node is the longest downwards path from that node to a leaf node. If a particular child is *null*, its height is considered to be -1.
+- To keep binary tree balanced, you'll need a way to **measure the balance of a tree**. AVL tree achieves this with ***height*** property in each node. The Height of a node is the `number of edges` on the longest downward path from a given node to a leaf node. If a particular child is *null*, its height is considered to be -1.
+- Given an AVLNode, the height of it can be gotten using the formula ***1 + math.max(leftChildHeight, rightChildHeight)***, were the`max` expression will return the larger of left and right child heights, and then 1 is added to account for the edge linking the current AVLNode to the child having the tallest height.
 
 - ***relative height*** OR ***balance factor*** is an integer key computed from the difference between the leftChild's height and rightChild's height of an AVLNode. This balance factor is used to determine whether a particular AVlNode is balanced, if the balance factor is not within the range {-1,0,1}, rotations are performed to restore balance. A balanceFactor of 2 or -2 or something more extreme indicates an unbalanced tree. By checking after each insertion or deletion, you can guarantee that it will never be more extreme than a magnitude of two.
 
 - Although more than one AVLNode may have a bad balancing factor, balancing **procedure** only needs to be performed on the bottom most AVLNode containing the invalid balance factor. 
 
-### Rotations
+#### Rotations
 - The procedures used to balance a AVl tree are known as **rotations**. There are 4 rotations in total, one for each of the 4 diff ways that a tree can be unbalanced. They are: **left rotation**, **right rotation**, **left-right rotation** and **right-left rotation**.
 
-#### 1. left rotation(left-left rotation): 
+##### 1. left rotation(left-left rotation): 
 - A single left rotation is performed when a node is inserted into the right most side of the right subtree leading to an unbalanced tree.
 - The rotation is done on the bottom most AVLNode containing the invalid balance factor and the rightChild of that AVLNode(aka pivot), where that AVLNode's rightChild is set to pivot's leftChild and the pivot's leftChild is set to that AVLNode.
 - Only the height of that AVLNode and pivot are affected and will need to be updated.
@@ -27,7 +29,7 @@
              \
           0(40)0      
 ```
-#### 2. right rotation(right-right rotation):
+##### 2. right rotation(right-right rotation):
 - A single right rotation is performed when a node is inserted into the left most side of the left subtree leading to an unbalanced tree.
 - The rotation is done on the bottom most AVLNode containing the invalid balance factor and the leftChild of that AVLNode(aka pivot), where that AVLNode's leftChild is set to pivot's rightChild and the pivot's rightChild is set to that AVLNode.
 - Only the height of that AVLNode and pivot are affected and will need to be updated.
@@ -46,7 +48,7 @@
    0(15)0   
 ```
 
-#### 3. right-left rotation:
+##### 3. right-left rotation:
 - Two rotations are performed, first, right rotation is performed on the rightChild of the bottom most AVLnode containing the invalid balance factor and the leftChild of that (rightChild of that bottom most AVLNode), second, left rotation is performed on that bottom most AVLNode containing the invalid balance factor and the rightChild of that AVLNode(aka pivot).
 
     ##### right-left rotation illustration
@@ -67,7 +69,7 @@
     2-->   0(35)0                                0(37)0   
 ```
 
-#### 4. left-right rotation:
+##### 4. left-right rotation:
 - Two rotations are performed, first, left rotation is performed on the leftChild of the bottom most AVLNode containing the invalid balance factor and the rightChild of that (leftChild of that bottom most AVLNode), second, right rotation is performed on that bottom most AVLNode containing that invalid balance factor.
 
     ##### left-right rotation illustration
@@ -106,7 +108,7 @@ A 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
 2 : -1   --> left-right rotation.
 ```
 
-#### common operation are:
+#### Common operation are:
 1. **fast lookup / search / contains** -> checking if a given specific key exists. Returns true if the key exists otherwise, false is returned.
 2. **insert** -> inserting a key while maintaining the balance of the AVL tree.(In my implementation, duplicate keys will be discarded).
 3. **remove / delete** -> removing a key while maintaining the balance of the AVL tree.
@@ -118,7 +120,7 @@ A 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
 9. **traversal** -> traversing though the binary tree. DepthFirst(inOrder, postOrder, preOrder), except levelFirst/breathFirst traversal,are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which avl tree node is using for traversal.
    
 
-#### applications of AVL tree:
+#### Applications of AVL tree:
 1. Can be used to implement **set**, **map**, (even priority queue)
 2. It is used to index huge records in a database and also to efficiently search in that.
 3. Database applications, where insertions and deletions are less common but frequent data lookups are necessary. eg inventory system, library catalogs, customer relationship management.
@@ -126,7 +128,7 @@ A 2 balance factor of an AVLNode indicates that the leftChild is heavier than th
 5. applied in storyline games.
 
 
-#### key points:
+#### Key points:
 1. A self-balancing tree avoid performance degradation by performing a balancing procedure whenever you add or remove elements in the tree.
 2. AVl tree preserves balance by readjusting parts of the tree when the tree is no longer balanced.
 3. Balance ia achieved by 4 types of tree rotations on node insertion and removal: **right rotation**, **left rotation**, **right-left rotation** and **left-right rotation**

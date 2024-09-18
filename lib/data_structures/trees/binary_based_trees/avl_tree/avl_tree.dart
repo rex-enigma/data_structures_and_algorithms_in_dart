@@ -12,7 +12,7 @@ class AVLNode<T> extends TraversableBinaryNode<T> {
   @override
   AVLNode<T>? rightChild;
 
-  /// the downwards longest path from [this] node to a leaf node.
+  /// the `number of edges` on the longest downward path from a given node to a leaf node.
   int height = 0;
 
   int get balanceFactor => leftChildHeight - rightChildHeight;
@@ -44,7 +44,7 @@ class AVLTree<T extends Comparable<dynamic>> {
       node.rightChild = _insertAt(node.rightChild, key);
     }
     // else if key is equal to node.key, just set node.key to key
-    // preventing BST from having duplicate keys.
+    // preventing AVL from having duplicate keys.
     else {
       node.key = key;
       // return the AVLnode immediate if the key is a duplicate, preventing balanced method from running since the structure of the AVL tree
@@ -54,7 +54,8 @@ class AVLTree<T extends Comparable<dynamic>> {
     }
     // the balancing will be performed on each node when going up from recursion.
     final balancedNode = balanced(node);
-    //when an AVLNode is inserted, the height of each AVLNode that has been visited by this function needs to be updated.
+    // the formula below is used to calculate the height of an AVLNode.
+    // when an AVLNode is inserted, the height of each AVLNode that has been visited by this function needs to be updated.
     balancedNode.height = 1 + math.max(balancedNode.leftChildHeight, balancedNode.rightChildHeight);
 
     return balancedNode;
@@ -65,7 +66,7 @@ class AVLTree<T extends Comparable<dynamic>> {
     node.rightChild = pivot.leftChild;
     pivot.leftChild = node;
 
-    // recalculate the hight of the node since its position is changed.
+    // recalculate the height of the node since its position is changed.
     node.height = 1 + math.max(node.leftChildHeight, node.rightChildHeight);
     // recalculate the height of the pivot since its position is changed.
     pivot.height = 1 + math.max(pivot.leftChildHeight, pivot.rightChildHeight);
@@ -169,7 +170,7 @@ class AVLTree<T extends Comparable<dynamic>> {
       if (node.leftChild == null) {
         return node.rightChild;
       }
-      // handles the case where the node to be removed has only one child specifically the right child.
+      // handles the case where the node to be removed has only one child specifically the left child.
       // if the node has no right child, you return node.leftChild to reconnect the left subtree.
       if (node.rightChild == null) {
         return node.leftChild;

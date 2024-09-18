@@ -31,7 +31,7 @@ all keys in this  _|
 left subtree should always be less that 10
 ```
 
-#### Common Operation are:
+#### Common operation are:
 1. **contains** -> checks if a given specific key exists. It can be programmed **recursively** or **iteratively**: Searching begins by examining the root node. If the tree is null, the key being searched for does not exist in the tree. Otherwise, if the key equals that of the root, the search is successful and the node is returned. If the key is less than that of the root, the search proceeds by examining the left subtree. Similarly, if the key is greater than that of the root, the search proceeds by examining the right subtree. This process is repeated until the key is found or not.
    
 2. **insert** -> new key is inserted as leaf.

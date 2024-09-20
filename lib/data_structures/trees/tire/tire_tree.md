@@ -58,6 +58,7 @@ example 4: DNA trie (can be string represented or each segment can be a object s
 1. **contains** -> check whether a given sequence is present / exist in the trie tree.
 2. **insert** -> insert a sequence in the trie tree. 
 3. **remove** -> delete a sequence from the trie tree. There are 4 cases when removing a sequence in a trie:
+   
    1. The sequence provided doesn't exist in trie tree. In this case we don't modify the trie.
    2. The collection of segments provided doesn't form a sequence. In this case we don't modify the trie.
       nb: at this stage the collection of segments provided is a sequence and it does exist in the trie tree.

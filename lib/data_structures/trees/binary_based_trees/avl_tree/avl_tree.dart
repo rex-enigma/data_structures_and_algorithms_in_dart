@@ -23,7 +23,7 @@ class AVLNode<T> extends TraversableBinaryNode<T> {
 class AVLTree<T extends Comparable<dynamic>> {
   AVLNode<T>? root;
 
-  /// inserting a key in an AVL tree. Duplicate keys inserted will be discarded.
+  /// inserts a key in an AVL tree. Duplicate keys inserted will be discarded.
   // key always replaces a NULL reference (left or right) of an external node / leaf node in the tree.
   void insert(T key) {
     root = _insertAt(root, key);
@@ -52,16 +52,16 @@ class AVLTree<T extends Comparable<dynamic>> {
       // necessary.
       return node;
     }
-    // the balancing will be performed on each node when going up from recursion.
+    // balancing will be performed on each visited node when going up from recursion.
     final balancedNode = balanced(node);
     // the formula below is used to calculate the height of an AVLNode.
-    // when an AVLNode is inserted, the height of each AVLNode that has been visited by this function needs to be updated.
+    // when an AVLNode is inserted, the height of each AVLNode that has been visited by this function gets updated.
     balancedNode.height = 1 + math.max(balancedNode.leftChildHeight, balancedNode.rightChildHeight);
 
     return balancedNode;
   }
 
-  AVLNode<T> leftRotate(AVLNode<T> node) {
+  AVLNode<T> _leftRotate(AVLNode<T> node) {
     final pivot = node.rightChild!;
     node.rightChild = pivot.leftChild;
     pivot.leftChild = node;
@@ -74,64 +74,64 @@ class AVLTree<T extends Comparable<dynamic>> {
     return pivot;
   }
 
-  AVLNode<T> rightRotate(AVLNode<T> node) {
+  AVLNode<T> _rightRotate(AVLNode<T> node) {
     final pivot = node.leftChild!;
     node.leftChild = pivot.rightChild;
     pivot.rightChild = node;
 
-    // recalculate the hight of the node since its position is changed.
+    // recalculate the height of the node since its position has changed.
     node.height = 1 + math.max(node.leftChildHeight, node.rightChildHeight);
-    // recalculate the height of the pivot since its position is changed.
+    // recalculate the height of the pivot since its position has changed.
     pivot.height = 1 + math.max(pivot.leftChildHeight, pivot.rightChildHeight);
 
     return pivot;
   }
 
-  AVLNode<T> rightLeftRotate(AVLNode<T> node) {
+  AVLNode<T> _rightLeftRotate(AVLNode<T> node) {
     if (node.rightChild == null) {
       return node;
     }
 
-    node.rightChild = rightRotate(node.rightChild!);
-    return leftRotate(node);
+    node.rightChild = _rightRotate(node.rightChild!);
+    return _leftRotate(node);
   }
 
-  AVLNode<T> leftRightRotate(AVLNode<T> node) {
+  AVLNode<T> _leftRightRotate(AVLNode<T> node) {
     if (node.leftChild == null) {
       return node;
     }
 
-    node.leftChild = rightRotate(node.leftChild!);
-    return rightRotate(node);
+    node.leftChild = _rightRotate(node.leftChild!);
+    return _rightRotate(node);
   }
 
-  // inspects the balance factor of an AVLNode to determine which rotation to perform or not.
+  /// inspects the balance factor of [node] to determine whether a rotation needs to be performed.
   AVLNode<T> balanced(AVLNode<T> node) {
     switch (node.balanceFactor) {
       case 2:
         final left = node.leftChild;
         if (left != null && left.balanceFactor == -1) {
-          return leftRightRotate(node);
+          return _leftRightRotate(node);
         }
         // else if left.balanceFactor == 1
         else {
-          return leftRotate(node);
+          return _leftRotate(node);
         }
       case -2:
         final right = node.rightChild;
         if (right != null && right.balanceFactor == 1) {
-          return rightLeftRotate(node);
+          return _rightLeftRotate(node);
         }
         // else if right.balanceFactor == -1
         else {
-          return leftRotate(node);
+          return _leftRotate(node);
         }
       default:
         return node;
     }
   }
 
-  /// checking if the given key exist in a AVL tree.
+  /// checks if the given key exist in a AVL tree.
   bool contains(T key) {
     var current = root;
 
@@ -150,7 +150,7 @@ class AVLTree<T extends Comparable<dynamic>> {
     return false;
   }
 
-  /// removing the given key from a AVL tree.
+  /// removes the given key from the AVL tree.
   void remove(T key) {
     root = _remove(root, key);
   }
@@ -183,14 +183,14 @@ class AVLTree<T extends Comparable<dynamic>> {
       node.rightChild = _remove(node.rightChild, node.key);
     } else if (key.compareTo(node.key) < 0) {
       node.leftChild = _remove(node.leftChild, key);
-      // i would have used else only but i chose else if for readability purpose.
+      // i would have used else only but i choose else if for readability purpose.
     } else if (key.compareTo(node.key) > 0) {
       node.rightChild = _remove(node.rightChild, key);
     }
 
-    // the balancing will be performed on each node when going up from recursion.
+    // balancing will be performed on each visited node when going up from recursion.
     final balancedNode = balanced(node);
-    //when an AVLNode is removed, the height of each AVLNode that has been visited by this function needs to be updated.
+    // when an AVLNode is removed, the height of each AVLNode that has been visited by this function gets updated.
     balancedNode.height = 1 + math.max(balancedNode.leftChildHeight, balancedNode.rightChildHeight);
 
     return balancedNode;
@@ -201,7 +201,7 @@ class AVLTree<T extends Comparable<dynamic>> {
 }
 
 extension _MinFinder<T> on AVLNode<T> {
-  /// used to find the node with the smallest key in a subtree in a BST.
+  /// finds the node with the smallest key in a subtree in a BST.
   // in this case we called it inOrder successor (the node with the smallest key in the right subtree of a given node)
   AVLNode<T> get minimumNode => leftChild?.minimumNode ?? this;
 }

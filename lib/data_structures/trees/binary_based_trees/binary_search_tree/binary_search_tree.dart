@@ -97,7 +97,7 @@ class BinarySearchTree<T extends Comparable<dynamic>> {
       node.rightChild = _remove(node.rightChild, node.key);
     } else if (key.compareTo(node.key) < 0) {
       node.leftChild = _remove(node.leftChild, key);
-      // i would have used else only but i chose else if for readability purpose.
+      // i would have used else only but i choose else if for readability purpose.
     } else if (key.compareTo(node.key) > 0) {
       node.rightChild = _remove(node.rightChild, key);
     }

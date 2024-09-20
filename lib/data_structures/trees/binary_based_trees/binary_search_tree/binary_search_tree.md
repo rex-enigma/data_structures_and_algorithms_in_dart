@@ -36,7 +36,8 @@ left subtree should always be less that 10
    
 2. **insert** -> new key is inserted as leaf.
    
-3. **remove / delete** -> deletes an existing key. Deletion of a node that contains the key that we want to remove, say Z ,from the binary search tree BST has three cases:
+3. **remove** -> removes an existing key. Removal of a node that contains the key that we want to remove, say Z, from the binary search tree BST has three cases:
+   
    1. **if Z is a leaf node:** these are the steps:
       1. If Z is the left child of its parent, set the parent's left child to point to null.
       2. If Z is the right child of its parent, set the parent's right child to point to null.
@@ -48,7 +49,7 @@ left subtree should always be less that 10
       2. if the inOrder successor is Z's immediate right child, replace the key of Z with the key of inOrder successor and modify Z's right child to point to inOrder successor's right child.
       3. if the inOrder successor lies within Z's right subtree but is not Z's immediate right child, replace the key of Z with the key of inOrder successor and modify inOrder successor's parent's left child to point to inOrder successor's right child.
 
-4. **traversal** -> traverses though the binary tree. DepthFirst(inOrder, postOrder, preOrder), except levelFirst/breadthFirst traversal, are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) in which binary search tree node is using for traversal.
+4. **traversal** -> traverses though the binary tree. DepthFirst(inOrder, postOrder, preOrder), are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) which can be used for traversing functionality. LevelFirst/breathFirst traversal isn't yet implemented.
    
 
 ##### Applications of binary search tree:

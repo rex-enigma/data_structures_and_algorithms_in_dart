@@ -140,10 +140,10 @@ A` 2` balance factor of an AVLNode indicates that the left child is heavier than
 1.  **traversal** -> traverses though the AVL tree. DepthFirst(inOrder, postOrder, preOrder), are already implemented in the TraversableBinaryNode(check in traversable_binary_node.dart file) which can be used for traversing functionality. LevelFirst/breathFirst traversal isn't yet implemented.
 
 #### Internal private operations:
-1. **left rotation** -> performs a left rotation when an AVLNode has a balance factor of -2 and its right child has a balance factor of -1.(NB: ***remember all this rotations: left,right-left,right and left-right, are performed only on the bottom most AVLNode with invalid balance factor of either 2 or -2***).
-2. **right-left rotation** -> performs a right-left rotation when an AVNode has a balance factor of -2 and its right child has a balance factor of 1.
-3. **right rotation** -> performs a right rotation when an AVLNode has a balance factor of 2 and its left child has a balance factor of 1.
-4. **left-right rotation** -> performs a left-right rotation when an AVLNode has a balance factor of 2 and its lef cChild has a balance factor of -1.
+1. **leftRotate** -> performs a left rotation when an AVLNode has a balance factor of -2 and its right child has a balance factor of -1.(NB: ***remember all this rotations: left,right-left,right and left-right, are performed only on the bottom most AVLNode with invalid balance factor of either 2 or -2***).
+2. **rightLeftRotate** -> performs a right-left rotation when an AVNode has a balance factor of -2 and its right child has a balance factor of 1.
+3. **rightRotate** -> performs a right rotation when an AVLNode has a balance factor of 2 and its left child has a balance factor of 1.
+4. **leftRightRotate** -> performs a left-right rotation when an AVLNode has a balance factor of 2 and its lef cChild has a balance factor of -1.
 5. **balance** -> balances an AVL tree for each insertion and deletion of a key. (inspects the balance factor of an AVLNode to determine whether a rotation needs to be performed.)
 
 #### Applications of AVL tree:

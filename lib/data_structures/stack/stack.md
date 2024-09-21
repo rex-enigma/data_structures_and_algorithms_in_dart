@@ -14,7 +14,7 @@
 
 #### Common operations are:
 1. **push** -> adds an element to the top of the stack
-2. **pop** -> removes and returns the element at the top of the stack
+2. **pop** -> removes and return the element at the top of the stack
 3. **peek** -> returns a copy(if the data is primitive eg int,double,float,string) or a reference of the element at the top of the stack without removing it.
 
 

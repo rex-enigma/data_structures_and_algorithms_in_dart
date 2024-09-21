@@ -138,7 +138,7 @@ class Heap<T extends Comparable<dynamic>> {
     return value;
   }
 
-  /// check if [value exist] in the heap tree. Return its index if it exist otherwise return -1.
+  /// returns an index of a heap value if its exist otherwise it returns -1.
   int indexOf(T value, {int index = 0}) {
     // if the index is to large(has gone out of bound), the search fails and you return -1
     if (index >= elements.length) return -1;

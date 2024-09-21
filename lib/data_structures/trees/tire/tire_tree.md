@@ -1,7 +1,7 @@
 #### Definition:
 - Trie a.k.a **prefix tree**, **digital tree** or **radix tree**, is a type of n-ary search tree used for locating specific **sequences** from within a set. These sequences can be words, ip address, phone number, DNA sequence etc. Each node in trie tree stores a **segment** of a sequence and its linked to other nodes. In order to access a sequence (to get its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each segment of the sequence.
 
-   - **segment** -> the smallest manageable part | piece of a segment. eg in the word, "book", the segments are 'b','o','o', and 'k'.
+   - **segment** -> the smallest manageable part | piece of a sequence. eg in the word, "book", the segments are 'b','o','o', and 'k'.
    - **sequence** -> a series of segments combined to form a meaningful whole. eg for segments 'b','o','o', and 'k', the sequence is "book".
 
 ##### example to illustrate sequence & segment
@@ -24,7 +24,7 @@ example 3: phone-number trie
       |      |       |       |       |       |       |       |       |       |        +254712345678 -> sequence
     +254     7       1       2       3       4       5       6       7       8 
    
-example 4: DNA trie (can be string represented or each segment can be a object storing metadata)
+example 4: DNA trie (can be string represented or each segment can be an object storing metadata)
    
    segment segment segment segment  
       |      |       |       |       ATGCGTACGTTAGC -> sequence
@@ -41,7 +41,7 @@ example 4: DNA trie (can be string represented or each segment can be a object s
 
 ##### diagrammatic illustration of a trie tree (StringTrie representation):
 ```
-                           ( root )
+                          ( root )
                          /  /  |  \  
                       (D) (C) (T) (A)---\
                      /   /  \   \    \   \
@@ -55,9 +55,9 @@ example 4: DNA trie (can be string represented or each segment can be a object s
 ```
 
 #### Common operation are:
-1. **contains** -> check whether a given sequence is present / exist in the trie tree.
-2. **insert** -> insert a sequence in the trie tree. 
-3. **remove** -> delete a sequence from the trie tree. There are 4 cases when removing a sequence in a trie:
+1. **contains** -> checks whether a given sequence is present / exist in the trie tree.
+2. **insert** -> inserts a sequence in the trie tree. 
+3. **remove** -> removes a sequence from the trie tree. There are 4 cases when removing a sequence in a trie:
    
    1. The sequence provided doesn't exist in trie tree. In this case we don't modify the trie.
    2. The collection of segments provided doesn't form a sequence. In this case we don't modify the trie.
@@ -77,4 +77,4 @@ example 4: DNA trie (can be string represented or each segment can be a object s
 
 ##### key points:
 1. Tires provides great performance metrics for prefix matching.
-2. Trie are relatively memory efficient since individual nodes can be shared between many different values. For example, 'car', 'carbs' and 'care' can share three letters of the word.
+2. Trie are relatively memory efficient since individual nodes can be shared between many different values. For example, 'car', 'carbs' and 'care' can share the first three letters of the word.

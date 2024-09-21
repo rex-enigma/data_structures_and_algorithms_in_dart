@@ -91,7 +91,6 @@ class StringTire implements Tire<String> {
   List<String> _moreMatches(String prefix, TrieNode<int> trieNode) {
     List<String> results = [];
 
-    // handles the case where the prefix is a word by itself.
     if (trieNode.isTerminating) results.add(prefix);
 
     for (final child in trieNode.children.values) {

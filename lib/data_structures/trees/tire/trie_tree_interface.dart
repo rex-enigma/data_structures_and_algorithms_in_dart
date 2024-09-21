@@ -13,7 +13,7 @@ class TrieNode<T> {
 
   Map<T, TrieNode<T>> children = {};
 
-  // it marks the end of a sequence(of a word,ip address, DNA sequence etc)
+  // it marks the end of a sequence (of a word,ip address, DNA sequence etc)
   bool isTerminating = false;
 }
 

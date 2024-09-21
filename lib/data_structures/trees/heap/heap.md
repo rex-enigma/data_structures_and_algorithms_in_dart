@@ -46,7 +46,7 @@ The right most value represents the index for the elements in brackets
 
 #### Common operation are:
 1. **peek** -> returns a copy(if the data is primitive eg int,double,float,string) or a reference of the root value (the first value in the list) from a heap tree (max-heap or min-heap) without removing it.
-2. **insert / push** -> inserts a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property, therefore after adding a value to the heap, ***sifting up***(is the process of moving the new value up in the heap tree {since list is the one used to implement heap we can also say, moving the new value leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
+2. **insert** -> inserts a value to the heap tree. Adding a value in a heap(max heap or min heap) might make the heap violate the heap property, therefore after adding a value to the heap, ***sifting up***(is the process of moving the new value up in the heap tree {since list is the one used to implement heap we can also say, moving the new value leftwards of the list} as long as needed to restore heap condition / property ) is done to restore the heap property. Example of an ***insertion algorithm for max heap***:
    
    1. A value is first added at the end of the list.
    2. The new value is compared to its parent, if the new value is smaller than its parent, the insertion is done, otherwise,

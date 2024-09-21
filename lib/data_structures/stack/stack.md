@@ -4,7 +4,7 @@
 - Essential operations are push and pop methods which have O(1) time complexity.
 
 #### Stack ADT can be implemented using:
-1. list(normal array data structure). [i will be using it to implement stack]
+1. list(normal array data structure). [i will be using it to implement stack].
 2. doubly linked list data structure.
 3. singly linked list data structure.
 4. double ended queue (deque): DequeSingleList, DequeDoublyLinkedList, DequeSinglyLinkedList data structures.[what i mean is that you can implement deque using either a single list, singly linked list or doubly linked list.]

@@ -3,9 +3,10 @@
 - Heap tree is partially sorted / ordered.
 
 #### Heap can be implemented using:
-1. Heap is usually implemented using a List.
+1. Heap is usually implemented using a List. [i will be using it to implement binary heap]
    - Each element in the list represents a node of the heap and
    - The parent-child(left or right) relationship is defined **implicitly** by elements' indices in the list.
+2. Binary tree.
 <br>
 - Given an element at index i:
   - The **left child** of this element is at index 2i + 1.
@@ -43,6 +44,10 @@ The right most value represents the index for the elements in brackets
    In min heap, parent node always contains a value that is less than or equal to the value of its children nodes.   
    The minimum value is always at the root node.(meaning, all descendant values must be greater than the root value)
 ```
+#### Common public properties:
+1. **isEmpty** -> checks if the heap is empty.
+2. **priority** -> specifies the type of heap (either max or min).
+3. **size** -> returns number of values currently stored in this heap.
 
 #### Common operation are:
 1. **peek** -> returns a copy(if the data is primitive eg int,double,float,string) or a reference of the root value (the first value in the list) from a heap tree (max-heap or min-heap) without removing it.
@@ -95,6 +100,7 @@ if first value1 get added then the second value1 get added later, when removing 
 1. It's used to implement **heapSort algorithm** .(is a comparison-based sorting algorithm for linear data structure.)
 2. It's used to implement **priority queue**.
 3. It's used to build graph algorithms that use a priority queue, like dijkstra's algorithm.
+4. Calculating the minimum or maximum element of a collection.
 
 
 #### Key points:

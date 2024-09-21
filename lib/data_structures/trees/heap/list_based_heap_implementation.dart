@@ -6,10 +6,10 @@ class Heap<T extends Comparable<dynamic>> {
   Priority priority;
   bool get isEmpty => elements.isEmpty;
 
-  /// The number of values in this heap tree.
+  /// returns number of values currently stored in this heap.
   int get size => elements.length;
 
-  /// return a reference of the root value from this heap tree.
+  /// return a reference of the root value from this heap.
   // this root value is actually the first element in [elements] list.
   T? peek() => (isEmpty) ? null : elements.first;
 
@@ -39,7 +39,7 @@ class Heap<T extends Comparable<dynamic>> {
     return (childIndex - 1) ~/ 2;
   }
 
-  // return true if child represented by value1 has higher priority than 'parent' represented by value2
+  // returns true if child represented by value1 has higher priority than 'parent' represented by value2
   bool _firstHasHigherPriority(T value1, T value2) {
     return switch (priority) {
       // in max heap the largest value has higher priority.
@@ -63,15 +63,15 @@ class Heap<T extends Comparable<dynamic>> {
     return firstHasHigherPriority ? indexA : indexB;
   }
 
-  // swap two heap values that are out of order.
-  // swap the child value with its parent value, since child value has higher priority than its parent value.
+  // swaps two heap values that are out of order.
+  // swaps the child value with its parent value, since child value has higher priority than its parent value.
   void _swapValues(int indexA, int indexB) {
     final temp = elements[indexA];
     elements[indexA] = elements[indexB];
     elements[indexB] = temp;
   }
 
-  /// add a value to the heap tree.
+  /// adds a value to the heap.
   // adding an element to a list takes only O(1) while sifting up takes O(log n) so the overall average and worse
   // time complexity for insertion is O(log n).
   void insert(T value) {
@@ -79,12 +79,12 @@ class Heap<T extends Comparable<dynamic>> {
     _siftUp(elements.length - 1);
   }
 
-  // move a value up in the heap to restore heap condition / property.(child value takes the place of its parent and parent value takes the place of its child)
+  // moves a value up in the heap to restore heap condition / property.(child value takes the place of its parent and parent value takes the place of its child)
   // average and worse case time complexity is O(log n)
   void _siftUp(int index) {
     var childIndex = index;
     var parentIndex = _parentIndex(childIndex);
-    // sift up till the value being sifted up becomes the root of the heap tree(the first value in [elements]) or
+    // sift up till the value being sifted up becomes the root of the heap(the first value in [elements]) or
     // it satisfies the heap property.
 
     // As long as the value being sifted up has higher priority than its parent, you keep swapping it with the next
@@ -98,7 +98,7 @@ class Heap<T extends Comparable<dynamic>> {
     }
   }
 
-  /// remove and return the root value from the heap tree.
+  /// removes and return the root value from the heap.
   // removing  the last element from a list takes only O(1) while sifting down takes O(log n) so the overall average and worse
   // time complexity for removal is O(log n).
   T? remove() {
@@ -109,7 +109,7 @@ class Heap<T extends Comparable<dynamic>> {
     return value;
   }
 
-  // move a value down in the heap to restore heap condition / property.
+  // moves a value down in the heap to restore heap condition / property.
   // average and worse case time complexity is O(log n)
   void _siftDown(int index) {
     var parentIndex = index;
@@ -125,7 +125,7 @@ class Heap<T extends Comparable<dynamic>> {
     }
   }
 
-  /// remove and return an arbitrary value of the given index from the heap tree
+  /// removes and return an arbitrary value of the given index from the heap
   // the average and worse case time complexity is O(log n).
   T? removeAt(int index) {
     final lastIndex = elements.length - 1;

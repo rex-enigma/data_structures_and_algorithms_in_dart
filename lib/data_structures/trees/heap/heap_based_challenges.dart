@@ -1,3 +1,4 @@
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 
 // challenge 1: find the nth smallest integer
@@ -13,7 +14,7 @@ if n = 3, the result should be 10
 
 /// return the nth smallest integer in [integers] unsorted list.
 int? nthSmallestValue(int n, List<int> integers) {
-  Heap<int> minHeap = Heap(elements: [...integers], priority: Priority.min);
+  HeapList<int> minHeap = HeapList(elements: [...integers], priority: Priority.min);
   int? nthSmallest;
   for (var i = 0; i < n; i++) {
     nthSmallest = minHeap.remove()!;
@@ -114,15 +115,15 @@ Your min-heap is now constructed and takes the form: [1, 3, 18, 5, 10, 100, 21]
 // write a method that combines two heaps.
 
 // standalone function
-Heap mergeHeaps({required Heap heap1, required Heap heap2, Priority priority = Priority.max}) {
+HeapList mergeHeaps({required HeapList heap1, required HeapList heap2, Priority priority = Priority.max}) {
   var heap1Elements = heap1.elements;
   var heap2Elements = heap2.elements;
   var combinedHeapElements = [...heap1Elements, ...heap2Elements];
-  return Heap(elements: combinedHeapElements, priority: priority);
+  return HeapList(elements: combinedHeapElements, priority: priority);
 }
 
 // adding merge functionality in a heap through extension
-extension Merge<T extends Comparable<dynamic>> on Heap<T> {
+extension Merge<T extends Comparable<dynamic>> on HeapList<T> {
   void merge(List<T> list) {
     elements.addAll(list);
     buildHeap();

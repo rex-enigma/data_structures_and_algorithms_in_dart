@@ -1,7 +1,6 @@
-// specifies the type of heap
-enum Priority { max, min }
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_interface.dart';
 
-class Heap<T extends Comparable<dynamic>> {
+class HeapList<T extends Comparable<dynamic>> implements Heap<T> {
   late final List<T> elements;
   Priority priority;
   bool get isEmpty => elements.isEmpty;
@@ -9,11 +8,11 @@ class Heap<T extends Comparable<dynamic>> {
   /// returns number of values currently stored in this heap.
   int get size => elements.length;
 
-  /// return a reference of the root value from this heap.
   // this root value is actually the first element in [elements] list.
+  @override
   T? peek() => (isEmpty) ? null : elements.first;
 
-  Heap({List<T>? elements, this.priority = Priority.max}) {
+  HeapList({List<T>? elements, this.priority = Priority.max}) {
     this.elements = (elements == null) ? [] : elements;
     buildHeap();
   }
@@ -71,9 +70,9 @@ class Heap<T extends Comparable<dynamic>> {
     elements[indexB] = temp;
   }
 
-  /// adds a value to the heap.
   // adding an element to a list takes only O(1) while sifting up takes O(log n) so the overall average and worse
   // time complexity for insertion is O(log n).
+  @override
   void insert(T value) {
     elements.add(value);
     _siftUp(elements.length - 1);
@@ -98,7 +97,6 @@ class Heap<T extends Comparable<dynamic>> {
     }
   }
 
-  /// removes and return the root value from the heap.
   // removing  the last element from a list takes only O(1) while sifting down takes O(log n) so the overall average and worse
   // time complexity for removal is O(log n).
   T? remove() {
@@ -125,8 +123,8 @@ class Heap<T extends Comparable<dynamic>> {
     }
   }
 
-  /// removes and return an arbitrary value of the given index from the heap
   // the average and worse case time complexity is O(log n).
+  @override
   T? removeAt(int index) {
     final lastIndex = elements.length - 1;
     if (index < 0 || index > lastIndex) return null;
@@ -138,7 +136,7 @@ class Heap<T extends Comparable<dynamic>> {
     return value;
   }
 
-  /// returns an index of a heap value if its exist otherwise it returns -1.
+  @override
   int indexOf(T value, {int index = 0}) {
     // if the index is to large(has gone out of bound), the search fails and you return -1
     if (index >= elements.length) return -1;

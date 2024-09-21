@@ -1,5 +1,6 @@
 import 'package:dart_data_structure_and_algorithm/data_structures/priority_queue/heap_based_priority_queue_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_interface.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_interface.dart';
 
 // challenge 1: prioritize a waitList
 // Your favorite concert was sold out. Fortunately there's is a waitList for people who still want to go.

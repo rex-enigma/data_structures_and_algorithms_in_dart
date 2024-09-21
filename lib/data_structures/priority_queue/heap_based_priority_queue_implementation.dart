@@ -1,12 +1,11 @@
 import 'package:dart_data_structure_and_algorithm/data_structures/queue/queue_interface.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_interface.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 
-export '../trees/heap/list_based_heap_implementation.dart' show Priority;
-
 class PriorityQueueHeap<T extends Comparable<dynamic>> implements Queue<T> {
-  late Heap<T> _heap;
+  late HeapList<T> _heap;
   PriorityQueueHeap({List<T>? elements, Priority priority = Priority.max}) {
-    _heap = Heap<T>(elements: elements, priority: priority);
+    _heap = HeapList<T>(elements: elements, priority: priority);
   }
 
   /// remove and return the element with the highest priority. Return null if the priority queue is empty

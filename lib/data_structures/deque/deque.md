@@ -24,4 +24,4 @@ Double-ended queue aka deque is an abstract data typed that allows elements/valu
 
 
 
-**Other Info:** Dart queues are actually double ended queues (deques), which means they can be accessed equally from either end, and can therefore be used to implement both stack and queue behaviour.
+**Extra Info:** Dart queues are actually double ended queues (deques), which means they can be accessed equally from either end, and can therefore be used to implement both stack and queue behaviour.

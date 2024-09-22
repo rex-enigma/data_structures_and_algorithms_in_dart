@@ -52,7 +52,7 @@ class HeapList<T extends Comparable<dynamic>> implements Heap<T> {
 
   // you want to return the index(indexA or indexB) that represent the value that has higher priority.
   // in most cases indexA represents a child index whose value will be compared with its parent value or
-  // a chosen value.
+  // a chosen value which is represented as indexB.
   int _higherPriority(indexA, indexB) {
     // make sure indexA represents a value that exist in the list
     if (indexA >= elements.length) return indexB;
@@ -83,7 +83,7 @@ class HeapList<T extends Comparable<dynamic>> implements Heap<T> {
   void _siftUp(int index) {
     var childIndex = index;
     var parentIndex = _parentIndex(childIndex);
-    // sift up till the value being sifted up becomes the root of the heap(the first value in [elements]) or
+    // sift up till the value being sifted up becomes the root of the heap (the first value in [elements]) or
     // it satisfies the heap property.
 
     // As long as the value being sifted up has higher priority than its parent, you keep swapping it with the next
@@ -99,6 +99,7 @@ class HeapList<T extends Comparable<dynamic>> implements Heap<T> {
 
   // removing  the last element from a list takes only O(1) while sifting down takes O(log n) so the overall average and worse
   // time complexity for removal is O(log n).
+  @override
   T? remove() {
     if (isEmpty) return null;
     _swapValues(0, elements.length - 1);

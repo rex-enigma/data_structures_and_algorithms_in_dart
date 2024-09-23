@@ -3,14 +3,14 @@ import 'package:dart_data_structure_and_algorithm/data_structures/queue/double_l
 
 extension BreadthFirstSearch<T> on Graph<T> {
   // the source vertex is any vertex chosen to serve as the entry point to the graph.
-  /// returns all the vertices that were visited level-wise (the order in which the vertices are visited depends on how you
-  /// constructed the graph)
+  /// returns collection of vertices that were visited level-wise (the order in which the vertices are visited depends on how you
+  /// construct the graph)
   List<Vertex<T>> breadthFirstSearch(Vertex<T> source) {
-    // keeps track of the neighboring/adjacent vertices to visit next.
+    // keeps track of the neighbouring/adjacent vertices to visit next.
     final QueueDoubleList queue = QueueDoubleList<Vertex<T>>();
-    // set will remember which vertices have been enqueued in [queue] before, so thy don't get enqueued
+    // remembers which vertices have been enqueued in [queue] before, so that they don't get enqueued
     // twice. set is used for the lookup operation since the operation has a constant time complexity
-    // of O(1) since set is implemented using a map, making the operation cheap as compared to list
+    // of O(1) because it's implemented using a map, making the operation cheap as compared to list
     // lookup time which has a linear time complexity of O(n).
     final Set<Vertex<T>> enqueued = {};
     // stores vertices in the order in which they were visited.
@@ -25,8 +25,8 @@ extension BreadthFirstSearch<T> on Graph<T> {
       if (vertex == null) break;
       visitedVertices.add(vertex);
       // get all outgoing edges of the current vertex
-      final neighborEdges = edges(vertex);
-      for (var edge in neighborEdges) {
+      final neighbourEdges = edges(vertex);
+      for (var edge in neighbourEdges) {
         // for each edge check if its destination vertex has been enqueued before, and if not add it to
         // the [queue].
         if (!enqueued.contains(edge.destination)) {

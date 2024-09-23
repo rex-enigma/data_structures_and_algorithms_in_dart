@@ -1,5 +1,5 @@
 #### Definition:
-- Breadth-first search(aka level-first search), given a starting vertex, the algorithm explores all neighbours of that starting vertex before traversing the neighbours' neighbours and so forth. The return type depends on the purpose of the search/what you want the search to accomplish:
+- Breadth-first search(aka level-first search), given a starting vertex, the algorithm explores all neighbours of that starting vertex before traversing the neighbours' neighbours and so forth. The data to be returned, depends on the purpose of the search/what you want the search to accomplish:
    1. if you want BFS to search for a specific vertex, the BFS implementation will return only that vertex if found or null if not found.
    2. if you want BFS to search for vertices with specific properties, the BFS implementation will return a list of vertices that meet that condition.
    3. if you want BFS to get all vertices visited, the BFS implementation will return a list of vertices in the order they were visited.
@@ -38,7 +38,7 @@ level 3 -------H-----------------
 ##### Simplified description of how breath-first search works:
 BFS explores all the current vertex’s neighbors before traversing the next level of vertices. In the example above, you will start at level zero queueing vertex A, you will then dequeue vertex A, perform an action on it then move down to 1st level and queue the adjacent neighbours of vertex A which are B, D and C. You will then dequeue vertex B, perform an action on it then queue the neighbours of vertex B which is only vertex E which is on the 3rd level. You will then dequeue vertex D, perform an action on it, and since vertex D doesn't have adjacent neighbours, you move to vertex C and dequeue it, perform an action on it then queue adjacent neighbours of vertex C which are F and G which are on the 3rd level. You will work on the vertices on the 2nd level which are E,F and G before exploring on to the levels below.
 
-2. **Set data structure** is also used to remember which vertices have been enqueued in the queue before, so you don’t enqueue the same vertex twice and end up visiting it again. set is used for the lookup operation since the operation has a constant time complexity of O(1) since set is implemented using a map, making the operation cheap as compared to list lookup time which has a linear time complexity of O(n).
+1. **Set data structure** is also used to remember which vertices have been enqueued in the queue before, so you don’t enqueue the same vertex twice and end up visiting it again. set is used for the lookup operation since the operation has a constant time complexity of O(1) because it's implemented using a map, making the operation cheap as compared to list lookup time which has a linear time complexity of O(n).
 
 #### Performance:
 - In breadth-first search, each vertex is enqueued once. This process has a linear time complexity of O(V). During exploration, you also visit all edges. The time it takes to visit all edges is O(E). Adding the two together means the overall time complexity for breadth-first search is O(V + E).

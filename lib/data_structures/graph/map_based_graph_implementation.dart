@@ -23,10 +23,7 @@ class AdjacencyList<T> implements Graph<T> {
     _connections[source]?.add(Edge(source, destination, weight));
     // if this is a undirected graph, then also add an edge going on the other direction (from destination to source).
     if (edgeType == EdgeType.undirected) {
-      _connections[destination]?.add(Edge(
-        destination,
-        source,
-      ));
+      _connections[destination]?.add(Edge(destination, source, weight));
     }
   }
 

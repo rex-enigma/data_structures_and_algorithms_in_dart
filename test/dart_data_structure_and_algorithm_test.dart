@@ -30,7 +30,7 @@ import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/hea
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/list_based_heap_implementation.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/heap/heap_based_challenges.dart';
 import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/string_trie_tree.dart';
-import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_challanges.dart';
+import 'package:dart_data_structure_and_algorithm/data_structures/trees/tire/trie_tree_challenges.dart';
 import 'package:test/test.dart';
 
 void main() {

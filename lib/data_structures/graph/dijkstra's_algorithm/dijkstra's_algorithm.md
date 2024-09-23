@@ -1,1 +1,1 @@
- update **shortestPath** operation in ***graph.md*** file and write some documentation about Dijkstra’s algorithm in this md file before implementing it.
+ update **shortestPath** operation in ***graph.md*** under **Common operation are:** and write some documentation about Dijkstra’s algorithm in this md file before implementing it.

@@ -18,12 +18,15 @@ class AdjacencyList<T> implements Graph<T> {
 
   @override
   void addEdge(Vertex<T> source, Vertex<T> destination, {EdgeType edgeType = EdgeType.undirected, double? weight}) {
-    // since source is vertex, check if it exist first in _connection map. If it does, create a new directed Edge from
+    // since source is a vertex, check if it exist first in _connection map. If it does, create a new directed Edge from
     // source to the destination, then add it to the source vertex's list of edges.
     _connections[source]?.add(Edge(source, destination, weight));
-    // if this is a directed graph, then also add an edge going on the other direction.
+    // if this is a undirected graph, then also add an edge going on the other direction (from destination to source).
     if (edgeType == EdgeType.undirected) {
-      _connections[destination]?.add(Edge(destination, source));
+      _connections[destination]?.add(Edge(
+        destination,
+        source,
+      ));
     }
   }
 

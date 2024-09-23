@@ -26,7 +26,7 @@ class Edge<T> {
 }
 
 abstract class Graph<T> {
-  /// returns all of the vertices in the graph.
+  /// returns a collection of the vertices in the graph.
   Iterable<Vertex<T>> get vertices;
 
   /// creates a vertex and add it to the graph.
@@ -38,6 +38,6 @@ abstract class Graph<T> {
   /// returns a list of outgoing edges from [source] vertex.
   List<Edge<T>> edges(Vertex<T> source);
 
-  /// returns the weight(double value) of the edge btn [source] and [destination] vertices or null if [source] and [destination] vertices aren't connected.
+  /// returns the weight of the edge btn [source] and [destination] vertices or null if [source] and [destination] vertices aren't connected.
   double? weight(Vertex<T> source, Vertex<T> destination);
 }

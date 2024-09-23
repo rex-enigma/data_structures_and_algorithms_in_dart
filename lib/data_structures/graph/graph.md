@@ -95,7 +95,7 @@ s
 
 
 #### Common operation are:
-1. **createVertex** -> creates a vertex and add it to the graph.
+1. **createVertex** -> creates a vertex and adds it to the graph.
 2. **vertices** -> returns all of the vertices in the graph.
 3. **addEdge** -> connects two vertices in the graph with either directed or undirected edge. For adjacency list implementation, edge objects exists but for adjacency matrix implementation, an edge objects don't exist, instead a weight of null value will be used to represent the absence of an edge btn the row vertex (source) and the column vertex (destination) and a weight of a double value will represent the presence of edge btn the row vertex and the column vertex (if weight is 0 then it means 2 vertices are connected with a 0 weight in weight graph or no weight at all in a unweighted graph).
 4. **edges** -> returns a list of outgoing edges from a specific vertex.

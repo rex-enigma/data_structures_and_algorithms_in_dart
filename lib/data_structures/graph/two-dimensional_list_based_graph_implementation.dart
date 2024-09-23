@@ -17,8 +17,8 @@ class AdjacencyMatrix<T> implements Graph<T> {
     _nextIndex++;
     _vertices.add(vertex);
 
-    // to help you visualize the matrix, imagine _vertices list in a vertical position and each element since its a
-    // list visualize it as projecting horizontally from left to right
+    // to help you visualize the matrix, imagine _weights list in a vertical position and since each element is a
+    // list, visualize it as projecting horizontally from left to right
 
     // append a null value at the end of every row. This will create a destination column in the matrix
     for (var i = 0; i < _weights.length; i++) {

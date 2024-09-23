@@ -22,8 +22,8 @@ extension DepthFirstSearch<T> on Graph<T> {
     outerLoop:
     while (stack.isNotEmpty) {
       final vertex = stack.peek()!;
-      final neighborEdges = edges(vertex);
-      for (var edge in neighborEdges) {
+      final neighbourEdges = edges(vertex);
+      for (var edge in neighbourEdges) {
         if (!pushed.contains(edge.destination)) {
           stack.push(edge.destination);
           pushed.add(edge.destination);
@@ -43,7 +43,7 @@ extension CyclicGraph<T> on Graph<T> {
   bool _hasCycle(Vertex<T> source, Set<Vertex<T>> pushed) {
     // Initialize the algorithm by adding the source vertex.
     pushed.add(source);
-    // Visit every neighboring edge
+    // Visit every neighbouring edge
     final neighbors = edges(source);
     for (final edge in neighbors) {
       // If the adjacent vertex has not been visited before, recursively dive deeper down a

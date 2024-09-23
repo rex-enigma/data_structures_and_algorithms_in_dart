@@ -5,14 +5,14 @@ extension DepthFirstSearch<T> on Graph<T> {
   // the source vertex is any vertex chosen to serve as the entry point to the graph.
   /// returns all the vertices that were visited depth-wise
   List<Vertex<T>> depthFirstSearch(Vertex<T> source) {
-    // stores your path through the grap
+    //  keeps track of the vertices that need to be explored.
     final StackList<Vertex<T>> stack = StackList();
     // set will remember which vertices have been pushed in [stack] before, so thy don't get pushed
     // twice. set is used for the lookup operation since the operation has a constant time complexity
     // of O(1) since set is implemented using a map, making the operation cheap as compared to list
     // lookup time which has a linear time complexity of O(n).
     final Set<Vertex<T>> pushed = {};
-    // stores vertices in the order they were visited.
+    // store vertices in the order they were visited.
     final List<Vertex<T>> visited = [];
 
     stack.push(source);

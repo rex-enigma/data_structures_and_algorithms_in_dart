@@ -13,7 +13,7 @@ extension BreadthFirstSearch<T> on Graph<T> {
     // of O(1) because it's implemented using a map, making the operation cheap as compared to list
     // lookup time which has a linear time complexity of O(n).
     final Set<Vertex<T>> enqueued = {};
-    // stores vertices in the order in which they were visited.
+    // store vertices in the order they were visited.
     final List<Vertex<T>> visitedVertices = [];
 
     queue.enqueue(source);

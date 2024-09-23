@@ -1,1 +1,2 @@
+#### Definition:
 - Bubble sort (a.k.a sinking sort), it iterates through an unsorted list, comparing adjacent elements and swapping them if they are in wrong order. This 'bubbling' motion gradually pushes the largest element to the rightmost position in each iteration.This process is repeated until the entire list is sorted. Bubble sort is a stable sorting algorithm. [check geeksforgeeks for visual illustration](https://www.geeksforgeeks.org/bubble-sort/).

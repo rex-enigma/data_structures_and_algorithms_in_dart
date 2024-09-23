@@ -1,4 +1,4 @@
-#### Definition
+#### Definition:
 - AVL tree a.k.a **balanced binary search tree** / **Self-Balancing Binary Search Tree**, is a self-balancing binary search tree(self-balancing ordered tree) that guarantees a logarithmic time complexity (O(log n)) for *search*, *insertion* and *deletion* operations. Its always balanced(**perfectly balanced** or **good enough balanced** | **balanced**, check *trees.md file* for the illustrations).
 
 - To keep binary tree balanced, you'll need a way to **measure the balance of a tree**. AVL tree achieves this with ***height*** property in each node. The Height of a node is the `number of edges` on the longest downward path from a given node to a leaf node. If a particular child is *null*, its height is considered to be -1.
@@ -8,7 +8,7 @@
 
 - Although more than one AVLNode may have a bad balancing factor, balancing **procedure** only needs to be performed on the bottom most AVLNode containing the invalid balance factor. 
 
-#### Rotations
+#### Rotations:
 - The procedures used to balance a AVl tree are known as **rotations**. There are 4 rotations in total, one for each of the 4 diff ways that a tree can be unbalanced. They are: **left rotation**, **right rotation**, **left-right rotation** and **right-left rotation**.
 
 ##### 1. left rotation(left-left rotation): 
@@ -97,7 +97,7 @@
               \                                /
     2-->   0(15)0                          0(10)0   
 ```
-##### How to decide which rotation to use.
+##### How to decide which rotation to use:
 - Their is a pattern when you look at those 4 different ways in which a tree can be unbalance. As stated earlier, by checking the balance of the tree after each insertion or deletion, you can guarantee that the balance factor of an AVLNode will never be more extreme than a magnitude of 2 if the tree is unbalanced. So, the bottom most AVLNode containing the invalid balance factor will always have a balance factor of either 2 or -2.
   
 - If the balance factor is 2, then the left child of that bottom most AVLNode is 'heavier'(contains more nodes) than the right child. This means that you will either use **right rotation** or **left-right rotation**. To further narrow down on which rotation to used from those two, you check the balance factor of the left child of that bottom most AVLNode containing the invalid balance factor of 2, if its 1, then you use **right rotation**, else if its -1, then you use **left-right rotation**.

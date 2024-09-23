@@ -1,4 +1,4 @@
-#### Definition
+#### Definition:
 - Binary search tree a.k.a **BST**, **ordered / sorted binary tree**, is a specialized binary tree data structure that **effectively organizes and maintains ordered / sorted data** in that, the left child node's value is always less and right child node's value is always greater than the parent node's value. It can be **unbalanced**( **unbalanced**: is a kind of binary tree where the depth of two subtrees of any node can differ significantly.)
  
  Binary search tree data structure facilitates **fast lookup / search / contains**, **insert** and **removal / delete** operations with average case time complexity of O(log n), and worse case time complexity of O(n)

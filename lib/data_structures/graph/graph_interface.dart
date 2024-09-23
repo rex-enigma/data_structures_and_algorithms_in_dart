@@ -9,6 +9,12 @@ class Vertex<T> {
   String toString() => data.toString();
 }
 
+// This concrete Edge is mostly used by map_based_graph_implementation, to represent a connection between
+// the source vertex and destination vertex.
+// Two_dimensional_list_based_graph_implementation, don't use explicit concrete Edge to represent connection
+// btn source and destination, but rather, the cells themself act as 'edges' holding null as weight to indicated the
+// absence of a connection or type double value as weight to indicate the presence of a connection btn source and
+// destination.
 class Edge<T> {
   // represent the [source] vertex connecting to [destination]. The connection flow is from
   // source --> destination

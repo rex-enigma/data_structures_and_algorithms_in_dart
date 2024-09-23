@@ -1,3 +1,4 @@
+#### Definition:
 - A **Ring buffer** also knows as **circular buffer**,**circular queue**,**cyclic buffer**, is a fixed-size abstract data type.
   
 - Ring buffer uses a single fixed-sized list(array) as if it was connected end-to-end.

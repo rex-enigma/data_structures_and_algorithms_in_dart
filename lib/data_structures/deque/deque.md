@@ -1,4 +1,4 @@
-#### Definition
+#### Definition:
 Double-ended queue aka deque is an abstract data typed that allows elements/values to be inserted and removed on both sides (front and back)
 
 #### Deque ADT can be implemented using:
@@ -24,4 +24,5 @@ Double-ended queue aka deque is an abstract data typed that allows elements/valu
 
 
 
-**Extra Info:** Dart queues are actually double ended queues (deques), which means they can be accessed equally from either end, and can therefore be used to implement both stack and queue behaviour.
+**Note:** 
+Dart queues are actually double ended queues (deques), which means they can be accessed equally from either end, and can therefore be used to implement both stack and queue behaviour.
